@@ -1,0 +1,19 @@
+{
+  "name": "iclas-backend",
+  "version": "1.0.0",
+  "description": "ICLAS - Intelligent Corporate & Leadership Advisory System Backend API",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node verify_endpoints.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "keywords": ["iclas", "express", "backend", "fullstack"],
+  "author": "",
+  "license": "ISC"
+}

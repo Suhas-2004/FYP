@@ -1,0 +1,2178 @@
+[
+  {
+    "id": "apple",
+    "name": "Apple Inc.",
+    "ticker": "AAPL",
+    "sector": "Technology",
+    "logo_color": "#06b6d4",
+    "market_cap": "$3.42T",
+    "founded_year": 1976,
+    "leadership": {
+      "founder": "Steve Jobs & Steve Wozniak",
+      "founder_summary": "Pioneered personal computing and consumer hardware ecosystems.",
+      "current_ceo": "Tim Cook",
+      "company_background": "Headquartered in Cupertino, California. Grew to become the world's most valuable technology company with ubiquitous hardware, proprietary OS, and high-margin services."
+    },
+    "executive_analysis_paragraph": "Over the previous six-year horizon from 2019 through 2024, Apple navigated severe supply chain shocks, unprecedented pandemic remote-work hardware demand, and an aggressive architectural pivot to in-house silicon. Between 2020 and 2021, Apple experienced an extraordinary operational pump as revenue soared by 33.3% to $365B, driven by remote-work Mac and iPad upgrades combined with the inaugural 5G iPhone 12 supercycle. However, this was followed by a 2022-2023 downfall where zero-COVID factory shutdowns at Foxconn Zhengzhou wiped out billions in holiday shipments, leading to a 2.8% annual revenue contraction amidst global consumer electronics exhaustion. In response, Apple deployed a resilient multi-pronged strategy: geographically diversifying manufacturing into India and Vietnam, severing legacy Intel reliance by transitioning to proprietary Apple Silicon (M-Series), and expanding its high-margin recurring Services portfolio (reaching an $85B+ annual run-rate). By 2024, Apple rebounded into positive growth (+6.1% revenue, record $118B operating cash flow) by anchoring its product ecosystem with on-device Apple Intelligence and OpenAI integrations.",
+    "six_year_downfalls_and_pumps": [
+      {
+        "type": "Pump",
+        "period": "2020 - 2021",
+        "title": "Pandemic Work-From-Home & 5G iPhone Supercycle",
+        "move_data": "Revenue surged +33.3% (from $274.5B to $365.8B); Net Income jumped +64.9% to $94.6B; Operating cash flow exceeded $104B.",
+        "reason_behind_move": "Global COVID-19 stay-at-home mandates sparked unprecedented enterprise and consumer demand for MacBooks and iPads. Simultaneously, Apple launched the iPhone 12, its first 5G-capable handset line, unleashing a multi-year pent-up consumer upgrade supercycle across telecommunications carriers worldwide.",
+        "strategy_implemented": "Apple capitalized on the demand wave by aggressively scaling TSMC 5-nanometer chip fabrication, launching the proprietary M1 processor to eliminate Intel bottlenecks, and bundling digital services via Apple One subscriptions to lock in user lifetime value.",
+        "outcome_paragraph": "The move expanded Apple's active installed device base beyond 1.8 billion units and propelled its market valuation past $2.5 trillion, creating record operating cash flow buffers."
+      },
+      {
+        "type": "Downfall",
+        "period": "2022 - 2023",
+        "title": "Zhengzhou Supply Chain Shutdown & Global Hardware Contraction",
+        "move_data": "Revenue dropped -2.8% in 2023; iPhone revenue dropped 4 quarters consecutively; holiday lead times stretched past 5 weeks.",
+        "reason_behind_move": "Strict zero-COVID lockdowns and worker protests at Foxconn's primary manufacturing facility in Zhengzhou, China, crippled iPhone 14 Pro production during the crucial Q4 holiday quarter. Post-pandemic consumer inflation and macroeconomic tightening also lengthened device replacement cycles globally.",
+        "strategy_implemented": "Tim Cook initiated a rapid geographic supply chain de-risking roadmap, transferring 14%+ of iPhone manufacturing to Foxconn and Pegatron plants in India and Vietnam, while shifting corporate marketing heavily toward high-margin recurring Services (iCloud, Apple Pay, App Store) and launching the Vision Pro spatial computing platform.",
+        "outcome_paragraph": "Services gross margins expanded above 71%, buffering total profitability and allowing Apple to maintain a $100B+ annual share buyback program despite transient hardware headwinds."
+      },
+      {
+        "type": "Rebound",
+        "period": "2024",
+        "title": "Generative AI Integration & Record Operating Cash Flow Rebound",
+        "move_data": "Revenue returned to growth (+6.1% to $391B); Services revenue reached all-time high of $85B+; Cash flow hit $118.3B.",
+        "reason_behind_move": "Market excitement surrounding the rollout of on-device neural processing (Apple Intelligence) and partnership with OpenAI, coupled with stabilization of the Chinese smartphone market and expanded enterprise Mac adoption.",
+        "strategy_implemented": "Integrated private cloud compute architecture with on-device silicon models, prioritized user privacy as a strategic differentiator against big-tech rivals, and deployed $110B in capital returns to shareholders.",
+        "outcome_paragraph": "Apple reclaimed its status as the world's most valuable public enterprise, establishing a defensible hybrid AI architecture tailored for 2.2+ billion active devices."
+      }
+    ],
+    "six_year_financials": [
+      {
+        "year": "2019",
+        "revenue_growth": -2,
+        "net_income_growth": -7.2,
+        "debt_growth": -6.5,
+        "cash_flow": 69.4,
+        "roe": 55.9,
+        "order_book": 18.2
+      },
+      {
+        "year": "2020",
+        "revenue_growth": 5.5,
+        "net_income_growth": 3.9,
+        "debt_growth": 3.4,
+        "cash_flow": 80.7,
+        "roe": 73.7,
+        "order_book": 22.4
+      },
+      {
+        "year": "2021",
+        "revenue_growth": 33.3,
+        "net_income_growth": 64.9,
+        "debt_growth": 11.8,
+        "cash_flow": 104,
+        "roe": 147.4,
+        "order_book": 31
+      },
+      {
+        "year": "2022",
+        "revenue_growth": 7.8,
+        "net_income_growth": 5.4,
+        "debt_growth": -4.2,
+        "cash_flow": 122.2,
+        "roe": 175,
+        "order_book": 35.8
+      },
+      {
+        "year": "2023",
+        "revenue_growth": -2.8,
+        "net_income_growth": -2.8,
+        "debt_growth": -7.8,
+        "cash_flow": 110.5,
+        "roe": 160.6,
+        "order_book": 33.5
+      },
+      {
+        "year": "2024",
+        "revenue_growth": 6.1,
+        "net_income_growth": 9.4,
+        "debt_growth": -3.1,
+        "cash_flow": 118.3,
+        "roe": 152,
+        "order_book": 39.2
+      }
+    ],
+    "business_info": {
+      "major_projects": [
+        "Apple Intelligence Neural Architecture",
+        "Apple Vision Pro Spatial Computing Ecosystem",
+        "M-Series In-House 3nm Silicon Node Transition"
+      ],
+      "ongoing_projects": [
+        "Autonomous Systems & Robotics Lab",
+        "MicroLED In-House Display Technologies",
+        "Non-Invasive Glucose Health Optical Sensors"
+      ],
+      "collaborations": [
+        "TSMC 3nm & 2nm Advanced Wafer Allocation",
+        "OpenAI ChatGPT Siri Neural Integration",
+        "Tata Group Electronics Manufacturing India"
+      ],
+      "investments": [
+        "Advanced Manufacturing Fund ($5B)",
+        "Renewable Energy Grid Infrastructure",
+        "On-Device AI Semiconductor Startups"
+      ],
+      "investment_sectors": [
+        "Artificial Intelligence",
+        "Clean Semiconductor Packaging",
+        "Spatial Audio",
+        "Enterprise Security"
+      ],
+      "major_corporate_events": [
+        {
+          "year": "2019",
+          "title": "Apple Card & Apple TV+ Ecosystem Launch",
+          "impact": "Pioneered fintech and original streaming integration into iOS"
+        },
+        {
+          "year": "2020",
+          "title": "M1 In-House Silicon Transition",
+          "impact": "Severed Intel reliance, boosted gross margins by 450bps"
+        },
+        {
+          "year": "2022",
+          "title": "India Manufacturing Expansion",
+          "impact": "Targeted 25% of global iPhone production out of China"
+        },
+        {
+          "year": "2024",
+          "title": "Apple Intelligence & Vision Pro Launch",
+          "impact": "Anchored spatial computing and private AI architecture across 2B+ devices"
+        }
+      ]
+    },
+    "crisis_info": {
+      "crisis_title": "Supply Chain Single-Source Bottleneck & Hardware Cycle Deceleration (2022-2023)",
+      "condition_summary": "Concentrated manufacturing reliance on single mega-factories in China, sudden production halts during peak Q4 sales, and lengthen consumer replacement cycles leading to back-to-back revenue contractions.",
+      "condition_keywords": [
+        "supply chain bottleneck",
+        "single source risk",
+        "hardware sales drop",
+        "factory shutdown",
+        "macro slowdown",
+        "lengthened replacement cycle",
+        "manufacturing concentration"
+      ],
+      "root_causes": [
+        "Excessive geopolitical and operational concentration in single-region manufacturing hubs",
+        "Vulnerability of holiday product availability to regional factory disruptions",
+        "Post-pandemic consumer discretionary spending pullback on hardware upgrades"
+      ],
+      "strategy_used": "Geographic Production Diversification & High-Margin Recurring Services Cushion",
+      "strategy_category": "Supply Chain Restructuring & Monetization Pivot",
+      "strategy_summary": "Apple accelerated the transfer of production lines to India and Vietnam, shifted marketing emphasis toward recurring high-margin Services, and integrated proprietary neural silicon into all device tiers.",
+      "recommended_steps": [
+        {
+          "step_number": 1,
+          "phase": "Immediate Triage (Days 1-30)",
+          "title": "Audit Single-Point Supply Chain Dependencies",
+          "action": "Map tier-1 and tier-2 vendor dependencies. Quantify maximum revenue at risk from single-facility disruptions and initiate dual-sourcing contracts.",
+          "risk_mitigation": "Avoid committing to single supplier volume minimums during volatile demand periods."
+        },
+        {
+          "step_number": 2,
+          "phase": "Operational Diversification (Days 31-90)",
+          "title": "Establish Multi-Region Manufacturing Footprint",
+          "action": "Contract secondary manufacturing partners in alternative jurisdictions with favorable tariff and labor conditions.",
+          "risk_mitigation": "Enforce strict standardized quality control and component auditing across distributed sites."
+        },
+        {
+          "step_number": 3,
+          "phase": "Revenue Moat Building (Days 91-180)",
+          "title": "Expand High-Margin Recurring Software/Services",
+          "action": "Convert one-off hardware buyers into sticky software or warranty subscribers to decouple total revenue from hardware upgrade cycles.",
+          "risk_mitigation": "Maintain clear consumer value propositions to prevent subscription churn."
+        }
+      ],
+      "recovery_outcome": "Diversified 15%+ of manufacturing outside single-source hubs, boosted Services gross margins to 71%+, and returned to record revenue growth by 2024.",
+      "recovery_status": "Fully Recovered"
+    },
+    "logo_url": "https://cdn.pixabay.com/photo/2022/09/18/18/40/apple-logo-7463795_1280.png"
+  },
+  {
+    "id": "netflix",
+    "name": "Netflix Inc.",
+    "ticker": "NFLX",
+    "sector": "Media",
+    "logo_color": "#e11d48",
+    "market_cap": "$310B",
+    "founded_year": 1997,
+    "leadership": {
+      "founder": "Reed Hastings & Marc Randolph",
+      "founder_summary": "Invented subscription streaming and transformed global digital entertainment delivery.",
+      "current_ceo": "Ted Sarandos & Greg Peters",
+      "company_background": "Headquartered in Los Gatos, California. World's leading subscription streaming entertainment service with award-winning original programming across 190 countries."
+    },
+    "executive_analysis_paragraph": "Between 2019 and 2024, Netflix experienced the full spectrum of market volatility: from pandemic-fueled hypergrowth to an existential subscriber collapse, culminating in one of the most successful strategic turnarounds in modern media history. In 2020-2021, Netflix enjoyed an unprecedented pump, adding over 36 million subscribers in a single year as global lockdowns made streaming the primary household entertainment medium, pushing revenue up 24% to $25B. However, the post-lockdown hangover and hyper-competition (Disney+, HBO Max) struck in 2022, when Netflix reported its first quarterly subscriber loss in over a decade (-200,000 in Q1, -970,000 in Q2), triggering a catastrophic 75% stock collapse and wiping out over $50B in market cap. Leadership responded with rapid, decisive strategic execution: scrapping historical dogmas to launch a lower-cost ad-supported tier with Microsoft, executing a strict worldwide crackdown on 100M+ unpaid password-sharing households, and expanding into live sports entertainment (WWE Raw, NFL). By 2024, the turnaround was undeniable: Netflix added 30M+ net new subscribers, boosted revenue growth to +14.8%, expanded operating margins to 28%, and generated a record $8.1B in free cash flow.",
+    "six_year_downfalls_and_pumps": [
+      {
+        "type": "Pump",
+        "period": "2020 - 2021",
+        "title": "Global Pandemic Stay-at-Home Subscriber Surge & Viral Hits",
+        "move_data": "Added 36.6M paid subscribers in 2020 alone; revenue grew +24.0% in 2020 and +18.8% in 2021; stock reached an all-time peak of $700.",
+        "reason_behind_move": "Global COVID lockdowns immobilized billions of consumers at home, accelerating secular cord-cutting and driving record-high subscriber adoption. Viral cultural phenomena like Squid Game and Bridgerton solidified Netflix's global content supremacy.",
+        "strategy_implemented": "Netflix reinvested heavily into localized production hubs across South Korea, Spain, the UK, and Japan, enabling low-cost international content to become viral worldwide hits while optimizing video compression bandwidth.",
+        "outcome_paragraph": "Netflix cemented its lead as the only cash-flow positive standalone global streaming platform, reaching over 220 million paying households."
+      },
+      {
+        "type": "Downfall",
+        "period": "2022",
+        "title": "First Subscriber Contraction in a Decade & 75% Market Crash",
+        "move_data": "Lost 200,000 subscribers in Q1 2022 and 970,000 in Q2; stock plummeted from $700 to $162 (77% drawdown); market value wiped by $50B+.",
+        "reason_behind_move": "Saturated North American market penetration, aggressive price competition from deep-pocketed studio rivals (Disney+, Paramount+, Max), macroeconomic inflation, and an estimated 100M+ non-paying households sharing passwords.",
+        "strategy_implemented": "Management radically overhauled its business model in under 6 months: reversed a decade-long refusal to run ads by launching 'Standard with Ads', rolled out algorithmic paid-sharing verification (Extra Member fees), and instituted disciplined content budget caps.",
+        "outcome_paragraph": "Halted subscriber churn within three quarters and established a brand new high-margin digital advertising revenue stream."
+      },
+      {
+        "type": "Rebound",
+        "period": "2023 - 2024",
+        "title": "Paid Sharing Monetization, Ad-Tier Scaling & Live Sports Expansion",
+        "move_data": "Added 30M+ net new subscribers across 2023-2024; revenue accelerated +14.8% to $39B; free cash flow surged to record $8.1B; operating margins expanded to 28%.",
+        "reason_behind_move": "Massive conversion of former password-borrowers into paid primary or secondary accounts, rapid growth of the ad tier (surpassing 40M monthly active users), and strategic expansion into live event programming (WWE Raw $5B 10-year deal).",
+        "strategy_implemented": "Expanded proprietary ad-tech server infrastructure, deepened gaming integrations, and scaled live broadcast engineering for high-profile cultural moments (live comedy specials, NFL Christmas broadcasts).",
+        "outcome_paragraph": "Netflix detached itself from struggling legacy media peers, achieving industry-leading profitability and record share prices in 2024."
+      }
+    ],
+    "six_year_financials": [
+      {
+        "year": "2019",
+        "revenue_growth": 27.6,
+        "net_income_growth": 54.1,
+        "debt_growth": 42.1,
+        "cash_flow": -3.3,
+        "roe": 29.1,
+        "order_book": 19.5
+      },
+      {
+        "year": "2020",
+        "revenue_growth": 24,
+        "net_income_growth": 47.9,
+        "debt_growth": 6.8,
+        "cash_flow": 2.8,
+        "roe": 29.6,
+        "order_book": 24
+      },
+      {
+        "year": "2021",
+        "revenue_growth": 18.8,
+        "net_income_growth": 85.3,
+        "debt_growth": -2.3,
+        "cash_flow": 0.4,
+        "roe": 38,
+        "order_book": 28.2
+      },
+      {
+        "year": "2022",
+        "revenue_growth": 6.5,
+        "net_income_growth": -12.2,
+        "debt_growth": -6.1,
+        "cash_flow": 2,
+        "roe": 24.3,
+        "order_book": 29.5
+      },
+      {
+        "year": "2023",
+        "revenue_growth": 6.7,
+        "net_income_growth": 20.4,
+        "debt_growth": 0.5,
+        "cash_flow": 7.3,
+        "roe": 26.4,
+        "order_book": 32.1
+      },
+      {
+        "year": "2024",
+        "revenue_growth": 14.8,
+        "net_income_growth": 44.5,
+        "debt_growth": -4.8,
+        "cash_flow": 8.1,
+        "roe": 31.8,
+        "order_book": 36.8
+      }
+    ],
+    "business_info": {
+      "major_projects": [
+        "Netflix Ad-Supported Monetization Engine",
+        "Global Paid Password Sharing Enforcement System",
+        "Live Sports & Entertainment Streaming Infrastructure"
+      ],
+      "ongoing_projects": [
+        "Generative AI VFX & Animation Production Pipelines",
+        "Cloud Gaming Catalog Expansion",
+        "Localized Regional Production Hubs"
+      ],
+      "collaborations": [
+        "WWE Raw 10-Year $5B Global Live Rights",
+        "NFL Christmas Gameday Exclusive Broadcasts",
+        "T-Mobile & Verizon Carrier Bundle Partnerships"
+      ],
+      "investments": [
+        "Animal Logic Animation Studio Acquisition",
+        "Spry Fox & Next Games Studios",
+        "European Virtual Production Facilities"
+      ],
+      "investment_sectors": [
+        "Digital Ad-Tech",
+        "Live Streaming Infrastructure",
+        "Cloud Gaming",
+        "Global Content IP"
+      ],
+      "major_corporate_events": [
+        {
+          "year": "2020",
+          "title": "Pandemic Free Cash Flow Turnaround",
+          "impact": "Achieved self-funded cash flow positive operations for the first time"
+        },
+        {
+          "year": "2022",
+          "title": "Subscriber Loss & Ad-Tier Rollout",
+          "impact": "Ended pure SVOD exclusivity, partnered with Microsoft for ad launch"
+        },
+        {
+          "year": "2023",
+          "title": "Global Paid Sharing Crackdown",
+          "impact": "Monetized 100M+ password-sharing households, boosting net adds by 30M"
+        },
+        {
+          "year": "2024",
+          "title": "WWE & NFL Live Sports Blockbusters",
+          "impact": "Cemented expansion into high-engagement unscripted live events"
+        }
+      ]
+    },
+    "crisis_info": {
+      "crisis_title": "The Post-Pandemic Subscriber Cliff & Password-Sharing Churn Crisis (2022)",
+      "condition_summary": "First quarterly subscriber decline in 10 years, intense competitor pricing wars, unmonetized multi-household password sharing, and a 75% market valuation wipeout.",
+      "condition_keywords": [
+        "subscriber loss",
+        "streaming competition",
+        "password sharing",
+        "ad tier pivot",
+        "growth cliff",
+        "churn spike",
+        "valuation crash"
+      ],
+      "root_causes": [
+        "Unregulated password sharing across 100M+ non-paying user households",
+        "Sudden surge in competition from legacy entertainment conglomerates launching direct-to-consumer apps",
+        "Slowing household broadband penetration in mature Western markets"
+      ],
+      "strategy_used": "Dual-Pronged Monetization: Ad-Supported Entry Tier & Paid Sharing Verification",
+      "strategy_category": "Pricing & Distribution Overhaul",
+      "strategy_summary": "Scrapped the strict no-ad policy to launch an affordable ad tier and deployed automated IP-based household verification to convert password-sharers into paying accounts.",
+      "recommended_steps": [
+        {
+          "step_number": 1,
+          "phase": "Immediate Triage (Days 1-30)",
+          "title": "Diagnose Revenue Leakage & Account Sharing",
+          "action": "Analyze login telemetry to identify out-of-household usage. Quantify potential conversion versus churn risk.",
+          "risk_mitigation": "Communicate changes with extreme clarity and grandfather existing power users where necessary."
+        },
+        {
+          "step_number": 2,
+          "phase": "Product Restructuring (Days 31-90)",
+          "title": "Introduce Low-Barrier Hybrid Monetization Tier",
+          "action": "Launch an ad-subsidized or basic plan to give price-sensitive users an affordable alternative to complete churn.",
+          "risk_mitigation": "Ensure premium ad pricing to maintain ARPU parity with standard ad-free subscriptions."
+        },
+        {
+          "step_number": 3,
+          "phase": "Moat Expansion (Days 91-180)",
+          "title": "Diversify into High-Retention Live Content",
+          "action": "Acquire or produce appointment-viewing live entertainment and sports events that discourage churn between series releases.",
+          "risk_mitigation": "Structure sports licensing rights with strict profitability guardrails."
+        }
+      ],
+      "recovery_outcome": "Converted tens of millions of sharers, increased operating margins to 28%, and generated $8B+ in free cash flow by 2024.",
+      "recovery_status": "Fully Recovered"
+    },
+    "logo_url": "https://cdn.mos.cms.futurecdn.net/6Vq8z9bYjvy7R4LebLjkwh.jpg"
+  },
+  {
+    "id": "bestbuy",
+    "name": "Best Buy Co., Inc.",
+    "ticker": "BBY",
+    "sector": "Retail",
+    "logo_color": "#f59e0b",
+    "market_cap": "$18.5B",
+    "founded_year": 1966,
+    "leadership": {
+      "founder": "Richard M. Schulze",
+      "founder_summary": "Pioneered big-box consumer electronics retail and superstores.",
+      "current_ceo": "Corie Sue Barry",
+      "company_background": "Headquartered in Richfield, Minnesota. Leading provider of consumer technology products, in-home installation services, and digital health tech."
+    },
+    "executive_analysis_paragraph": "Throughout the 2019–2024 timeframe, Best Buy operated on the frontlines of consumer electronics volatility, successfully defending its physical and digital footprint against e-commerce pure-plays through omnichannel agility and service-led monetization. In 2020-2021, Best Buy experienced an exceptional pump as the pandemic forced millions of households into remote work, online education, and home entertainment, driving comp sales up 9.5% and expanding operating cash flow to $3.3B via rapid curbside pickup deployment. However, this pull-forward in demand triggered a subsequent 2022-2023 downfall, where rising inflation and a post-pandemic electronics replacement lull caused back-to-back revenue contractions (-10.6% and -6.1%) and compressed retail gross margins. Best Buy countered this cyclical slump through an aggressive $1B structural cost-reduction program, rightsizing its square footage into smaller-format outlet concepts, revamping its My Best Buy Total membership program, and expanding high-margin enterprise digital health and Geek Squad in-home tech support. By 2024, Best Buy stabilized profitability (ROE at 38.2%) and positioned itself at the epicenter of the emerging Generative AI laptop and Copilot+ PC upgrade cycle.",
+    "six_year_downfalls_and_pumps": [
+      {
+        "type": "Pump",
+        "period": "2020 - 2021",
+        "title": "Remote Work Tech Appliance Boom & Curbside Transformation",
+        "move_data": "Enterprise comp sales surged +9.5% in 2021; digital online sales grew to 43% of domestic revenue; cash flow hit $3.3B.",
+        "reason_behind_move": "Consumers and corporations rapidly purchased computing equipment, monitors, webcams, and home theater gear to adapt to stay-at-home and hybrid work environments.",
+        "strategy_implemented": "Converted store parking lots into contactless curbside pickup hubs within 48 hours, accelerated omnichannel ship-from-store algorithms, and partnered with tech vendors to co-fund experiential display zones.",
+        "outcome_paragraph": "Proved that physical store footprints could function as highly efficient local fulfillment micro-hubs competing directly with Amazon delivery speeds."
+      },
+      {
+        "type": "Downfall",
+        "period": "2022 - 2023",
+        "title": "Post-Pandemic Replacement Hangover & Macro Inflation Slump",
+        "move_data": "Revenue declined -10.6% in 2022 and -6.1% in 2023; consumer electronics industry demand dipped into multi-year trough.",
+        "reason_behind_move": "Consumers who purchased new PCs, tablets, and TVs during 2020-2021 had no immediate replacement need. High food and housing inflation constrained discretionary consumer spending across big-ticket appliances.",
+        "strategy_implemented": "Executed a $1B+ structural cost reduction, closed underperforming large-format stores while opening outlet and micro-fulfillment formats, and restructured membership tiers into 'My Best Buy Total' to drive high-margin warranty renewals.",
+        "outcome_paragraph": "Protected operating margins near 4% despite severe top-line volume headwinds, avoiding dilutive retail price wars."
+      },
+      {
+        "type": "Rebound",
+        "period": "2024",
+        "title": "Generative AI PC Upgrade Cycle & Digital Health Services Expansion",
+        "move_data": "Comparable sales trends inflected positive in key categories; Services gross margins expanded; ROE held strong at 38.2%.",
+        "reason_behind_move": "Introduction of Next-Gen AI PCs (Microsoft Copilot+, Qualcomm Snapdragon X Elite, Apple M3/M4) requiring in-store physical demonstration, paired with growing enterprise digital health tech deployment.",
+        "strategy_implemented": "Secured exclusive retail launch partnerships with leading semiconductor and PC manufacturers, trained Geek Squad personnel in on-device AI troubleshooting, and scaled remote patient monitoring for hospital networks.",
+        "outcome_paragraph": "Restored positive comparable sales momentum and established Best Buy as the premier physical demonstration gateway for consumer AI hardware."
+      }
+    ],
+    "six_year_financials": [
+      {
+        "year": "2019",
+        "revenue_growth": 1.7,
+        "net_income_growth": 4.5,
+        "debt_growth": 2.1,
+        "cash_flow": 2.6,
+        "roe": 44.5,
+        "order_book": 4.8
+      },
+      {
+        "year": "2020",
+        "revenue_growth": 8.3,
+        "net_income_growth": 16.8,
+        "debt_growth": 18.4,
+        "cash_flow": 4.9,
+        "roe": 52.8,
+        "order_book": 5.9
+      },
+      {
+        "year": "2021",
+        "revenue_growth": 9.5,
+        "net_income_growth": 37,
+        "debt_growth": -8.3,
+        "cash_flow": 3.3,
+        "roe": 66.2,
+        "order_book": 6.4
+      },
+      {
+        "year": "2022",
+        "revenue_growth": -10.6,
+        "net_income_growth": -42.9,
+        "debt_growth": -5.1,
+        "cash_flow": 1.8,
+        "roe": 47.9,
+        "order_book": 4.5
+      },
+      {
+        "year": "2023",
+        "revenue_growth": -6.1,
+        "net_income_growth": -12.4,
+        "debt_growth": -3.8,
+        "cash_flow": 2.1,
+        "roe": 39.4,
+        "order_book": 4.1
+      },
+      {
+        "year": "2024",
+        "revenue_growth": 0.5,
+        "net_income_growth": 3.8,
+        "debt_growth": -2,
+        "cash_flow": 2.3,
+        "roe": 38.2,
+        "order_book": 4.7
+      }
+    ],
+    "business_info": {
+      "major_projects": [
+        "AI-Enabled PC In-Store Experience Centers",
+        "Best Buy Health Remote Patient Monitoring Network",
+        "My Best Buy Total Multi-Tier Membership Re-architecture"
+      ],
+      "ongoing_projects": [
+        "Micro-Hub Store Fulfillment Automation",
+        "Geek Squad AI Diagnostics Toolkit",
+        "Used Electronics Trade-In & Circular Economy Platform"
+      ],
+      "collaborations": [
+        "Microsoft Copilot+ Launch Partnership",
+        "Geisinger Health Virtual Care System",
+        "Apple Authorized Service Provider Expansion"
+      ],
+      "investments": [
+        "Current Health Enterprise Platform Acquisition",
+        "Automated Distribution Supply Chain Hubs",
+        "Digital Health Sensor Integration"
+      ],
+      "investment_sectors": [
+        "Digital Health",
+        "Retail Media Advertising",
+        "Omnichannel Automation",
+        "In-Home Tech Services"
+      ],
+      "major_corporate_events": [
+        {
+          "year": "2020",
+          "title": "48-Hour Contactless Curbside Pivot",
+          "impact": "Maintained 80%+ of sales volume during nationwide store shutdowns"
+        },
+        {
+          "year": "2021",
+          "title": "Acquisition of Current Health for $400M",
+          "impact": "Positioned company in hospital-at-home monitoring and healthcare tech"
+        },
+        {
+          "year": "2023",
+          "title": "$1B Cost Reduction & Store Rightsizing",
+          "impact": "Optimized retail footprint and expanded outlet clearance network"
+        },
+        {
+          "year": "2024",
+          "title": "AI Hardware Retail Demonstration Hub",
+          "impact": "Became premier physical showcase for Next-Gen Copilot+ AI computers"
+        }
+      ]
+    },
+    "crisis_info": {
+      "crisis_title": "Post-Pandemic Pull-Forward Hangover & Discretionary Tech Slump (2022-2023)",
+      "condition_summary": "Steep comparable sales declines, double-digit revenue contraction following pandemic demand surge, and discretionary consumer spending pullback.",
+      "condition_keywords": [
+        "demand hangover",
+        "discretionary retail slump",
+        "pull-forward exhaustion",
+        "inventory margin squeeze",
+        "store footprint restructuring",
+        "cost reduction"
+      ],
+      "root_causes": [
+        "Unprecedented 2020-2021 hardware pull-forward exhausting natural upgrade cycles for 24-36 months",
+        "Macroeconomic inflation eroding middle-class discretionary electronics budgets",
+        "High fixed retail operating expenses during declining traffic periods"
+      ],
+      "strategy_used": "Store Footprint Rightsizing, $1B Efficiency Program & High-Margin Services Focus",
+      "strategy_category": "Operational Cost Optimization & Services Transition",
+      "strategy_summary": "Executed strict cost rationalization, converted large box spaces into agile micro-fulfillment hubs, and grew recurring service contracts through Geek Squad and healthcare monitoring.",
+      "recommended_steps": [
+        {
+          "step_number": 1,
+          "phase": "Immediate Triage (Days 1-30)",
+          "title": "Implement Aggressive Working Capital Rationalization",
+          "action": "Discount aging slow-turn inventory immediately to prevent cash lockup and reduce warehouse holding costs.",
+          "risk_mitigation": "Avoid blanket markdowns; target only categories with decelerating velocity."
+        },
+        {
+          "step_number": 2,
+          "phase": "Operational Rightsizing (Days 31-90)",
+          "title": "Flex Real Estate & Operating Footprint",
+          "action": "Renegotiate leases, convert excess square footage to logistics fulfillment, and reduce fixed floor overhead.",
+          "risk_mitigation": "Protect the highest-rated customer service touchpoints that drive customer loyalty."
+        },
+        {
+          "step_number": 3,
+          "phase": "Service Transition (Days 91-180)",
+          "title": "Scale Recurring Services & Enterprise Contracts",
+          "action": "Package hardware sales with recurring warranty, servicing, or enterprise installation contracts to stabilize baseline revenue.",
+          "risk_mitigation": "Ensure transparent renewal terms to prevent customer dissatisfaction."
+        }
+      ],
+      "recovery_outcome": "Maintained healthy 38%+ ROE, generated $2.3B in annual operating cash flow, and captured major share in the 2024 AI hardware upgrade cycle.",
+      "recovery_status": "Fully Recovered"
+    },
+    "logo_url": "https://cdn.simpleicons.org/bestbuy/0046be"
+  },
+  {
+    "id": "lego",
+    "name": "The LEGO Group",
+    "ticker": "PRIVATE-LEGO",
+    "sector": "Retail",
+    "logo_color": "#eab308",
+    "market_cap": "$16.8B (Est.)",
+    "founded_year": 1932,
+    "leadership": {
+      "founder": "Ole Kirk Christiansen",
+      "founder_summary": "Master carpenter who founded the iconic plastic interlocking brick system.",
+      "current_ceo": "Niels B. Christiansen",
+      "company_background": "Headquartered in Billund, Denmark. World's leading toy manufacturer and family entertainment brand, renowned for creative construction toys and digital experiences."
+    },
+    "executive_analysis_paragraph": "Between 2019 and 2024, The LEGO Group decisively outperformed the broader global toy and entertainment industry, turning volatile retail swings into sustained market share gains. During the 2020-2021 pandemic pump, LEGO experienced exceptional financial growth as revenue surged by 13% in 2020 and 27% in 2021, propelled by families seeking screen-free activities and an explosion of adult collector (AFOL) demand for premium Botanical and Architecture sets. However, in 2022-2023, the company faced a margin downfall driven by severe raw material (ABS resin) inflation, soaring international freight costs, and economic sluggishness in China that squeezed operating margins across traditional toy retailers. Unlike competitors like Hasbro and Mattel who engaged in heavy discounting, LEGO adhered to a disciplined long-term strategy: absorbing raw cost increases without diluting brand equity, investing heavily in digital-physical play experiences (including a flagship multi-year partnership with Epic Games on LEGO Fortnite), near-shoring carbon-neutral factory capacity in Vietnam and the US to insulate against supply shocks, and opening over 150 experiential brand stores. By 2024, LEGO posted record revenues (+13% growth) and operating profit ($2.3B+), capturing double-digit market share while legacy toy rivals contracted.",
+    "six_year_downfalls_and_pumps": [
+      {
+        "type": "Pump",
+        "period": "2020 - 2021",
+        "title": "Intergenerational Building Boom & Adult Collector (AFOL) Surge",
+        "move_data": "Consumer sales surged +22% in 2021; revenue increased +27% to DKK 55.3B ($8B); operating profit soared +32%.",
+        "reason_behind_move": "Families turned to creative physical building during lockdowns. LEGO strategically launched its 'Adults Welcome' marketing campaign with complex botanical, automotive, and pop-culture sets that broadened the customer base beyond children.",
+        "strategy_implemented": "Expanded digital e-commerce capacity on LEGO.com, accelerated licensed IP partnerships (Star Wars, Harry Potter, Marvel), and integrated augmented reality digital building instructions.",
+        "outcome_paragraph": "Established LEGO as a multi-generational lifestyle and collector brand with industry-leading full-price sell-through rates."
+      },
+      {
+        "type": "Downfall",
+        "period": "2022 - 2023",
+        "title": "Global Plastic & Freight Inflation with Chinese Retail Slowdown",
+        "move_data": "Operating profit growth flattened (+1% in 2023) despite 9% top-line growth; toy industry peers saw 15-20% sales collapses.",
+        "reason_behind_move": "Surging oil-derived polymer prices, elevated ocean container freight rates, aggressive consumer spending caution in post-lockdown China, and widespread retail partner inventory destocking.",
+        "strategy_implemented": "Absorbed raw material inflation through long-term renewable material R&D (bio-polyethylene), broke ground on regional factories in Vietnam and Virginia to eliminate cross-ocean freight dependency, and doubled down on direct-to-consumer flagship experiential retail.",
+        "outcome_paragraph": "Protected full-price brand prestige and gained 300bps of global toy market share while rivals suffered massive net losses."
+      },
+      {
+        "type": "Rebound",
+        "period": "2024",
+        "title": "Digital-Physical Metaverse Integration & Record Profit Expansion",
+        "move_data": "Revenue jumped +13% to record DKK 68B+ ($9.9B); operating profit surged +26%; outpaced global toy industry by over 1,500 bps.",
+        "reason_behind_move": "Phenomenal success of the LEGO Fortnite digital collaboration (drawing 2.4M+ concurrent players), launch of high-demand space and gaming sets, and rapid expansion of brand retail stores in emerging Asian markets.",
+        "strategy_implemented": "Integrated live digital multiplayer gaming with physical retail tie-ins, scaled localized manufacturing, and accelerated transition to 50%+ sustainable raw materials.",
+        "outcome_paragraph": "Achieved undisputed leadership in global play and entertainment, generating over $2B in annual operating cash flow."
+      }
+    ],
+    "six_year_financials": [
+      {
+        "year": "2019",
+        "revenue_growth": 6,
+        "net_income_growth": 2.8,
+        "debt_growth": -1.2,
+        "cash_flow": 1.4,
+        "roe": 36.2,
+        "order_book": 2.1
+      },
+      {
+        "year": "2020",
+        "revenue_growth": 13.3,
+        "net_income_growth": 18.6,
+        "debt_growth": 3.4,
+        "cash_flow": 1.9,
+        "roe": 41.5,
+        "order_book": 2.8
+      },
+      {
+        "year": "2021",
+        "revenue_growth": 27.2,
+        "net_income_growth": 32.1,
+        "debt_growth": 4.1,
+        "cash_flow": 2.3,
+        "roe": 48,
+        "order_book": 3.6
+      },
+      {
+        "year": "2022",
+        "revenue_growth": 17,
+        "net_income_growth": 4,
+        "debt_growth": 2.2,
+        "cash_flow": 2,
+        "roe": 39.8,
+        "order_book": 3.4
+      },
+      {
+        "year": "2023",
+        "revenue_growth": 9.2,
+        "net_income_growth": -0.8,
+        "debt_growth": 1.5,
+        "cash_flow": 2.1,
+        "roe": 34.6,
+        "order_book": 3.5
+      },
+      {
+        "year": "2024",
+        "revenue_growth": 13.1,
+        "net_income_growth": 25.8,
+        "debt_growth": -0.5,
+        "cash_flow": 2.7,
+        "roe": 42.1,
+        "order_book": 4.2
+      }
+    ],
+    "business_info": {
+      "major_projects": [
+        "LEGO Fortnite Digital Sandbox Metaverse",
+        "Carbon-Neutral Virginia & Vietnam Factory Construction",
+        "Sustainable Bio-Polymer Material Transition"
+      ],
+      "ongoing_projects": [
+        "Direct-to-Consumer Experiential Flagship Rollout",
+        "LEGO SMART Digital Interactive Bricks",
+        "Universal Music & Gaming Co-Creations"
+      ],
+      "collaborations": [
+        "Epic Games Digital Play Partnership",
+        "Formula 1 Global Multi-Year Partnership",
+        "NASA & Space Exploration Line"
+      ],
+      "investments": [
+        "$1B+ Vietnam Carbon-Neutral Factory",
+        "$1B Chesterfield County Virginia Hub",
+        "Renewable Solar & Wind Parks"
+      ],
+      "investment_sectors": [
+        "Digital Gaming Platforms",
+        "Sustainable Materials Chemistry",
+        "Direct Retail Experiences",
+        "Renewable Energy"
+      ],
+      "major_corporate_events": [
+        {
+          "year": "2020",
+          "title": "Adults Welcome Campaign Launch",
+          "impact": "Created the AFOL adult lifestyle category, driving 30%+ of revenue"
+        },
+        {
+          "year": "2022",
+          "title": "Epic Games $1B Strategic Co-Investment",
+          "impact": "Formed foundational partnership to build safe digital metaverse play"
+        },
+        {
+          "year": "2023",
+          "title": "Near-Shoring Mega-Factory Groundbreaking",
+          "impact": "Insulated North American and Asian distribution from global freight shocks"
+        },
+        {
+          "year": "2024",
+          "title": "LEGO Fortnite Record Launch",
+          "impact": "Connected 100M+ digital gamers directly with physical construction sets"
+        }
+      ]
+    },
+    "crisis_info": {
+      "crisis_title": "Global Resin Inflation & Chinese Toy Retail Stagnation (2022-2023)",
+      "condition_summary": "Raw petrochemical material cost surges, soaring ocean freight expenses, and severe retail partner destocking threatening operating margins.",
+      "condition_keywords": [
+        "raw material inflation",
+        "freight cost surge",
+        "margin compression",
+        "supply chain volatility",
+        "inventory destocking",
+        "premium brand protection"
+      ],
+      "root_causes": [
+        "Petrochemical polymer cost increases following global energy market disruptions",
+        "Over-reliance on long-distance trans-oceanic shipping routes from European production centers",
+        "Macroeconomic consumer spending slowdown in tier-1 Asian metropolitan markets"
+      ],
+      "strategy_used": "Near-Shoring Production, Sustainable Materials Transition & Direct Retail Moat",
+      "strategy_category": "Supply Chain Localisation & Brand Equity Defense",
+      "strategy_summary": "Constructed localized carbon-neutral manufacturing hubs close to major consumer markets, absorbed transient inflation without discounting, and expanded high-engagement digital gaming tie-ins.",
+      "recommended_steps": [
+        {
+          "step_number": 1,
+          "phase": "Immediate Triage (Days 1-30)",
+          "title": "Protect Pricing Power & Refuse Panic Discounting",
+          "action": "Maintain premium MSRP price integrity. Avoid race-to-the-bottom discounts that erode perceived brand value.",
+          "risk_mitigation": "Provide added value through bundled promotional gifts rather than cash discounts."
+        },
+        {
+          "step_number": 2,
+          "phase": "Operational Localization (Days 31-90)",
+          "title": "Near-Shore Manufacturing Near Demand Centers",
+          "action": "Shift high-volume production closer to regional consumer markets to eliminate ocean container freight delays and tariff risks.",
+          "risk_mitigation": "Establish multi-year local utility and regulatory pacts for sustainable factory operations."
+        },
+        {
+          "step_number": 3,
+          "phase": "Ecosystem Expansion (Days 91-180)",
+          "title": "Bridge Physical Products with Digital Franchises",
+          "action": "Collaborate with high-traffic digital gaming platforms to build seamless physical-to-digital engagement loops.",
+          "risk_mitigation": "Maintain strict child safety, privacy, and community standards."
+        }
+      ],
+      "recovery_outcome": "Expanded operating profit by 26% in 2024, achieved 42% ROE, and outperformed traditional toy competitors by over 1,500 basis points.",
+      "recovery_status": "Fully Recovered"
+    },
+    "logo_url": "https://tse3.mm.bing.net/th/id/OIP._qdeWl1GnP-gWitQBHmYtAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+  },
+  {
+    "id": "marvel",
+    "name": "Marvel Entertainment",
+    "ticker": "DIS-MVL",
+    "sector": "Media",
+    "logo_color": "#dc2626",
+    "market_cap": "$55B (Asset Valuation)",
+    "founded_year": 1939,
+    "leadership": {
+      "founder": "Martin Goodman & Stan Lee",
+      "founder_summary": "Pioneered the Marvel Comics universe and modern superhero mythology.",
+      "current_ceo": "Kevin Feige (Chief Creative Officer)",
+      "company_background": "Headquartered in Burbank, California. Creative studio powerhouse behind the Marvel Cinematic Universe (MCU), the highest-grossing film franchise in history ($31B+ worldwide box office)."
+    },
+    "executive_analysis_paragraph": "Across the 2019 to 2024 timeframe, Marvel Entertainment experienced a dramatic cycle of monumental cultural climax, streaming over-expansion dilution, and a high-stakes creative recovery. In 2019-2021, Marvel achieved a commercial pump of historic proportions with Avengers: Endgame grossing a record-shattering $2.79B, followed by Spider-Man: No Way Home generating $1.92B during pandemic theatre re-openings, while WandaVision and Loki powered millions of initial subscriptions for Disney+. However, the mandate to flood Disney+ with continuous content led to a severe 2022-2023 downfall characterized as 'Superhero Fatigue': VFX artist burnout, rushed scripts, box office underperformances (Ant-Man and the Wasp: Quantumania, The Marvels losing over $150M), and fractured audience goodwill. In late 2023, Disney CEO Bob Iger and Marvel Studio President Kevin Feige instituted a comprehensive turnaround strategy: cutting MCU annual release volume by 50% under a strict 'Quality over Quantity' doctrine, rebuilding traditional pilot-driven TV development pipelines, and focusing resources on marquee tentpoles. In 2024, the strategy yielded an immediate blockbuster recovery with Deadpool & Wolverine grossing $1.33B worldwide (becoming the highest-grossing R-rated film in history), reaffirming Marvel's preeminent franchise power.",
+    "six_year_downfalls_and_pumps": [
+      {
+        "type": "Pump",
+        "period": "2019 - 2021",
+        "title": "Avengers: Endgame Cultural Climax & Disney+ Launch Phenomenon",
+        "move_data": "Endgame generated $2.79B worldwide; Spider-Man: No Way Home grossed $1.92B in 2021; Disney+ gained 100M+ subscribers in 16 months.",
+        "reason_behind_move": "Culmination of the 11-year, 22-film 'Infinity Saga' cultural phenomenon, combined with the launch of Disney+ where high-production Marvel series became the primary acquisition engine.",
+        "strategy_implemented": "Engineered multi-film narrative crossover payoffs, expanded seamlessly into serialized premium streaming, and coordinated interconnected theatrical and digital release calendars.",
+        "outcome_paragraph": "Set the all-time world record for the highest-grossing cinematic film weekend ($1.2B opening) and established the MCU as the most valuable intellectual property in Hollywood history."
+      },
+      {
+        "type": "Downfall",
+        "period": "2022 - 2023",
+        "title": "Streaming Over-Saturation, VFX Backlash & Box Office Stumble",
+        "move_data": "The Marvels (2023) grossed just $206M against a $270M budget; visual effects industry unionization and public quality criticism.",
+        "reason_behind_move": "Corporate pressure to release 4 feature films and 5 streaming series annually led to rushed post-production, script revisions during shooting, severe VFX bottlenecking, and narrative confusion for casual fans.",
+        "strategy_implemented": "Bob Iger and Kevin Feige announced a radical output cut (max 2 films and 2-3 series per year), fired ineffective creative executives, instituted formal TV showrunner structures, and mandated script completion prior to principal photography.",
+        "outcome_paragraph": "Prevented structural brand destruction by proactively hitting the brakes on production pipelines and re-centering creative oversight."
+      },
+      {
+        "type": "Rebound",
+        "period": "2024",
+        "title": "Deadpool & Wolverine $1.3B Resurgence & High-Impact Quality Pivot",
+        "move_data": "Deadpool & Wolverine generated $1.33B worldwide; highest-grossing R-rated film in cinema history; MCU crossed $31B cumulative box office.",
+        "reason_behind_move": "Concentrating the entire 2024 theatrical calendar on a single, highly polished event film featuring Ryan Reynolds and Hugh Jackman, leveraging X-Men nostalgia and irreverent humor.",
+        "strategy_implemented": "Shifted to event-driven theatrical curation, restored Robert Downey Jr. to the franchise as Doctor Doom for Avengers: Doomsday (2026), and refocused Disney+ series as standalone accessible stories.",
+        "outcome_paragraph": "Restored critical and commercial momentum, proving that audiences enthusiastically return when storytelling quality and visual craftsmanship are prioritized."
+      }
+    ],
+    "six_year_financials": [
+      {
+        "year": "2019",
+        "revenue_growth": 34.5,
+        "net_income_growth": 48.2,
+        "debt_growth": 0,
+        "cash_flow": 2.9,
+        "roe": 45,
+        "order_book": 4.5
+      },
+      {
+        "year": "2020",
+        "revenue_growth": -45,
+        "net_income_growth": -62,
+        "debt_growth": 0,
+        "cash_flow": 0.8,
+        "roe": 18.2,
+        "order_book": 3.8
+      },
+      {
+        "year": "2021",
+        "revenue_growth": 68,
+        "net_income_growth": 82,
+        "debt_growth": 0,
+        "cash_flow": 2.4,
+        "roe": 38.5,
+        "order_book": 5.2
+      },
+      {
+        "year": "2022",
+        "revenue_growth": 12,
+        "net_income_growth": -5.4,
+        "debt_growth": 0,
+        "cash_flow": 1.9,
+        "roe": 32.1,
+        "order_book": 4.8
+      },
+      {
+        "year": "2023",
+        "revenue_growth": -18.5,
+        "net_income_growth": -35,
+        "debt_growth": 0,
+        "cash_flow": 1.2,
+        "roe": 22,
+        "order_book": 3.9
+      },
+      {
+        "year": "2024",
+        "revenue_growth": 28,
+        "net_income_growth": 42,
+        "debt_growth": 0,
+        "cash_flow": 2.6,
+        "roe": 36.4,
+        "order_book": 5.8
+      }
+    ],
+    "business_info": {
+      "major_projects": [
+        "Avengers: Doomsday & Secret Wars Production",
+        "Marvel Television Standalone Architecture",
+        "X-Men & Fantastic Four Integration"
+      ],
+      "ongoing_projects": [
+        "Marvel Animation & Anime Universe Expansion",
+        "Marvel 1943: Rise of Hydra AAA Video Game",
+        "Avengers Campus Global Theme Park Expansions"
+      ],
+      "collaborations": [
+        "Sony Pictures Spider-Man Universe Co-Production",
+        "Electronic Arts & Skydance Interactive Video Games",
+        "ILM Immersive & Apple Vision Pro Storytelling"
+      ],
+      "investments": [
+        "Advanced Virtual Production Volume Stages",
+        "Generative Pre-Visualization Toolkits",
+        "In-House Dedicated VFX Studio Divisions"
+      ],
+      "investment_sectors": [
+        "Virtual Production Technology",
+        "AAA Video Game Licensing",
+        "Interactive Spatial Entertainment",
+        "Global Consumer Licensing"
+      ],
+      "major_corporate_events": [
+        {
+          "year": "2019",
+          "title": "Avengers: Endgame $2.79B Record",
+          "impact": "Concluded the Infinity Saga as highest-grossing film run in modern cinema"
+        },
+        {
+          "year": "2021",
+          "title": "Disney+ MCU Streaming Expansion",
+          "impact": "Launched WandaVision and Loki, pioneering cinematic TV storytelling"
+        },
+        {
+          "year": "2023",
+          "title": "'Quality Over Quantity' Strategic Mandate",
+          "impact": "Slashed annual release volume by 50% to restore craftsmanship and script quality"
+        },
+        {
+          "year": "2024",
+          "title": "Deadpool & Wolverine $1.33B Record",
+          "impact": "Became highest-grossing R-rated movie in history and reignited MCU momentum"
+        }
+      ]
+    },
+    "crisis_info": {
+      "crisis_title": "Content Dilution, VFX Bottlenecks & 'Superhero Fatigue' (2022-2023)",
+      "condition_summary": "Rushed production schedules, severe VFX quality backlash, box office underperformances, and creative fatigue from over-saturating the market.",
+      "condition_keywords": [
+        "content dilution",
+        "brand fatigue",
+        "box office flop",
+        "vfx burnout",
+        "quality over quantity",
+        "production restructuring",
+        "creative overhaul"
+      ],
+      "root_causes": [
+        "Excessive corporate pressure to fuel streaming service subscriber growth with unmanageable content volume",
+        "Rushing unfinished scripts into production, causing expensive mid-shoot re-shoots and visual effects compromises",
+        "Alienating casual audiences through overly complex, required multi-series homework storylines"
+      ],
+      "strategy_used": "Quality-Over-Quantity Doctrine, Showrunner Reorganization & Event-Film Curation",
+      "strategy_category": "Creative & Production Restructuring",
+      "strategy_summary": "Reduced annual production output by 50%, reinstated traditional TV showrunners, mandated locked scripts before filming, and focused theatrical marketing on high-impact singular event releases.",
+      "recommended_steps": [
+        {
+          "step_number": 1,
+          "phase": "Immediate Triage (Days 1-30)",
+          "title": "Halt Unprepared Production Pipelines",
+          "action": "Delay project greenlights until complete, polished scripts and realistic production timelines are locked.",
+          "risk_mitigation": "Resist executive pressure to meet arbitrary release dates if quality benchmarks are unmet."
+        },
+        {
+          "step_number": 2,
+          "phase": "Operational Reorganization (Days 31-90)",
+          "title": "Re-establish Dedicated Domain Leadership",
+          "action": "Empower experienced showrunners and creative leads with direct authority over budgets and storytelling execution.",
+          "risk_mitigation": "Establish clear stage-gate creative reviews to catch narrative flaws early."
+        },
+        {
+          "step_number": 3,
+          "phase": "Market Re-ignition (Days 91-180)",
+          "title": "Anchor Brand Around Singular High-Impact Wins",
+          "action": "Focus marketing and creative capital on flagship tentpole releases that re-establish benchmark excellence.",
+          "risk_mitigation": "Keep stories accessible to new and casual consumers without demanding prior encyclopedic knowledge."
+        }
+      ],
+      "recovery_outcome": "Generated $1.33B with Deadpool & Wolverine in 2024, boosted operating cash flow to $2.6B, and revitalized long-term franchise value.",
+      "recovery_status": "Fully Recovered"
+    },
+    "logo_url": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/77592972-c90e-431a-9db6-cf0a6892c567/dephu46-cf3a7411-3ba6-4751-b221-ee7282ae2df7.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzc3NTkyOTcyLWM5MGUtNDMxYS05ZGI2LWNmMGE2ODkyYzU2N1wvZGVwaHU0Ni1jZjNhNzQxMS0zYmE2LTQ3NTEtYjIyMS1lZTcyODJhZTJkZjcuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.FDowoFqifSv-G_SxfUB3A2HaRaB_fjgbna0j9-bNfFI"
+  },
+  {
+    "id": "tesla",
+    "name": "Tesla, Inc.",
+    "ticker": "TSLA",
+    "sector": "Automobile",
+    "logo_color": "#e11d48",
+    "market_cap": "$750B",
+    "founded_year": 2003,
+    "leadership": {
+      "founder": "Martin Eberhard & Marc Tarpenning (Elon Musk, Early Architect)",
+      "founder_summary": "Pioneered mass-market electric vehicles, solar roof integration, and autonomous driving.",
+      "current_ceo": "Elon Musk",
+      "company_background": "Headquartered in Austin, Texas. Vertically integrated automotive, energy storage, and artificial intelligence robotics enterprise."
+    },
+    "executive_analysis_paragraph": "Across the 2019–2024 timeframe, Tesla scaled from an embattled niche EV manufacturer into the world's most valuable automotive company and energy infrastructure provider. In 2020-2021, Tesla experienced an astronomical financial and market pump: revenue surged 71% to $53.8B, vehicle deliveries reached nearly 1 million units, Shanghai Gigafactory reached maximum efficiency, and the company joined the S&P 500 while its valuation surpassed $1.2 Trillion. However, as interest rates surged in 2022-2023, Tesla encountered a fierce downfall and margin compression crisis: automotive gross margins dropped from peak 30%+ down to 17% as aggressive global price wars in China (against BYD) and EV adoption slowdowns forced repeated vehicle price cuts. In response, Tesla executed a strategic pivot: drastically ramping its high-margin grid-scale Energy Storage business (Megapack shipments surging 125% in 2024 with 25%+ gross margins), rewriting its autonomous driving stack into an end-to-end neural network (FSD V12), and streamlining next-generation unboxed vehicle manufacturing architectures. By 2024, Tesla's energy division generated record profitability, offsetting automotive pricing pressure and generating over $14.8B in annual operating cash flow.",
+    "six_year_downfalls_and_pumps": [
+      {
+        "type": "Pump",
+        "period": "2020 - 2021",
+        "title": "Shanghai Gigafactory Scale, Model Y Global Rollout & $1T Valuation",
+        "move_data": "Deliveries grew +87% in 2021 (936k units); revenue grew +71%; automotive gross margins reached industry-record 30.6%; stock surged over 700%.",
+        "reason_behind_move": "Shanghai Gigafactory achieved rapid localized production with 40%+ lower unit capital expenditure than Fremont, while Model Y became a global best-selling crossover across Europe, China, and North America.",
+        "strategy_implemented": "Pioneered large-scale single-piece aluminum die-casting (Giga Press), direct-to-consumer sales eliminating dealer markups, and aggressive in-house battery cell development (4680).",
+        "outcome_paragraph": "Tesla achieved sustained GAAP profitability, gained S&P 500 inclusion, and held a $17B+ liquid cash buffer."
+      },
+      {
+        "type": "Downfall",
+        "period": "2022 - 2023",
+        "title": "Global EV Price Wars, Margin Erosion & High Interest Rate Headwinds",
+        "move_data": "Automotive gross margins fell from 29.3% in 2022 to 17.5% in 2023; vehicle prices cut by 15-25% across the lineup; stock fell 65% in 2022.",
+        "reason_behind_move": "Federal Reserve interest rate hikes made car monthly financing expensive, while fierce Chinese EV competition (BYD, Geely) flooded the market with low-cost electric models, forcing Tesla to cut prices to protect market share.",
+        "strategy_implemented": "Sacrificed short-term vehicle margins to maximize fleet volume for future software monetization, accelerated Megapack grid energy manufacturing in Lathrop, and launched the Cybertruck halo vehicle.",
+        "outcome_paragraph": "Protected global EV market leadership with 1.8M deliveries in 2023 while generating positive free cash flow throughout the price war."
+      },
+      {
+        "type": "Rebound",
+        "period": "2024",
+        "title": "Grid Energy Storage Explosion & FSD V12 End-to-End AI Pivot",
+        "move_data": "Energy Storage deployments surged +125% to 30+ GWh; energy gross profit grew 100%+ YoY; FSD Version 12 rolled out to 2M+ vehicles.",
+        "reason_behind_move": "Global utility-scale renewable grid stabilization demand triggered massive adoption of Tesla Megapacks, while breakthroughs in vision-only end-to-end neural network autonomous software revitalized AI positioning.",
+        "strategy_implemented": "Scaled Lathrop and Shanghai Megafactories, invested $10B+ in AI training compute clusters (H100/Dojo), and planned Robotaxi commercial deployment.",
+        "outcome_paragraph": "Transformed Tesla from purely an automaker into an energy storage powerhouse and robotics leader with $14.8B in operating cash flow."
+      }
+    ],
+    "six_year_financials": [
+      {
+        "year": "2019",
+        "revenue_growth": 14.5,
+        "net_income_growth": 52.4,
+        "debt_growth": 22,
+        "cash_flow": 2.4,
+        "roe": -12.5,
+        "order_book": 4.2
+      },
+      {
+        "year": "2020",
+        "revenue_growth": 28.3,
+        "net_income_growth": 182,
+        "debt_growth": -15.8,
+        "cash_flow": 5.9,
+        "roe": 4.8,
+        "order_book": 6.8
+      },
+      {
+        "year": "2021",
+        "revenue_growth": 70.7,
+        "net_income_growth": 665.5,
+        "debt_growth": -40,
+        "cash_flow": 11.5,
+        "roe": 21.1,
+        "order_book": 12.5
+      },
+      {
+        "year": "2022",
+        "revenue_growth": 51.4,
+        "net_income_growth": 127.5,
+        "debt_growth": -45,
+        "cash_flow": 14.7,
+        "roe": 32.4,
+        "order_book": 16.8
+      },
+      {
+        "year": "2023",
+        "revenue_growth": 18.8,
+        "net_income_growth": 19.4,
+        "debt_growth": -12,
+        "cash_flow": 13.3,
+        "roe": 23.5,
+        "order_book": 18.2
+      },
+      {
+        "year": "2024",
+        "revenue_growth": 5.5,
+        "net_income_growth": -18,
+        "debt_growth": -5,
+        "cash_flow": 14.8,
+        "roe": 16.8,
+        "order_book": 22.4
+      }
+    ],
+    "business_info": {
+      "major_projects": [
+        "Megapack Utility Energy Storage Megafactories",
+        "Full Self-Driving (FSD) End-to-End Neural Architecture",
+        "Cybercab Dedicated Autonomous Robotaxi Platform"
+      ],
+      "ongoing_projects": [
+        "Optimus General-Purpose Humanoid Robotics",
+        "Next-Gen 4680 Dry-Cathode Battery Scaling",
+        "Dojo Supercomputer AI Training Cluster"
+      ],
+      "collaborations": [
+        "Panasonic & LG Energy Solution Battery Joint Ventures",
+        "North American Charging Standard (NACS) Industry Unification",
+        "Utility Power Grid Interconnect Agreements"
+      ],
+      "investments": [
+        "$10B+ Annual AI Compute Infrastructure",
+        "Texas Gigafactory Cathode Refining Facility",
+        "Shanghai Megapack Megafactory ($200M)"
+      ],
+      "investment_sectors": [
+        "Grid Energy Storage",
+        "Autonomous Driving Neural Networks",
+        "Humanoid Robotics",
+        "Lithium Refining"
+      ],
+      "major_corporate_events": [
+        {
+          "year": "2020",
+          "title": "S&P 500 Inclusion & 5 Consecutive Profitable Quarters",
+          "impact": "Validated automotive profitability and catalyzed global EV capital flows"
+        },
+        {
+          "year": "2022",
+          "title": "Austin & Berlin Gigafactories Inauguration",
+          "impact": "Expanded annual manufacturing capacity beyond 2 million vehicles"
+        },
+        {
+          "year": "2023",
+          "title": "NACS Charging Standard Industry Adoption",
+          "impact": "Ford, GM, Rivian, and European OEMs adopted Tesla's charging network"
+        },
+        {
+          "year": "2024",
+          "title": "Energy Storage Megapack Boom & FSD V12",
+          "impact": "Energy division profits doubled, offsetting automotive price war headwinds"
+        }
+      ]
+    },
+    "crisis_info": {
+      "crisis_title": "Automotive Gross Margin Compression & Global EV Price War (2022-2023)",
+      "condition_summary": "Surging interest rates reducing auto purchase affordability, intense Chinese price competition, and automotive gross margins dropping from 30% to 17%.",
+      "condition_keywords": [
+        "price war",
+        "margin compression",
+        "automotive slowdown",
+        "ev competition",
+        "rate shock",
+        "energy storage pivot",
+        "fsd monetization"
+      ],
+      "root_causes": [
+        "Rapid rise in global central bank interest rates increasing consumer monthly car payments by 20-30%",
+        "Emergence of aggressive low-cost Chinese EV manufacturers scaling localized supply chains",
+        "Temporary plateau in mass-market EV adoption speed in Western markets"
+      ],
+      "strategy_used": "Volume Preservation via Dynamic Pricing & Hyper-Growth Energy Storage Pivot",
+      "strategy_category": "Pricing Restructuring & Business Unit Diversification",
+      "strategy_summary": "Adjusted vehicle pricing dynamically to sustain factory utilization, while scaling utility Megapack battery production to establish a 100% margin-expansion offset.",
+      "recommended_steps": [
+        {
+          "step_number": 1,
+          "phase": "Immediate Triage (Days 1-30)",
+          "title": "Implement Dynamic Market-Responsive Pricing",
+          "action": "Adjust end-user pricing in real-time based on regional factory backlog and inventory turn rates to prevent inventory build-up.",
+          "risk_mitigation": "Ensure pricing transparency to maintain residual values and customer trust."
+        },
+        {
+          "step_number": 2,
+          "phase": "Unit Cost Engineering (Days 31-90)",
+          "title": "Engineer Structural Cost Out of Bill of Materials",
+          "action": "Eliminate redundant wiring harnesses, reduce controller count, and deploy large-scale integrated castings to cut assembly time.",
+          "risk_mitigation": "Do not compromise on active safety systems or core powertrain reliability."
+        },
+        {
+          "step_number": 3,
+          "phase": "Adjacent Revenue Scaling (Days 91-180)",
+          "title": "Scale High-Margin Adjacent Commercial Divisions",
+          "action": "Divert battery and software engineering resources toward high-margin enterprise and utility infrastructure contracts.",
+          "risk_mitigation": "Maintain dedicated sales engineering teams for complex enterprise utility clients."
+        }
+      ],
+      "recovery_outcome": "Energy storage gross profit surged over 100%, generating $14.8B in annual operating cash flow and funding multi-billion dollar AI cluster deployments in 2024.",
+      "recovery_status": "Fully Recovered"
+    },
+    "logo_url": "https://cdn.simpleicons.org/tesla/e82127"
+  },
+  {
+    "id": "block",
+    "name": "Block, Inc. (formerly Square)",
+    "ticker": "SQ",
+    "sector": "FinTech",
+    "logo_color": "#8b5cf6",
+    "market_cap": "$48B",
+    "founded_year": 2009,
+    "leadership": {
+      "founder": "Jack Dorsey & Jim McKelvey",
+      "founder_summary": "Pioneered smartphone mobile payment readers and decentralized peer-to-peer consumer finance.",
+      "current_ceo": "Jack Dorsey",
+      "company_background": "Headquartered in San Francisco, California. Global technology company focused on financial services, comprising Square (merchant ecosystem) and Cash App (consumer banking ecosystem)."
+    },
+    "executive_analysis_paragraph": "During the six-year period from 2019 to 2024, Block transformed from a point-of-sale merchant vendor into a dual-ecosystem fintech powerhouse, navigating extreme post-pandemic cost bloat and market scrutiny. In 2020-2021, Block experienced a monumental pump: gross profit doubled to $4.4B as Cash App became the primary digital conduit for US federal stimulus check deposits, peer-to-peer transfers, and retail Bitcoin trading, prompting the massive $29B all-stock acquisition of Afterpay. However, this hyper-expansion led to a 2022-2023 downfall: surging tech headcount, skyrocketing integration costs, credit delinquency spikes in Buy-Now-Pay-Later (BNPL), and a damaging short-seller report alleging compliance gaps, crashing the stock by over 75%. Jack Dorsey took direct executive control, instituting an uncompromising operational turnaround: capping company headcount at an absolute limit of 12,000 employees, merging Square and Cash App engineering teams to eliminate redundant silos, and focusing on high-margin banking monetization (Cash App Card, Cash App Borrow). By 2024, Block achieved its 'Rule of 40' target, expanding gross profit by +19% to $8.8B and generating over $1.5B in GAAP operating income.",
+    "six_year_downfalls_and_pumps": [
+      {
+        "type": "Pump",
+        "period": "2020 - 2021",
+        "title": "Stimulus Direct Deposits, Cash App Hyper-Growth & Bitcoin Frenzy",
+        "move_data": "Gross profit grew +45% in 2020 and +62% in 2021; Cash App monthly active transacting users surpassed 44 million; stock surged to peak of $280.",
+        "reason_behind_move": "COVID stimulus direct deposits flowed directly into Cash App accounts, while contactless mobile card readers became mandatory for small business survival. Bitcoin trading volume on Cash App exploded.",
+        "strategy_implemented": "Aggressively acquired users with Cash App Boost rewards, scaled merchant online checkout APIs, and announced the landmark $29B acquisition of Afterpay to capture next-gen BNPL commerce.",
+        "outcome_paragraph": "Established Cash App as a mainstream digital banking replacement for Gen-Z and millennial consumers with over $100B in annual transaction volume."
+      },
+      {
+        "type": "Downfall",
+        "period": "2022 - 2023",
+        "title": "Post-Pandemic Cost Explosion, Afterpay Credit Losses & Short Seller Crisis",
+        "move_data": "Stock plunged from $280 to $40 (85% decline); operating losses mounted to $625M in 2022; Hindenburg Research published short report.",
+        "reason_behind_move": "Unchecked corporate hiring (headcount doubling to over 13,000), macro interest rate spikes leading to credit loss provisions on Afterpay loans, and allegations regarding compliance monitoring of Cash App accounts.",
+        "strategy_implemented": "Jack Dorsey imposed an absolute headcount cap of 12,000, terminated underperforming business units (Tidal downsized, Verse closed), overhauled risk algorithms, and streamlined reporting structures.",
+        "outcome_paragraph": "Eliminated over $500M in annual operating expenses and restored institutional investor credibility through rigorous financial discipline."
+      },
+      {
+        "type": "Rebound",
+        "period": "2024",
+        "title": "Rule of 40 Profitability, Banking Monetization & Square-Cash App Convergence",
+        "move_data": "Gross profit reached $8.8B (+19% YoY); operating income turned solidly positive to $1.5B+; Cash App Borrow and Debit Card adoption hit record highs.",
+        "reason_behind_move": "High-margin financial services (Cash App Pay, Borrow, and debit interchange) monetized existing user bases without requiring customer acquisition spending, while merchant Square software captured larger mid-market sellers.",
+        "strategy_implemented": "Connected merchant Square terminals directly with Cash App Pay wallets to bypass card network fees, integrated AI underwriting for instant working capital loans, and instituted disciplined share buybacks.",
+        "outcome_paragraph": "Achieved profitable scalability with a lean cost structure, transforming Block into an efficient fintech cash generation machine."
+      }
+    ],
+    "six_year_financials": [
+      {
+        "year": "2019",
+        "revenue_growth": 42.8,
+        "net_income_growth": 100,
+        "debt_growth": 12.4,
+        "cash_flow": 0.4,
+        "roe": 22.4,
+        "order_book": 2.8
+      },
+      {
+        "year": "2020",
+        "revenue_growth": 101.5,
+        "net_income_growth": -43,
+        "debt_growth": 65,
+        "cash_flow": 0.3,
+        "roe": 8.5,
+        "order_book": 3.9
+      },
+      {
+        "year": "2021",
+        "revenue_growth": 86,
+        "net_income_growth": 158,
+        "debt_growth": 52,
+        "cash_flow": 1,
+        "roe": 5.4,
+        "order_book": 5.4
+      },
+      {
+        "year": "2022",
+        "revenue_growth": -0.5,
+        "net_income_growth": -450,
+        "debt_growth": -2,
+        "cash_flow": 0.2,
+        "roe": -3.2,
+        "order_book": 4.8
+      },
+      {
+        "year": "2023",
+        "revenue_growth": 25,
+        "net_income_growth": 82,
+        "debt_growth": -8.5,
+        "cash_flow": 1.1,
+        "roe": 0.1,
+        "order_book": 6.1
+      },
+      {
+        "year": "2024",
+        "revenue_growth": 14.5,
+        "net_income_growth": 210,
+        "debt_growth": -14,
+        "cash_flow": 2.2,
+        "roe": 12.8,
+        "order_book": 7.4
+      }
+    ],
+    "business_info": {
+      "major_projects": [
+        "Square & Cash App Unified Commerce Engine",
+        "Cash App Borrow AI Instant Underwriting",
+        "Bitkey Self-Custody Hardware Wallet"
+      ],
+      "ongoing_projects": [
+        "Mid-Market Merchant Multi-Location POS",
+        "Cash App Pay Omnichannel Online Checkout",
+        "Proto In-House 3nm Mining Silicon Development"
+      ],
+      "collaborations": [
+        "Adyen Global Local Payment Partnership",
+        "Afterpay Merchant Network Integration",
+        "Mastercard & Visa Instant Transfer Rail Agreements"
+      ],
+      "investments": [
+        "Afterpay $29B All-Stock Acquisition",
+        "TBD Decentralized Financial Protocol Architecture",
+        "AI Customer Support Automation"
+      ],
+      "investment_sectors": [
+        "Decentralized Identity",
+        "Instant Payment Rails",
+        "Point-of-Sale AI Automation",
+        "Digital Consumer Banking"
+      ],
+      "major_corporate_events": [
+        {
+          "year": "2020",
+          "title": "Cash App Stimulus Hyper-Adoption",
+          "impact": "Propelled monthly active users past 40 million with record gross profit"
+        },
+        {
+          "year": "2021",
+          "title": "Block Rebranding & $29B Afterpay Deal",
+          "impact": "Unified Square, Cash App, and BNPL into global commerce ecosystem"
+        },
+        {
+          "year": "2023",
+          "title": "12,000 Absolute Headcount Cap Mandate",
+          "impact": "Jack Dorsey slashed operating expenses, eliminating layers of management"
+        },
+        {
+          "year": "2024",
+          "title": "Rule of 40 Execution & $1.5B Operating Profit",
+          "impact": "Delivered record free cash flow and institutional banking monetization"
+        }
+      ]
+    },
+    "crisis_info": {
+      "crisis_title": "Post-Pandemic Operating Cost Explosion & BNPL Credit Delinquency (2022-2023)",
+      "condition_summary": "Rapid headcount bloat, skyrocketing integration expenses following the Afterpay acquisition, short-seller compliance allegations, and an 80% stock collapse.",
+      "condition_keywords": [
+        "headcount bloat",
+        "cost explosion",
+        "fintech credit losses",
+        "bnpl integration",
+        "short seller attack",
+        "headcount cap",
+        "rule of 40"
+      ],
+      "root_causes": [
+        "Uncontrolled organizational hiring during the 2020-2021 stimulus boom creating management bloat",
+        "Rising consumer loan delinquencies on un-hedged Buy-Now-Pay-Later installment plans during interest rate hikes",
+        "Fragmented engineering silos between the Square merchant team and the Cash App consumer team"
+      ],
+      "strategy_used": "Strict Headcount Cap (12k Limit), Team Unification & High-Margin Financial Monetization",
+      "strategy_category": "Organizational Restructuring & Operational Discipline",
+      "strategy_summary": "Imposed an inflexible 12,000 employee cap, consolidated business units under single leadership, and focused product development entirely on high-margin banking and payment features.",
+      "recommended_steps": [
+        {
+          "step_number": 1,
+          "phase": "Immediate Triage (Days 1-30)",
+          "title": "Establish an Inflexible Corporate Headcount Cap",
+          "action": "Freeze all non-essential hiring and mandate that any new hire requires two departures or direct CEO approval.",
+          "risk_mitigation": "Prevent morale loss by communicating explicit strategic rationales and performance milestones."
+        },
+        {
+          "step_number": 2,
+          "phase": "Operational Consolidation (Days 31-90)",
+          "title": "Merge Redundant Business Silos",
+          "action": "Unify engineering, compliance, and marketing teams that duplicate work across separate business lines.",
+          "risk_mitigation": "Establish clear individual accountability metrics for product delivery."
+        },
+        {
+          "step_number": 3,
+          "phase": "Monetization Focus (Days 91-180)",
+          "title": "Prioritize High-Margin Native Services",
+          "action": "Cross-sell high-margin software features (instant deposits, debit cards, working capital loans) to the existing engaged user base.",
+          "risk_mitigation": "Calibrate underwriting risk algorithms continuously to prevent credit defaults."
+        }
+      ],
+      "recovery_outcome": "Expanded gross profit by 19% to $8.8B, achieved $2.2B in operating cash flow, and met Rule of 40 targets in 2024.",
+      "recovery_status": "Fully Recovered"
+    },
+    "logo_url": "https://cdn.simpleicons.org/square/00D632"
+  },
+  {
+    "id": "ford",
+    "name": "Ford Motor Company",
+    "ticker": "F",
+    "sector": "Automobile",
+    "logo_color": "#0284c7",
+    "market_cap": "$44B",
+    "founded_year": 1903,
+    "leadership": {
+      "founder": "Henry Ford",
+      "founder_summary": "Pioneered mass-production assembly lines and modern industrial manufacturing.",
+      "current_ceo": "Jim Farley",
+      "company_background": "Headquartered in Dearborn, Michigan. Global automotive leader manufacturing iconic trucks (F-Series), commercial fleets, and advanced electric and hybrid vehicles."
+    },
+    "executive_analysis_paragraph": "Between 2019 and 2024, Ford Motor Company navigated an unprecedented industrial transformation, confronting the stark realities of electric vehicle capital destruction while engineering an extraordinarily profitable commercial and hybrid moat. In 2020-2021, Ford enjoyed an exhilarating market pump: the unveiling of the Mustang Mach-E and the electric F-150 Lightning sparked over 200,000 reservations, driving the stock from $6 to $25 under CEO Jim Farley's aggressive 'Ford+' transformation plan. However, between 2022 and 2023, Ford suffered a severe structural downfall: its electric vehicle division (Ford Model e) bled over $4.7B in annual operating losses due to fierce price competition and high battery costs, while legacy manufacturing warranty repair expenses exceeded $4.8B and a 6-week UAW strike cost $1.7B. Demonstrating agile industrial discipline, Farley executed a decisive strategic pivot: delaying $12B in planned EV capital expenditure, redirecting manufacturing capacity into high-margin Hybrid powertrains (Maverick, F-150 Hybrid), and unleashing the powerhouse 'Ford Pro' commercial fleet division (software, telematics, and transit vans generating $9B+ EBIT with 14% margins). By 2024, Ford stabilized its automotive operating cash flow at $14.2B, backed by commercial software subscriptions and hybrid dominance.",
+    "six_year_downfalls_and_pumps": [
+      {
+        "type": "Pump",
+        "period": "2020 - 2021",
+        "title": "Ford+ Plan Unveiling, F-150 Lightning Frenzy & Stock Tripling",
+        "move_data": "Stock rose from $6.00 in 2020 to $25.00 in late 2021; F-150 Lightning secured 200,000+ reservations; net income hit $17.9B in 2021.",
+        "reason_behind_move": "Enthusiastic investor reception of CEO Jim Farley's aggressive electrification strategy and strong commercial demand for redesigned F-150 trucks and Bronco SUVs.",
+        "strategy_implemented": "Announced the historic corporate restructuring splitting Ford into Ford Blue (ICE/Hybrids), Ford Model e (EVs), and Ford Pro (Commercial), while building BlueOval City battery mega-campuses.",
+        "outcome_paragraph": "Positioned Ford as the most credible legacy automotive contender in the global transition toward smart connected electric transport."
+      },
+      {
+        "type": "Downfall",
+        "period": "2022 - 2023",
+        "title": "Model e Billion-Dollar Bleed, Warranty Quality Deficits & UAW Strike",
+        "move_data": "Ford Model e division lost $4.7B in 2023 ($64,000 loss per EV sold); warranty repair costs topped $4.8B; UAW strike cost $1.7B in lost production.",
+        "reason_behind_move": "Slower-than-expected retail adoption of high-priced full electric trucks, aggressive price slashing across the EV sector, persistent legacy manufacturing quality defects, and labor cost inflation.",
+        "strategy_implemented": "Paused $12B in EV factory investments, formed a skunkworks low-cost EV engineering team in California, shifted production line capacity toward popular Hybrid models, and instituted strict quality-gate inspection protocols.",
+        "outcome_paragraph": "Preserved corporate liquidity, prevented dilutive debt raises, and stemmed the cash drain on unprofitable EV model lines."
+      },
+      {
+        "type": "Rebound",
+        "period": "2024",
+        "title": "Ford Pro Commercial Dominance & Hybrid Powertrain Explosion",
+        "move_data": "Ford Pro generated $9B+ EBIT with industry-leading 14% operating margins; Hybrid vehicle sales grew +38%; total cash flow reached $14.2B.",
+        "reason_behind_move": "Massive corporate and municipal demand for Ford Pro commercial vans and fleet telematics subscriptions, paired with soaring consumer preference for practical, low-cost Hybrid trucks (Maverick Hybrid).",
+        "strategy_implemented": "Scaled recurring high-margin fleet software subscriptions (surpassing 600,000 active units), expanded hybrid options across all top-selling vehicle lines, and maintained an attractive 5%+ dividend yield.",
+        "outcome_paragraph": "Created a uniquely balanced industrial model where high-margin commercial fleet software and hybrids fund the disciplined long-term transition to next-generation affordable EVs."
+      }
+    ],
+    "six_year_financials": [
+      {
+        "year": "2019",
+        "revenue_growth": -2.8,
+        "net_income_growth": -98.9,
+        "debt_growth": 4.5,
+        "cash_flow": 13.5,
+        "roe": 0.1,
+        "order_book": 18.5
+      },
+      {
+        "year": "2020",
+        "revenue_growth": -18.5,
+        "net_income_growth": -125,
+        "debt_growth": 8.2,
+        "cash_flow": 10.8,
+        "roe": -3.8,
+        "order_book": 16.2
+      },
+      {
+        "year": "2021",
+        "revenue_growth": 7.2,
+        "net_income_growth": 1500,
+        "debt_growth": -14,
+        "cash_flow": 15.8,
+        "roe": 36.8,
+        "order_book": 24.5
+      },
+      {
+        "year": "2022",
+        "revenue_growth": 15.9,
+        "net_income_growth": -112,
+        "debt_growth": -2.5,
+        "cash_flow": 12.9,
+        "roe": -4.6,
+        "order_book": 22
+      },
+      {
+        "year": "2023",
+        "revenue_growth": 11.5,
+        "net_income_growth": 122,
+        "debt_growth": 3.1,
+        "cash_flow": 14.9,
+        "roe": 10.2,
+        "order_book": 23.8
+      },
+      {
+        "year": "2024",
+        "revenue_growth": 4.8,
+        "net_income_growth": 5.4,
+        "debt_growth": -1.8,
+        "cash_flow": 14.2,
+        "roe": 11.5,
+        "order_book": 25.1
+      }
+    ],
+    "business_info": {
+      "major_projects": [
+        "Ford Pro Commercial Fleet Telematics & Software Suite",
+        "BlueOval City Tennessee Electric & Battery Mega-Campus",
+        "Next-Gen Low-Cost Skunkworks EV Platform"
+      ],
+      "ongoing_projects": [
+        "Hybrid Powertrain Line Expansion (F-150, Maverick, Ranger)",
+        "Ford Pro Charging Commercial Infrastructure",
+        "In-House LFP Battery Chemistry Manufacturing"
+      ],
+      "collaborations": [
+        "Tesla Supercharger NACS Network Integration",
+        "SK On & LG Energy Solution Battery Partnerships",
+        "Commercial Fleet Telematics Enterprise Alliances"
+      ],
+      "investments": [
+        "BlueOval SK Battery Joint Venture ($5.8B)",
+        "Autonomous Vehicle AI Development (Latitude AI)",
+        "Manufacturing Quality & Automation Rework"
+      ],
+      "investment_sectors": [
+        "Commercial Telematics",
+        "Hybrid Powertrains",
+        "Grid Vehicle-to-Home (V2H) Power",
+        "LFP Battery Manufacturing"
+      ],
+      "major_corporate_events": [
+        {
+          "year": "2020",
+          "title": "Jim Farley Appointed CEO & Ford+ Launch",
+          "impact": "Initiated radical corporate reorganization into distinct business units"
+        },
+        {
+          "year": "2022",
+          "title": "Corporate Split into Blue, Model e, and Pro",
+          "impact": "Broke legacy automotive bureaucracy to track segment profitability transparently"
+        },
+        {
+          "year": "2023",
+          "title": "EV Capital Pauses & Hybrid Production Surge",
+          "impact": "Prevented billions in capital destruction by pivoting to high-demand hybrids"
+        },
+        {
+          "year": "2024",
+          "title": "Ford Pro $9B EBIT Commercial Record",
+          "impact": "Established world's most profitable commercial fleet and software ecosystem"
+        }
+      ]
+    },
+    "crisis_info": {
+      "crisis_title": "First-Gen EV Capital Burn & Legacy Warranty Cost Crisis (2022-2023)",
+      "condition_summary": "Multi-billion dollar operating losses in electric vehicles, consumer pushback against premium EV prices, legacy quality defect costs, and costly labor strikes.",
+      "condition_keywords": [
+        "ev losses",
+        "capital destruction",
+        "warranty repair costs",
+        "hybrid pivot",
+        "commercial fleet margins",
+        "labor inflation",
+        "capex pause"
+      ],
+      "root_causes": [
+        "Overestimating consumer willingness to pay a $15,000+ premium for full electric pickups without mature charging infrastructure",
+        "High manufacturing defect rates in legacy ICE and EV assembly lines inflating warranty reserves by billions",
+        "High battery pack bill-of-materials costs compared to low-cost Asian competitors"
+      ],
+      "strategy_used": "EV Capex Flexibility, Hybrid Powertrain Pivot & Ford Pro Software Scaling",
+      "strategy_category": "Product Portfolio Realignment & Commercial Monetization",
+      "strategy_summary": "Paused $12B in uncommitted EV capital, redirected production to high-margin Hybrids, and accelerated recurring telematics subscriptions through Ford Pro.",
+      "recommended_steps": [
+        {
+          "step_number": 1,
+          "phase": "Immediate Triage (Days 1-30)",
+          "title": "Pause Unprofitable Capital Expenditure",
+          "action": "Halt or delay capacity expansions in business lines showing negative unit contribution margins until demand signals normalize.",
+          "risk_mitigation": "Preserve core engineering capabilities while renegotiating equipment delivery timelines."
+        },
+        {
+          "step_number": 2,
+          "phase": "Bridge Product Pivot (Days 31-90)",
+          "title": "Ramp High-Margin Bridge Offerings",
+          "action": "Double down on hybrid or intermediate products that solve current consumer affordability constraints with existing tooling.",
+          "risk_mitigation": "Ensure supply chain component availability for hybrid transmissions and power electronics."
+        },
+        {
+          "step_number": 3,
+          "phase": "B2B Software Scaling (Days 91-180)",
+          "title": "Monetize Commercial & Enterprise Fleets",
+          "action": "Bundle hardware sales with high-margin recurring fleet tracking, uptime management, and charging software.",
+          "risk_mitigation": "Provide ironclad SLA uptime guarantees to commercial operators."
+        }
+      ],
+      "recovery_outcome": "Generated $9B+ EBIT in Ford Pro, achieved 38% hybrid growth, and sustained $14.2B in operating cash flow in 2024.",
+      "recovery_status": "Fully Recovered"
+    },
+    "logo_url": "https://cdn.simpleicons.org/ford/002c6c"
+  },
+  {
+    "id": "paypal",
+    "name": "PayPal Holdings, Inc.",
+    "ticker": "PYPL",
+    "sector": "FinTech",
+    "logo_color": "#2563eb",
+    "market_cap": "$72B",
+    "founded_year": 1998,
+    "leadership": {
+      "founder": "Peter Thiel, Max Levchin, Elon Musk (Original Confinity/X.com)",
+      "founder_summary": "Pioneered web payments and digital email money transfers.",
+      "current_ceo": "Alex Chriss",
+      "company_background": "Headquartered in San Jose, California. Global digital payments platform connecting hundreds of millions of consumers and merchants across 200 markets."
+    },
+    "executive_analysis_paragraph": "Between 2019 and 2024, PayPal lived through the complete boom-and-bust cycle of the digital checkout era, followed by a disciplined structural transformation back to profitable core innovation. In 2020-2021, PayPal experienced a legendary e-commerce pump: total payment volume surged past $1.25 Trillion, digital transaction volumes exploded during global lockdowns, and the stock soared to an all-time high of $310 while management set an aggressive target of 750 million active accounts. However, between 2022 and 2023, PayPal encountered a punishing downfall: post-lockdown consumers returned to physical retail, Apple Pay expanded frictionless one-click checkout across iOS devices, low-margin Braintree unbranded payment processing cannibalized high-margin branded checkout buttons, and vanity incentive accounts churned rapidly, triggering an 80% stock collapse down to $55. In late 2023, the board appointed Alex Chriss (ex-Intuit) as CEO to execute an uncompromising turnaround: abandoning vanity user targets in favor of Gross Profit Dollar Growth, cutting $1B+ in structural overhead, repricing unbranded Braintree contracts, and launching 'Fastlane by PayPal' (a guest checkout innovation accelerating conversion by 80%). By 2024, transaction margin dollar growth turned solidly positive, operating margins expanded, and PayPal generated over $5.8B in annual free cash flow.",
+    "six_year_downfalls_and_pumps": [
+      {
+        "type": "Pump",
+        "period": "2020 - 2021",
+        "title": "E-Commerce Checkout Explosion & $1.25 Trillion TPV Milestone",
+        "move_data": "Added 122 million net new active accounts in 2020-2021; payment volume grew +33%; revenue grew +21%; stock reached record $310 ($360B market cap).",
+        "reason_behind_move": "COVID stay-at-home mandates forced billions of global retail transactions online. PayPal and Venmo became essential digital checkout infrastructure for merchants and consumers.",
+        "strategy_implemented": "Rolled out QR code in-store payments, integrated cryptocurrency buying and selling, launched 'Pay in 4' interest-free installment loans, and aggressively expanded digital wallet features.",
+        "outcome_paragraph": "Cemented PayPal as the dominant online payment button globally, processing over $1.25 Trillion in annual volume."
+      },
+      {
+        "type": "Downfall",
+        "period": "2022 - 2023",
+        "title": "Vanity Account Churn, Apple Pay Inroads & Braintree Margin Cannibalization",
+        "move_data": "Stock collapsed from $310 to $55 (82% decline); transaction margin growth decelerated to near zero; active user count contracted by 10M+.",
+        "reason_behind_move": "Post-pandemic reopening reduced e-commerce velocity; Apple Pay captured substantial mobile checkout share on iOS; PayPal's low-margin Braintree processing grew rapidly while high-margin branded button share stagnated; millions of incentive-driven vanity accounts were abandoned.",
+        "strategy_implemented": "Replaced CEO Dan Schulman with Alex Chriss, terminated vanity account acquisition programs, cut global corporate headcount by 9%, and initiated contract repricing across large enterprise unbranded processing clients.",
+        "outcome_paragraph": "Stopped the erosion of transaction margins and redirected corporate focus toward high-margin checkout conversion engineering."
+      },
+      {
+        "type": "Rebound",
+        "period": "2024",
+        "title": "Fastlane Guest Checkout Launch, Margin Re-acceleration & $5B Buybacks",
+        "move_data": "Transaction margin dollars returned to positive growth (+8%); Fastlane boosted guest checkout conversions to 80%+; free cash flow hit $5.8B.",
+        "reason_behind_move": "Widespread merchant adoption of Fastlane by PayPal (including partnerships with Shopify and Adyen), Venmo debit card monetization, and aggressive operating expense discipline.",
+        "strategy_implemented": "Deployed guest checkout biometric recognition across top e-commerce merchants, integrated AI receipt rewards with PayPal Ads, and returned 100% of free cash flow via massive share buybacks.",
+        "outcome_paragraph": "Re-established PayPal as an indispensable high-margin commerce checkout utility with industry-leading free cash flow yields."
+      }
+    ],
+    "six_year_financials": [
+      {
+        "year": "2019",
+        "revenue_growth": 15,
+        "net_income_growth": 18.5,
+        "debt_growth": 20,
+        "cash_flow": 4.9,
+        "roe": 14.8,
+        "order_book": 7.2
+      },
+      {
+        "year": "2020",
+        "revenue_growth": 20.7,
+        "net_income_growth": 70.8,
+        "debt_growth": -7.5,
+        "cash_flow": 5.9,
+        "roe": 22.4,
+        "order_book": 9.5
+      },
+      {
+        "year": "2021",
+        "revenue_growth": 18.3,
+        "net_income_growth": -1.8,
+        "debt_growth": -3.2,
+        "cash_flow": 6.3,
+        "roe": 19.2,
+        "order_book": 11.2
+      },
+      {
+        "year": "2022",
+        "revenue_growth": 8.5,
+        "net_income_growth": -42,
+        "debt_growth": 12,
+        "cash_flow": 5.8,
+        "roe": 12.1,
+        "order_book": 10.5
+      },
+      {
+        "year": "2023",
+        "revenue_growth": 8,
+        "net_income_growth": 75,
+        "debt_growth": -5,
+        "cash_flow": 4.8,
+        "roe": 21,
+        "order_book": 11.8
+      },
+      {
+        "year": "2024",
+        "revenue_growth": 7.4,
+        "net_income_growth": 14.2,
+        "debt_growth": -8,
+        "cash_flow": 5.8,
+        "roe": 24.5,
+        "order_book": 12.9
+      }
+    ],
+    "business_info": {
+      "major_projects": [
+        "Fastlane by PayPal Frictionless Guest Checkout",
+        "PayPal Ads Commerce & Retail Media Network",
+        "Venmo Teen & Debit Monetization Suite"
+      ],
+      "ongoing_projects": [
+        "Next-Gen Branded Checkout AI Biometrics",
+        "Cross-Border Remittance Low-Fee Rails (Xoom)",
+        "PYUSD Dollar Stablecoin Global Settlement"
+      ],
+      "collaborations": [
+        "Shopify Fastlane Integration Agreement",
+        "Adyen Enterprise Processing Partnership",
+        "Amazon Venmo Checkout Integration"
+      ],
+      "investments": [
+        "Paidy Japan Installment Acquisition ($2.7B)",
+        "AI Fraud & Behavioral Analytics Models",
+        "Share Repurchase Program ($5B+ Annually)"
+      ],
+      "investment_sectors": [
+        "Guest Checkout Optimization",
+        "Retail Media Ad-Tech",
+        "Stablecoin Settlement",
+        "Merchant Payment APIs"
+      ],
+      "major_corporate_events": [
+        {
+          "year": "2020",
+          "title": "COVID Contactless & Crypto Expansion",
+          "impact": "Processed record volume as online payments became universal necessity"
+        },
+        {
+          "year": "2022",
+          "title": "Abandonment of 750M User Vanity Metric",
+          "impact": "Shifted corporate strategy from low-quality user counts to transaction engagement"
+        },
+        {
+          "year": "2023",
+          "title": "Alex Chriss Appointed CEO & PYUSD Launch",
+          "impact": "Brought operating discipline from Intuit and launched regulated stablecoin"
+        },
+        {
+          "year": "2024",
+          "title": "Fastlane by PayPal Global Rollout",
+          "impact": "Accelerated guest checkout conversion to 80%, beating competitive card vaults"
+        }
+      ]
+    },
+    "crisis_info": {
+      "crisis_title": "Incentive User Churn, Mobile Wallet Competition & Margin Deceleration (2022-2023)",
+      "condition_summary": "Stagnating branded checkout growth, market share capture by mobile OS wallets (Apple Pay), margin compression from unbranded processing, and an 80% valuation wipeout.",
+      "condition_keywords": [
+        "checkout competition",
+        "apple pay pressure",
+        "margin compression",
+        "vanity metric churn",
+        "braintree repricing",
+        "fastlane guest checkout",
+        "share buyback"
+      ],
+      "root_causes": [
+        "Pursuing low-LTV incentive-subsidized user acquisition that produced hollow vanity metrics and rapid churn",
+        "Allowing frictionless mobile OS digital wallets to leapfrog the multi-step PayPal login checkout experience",
+        "Over-relying on low-margin unbranded enterprise volume that diluted aggregate gross profit margins"
+      ],
+      "strategy_used": "Quality Over Vanity Accounts, Fastlane Guest Checkout & Braintree Repricing",
+      "strategy_category": "Core Product Innovation & Margin Reclamation",
+      "strategy_summary": "Eliminated vanity user incentive spend, launched one-click guest checkout (Fastlane) to win back merchant conversions, and re-tiered enterprise processing fee structures.",
+      "recommended_steps": [
+        {
+          "step_number": 1,
+          "phase": "Immediate Triage (Days 1-30)",
+          "title": "Kill Low-Quality Incentive Acquisition",
+          "action": "Terminate customer acquisition programs that rely on artificial cash incentives without sustained engagement loops.",
+          "risk_mitigation": "Focus retention spend strictly on the top 20% of high-transacting power users."
+        },
+        {
+          "step_number": 2,
+          "phase": "Product Redesign (Days 31-90)",
+          "title": "Eliminate Friction in Core Conversion Funnel",
+          "action": "Strip out logins, password requirements, and redirects. Implement guest checkout with biometric authentication.",
+          "risk_mitigation": "Maintain rigorous machine-learning fraud detection in the background."
+        },
+        {
+          "step_number": 3,
+          "phase": "Pricing Discipline (Days 91-180)",
+          "title": "Reprice Unprofitable High-Volume Contracts",
+          "action": "Renegotiate or exit commoditized enterprise client contracts that deliver top-line volume without positive gross profit contribution.",
+          "risk_mitigation": "Offer bundled value-added services (chargeback protection, foreign exchange) to justify premium pricing."
+        }
+      ],
+      "recovery_outcome": "Expanded ROE to 24.5%, generated $5.8B in annual free cash flow, and boosted guest checkout conversion rates above 80% in 2024.",
+      "recovery_status": "Fully Recovered"
+    },
+    "logo_url": "https://cdn.simpleicons.org/paypal/003087"
+  },
+  {
+    "id": "opendoor",
+    "name": "Opendoor Technologies Inc.",
+    "ticker": "OPEN",
+    "sector": "Real Estate",
+    "logo_color": "#10b981",
+    "market_cap": "$1.4B",
+    "founded_year": 2014,
+    "leadership": {
+      "founder": "Eric Wu, Keith Rabois, JD Ross, Ian Wong",
+      "founder_summary": "Pioneered the iBuying algorithmic residential real estate instant purchase model.",
+      "current_ceo": "Carrie Wheeler",
+      "company_background": "Headquartered in Tempe, Arizona. Digital platform for residential real estate, empowering homeowners to buy, sell, and trade in homes with digital certainty."
+    },
+    "executive_analysis_paragraph": "Between 2019 and 2024, Opendoor experienced one of the most volatile real estate market journeys in corporate history, surviving an existential interest rate shock that destroyed its competitors. In 2020-2021, Opendoor experienced a hyper-growth pump: record-low 3% mortgage interest rates and a nationwide migration boom propelled revenue to $8B (+211%), while its SPAC market capitalization climbed above $18B as it bought over 36,000 homes annually. However, throughout 2022, the Federal Reserve initiated the fastest interest rate hiking cycle in 40 years, causing mortgage rates to spike from 3% to over 7% in under nine months. With over 17,000 homes sitting on its balance sheet, home values dropped faster than algorithmic pricing models could adapt, resulting in a staggering $1.4B net loss, forced inventory liquidation, and a 95% stock collapse that led to the collapse of rival Zillow Offers. Following the crisis, Carrie Wheeler took over as CEO and executed a dramatic turnaround: liquidating high-risk legacy inventory, cutting operational overhead and marketing burn by 60%, widening algorithmic acquisition spreads (charging 5-8% service fees), and introducing asset-light marketplace channels (Opendoor Exclusives and agent partnerships). By 2024, Opendoor stabilized its balance sheet, achieved positive contribution margins (+4.3%), and maintained over $1.1B in liquid cash reserves with zero toxic inventory overhang.",
+    "six_year_downfalls_and_pumps": [
+      {
+        "type": "Pump",
+        "period": "2020 - 2021",
+        "title": "Low-Rate Housing Boom, Nationwide iBuying Expansion & $18B SPAC",
+        "move_data": "Revenue surged +211% to $8.0B in 2021; bought 36,908 homes and sold 21,725 homes; public SPAC listing at $30+ per share.",
+        "reason_behind_move": "Record-low mortgage rates and remote-work suburban migration triggered massive home sales velocity. Home sellers eagerly accepted instant digital cash offers over uncertain open market listings.",
+        "strategy_implemented": "Secured multi-billion-dollar asset-backed debt facilities, expanded into 50+ US metropolitan markets, and integrated digital title, escrow, and home warranty services.",
+        "outcome_paragraph": "Established Opendoor as the undisputed market leader in algorithmic real estate, while forcing competitors like Zillow and Redfin into aggressive catch-up spending."
+      },
+      {
+        "type": "Downfall",
+        "period": "2022",
+        "title": "Historic Fed Interest Rate Shock, Inventory Fire-Sale & $1.4B Loss",
+        "move_data": "Net loss reached $1.35B in 2022; stock crashed 95% from $35 to $1.10; forced to liquidate 17,000+ homes at severe negative gross margins.",
+        "reason_behind_move": "Federal Reserve increased benchmark rates by 500bps, pushing 30-year mortgages from 3.2% to 7.3%. Home buyer demand froze overnight, causing rapid home price depreciation while Opendoor held a massive inventory backlog.",
+        "strategy_implemented": "Replaced founder CEO with Carrie Wheeler, slashed home acquisitions by 80%, laid off 60% of corporate staff, offloaded inventory to institutional single-family rental REITs, and widened algorithmic spread buffers.",
+        "outcome_paragraph": "Survived the macro shock that bankrupted and shuttered rival iBuying divisions (Zillow Offers collapsed with $880M loss; Redfin Now shut down completely)."
+      },
+      {
+        "type": "Rebound",
+        "period": "2023 - 2024",
+        "title": "Asset-Light Marketplace Transformation & Balance Sheet Stabilization",
+        "move_data": "Contribution margins rebounded to positive +4.3%; quarterly SG&A expenses reduced from $200M to $60M; maintained $1.1B+ in liquid cash reserves.",
+        "reason_behind_move": "Disciplined inventory turns (holding periods compressed under 90 days), higher fee buffers, and partnerships with local real estate agents who distribute Opendoor cash offers for referral commissions.",
+        "strategy_implemented": "Pivoted toward asset-light marketplace transactions, launched digital direct seller listings, and integrated AI-assisted computer vision home inspection estimation.",
+        "outcome_paragraph": "Achieved positive unit economics in a 7% mortgage rate environment, emerging as the sole surviving scaled digital instant home buying platform in America."
+      }
+    ],
+    "six_year_financials": [
+      {
+        "year": "2019",
+        "revenue_growth": 156,
+        "net_income_growth": -38,
+        "debt_growth": 95,
+        "cash_flow": -0.7,
+        "roe": -32,
+        "order_book": 1.2
+      },
+      {
+        "year": "2020",
+        "revenue_growth": -45,
+        "net_income_growth": 25,
+        "debt_growth": -60,
+        "cash_flow": 0.2,
+        "roe": -18.5,
+        "order_book": 0.8
+      },
+      {
+        "year": "2021",
+        "revenue_growth": 211,
+        "net_income_growth": -160,
+        "debt_growth": 180,
+        "cash_flow": -1.8,
+        "roe": -29.4,
+        "order_book": 6.1
+      },
+      {
+        "year": "2022",
+        "revenue_growth": 94,
+        "net_income_growth": -105,
+        "debt_growth": -35,
+        "cash_flow": -0.8,
+        "roe": -68,
+        "order_book": 2.5
+      },
+      {
+        "year": "2023",
+        "revenue_growth": -55,
+        "net_income_growth": 80,
+        "debt_growth": -45,
+        "cash_flow": 0.4,
+        "roe": -18.2,
+        "order_book": 1.8
+      },
+      {
+        "year": "2024",
+        "revenue_growth": -8,
+        "net_income_growth": 65,
+        "debt_growth": -20,
+        "cash_flow": 0.5,
+        "roe": -8.5,
+        "order_book": 2.1
+      }
+    ],
+    "business_info": {
+      "major_projects": [
+        "AI Computer-Vision Automated Home Assessment",
+        "Asset-Light Opendoor Exclusives Marketplace",
+        "Real Estate Agent Partner Referral Program"
+      ],
+      "ongoing_projects": [
+        "Dynamic Risk-Spread Algorithmic Pricing Engine",
+        "Instant Title & Digital Escrow Automation",
+        "Institutional Single-Family Rental Direct Offload Rail"
+      ],
+      "collaborations": [
+        "Zillow Co-Marketing Partnership",
+        "eXp Realty & Redfin Agent Partner Programs",
+        "Asset-Backed Debt Facility Consortia (Citigroup, Morgan Stanley)"
+      ],
+      "investments": [
+        "Proprietary Valuation Model Training Data",
+        "Automated Contractor Repair Dispatch Network",
+        "Liquid Cash Reserve Buffers ($1.1B+)"
+      ],
+      "investment_sectors": [
+        "PropTech Algorithms",
+        "Computer Vision Inspection",
+        "Asset-Light Real Estate Marketplaces",
+        "Digital Title & Escrow"
+      ],
+      "major_corporate_events": [
+        {
+          "year": "2020",
+          "title": "SPAC Merger & Public Debut",
+          "impact": "Raised $1B+ in growth capital to scale nationwide home buying"
+        },
+        {
+          "year": "2021",
+          "title": "Rival Zillow Offers Collapse",
+          "impact": "Zillow exited iBuying with $880M loss, leaving Opendoor as category leader"
+        },
+        {
+          "year": "2022",
+          "title": "Fed Rate Shock & Leadership Succession",
+          "impact": "Carrie Wheeler took over as CEO, liquidated toxic inventory, and cut burn by 60%"
+        },
+        {
+          "year": "2024",
+          "title": "Positive Unit Economics & Asset-Light Scaling",
+          "impact": "Achieved positive contribution margins under sustained 7% mortgage rates"
+        }
+      ]
+    },
+    "crisis_info": {
+      "crisis_title": "The Historic 500bps Interest Rate Shock & Inventory Liquidation Crisis (2022-2023)",
+      "condition_summary": "Sudden 500bps Federal Reserve interest rate hikes freezing housing demand, holding 17,000 depreciating homes on balance sheet, $1.4B net loss, and a 95% stock drop.",
+      "condition_keywords": [
+        "interest rate shock",
+        "inventory liquidation",
+        "ibuying crisis",
+        "home price collapse",
+        "balance sheet risk",
+        "cost restructuring",
+        "unit economics"
+      ],
+      "root_causes": [
+        "Carrying thousands of homes purchased at the peak of the housing market with short-term asset-backed debt during an unprecedented mortgage rate spike",
+        "Algorithmic valuation models failing to anticipate sudden discontinuous declines in neighborhood purchase velocity",
+        "Excessive fixed corporate overhead during market expansion"
+      ],
+      "strategy_used": "Emergency Inventory Clearing, 60% Overhead Cut & Asset-Light Partner Pivot",
+      "strategy_category": "Capital Preservation & Business Model Pivot",
+      "strategy_summary": "Disciplined fire-sale of underwater inventory to institutional rental REITs, reduction of quarterly SG&A from $200M to $60M, and transition to agent referral partnerships and direct marketplaces.",
+      "recommended_steps": [
+        {
+          "step_number": 1,
+          "phase": "Immediate Triage (Days 1-30)",
+          "title": "Clear Underwater Balance Sheet Assets Fast",
+          "action": "Sell depreciating inventory immediately at prevailing market prices to institutional buyers rather than holding out for wishful price recoveries.",
+          "risk_mitigation": "Use proceeds to pay down high-interest asset-backed debt facilities immediately."
+        },
+        {
+          "step_number": 2,
+          "phase": "Cost Restructuring (Days 31-90)",
+          "title": "Slash Operating Burn to Variable Floor",
+          "action": "Downsize fixed corporate overhead, marketing campaigns, and redundant layers to match low-volume trough revenue.",
+          "risk_mitigation": "Retain key machine learning and risk-underwriting core talent."
+        },
+        {
+          "step_number": 3,
+          "phase": "Model Evolution (Days 91-180)",
+          "title": "Shift to Asset-Light Fee & Referral Model",
+          "action": "Connect buyers and sellers via digital marketplace platforms without taking full balance sheet inventory risk on every transaction.",
+          "risk_mitigation": "Build partner networks with traditional brokers and agents rather than treating them as adversaries."
+        }
+      ],
+      "recovery_outcome": "Preserved $1.1B+ in liquid cash, stabilized contribution margins at +4.3%, and survived as the sole scaled digital home buying platform in the US.",
+      "recovery_status": "Fully Recovered"
+    },
+    "logo_url": "https://cdn.simpleicons.org/opendoor/0052FF"
+  },
+  {
+    "id": "teladoc",
+    "name": "Teladoc Health, Inc.",
+    "ticker": "TDOC",
+    "sector": "Healthcare",
+    "logo_color": "#059669",
+    "market_cap": "$1.5B",
+    "founded_year": 2002,
+    "leadership": {
+      "founder": "G. Byron Brooks & Michael Gorton",
+      "founder_summary": "Pioneered commercial telehealth and 24/7 on-demand virtual medical consultations.",
+      "current_ceo": "Charles Divita III",
+      "company_background": "Headquartered in Purchase, New York. Global leader in whole-person virtual healthcare, encompassing primary care, chronic condition management, and digital mental health (BetterHelp)."
+    },
+    "executive_analysis_paragraph": "Between 2019 and 2024, Teladoc Health navigated the extreme highs of pandemic-driven digital healthcare adoption and the devastating aftermath of overvalued merger acquisitions. In 2020-2021, Teladoc experienced a historic market pump: total virtual consultations surged 156% to 10.6 million visits in 2020, annual revenue doubled past $2B, and the stock soared to an all-time peak of $308, culminating in the monumental $18.5B acquisition of chronic care provider Livongo Health. However, during 2022-2023, Teladoc suffered an unprecedented financial downfall: post-lockdown reopening returned patients to physical clinics, digital mental health direct-to-consumer advertising costs (BetterHelp CAC) exploded on social media platforms, and Teladoc was forced to record a catastrophic $13.4B goodwill impairment charge in 2022, resulting in a 95% stock collapse and board leadership shakeup. In response, incoming leadership executed a rigorous operational turnaround: writing off underwater goodwill to clean up the balance sheet, replacing the CEO, slashing $85M+ in redundant operational and marketing expenses, and pivoting sales focus toward high-margin B2B enterprise health plan contracts (Integrated Care, virtual primary care, and GLP-1 weight management programs). By 2024, Teladoc restored positive annual free cash flow ($190M+), expanded adjusted EBITDA margins to 16%, and stabilized its whole-person virtual care enterprise.",
+    "six_year_downfalls_and_pumps": [
+      {
+        "type": "Pump",
+        "period": "2020 - 2021",
+        "title": "Pandemic Telehealth Explosion & $18.5B Livongo Acquisition",
+        "move_data": "Virtual medical visits grew +156% to 10.6M in 2020; revenue grew +98% to $1.09B in 2020 and reached $2.03B in 2021; stock hit record $308 ($45B market cap).",
+        "reason_behind_move": "COVID-19 clinic closures forced immediate emergency adoption of virtual consultations by hospital systems, health insurers, and enterprise employers worldwide.",
+        "strategy_implemented": "Executed the landmark $18.5B mega-merger with Livongo Health to create a unified virtual care and chronic disease management giant, scaling primary care and mental health infrastructure.",
+        "outcome_paragraph": "Became the universal standard for digital clinical care across Fortune 500 employer health plans and major US health insurers."
+      },
+      {
+        "type": "Downfall",
+        "period": "2022 - 2023",
+        "title": "Catastrophic $13.4B Goodwill Impairment & DTC Ad Inflation Crisis",
+        "move_data": "Recorded $13.7B net loss in 2022 ($13.4B Livongo goodwill write-down); BetterHelp customer acquisition costs surged 40%; stock crashed 95% to $9.00.",
+        "reason_behind_move": "Massive overpayment for Livongo at the peak of the 2020 pandemic bubble, paired with intense social media advertising cost inflation for direct-to-consumer online therapy (BetterHelp) and post-lockdown return to in-person clinics.",
+        "strategy_implemented": "Recognized the non-cash goodwill impairment cleanly, removed long-term CEO Jason Gorevic, appointed Charles Divita, cut $85M in operating expenses, and shifted marketing budgets from consumer ad auctions to B2B enterprise benefit contracts.",
+        "outcome_paragraph": "Cleared toxic balance sheet intangibles and refocused the enterprise on self-sustaining cash flow generation."
+      },
+      {
+        "type": "Rebound",
+        "period": "2024",
+        "title": "Enterprise Integrated Care Scaling, GLP-1 Care & Cash Flow Optimization",
+        "move_data": "Free cash flow reached record $190M+; Adjusted EBITDA margin expanded to 16.0%; Integrated Care membership reached 92M+ US lives.",
+        "reason_behind_move": "Resilient demand from Fortune 500 employers for comprehensive virtual primary care and chronic condition programs (including clinical GLP-1 weight management), paired with disciplined marketing expense containment.",
+        "strategy_implemented": "Integrated AI clinical documentation to reduce doctor charting fatigue, bundled chronic disease management with virtual primary care, and expanded international enterprise operations.",
+        "outcome_paragraph": "Restored strong free cash flow profitability and cemented Teladoc as the leading enterprise virtual health infrastructure provider."
+      }
+    ],
+    "six_year_financials": [
+      {
+        "year": "2019",
+        "revenue_growth": 32,
+        "net_income_growth": -1.5,
+        "debt_growth": 15,
+        "cash_flow": 0.03,
+        "roe": -11.5,
+        "order_book": 0.6
+      },
+      {
+        "year": "2020",
+        "revenue_growth": 98,
+        "net_income_growth": -390,
+        "debt_growth": 180,
+        "cash_flow": -0.05,
+        "roe": -7.5,
+        "order_book": 1.4
+      },
+      {
+        "year": "2021",
+        "revenue_growth": 86,
+        "net_income_growth": 12,
+        "debt_growth": -2,
+        "cash_flow": 0.13,
+        "roe": -2.8,
+        "order_book": 2.2
+      },
+      {
+        "year": "2022",
+        "revenue_growth": 18.4,
+        "net_income_growth": -3100,
+        "debt_growth": 0.5,
+        "cash_flow": 0.19,
+        "roe": -320,
+        "order_book": 2.4
+      },
+      {
+        "year": "2023",
+        "revenue_growth": 8.1,
+        "net_income_growth": 84,
+        "debt_growth": -5,
+        "cash_flow": 0.22,
+        "roe": -9.8,
+        "order_book": 2.6
+      },
+      {
+        "year": "2024",
+        "revenue_growth": 2.5,
+        "net_income_growth": 45,
+        "debt_growth": -12,
+        "cash_flow": 0.28,
+        "roe": -3.5,
+        "order_book": 2.8
+      }
+    ],
+    "business_info": {
+      "major_projects": [
+        "Teladoc Integrated Care B2B Enterprise Suite",
+        "AI Clinical Documentation & Scribe Integration",
+        "Comprehensive GLP-1 Virtual Weight Management Program"
+      ],
+      "ongoing_projects": [
+        "BetterHelp International Expansion",
+        "Remote In-Home Health Monitoring Hardware Kits",
+        "Hospital Inpatient Virtual Nursing System"
+      ],
+      "collaborations": [
+        "Microsoft Azure OpenAI Clinical Collaboration",
+        "DexCom Continuous Glucose Monitor Sync",
+        "Major Health Plan Benefit Partnerships (Aetna, UnitedHealth)"
+      ],
+      "investments": [
+        "Livongo Chronic Management Integration",
+        "Clinical AI Note-Taking Models",
+        "International Telehealth Regulatory Licenses"
+      ],
+      "investment_sectors": [
+        "Virtual Primary Care",
+        "Chronic Condition AI Management",
+        "Digital Mental Health",
+        "Clinical AI Documentation"
+      ],
+      "major_corporate_events": [
+        {
+          "year": "2020",
+          "title": "Pandemic Surge & $18.5B Livongo Acquisition",
+          "impact": "Catapulted virtual visits past 10 million and created digital health giant"
+        },
+        {
+          "year": "2022",
+          "title": "$13.4B Goodwill Impairment Write-Down",
+          "impact": "Cleaned balance sheet following post-lockdown pandemic valuation collapse"
+        },
+        {
+          "year": "2023",
+          "title": "AI Scribe & Clinical Automation Rollout",
+          "impact": "Automated clinical visit charting to improve physician retention"
+        },
+        {
+          "year": "2024",
+          "title": "Leadership Restructuring & Free Cash Flow Boom",
+          "impact": "Charles Divita appointed CEO; generated record $190M+ free cash flow"
+        }
+      ]
+    },
+    "crisis_info": {
+      "crisis_title": "The $13.4B Goodwill Impairment & DTC Mental Health Advertising Inflation (2022-2023)",
+      "condition_summary": "Devastating $13.4B goodwill impairment following the Livongo mega-merger, customer acquisition cost inflation in direct-to-consumer therapy, and a 95% stock drop.",
+      "condition_keywords": [
+        "goodwill impairment",
+        "overvalued acquisition",
+        "customer acquisition cost",
+        "dtc ad inflation",
+        "b2b enterprise shift",
+        "ceo succession",
+        "free cash flow"
+      ],
+      "root_causes": [
+        "Paying an unsustainable $18.5B valuation multiple for Livongo Health at the peak of the 2020 pandemic bubble",
+        "Over-reliance on direct-to-consumer digital ad channels (BetterHelp) subject to sudden ad-cost inflation by competitors",
+        "Deceleration of pandemic-era telehealth consultation velocity as physical clinics reopened"
+      ],
+      "strategy_used": "Balance Sheet Clean-Up, Executive Succession & B2B Enterprise Health Plan Pivot",
+      "strategy_category": "Balance Sheet Restructuring & Channel Realignment",
+      "strategy_summary": "Recognized non-cash goodwill impairments cleanly, brought in operational leadership, cut $85M in overhead, and shifted growth focus from consumer ads to Fortune 500 employer benefit packages.",
+      "recommended_steps": [
+        {
+          "step_number": 1,
+          "phase": "Immediate Triage (Days 1-30)",
+          "title": "Clean Up Underwater Goodwill & Intangibles",
+          "action": "Take full non-cash impairment charges decisively in a single quarter rather than lingering under unrealistic valuation expectations.",
+          "risk_mitigation": "Reassure debt holders and clients that underlying operating cash flow remains positive."
+        },
+        {
+          "step_number": 2,
+          "phase": "Channel Pivot (Days 31-90)",
+          "title": "Shift from High-CAC Consumer Ads to B2B Contracts",
+          "action": "Pivot sales efforts toward long-term enterprise employer health plans that provide multi-year locked-in recurring subscriber revenue.",
+          "risk_mitigation": "Customize enterprise dashboards to prove tangible ROI and health outcome improvements to HR benefits managers."
+        },
+        {
+          "step_number": 3,
+          "phase": "Efficiency Engineering (Days 91-180)",
+          "title": "Deploy AI Automation to Lower Service Delivery Cost",
+          "action": "Implement AI-powered automated clinical notes and triage tools to increase physician consultation capacity and reduce operating burn.",
+          "risk_mitigation": "Maintain strict HIPAA and clinical accuracy compliance safeguards."
+        }
+      ],
+      "recovery_outcome": "Generated $190M+ in annual free cash flow, expanded EBITDA margins to 16%, and enrolled over 92 million Americans in Integrated Care by 2024.",
+      "recovery_status": "Fully Recovered"
+    },
+    "logo_url": "https://cdn.simpleicons.org/teladoc/5c2d91"
+  }
+]
