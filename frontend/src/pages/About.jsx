@@ -1144,11 +1144,11 @@ export default function About({
             },
             {
               id: 'startup-intel',
-              title: 'Startup Intel Evidence Matrix',
-              desc: 'Empirical cross-mapping showing real startup turnarounds validated by corporate benchmarks.',
+              title: 'Startup Intel (Vanished vs MNCs)',
+              desc: 'Empirical post-mortems of vanished visionary startups mapped to the MNC playbooks that conquered the same crisis.',
               icon: ShieldCheck,
               color: 'text-brand-rose',
-              btn: 'Inspect Evidence Matrix',
+              btn: 'Inspect Vanished vs MNC Matrix',
             },
             {
               id: 'graph-analysis',

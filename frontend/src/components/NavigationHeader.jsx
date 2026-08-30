@@ -20,7 +20,7 @@ const TAB_METADATA = {
   companies: { title: 'Companies Intelligence', icon: Building2, color: 'text-brand-indigo' },
   'search-condition': { title: 'Search Crisis Condition', icon: Search, color: 'text-brand-emerald' },
   'strategy-steps': { title: 'Strategy Steps Roadmap', icon: ListOrdered, color: 'text-brand-purple' },
-  'startup-intel': { title: 'Startup Intel Evidence', icon: ShieldCheck, color: 'text-brand-rose' },
+  'startup-intel': { title: 'Startup Intel (Vanished vs MNCs)', icon: ShieldCheck, color: 'text-brand-rose' },
   'investors-startups': { title: 'Investors & Startups', icon: Briefcase, color: 'text-brand-amber' },
   'graph-analysis': { title: 'Graph Analysis & Stock AI', icon: TrendingUp, color: 'text-blue-500' },
 };
@@ -28,15 +28,15 @@ const TAB_METADATA = {
 const COMPANY_NAMES = {
   apple: 'Apple Inc.',
   marvel: 'Marvel Entertainment',
-  netflix: 'Netflix',
+  netflix: 'Netflix Inc.',
   lego: 'The LEGO Group',
-  ibm: 'IBM',
-  tesla: 'Tesla Motors',
-  ford: 'Ford Motor Co.',
-  starbucks: 'Starbucks Corp.',
-  bestbuy: 'Best Buy',
-  general_motors: 'General Motors',
-  nintendo: 'Nintendo'
+  tesla: 'Tesla, Inc.',
+  ford: 'Ford Motor Company',
+  bestbuy: 'Best Buy Co., Inc.',
+  block: 'Block, Inc. (Square)',
+  paypal: 'PayPal Holdings, Inc.',
+  opendoor: 'Opendoor Technologies',
+  teladoc: 'Teladoc Health, Inc.'
 };
 
 export default function NavigationHeader({
