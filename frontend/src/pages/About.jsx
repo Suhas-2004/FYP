@@ -31,6 +31,7 @@ import {
 } from 'lucide-react';
 import CompanyLogo from '../components/CompanyLogo';
 import { MotionSection, StaggerContainer, StaggerItem } from '../components/MotionReveal';
+import GeoGlobe from '../components/earth-pulse/GeoGlobe';
 
 // ============================================================================
 // 1. NEURAL PARTICLE CANVAS COMPONENT
@@ -264,6 +265,17 @@ export default function About({
   selectedPersona,
   theme
 }) {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 20; // max 10px shift
+      const y = (e.clientY / window.innerHeight - 0.5) * 20; // max 10px shift
+      setMousePos({ x, y });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
   // Sandbox Simulator State
   const [runwayMonths, setRunwayMonths] = useState(6);
   const [burnMultiple, setBurnMultiple] = useState(2.8);
@@ -331,28 +343,40 @@ export default function About({
       {/* =========================================================================
           HERO SECTION: Holographic Cyber Title & Interactive Neural Canvas
           ========================================================================= */}
-      <section className="relative min-h-[620px] sm:min-h-[700px] rounded-3xl border border-slate-200/80 dark:border-slate-800/80 bg-gradient-to-b from-white via-slate-50/50 to-slate-100/60 dark:from-dark-900 dark:via-dark-950 dark:to-dark-950 overflow-hidden shadow-2xl transition-colors duration-300">
+      <section className="relative w-screen h-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] flex flex-col justify-center items-center overflow-hidden bg-[#03060f] -mt-8 mb-16">
         
-        {/* Dynamic Interactive Neural Particle Canvas */}
-        <NeuralCanvas theme={theme} />
+        {/* Interactive 3D Full-Screen Fixed Globe Background */}
+        <motion.div 
+          className="absolute inset-0 pointer-events-auto z-0 opacity-100 flex items-center justify-center"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ 
+            scale: 1, 
+            opacity: 1,
+            x: mousePos.x,
+            y: mousePos.y
+          }}
+          transition={{ duration: 1.5, ease: "easeOut", x: { type: "spring", stiffness: 50 }, y: { type: "spring", stiffness: 50 } }}
+          style={{
+            transformOrigin: 'center center'
+          }}
+        >
+           <GeoGlobe />
+        </motion.div>
 
         {/* Ambient Neon Atmosphere Orbs */}
         <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-brand-cyan/20 dark:bg-brand-cyan/15 rounded-full blur-[120px] pointer-events-none animate-pulse-slow" />
         <div className="absolute top-1/2 -right-32 w-[550px] h-[550px] bg-brand-indigo/20 dark:bg-brand-indigo/15 rounded-full blur-[140px] pointer-events-none animate-pulse-slow" style={{ animationDelay: '-3s' }} />
         <div className="absolute -bottom-32 left-1/3 w-[450px] h-[450px] bg-brand-emerald/15 dark:bg-brand-emerald/10 rounded-full blur-[130px] pointer-events-none animate-pulse-slow" style={{ animationDelay: '-1.5s' }} />
 
-        {/* Cyber Scanning Grid Overlay */}
-        <div className="absolute inset-0 cyber-grid pointer-events-none opacity-40 dark:opacity-60" />
-
         {/* Hero Content Box */}
-        <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-12 pt-12 sm:pt-16 pb-16 flex flex-col items-center text-center">
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-12 flex flex-col items-center text-center pointer-events-none">
           
           {/* Holographic Status Pill */}
           <motion.div
             initial={{ opacity: 0, y: -20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full bg-slate-900/90 dark:bg-dark-900/90 text-slate-100 border border-brand-cyan/40 shadow-glow-cyan/50 backdrop-blur-xl text-xs font-mono mb-8"
+            className="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full bg-slate-900/90 dark:bg-dark-900/90 text-slate-100 border border-brand-cyan/40 shadow-glow-cyan/50 backdrop-blur-xl text-xs font-mono mb-8 pointer-events-auto"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75"></span>
@@ -368,7 +392,7 @@ export default function About({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl sm:text-6xl lg:text-7xl font-heading font-black tracking-tight text-slate-900 dark:text-white leading-[1.08] max-w-4xl"
+            className="text-4xl sm:text-6xl lg:text-7xl font-heading font-black tracking-tight text-slate-900 dark:text-white leading-[1.08] max-w-4xl pointer-events-auto"
           >
             Corporate Turnaround Intelligence, <br className="hidden sm:inline" />
             <span className="bg-gradient-to-r from-brand-cyan via-emerald-400 to-brand-indigo bg-clip-text text-transparent drop-shadow-sm">
@@ -381,7 +405,7 @@ export default function About({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-6 text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed font-normal"
+            className="mt-6 text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed font-normal pointer-events-auto"
           >
             <strong>ICLAS</strong> bridges the gap between historical corporate titans and early-stage ventures. Powered by <strong>Case-Based Reasoning (CBR)</strong>, longitudinal crisis forensics, and vector similarity models, we transform legendary corporate turnarounds into actionable survival playbooks.
           </motion.p>
@@ -391,7 +415,7 @@ export default function About({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-5"
+            className="mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-5 pointer-events-auto"
           >
             {/* Primary CTA: Launch Platform */}
             <motion.button
@@ -437,7 +461,7 @@ export default function About({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 w-full max-w-4xl"
+            className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 w-full max-w-4xl pointer-events-auto"
           >
             {[
               { label: 'Corporate Titans', val: '11 Benchmarks', sub: 'Longitudinal Data (T-3 to T+3)', icon: Building2, color: 'text-brand-cyan' },
