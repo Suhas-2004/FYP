@@ -29,6 +29,7 @@ const ANIM_DURATION = 0.35; // in seconds
 const NAV_ITEMS = [
   { id: 'about', label: 'About', icon: Sparkles },
   { id: 'overview', label: 'Overview', icon: Layers },
+  { id: 'market-dashboard', label: 'Market Dashboard', icon: Activity },
   { id: 'companies', label: 'Companies', icon: Building2 },
   { id: 'search-condition', label: 'Search Condition', icon: Search },
   { id: 'strategy-steps', label: 'Strategy Steps', icon: ListOrdered },

@@ -10,10 +10,12 @@ import Companies from './pages/Companies';
 import StartupIntel from './pages/StartupIntel';
 import InvestorsStartups from './pages/InvestorsStartups';
 import GraphAnalysis from './pages/GraphAnalysis';
+import MarketDashboard from './pages/MarketDashboard';
 
 const VALID_TABS = [
   'about',
   'overview',
+  'market-dashboard',
   'companies',
   'search-condition',
   'strategy-steps',
@@ -195,6 +197,10 @@ export default function App() {
                 selectedPersona={selectedPersona}
                 theme={theme}
               />
+            )}
+
+            {activeTab === 'market-dashboard' && (
+              <MarketDashboard />
             )}
 
             {activeTab === 'search-condition' && (
