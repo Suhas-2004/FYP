@@ -1,0 +1,45 @@
+### 👑 Person 1 (Team Lead) Commands
+
+1. Creating the Project (Only done once at the very beginning)
+git init
+git add .
+git commit -m "Initial project"
+git remote add origin <github-repo-url>
+git push -u origin main
+
+2. Working on a Feature
+git switch -c lead-feature-branch
+# ... make code changes ...
+git add .
+git commit -m "Added my feature"
+git push -u origin lead-feature-branch
+
+3. Merging Their Feature into Main
+git switch main
+git pull origin main    # Always safe to pull before merging
+git merge lead-feature-branch
+git push origin main
+
+---
+
+### 👨‍💻 Person 2 (You) Commands
+
+1. Downloading the Project (Only done once at the very beginning)
+git clone <github-repo-url>
+
+2. Starting Your Day (Getting the Lead's updates)
+git switch main
+git pull origin main
+
+3. Working on Your Feature
+git switch -c your-feature-branch
+# ... make code changes ...
+git add .
+git commit -m "Added my feature"
+git push -u origin your-feature-branch
+
+4. Merging Your Feature into Main
+git switch main
+git pull origin main    # CRITICAL: Get any updates the lead made while you were working
+git merge your-feature-branch
+git push origin main

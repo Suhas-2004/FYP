@@ -10,6 +10,7 @@ import Companies from './pages/Companies';
 import StartupIntel from './pages/StartupIntel';
 import InvestorsStartups from './pages/InvestorsStartups';
 import GraphAnalysis from './pages/GraphAnalysis';
+import MarketDashboard from './pages/MarketDashboard';
 
 const VALID_TABS = [
   'about',
@@ -19,7 +20,8 @@ const VALID_TABS = [
   'strategy-steps',
   'startup-intel',
   'investors-startups',
-  'graph-analysis'
+  'graph-analysis',
+  'market-dashboard'
 ];
 
 function parseHash(hashStr) {
@@ -242,6 +244,10 @@ export default function App() {
               <GraphAnalysis 
                 theme={theme}
               />
+            )}
+
+            {activeTab === 'market-dashboard' && (
+              <MarketDashboard />
             )}
           </motion.div>
         </AnimatePresence>
