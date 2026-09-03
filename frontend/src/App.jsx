@@ -21,7 +21,8 @@ const VALID_TABS = [
   'strategy-steps',
   'startup-intel',
   'investors-startups',
-  'graph-analysis'
+  'graph-analysis',
+  'market-dashboard'
 ];
 
 function parseHash(hashStr) {
@@ -248,6 +249,10 @@ export default function App() {
               <GraphAnalysis 
                 theme={theme}
               />
+            )}
+
+            {activeTab === 'market-dashboard' && (
+              <MarketDashboard />
             )}
           </motion.div>
         </AnimatePresence>
