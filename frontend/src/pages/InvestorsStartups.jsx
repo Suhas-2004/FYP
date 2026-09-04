@@ -97,7 +97,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
       <MotionSection direction="down" duration={0.5}>
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200/80 dark:border-slate-800/80 pb-6">
           <div>
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-indigo/10 border border-brand-indigo/30 text-brand-indigo text-xs font-semibold mb-2">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-amber/10 border border-brand-amber/30 text-brand-caramel dark:text-brand-amber text-xs font-semibold mb-2">
               <Briefcase className="w-3.5 h-3.5" />
               <span>Dual-Portal Dealflow & Pitch Ecosystem</span>
             </div>
@@ -115,7 +115,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
               onClick={() => setViewMode('investor-explore')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center space-x-2 ${
                 viewMode === 'investor-explore'
-                  ? 'bg-gradient-to-r from-brand-indigo to-brand-purple text-white shadow-glow-indigo'
+                  ? 'bg-gradient-to-r from-brand-amber to-brand-caramel text-white shadow-glow-amber'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
@@ -126,7 +126,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
               onClick={() => setViewMode('startup-submit')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center space-x-2 ${
                 viewMode === 'startup-submit'
-                  ? 'bg-gradient-to-r from-brand-cyan to-brand-indigo text-white shadow-glow-cyan'
+                  ? 'bg-gradient-to-r from-brand-caramel to-brand-terracotta text-white shadow-glow-terracotta'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
@@ -153,7 +153,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                     onClick={() => setIndustryFilter(ind)}
                     className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
                       industryFilter === ind
-                        ? 'bg-brand-indigo text-white font-bold shadow-sm'
+                        ? 'bg-brand-amber text-white font-bold shadow-sm'
                         : 'bg-white/90 dark:bg-dark-950/90 text-slate-700 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200/80 dark:border-slate-800/80'
                     }`}
                   >
@@ -167,7 +167,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                 <select
                   value={potentialFilter}
                   onChange={(e) => setPotentialFilter(e.target.value)}
-                  className="px-3 py-1.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-xs text-slate-900 dark:text-slate-200 focus:outline-none focus:border-brand-indigo shadow-sm font-medium"
+                  className="px-3 py-1.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-xs text-slate-900 dark:text-slate-200 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
                 >
                   <option value="All">All Tiers</option>
                   <option value="High">High Potential</option>
@@ -198,7 +198,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                       onClick={() => setSelectedStartup(s)}
                       className={`p-5 rounded-2xl border transition-all duration-200 cursor-pointer ${
                         isSelected
-                          ? 'bg-indigo-50/80 dark:bg-dark-850 border-brand-indigo shadow-glow-indigo'
+                          ? 'bg-amber-50/80 dark:bg-dark-850 border-brand-amber shadow-glow-amber'
                           : 'glass-panel hover:bg-slate-50 dark:hover:bg-dark-900 border-slate-200/80 dark:border-slate-800/80 shadow-sm'
                       }`}
                     >
@@ -213,7 +213,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                         </span>
                       </div>
 
-                      <div className="text-xs text-brand-indigo font-bold mb-2">
+                      <div className="text-xs text-brand-caramel dark:text-brand-amber font-bold mb-2">
                         {s.industry} • <span className="text-slate-600 dark:text-slate-300 font-normal">{s.tagline}</span>
                       </div>
 
@@ -237,7 +237,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                       <div>
                         <div className="flex items-center space-x-2">
                           <h2 className="text-2xl font-heading font-bold text-slate-900 dark:text-white">{selectedStartup.name}</h2>
-                          <span className="px-2 py-0.5 text-xs font-mono font-bold bg-brand-indigo/20 text-brand-indigo rounded border border-brand-indigo/40">
+                          <span className="px-2 py-0.5 text-xs font-mono font-bold bg-brand-amber/15 text-brand-caramel dark:text-brand-amber rounded border border-brand-amber/40">
                             {selectedStartup.industry}
                           </span>
                         </div>
@@ -250,7 +250,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                         whileHover={{ scale: 1.02, translateY: -1 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={() => setContactingStartup(selectedStartup)}
-                        className="flex items-center space-x-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-indigo hover:opacity-95 text-white font-bold text-xs shadow-glow-cyan transition-all"
+                        className="flex items-center space-x-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-brand-amber via-brand-caramel to-brand-terracotta hover:opacity-95 text-white font-bold text-xs shadow-glow-amber transition-all"
                       >
                         <Mail className="w-4 h-4" />
                         <span>Contact Startup</span>
@@ -273,7 +273,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
 
                       <div className="p-3.5 rounded-2xl bg-white/90 dark:bg-dark-950/90 border border-slate-200/80 dark:border-slate-800/80 shadow-sm">
                         <span className="text-slate-500 dark:text-slate-400 block text-[10px] uppercase font-mono">Projected Returns</span>
-                        <strong className="text-brand-purple text-xs">{selectedStartup.expected_returns}</strong>
+                        <strong className="text-brand-terracotta font-bold text-xs">{selectedStartup.expected_returns}</strong>
                         <div className="text-[11px] text-slate-500 dark:text-slate-400">5-Yr Horizon</div>
                       </div>
                     </div>
@@ -311,13 +311,13 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                             Business Model & Monetization
                           </span>
                           <p className="text-slate-800 dark:text-slate-300 font-medium">{selectedStartup.business_model}</p>
-                          <p className="text-[11px] text-brand-indigo font-semibold pt-1">Future Potential: {selectedStartup.future_potential}</p>
+                          <p className="text-[11px] text-brand-caramel dark:text-brand-amber font-semibold pt-1">Future Potential: {selectedStartup.future_potential}</p>
                         </div>
                       </div>
 
                       {selectedStartup.supporting_info && (
-                        <div className="p-3.5 rounded-2xl bg-brand-cyan/5 border border-brand-cyan/20 text-[11px] text-slate-700 dark:text-slate-300">
-                          <strong className="text-brand-cyan font-bold">Traction & Validation:</strong> {selectedStartup.supporting_info}
+                        <div className="p-3.5 rounded-2xl bg-brand-amber/10 border border-brand-amber/30 text-[11px] text-slate-800 dark:text-slate-200">
+                          <strong className="text-brand-caramel dark:text-brand-amber font-bold">Traction & Validation:</strong> {selectedStartup.supporting_info}
                         </div>
                       )}
                     </div>
@@ -369,7 +369,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                       placeholder="e.g. Apex BioTech"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-cyan shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
                     />
                   </div>
 
@@ -378,7 +378,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                     <select
                       value={formData.industry}
                       onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 focus:outline-none focus:border-brand-cyan shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
                     >
                       <option value="FinTech">FinTech</option>
                       <option value="Healthcare">Healthcare</option>
@@ -398,7 +398,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                       placeholder="e.g. AI-driven precision therapeutics platform"
                       value={formData.tagline}
                       onChange={(e) => setFormData({ ...formData, tagline: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-cyan shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
                     />
                   </div>
                 </div>
@@ -413,7 +413,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                       placeholder="e.g. Alex Morgan & Taylor S."
                       value={formData.founder_name}
                       onChange={(e) => setFormData({ ...formData, founder_name: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-cyan shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
                     />
                   </div>
 
@@ -424,7 +424,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                       placeholder="e.g. CEO (Ex-Google AI / Stanford PhD)"
                       value={formData.founder_title}
                       onChange={(e) => setFormData({ ...formData, founder_title: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-cyan shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
                     />
                   </div>
 
@@ -436,7 +436,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                       placeholder="e.g. founders@startup.com"
                       value={formData.founder_email}
                       onChange={(e) => setFormData({ ...formData, founder_email: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-cyan shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
                     />
                   </div>
                 </div>
@@ -451,7 +451,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                       placeholder="Describe the severe market friction, cost inefficiency, or technical limitation..."
                       value={formData.problem_solved}
                       onChange={(e) => setFormData({ ...formData, problem_solved: e.target.value })}
-                      className="w-full p-3.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-cyan resize-none shadow-sm font-medium"
+                      className="w-full p-3.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber resize-none shadow-sm font-medium"
                     />
                   </div>
 
@@ -463,7 +463,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                       placeholder="Detail your proprietary product, tech architecture, or service innovation..."
                       value={formData.proposed_solution}
                       onChange={(e) => setFormData({ ...formData, proposed_solution: e.target.value })}
-                      className="w-full p-3.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-cyan resize-none shadow-sm font-medium"
+                      className="w-full p-3.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber resize-none shadow-sm font-medium"
                     />
                   </div>
                 </div>
@@ -478,7 +478,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                       placeholder="e.g. Global B2B Fintechs ($42B TAM)"
                       value={formData.target_market}
                       onChange={(e) => setFormData({ ...formData, target_market: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-cyan shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
                     />
                   </div>
 
@@ -490,7 +490,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                       placeholder="e.g. Drop-in REST SDK & Webhooks"
                       value={formData.expected_usability}
                       onChange={(e) => setFormData({ ...formData, expected_usability: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-cyan shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
                     />
                   </div>
 
@@ -502,7 +502,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                       placeholder="e.g. SaaS Tier ($2,500/mo) + 1% GMV"
                       value={formData.business_model}
                       onChange={(e) => setFormData({ ...formData, business_model: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-cyan shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
                     />
                   </div>
                 </div>
@@ -517,7 +517,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                       placeholder="e.g. $2,000,000 (Seed Round)"
                       value={formData.funding_requirement}
                       onChange={(e) => setFormData({ ...formData, funding_requirement: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-cyan shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
                     />
                   </div>
 
@@ -529,7 +529,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                       placeholder="e.g. 10x-15x projected return over 5 years"
                       value={formData.expected_returns}
                       onChange={(e) => setFormData({ ...formData, expected_returns: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-cyan shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
                     />
                   </div>
                 </div>
@@ -541,7 +541,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                     placeholder="e.g. 10 beta pilot customers, $40k MRR, 2 patents pending"
                     value={formData.supporting_info}
                     onChange={(e) => setFormData({ ...formData, supporting_info: e.target.value })}
-                    className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-cyan shadow-sm font-medium"
+                    className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
                   />
                 </div>
 
@@ -558,7 +558,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                     whileTap={{ scale: 0.98 }}
                     type="submit"
                     disabled={submitting}
-                    className="flex items-center space-x-2 px-8 py-2.5 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-indigo hover:opacity-95 text-white font-bold shadow-glow-cyan transition-all disabled:opacity-50"
+                    className="flex items-center space-x-2 px-8 py-2.5 rounded-xl bg-gradient-to-r from-brand-amber via-brand-caramel to-brand-terracotta hover:opacity-95 text-white font-bold shadow-glow-amber transition-all disabled:opacity-50"
                   >
                     <Send className="w-4 h-4" />
                     <span>{submitting ? 'Registering Pitch...' : 'Register Pitch in Dealflow'}</span>

@@ -60,8 +60,8 @@ function NeuralCanvas({ theme }) {
     const particles = [];
 
     const isDark = theme === 'dark' || document.documentElement.classList.contains('dark');
-    const baseColor = isDark ? '6, 182, 212' : '14, 165, 233'; // Cyan / Sky
-    const altColor = isDark ? '99, 102, 241' : '79, 70, 229'; // Indigo
+    const baseColor = isDark ? '217, 119, 6' : '180, 83, 9'; // Amber / Caramel Gold
+    const altColor = isDark ? '224, 90, 54' : '194, 65, 12'; // Terracotta / Copper
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
@@ -92,8 +92,22 @@ function NeuralCanvas({ theme }) {
     canvas.addEventListener('mousemove', handleMouseMove);
     canvas.addEventListener('mouseleave', handleMouseLeave);
 
+    let isVisible = true;
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+      if (isVisible) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = requestAnimationFrame(render);
+      } else {
+        cancelAnimationFrame(animationFrameId);
+      }
+    }, { threshold: 0.05 });
+
+    observer.observe(canvas);
+
     // Animation Loop
     const render = () => {
+      if (!isVisible) return;
       ctx.clearRect(0, 0, width, height);
 
       // Draw particle connections
@@ -149,6 +163,7 @@ function NeuralCanvas({ theme }) {
     render();
 
     return () => {
+      observer.disconnect();
       window.removeEventListener('resize', handleResize);
       if (canvas) {
         canvas.removeEventListener('mousemove', handleMouseMove);
@@ -180,7 +195,7 @@ const TITAN_CASES = [
     dropDetail: '-75% revenue decline, 3,000 redundancies, fragmented 20+ SKU portfolio.',
     recoveryCatalyst: 'The $150M Microsoft Lifeline, radical SKU simplification to 4 quadrants, and the iMac & iPod ecosystem pivot.',
     growthMultiple: '500x+ Value Expansion ($3T+ Peak)',
-    color: 'from-cyan-500 to-blue-600',
+    color: 'from-amber-500 to-orange-600',
     logoColor: '#000000',
     tags: ['Tech & Hardware', 'SKU Simplification', 'Ecosystem Pivot']
   },
@@ -265,17 +280,6 @@ export default function About({
   selectedPersona,
   theme
 }) {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 20; // max 10px shift
-      const y = (e.clientY / window.innerHeight - 0.5) * 20; // max 10px shift
-      setMousePos({ x, y });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
   // Sandbox Simulator State
   const [runwayMonths, setRunwayMonths] = useState(6);
   const [burnMultiple, setBurnMultiple] = useState(2.8);
@@ -341,32 +345,31 @@ export default function About({
     <div className="space-y-16 sm:space-y-24 pb-20 overflow-x-hidden">
       
       {/* =========================================================================
-          HERO SECTION: Holographic Cyber Title & Interactive Neural Canvas
+          HERO SECTION: Holographic Cyber Title & Interactive 3D Earth Background
           ========================================================================= */}
-      <section className="relative w-screen h-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] flex flex-col justify-center items-center overflow-hidden bg-[#03060f] -mt-8 mb-16">
+      <section className="relative w-screen min-h-[95vh] lg:min-h-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] flex flex-col justify-center items-center overflow-hidden bg-[#120c08] -mt-8 mb-16 py-12 sm:py-16">
         
-        {/* Interactive 3D Full-Screen Fixed Globe Background */}
+        {/* Interactive 3D Full-Screen Fixed Globe Background (100% luminous & visible, GPU composited) */}
         <motion.div 
-          className="absolute inset-0 pointer-events-auto z-0 opacity-100 flex items-center justify-center"
+          className="absolute inset-0 pointer-events-auto z-0 opacity-100 flex items-center justify-center will-change-transform"
           initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ 
-            scale: 1, 
-            opacity: 1,
-            x: mousePos.x,
-            y: mousePos.y
-          }}
-          transition={{ duration: 1.5, ease: "easeOut", x: { type: "spring", stiffness: 50 }, y: { type: "spring", stiffness: 50 } }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
           style={{
-            transformOrigin: 'center center'
+            transformOrigin: 'center center',
+            transform: 'translateZ(0)'
           }}
         >
            <GeoGlobe />
         </motion.div>
 
-        {/* Ambient Neon Atmosphere Orbs */}
-        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-brand-cyan/20 dark:bg-brand-cyan/15 rounded-full blur-[120px] pointer-events-none animate-pulse-slow" />
-        <div className="absolute top-1/2 -right-32 w-[550px] h-[550px] bg-brand-indigo/20 dark:bg-brand-indigo/15 rounded-full blur-[140px] pointer-events-none animate-pulse-slow" style={{ animationDelay: '-3s' }} />
-        <div className="absolute -bottom-32 left-1/3 w-[450px] h-[450px] bg-brand-emerald/15 dark:bg-brand-emerald/10 rounded-full blur-[130px] pointer-events-none animate-pulse-slow" style={{ animationDelay: '-1.5s' }} />
+        {/* Ambient Warm Golden Amber Atmosphere Orbs (GPU composited) */}
+        <div className="absolute -top-32 -left-32 w-[450px] h-[450px] bg-amber-500/20 rounded-full blur-[80px] pointer-events-none animate-pulse-slow will-change-transform" />
+        <div className="absolute top-1/2 -right-32 w-[450px] h-[450px] bg-orange-600/20 rounded-full blur-[90px] pointer-events-none animate-pulse-slow will-change-transform" style={{ animationDelay: '-3s' }} />
+        <div className="absolute -bottom-32 left-1/3 w-[400px] h-[400px] bg-amber-600/15 rounded-full blur-[80px] pointer-events-none animate-pulse-slow will-change-transform" style={{ animationDelay: '-1.5s' }} />
+
+        {/* Seamless Bottom Section Transition Fade to Light Coffee / Dark Roast */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 z-[1] bg-gradient-to-t from-[#120c08] to-transparent pointer-events-none" />
 
         {/* Hero Content Box */}
         <div className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-12 flex flex-col items-center text-center pointer-events-none">
@@ -376,38 +379,41 @@ export default function About({
             initial={{ opacity: 0, y: -20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full bg-slate-900/90 dark:bg-dark-900/90 text-slate-100 border border-brand-cyan/40 shadow-glow-cyan/50 backdrop-blur-xl text-xs font-mono mb-8 pointer-events-auto"
+            className="inline-flex items-center space-x-2.5 px-4 py-2 rounded-full bg-[#1c120c]/85 text-amber-200 border border-amber-500/40 shadow-[0_0_20px_rgba(217,119,6,0.35)] backdrop-blur-md text-xs font-mono mb-6 sm:mb-8 pointer-events-auto"
           >
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-cyan"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400 shadow-[0_0_8px_#f59e0b]"></span>
             </span>
-            <span className="text-brand-cyan font-bold tracking-wider">ICLAS AI ENGINE</span>
-            <span className="text-slate-500">•</span>
-            <span className="text-slate-300">HISTORICAL CORPORATE INTELLIGENCE // ONLINE</span>
+            <span className="text-amber-400 font-bold tracking-wider">ICLAS AI ENGINE</span>
+            <span className="text-amber-600">•</span>
+            <span className="text-[#fdfaf5] font-medium">HISTORICAL CORPORATE INTELLIGENCE // ONLINE</span>
           </motion.div>
 
-          {/* Main Giant Cyber Headline */}
+          {/* Main Giant Cyber Headline with Crisp Multi-Layer Text Shadows */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl sm:text-6xl lg:text-7xl font-heading font-black tracking-tight text-slate-900 dark:text-white leading-[1.08] max-w-4xl pointer-events-auto"
+            className="text-4xl sm:text-6xl lg:text-7xl font-heading font-black tracking-tight text-white leading-[1.1] max-w-4xl pointer-events-auto [text-shadow:_0_3px_16px_rgba(0,0,0,0.95),_0_0_30px_rgba(18,12,8,0.9)]"
           >
             Corporate Turnaround Intelligence, <br className="hidden sm:inline" />
-            <span className="bg-gradient-to-r from-brand-cyan via-emerald-400 to-brand-indigo bg-clip-text text-transparent drop-shadow-sm">
+            <span className="bg-gradient-to-r from-amber-300 via-orange-300 to-amber-400 bg-clip-text text-transparent [text-shadow:_0_0_35px_rgba(217,119,6,0.8)] filter drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
               Engineered for Startup Survival.
             </span>
           </motion.h1>
 
-          {/* Subtitle Description */}
+          {/* Subtitle Description with Highlight Badges and Crisp Legibility */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-6 text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed font-normal pointer-events-auto"
+            className="mt-6 text-base sm:text-lg lg:text-xl text-[#fdfaf5] max-w-3xl leading-relaxed font-normal pointer-events-auto [text-shadow:_0_2px_12px_rgba(0,0,0,0.95),_0_0_20px_rgba(18,12,8,0.85)]"
           >
-            <strong>ICLAS</strong> bridges the gap between historical corporate titans and early-stage ventures. Powered by <strong>Case-Based Reasoning (CBR)</strong>, longitudinal crisis forensics, and vector similarity models, we transform legendary corporate turnarounds into actionable survival playbooks.
+            <span className="font-bold text-amber-300 bg-[#28180f]/80 border border-amber-500/40 px-2 py-0.5 rounded-md backdrop-blur-sm mr-1.5 shadow-sm">ICLAS</span> 
+            bridges the gap between historical corporate titans and early-stage ventures. Powered by 
+            <span className="font-semibold text-orange-300 bg-[#28180f]/80 border border-orange-500/40 px-2 py-0.5 rounded-md backdrop-blur-sm mx-1.5 shadow-sm">Case-Based Reasoning (CBR)</span>, 
+            longitudinal crisis forensics, and vector similarity models, we transform legendary corporate turnarounds into actionable survival playbooks.
           </motion.p>
 
           {/* Futuristic Interactive Action CTAs */}
@@ -415,14 +421,14 @@ export default function About({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-5 pointer-events-auto"
+            className="mt-9 flex flex-wrap items-center justify-center gap-4 sm:gap-5 pointer-events-auto"
           >
             {/* Primary CTA: Launch Platform */}
             <motion.button
               whileHover={{ scale: 1.04, translateY: -2 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => setActiveTab('overview')}
-              className="relative group overflow-hidden px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-cyan via-blue-600 to-brand-indigo text-white font-heading font-bold text-base shadow-glow-cyan transition-all flex items-center space-x-3"
+              className="relative group overflow-hidden px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white font-heading font-bold text-base shadow-[0_0_30px_rgba(217,119,6,0.5)] hover:shadow-[0_0_45px_rgba(217,119,6,0.8)] border border-amber-300/40 transition-all flex items-center space-x-3"
             >
               <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <Activity className="w-5 h-5 text-white animate-pulse" />
@@ -438,9 +444,9 @@ export default function About({
                 const el = document.getElementById('crisis-simulator-sandbox');
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="px-7 py-4 rounded-2xl bg-white/80 dark:bg-dark-850/80 hover:bg-slate-100 dark:hover:bg-dark-800 border border-slate-300/80 dark:border-slate-700/80 text-slate-800 dark:text-slate-100 font-heading font-semibold text-base shadow-md backdrop-blur-xl transition-all flex items-center space-x-2.5"
+              className="px-7 py-4 rounded-2xl bg-[#1c120c]/80 hover:bg-[#28180f]/95 border border-amber-500/40 hover:border-amber-400 text-[#fdfaf5] font-heading font-semibold text-base shadow-[0_4px_20px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all flex items-center space-x-2.5"
             >
-              <Sliders className="w-5 h-5 text-brand-cyan" />
+              <Sliders className="w-5 h-5 text-amber-400" />
               <span>Try Crisis Simulator</span>
             </motion.button>
 
@@ -449,42 +455,44 @@ export default function About({
               whileHover={{ scale: 1.04, translateY: -2 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => setActiveTab('companies')}
-              className="px-6 py-4 rounded-2xl bg-slate-100/80 dark:bg-dark-900/60 hover:bg-slate-200 dark:hover:bg-dark-800 border border-transparent text-slate-700 dark:text-slate-300 font-heading font-medium text-sm transition-all flex items-center space-x-2"
+              className="px-6 py-4 rounded-2xl bg-[#1c120c]/65 hover:bg-[#28180f]/90 border border-[#382417] hover:border-amber-500/60 text-amber-200 hover:text-white font-heading font-medium text-sm backdrop-blur-md transition-all flex items-center space-x-2"
             >
-              <Building2 className="w-4 h-4 text-brand-indigo" />
+              <Building2 className="w-4 h-4 text-amber-400" />
               <span>11 Benchmark Titans</span>
             </motion.button>
           </motion.div>
 
-          {/* Real-time Telemetry Stat Cards */}
+          {/* Real-time Telemetry Stat Cards with Translucent Frosted Glass (Globe visible underneath) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 w-full max-w-4xl pointer-events-auto"
+            className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 w-full max-w-4xl pointer-events-auto"
           >
             {[
-              { label: 'Corporate Titans', val: '11 Benchmarks', sub: 'Longitudinal Data (T-3 to T+3)', icon: Building2, color: 'text-brand-cyan' },
-              { label: 'Decision Engine', val: 'Vector CBR', sub: 'Cosine Metric Similarity', icon: Cpu, color: 'text-brand-indigo' },
-              { label: 'Turnaround Archetypes', val: '3 Stages', sub: 'Stabilize • Pivot • Scale', icon: ListOrdered, color: 'text-brand-emerald' },
-              { label: 'Forensic Depth', val: '6 Years', sub: 'Downfall to Peak Recovery', icon: TrendingUp, color: 'text-brand-purple' },
+              { label: 'Corporate Titans', val: '11 Benchmarks', sub: 'Longitudinal Data (T-3 to T+3)', icon: Building2, color: 'text-amber-400', glow: 'hover:border-amber-500/50 hover:shadow-[0_0_25px_rgba(217,119,6,0.4)]' },
+              { label: 'Decision Engine', val: 'Vector CBR', sub: 'Cosine Metric Similarity', icon: Cpu, color: 'text-orange-400', glow: 'hover:border-orange-500/50 hover:shadow-[0_0_25px_rgba(224,90,54,0.4)]' },
+              { label: 'Turnaround Archetypes', val: '3 Stages', sub: 'Stabilize • Pivot • Scale', icon: ListOrdered, color: 'text-amber-300', glow: 'hover:border-amber-400/50 hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]' },
+              { label: 'Forensic Depth', val: '6 Years', sub: 'Downfall to Peak Recovery', icon: TrendingUp, color: 'text-rose-400', glow: 'hover:border-rose-500/50 hover:shadow-[0_0_25px_rgba(244,63,94,0.35)]' },
             ].map((stat, idx) => {
               const Icon = stat.icon;
               return (
                 <div
                   key={idx}
-                  className="p-4 sm:p-5 rounded-2xl bg-white/70 dark:bg-dark-900/70 border border-slate-200/80 dark:border-slate-800/80 backdrop-blur-xl shadow-sm text-left transition-transform hover:-translate-y-1"
+                  className={`p-4 sm:p-5 rounded-2xl bg-[#1c120c]/70 hover:bg-[#28180f]/90 border border-[#382417] backdrop-blur-md shadow-[0_8px_25px_rgb(0,0,0,0.5)] text-left transition-all hover:-translate-y-1 ${stat.glow}`}
                 >
-                  <div className="flex items-center space-x-2 mb-1">
-                    <Icon className={`w-4 h-4 ${stat.color}`} />
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                  <div className="flex items-center space-x-2 mb-1.5">
+                    <div className="p-1 rounded-lg bg-white/5 border border-white/10">
+                      <Icon className={`w-4 h-4 ${stat.color}`} />
+                    </div>
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-amber-200/80 font-semibold">
                       {stat.label}
                     </span>
                   </div>
-                  <div className="text-xl sm:text-2xl font-heading font-black text-slate-900 dark:text-white">
+                  <div className="text-xl sm:text-2xl font-heading font-black text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                     {stat.val}
                   </div>
-                  <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 font-normal truncate">
+                  <div className="text-[11px] text-amber-200/70 mt-1 font-normal truncate">
                     {stat.sub}
                   </div>
                 </div>
@@ -500,31 +508,31 @@ export default function About({
           ========================================================================= */}
       <section id="crisis-simulator-sandbox" className="scroll-mt-24">
         <MotionSection direction="up" duration={0.6}>
-          <div className="relative rounded-3xl border border-slate-200/80 dark:border-slate-800/80 bg-gradient-to-br from-slate-900 via-dark-950 to-slate-950 text-white p-6 sm:p-10 lg:p-12 shadow-2xl overflow-hidden">
+          <div className="relative rounded-3xl border border-[#dcceb9] dark:border-slate-800/80 bg-gradient-to-br from-[#1a110a] via-[#120c08] to-[#1f140d] text-white p-6 sm:p-10 lg:p-12 shadow-2xl overflow-hidden">
             
             {/* Ambient Holographic Ring */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-brand-cyan/15 rounded-full blur-[100px] pointer-events-none animate-pulse-slow" />
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-indigo/15 rounded-full blur-[100px] pointer-events-none animate-pulse-slow" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/15 rounded-full blur-[110px] pointer-events-none animate-pulse-slow" />
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-600/15 rounded-full blur-[110px] pointer-events-none animate-pulse-slow" />
 
             <div className="relative z-10">
               
               {/* Header */}
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 border-b border-slate-800">
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 border-b border-[#3d2719]">
                 <div>
-                  <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-cyan/20 border border-brand-cyan/40 text-brand-cyan text-xs font-mono mb-3">
+                  <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-mono mb-3">
                     <Sliders className="w-3.5 h-3.5" />
                     <span>INTERACTIVE TELEMETRY SANDBOX</span>
                   </div>
                   <h2 className="text-2xl sm:text-4xl font-heading font-extrabold text-white">
                     Simulate Your Startup's Crisis Vector
                   </h2>
-                  <p className="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl font-normal">
+                  <p className="text-amber-100/70 text-sm sm:text-base mt-2 max-w-2xl font-normal">
                     Adjust real-world startup distress parameters to see which corporate titan experienced the exact same crisis condition and how they engineered their turnaround.
                   </p>
                 </div>
 
-                <div className="flex items-center space-x-2 text-xs font-mono text-slate-400 bg-dark-900/80 px-4 py-2 rounded-xl border border-slate-800 self-start md:self-auto">
-                  <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                <div className="flex items-center space-x-2 text-xs font-mono text-amber-200/80 bg-[#1c120c]/90 px-4 py-2 rounded-xl border border-[#3d2719] self-start md:self-auto">
+                  <span className="h-2 w-2 rounded-full bg-amber-400 animate-pulse" />
                   <span>Real-time Cosine Heuristic Model</span>
                 </div>
               </div>
@@ -536,15 +544,15 @@ export default function About({
                 <div className="lg:col-span-7 space-y-6">
                   
                   {/* Slider 1: Cash Runway */}
-                  <div className="p-5 rounded-2xl bg-dark-900/90 border border-slate-800/80 space-y-3">
+                  <div className="p-5 rounded-2xl bg-[#1c120c]/95 border border-[#3d2719] space-y-3">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <Zap className="w-4 h-4 text-amber-400" />
-                        <label className="text-sm font-semibold text-slate-200">Cash Runway Remaining</label>
+                        <label className="text-sm font-semibold text-amber-100">Cash Runway Remaining</label>
                       </div>
                       <span className={`text-base font-mono font-bold px-3 py-1 rounded-lg ${
                         runwayMonths <= 3 ? 'bg-red-500/20 text-red-400 border border-red-500/40' :
-                        runwayMonths <= 6 ? 'bg-amber-500/20 text-amber-400 border border-amber-500/40' :
+                        runwayMonths <= 6 ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40' :
                         'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40'
                       }`}>
                         {runwayMonths} {runwayMonths === 1 ? 'Month' : 'Months'}
@@ -557,9 +565,9 @@ export default function About({
                       step="1"
                       value={runwayMonths}
                       onChange={(e) => setRunwayMonths(Number(e.target.value))}
-                      className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-brand-cyan"
+                      className="w-full h-2 bg-[#2d1e15] rounded-lg appearance-none cursor-pointer accent-amber-500"
                     />
-                    <div className="flex justify-between text-[11px] text-slate-500 font-mono">
+                    <div className="flex justify-between text-[11px] text-amber-200/60 font-mono">
                       <span className="text-red-400">1 Mo (Insolvency Cliff)</span>
                       <span>12 Mo</span>
                       <span className="text-emerald-400">24 Mo (Stable)</span>
@@ -567,13 +575,13 @@ export default function About({
                   </div>
 
                   {/* Slider 2: Burn Rate Multiple */}
-                  <div className="p-5 rounded-2xl bg-dark-900/90 border border-slate-800/80 space-y-3">
+                  <div className="p-5 rounded-2xl bg-[#1c120c]/95 border border-[#3d2719] space-y-3">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <Activity className="w-4 h-4 text-brand-cyan" />
-                        <label className="text-sm font-semibold text-slate-200">Burn Rate Multiple</label>
+                        <Activity className="w-4 h-4 text-amber-400" />
+                        <label className="text-sm font-semibold text-amber-100">Burn Rate Multiple</label>
                       </div>
-                      <span className="text-base font-mono font-bold px-3 py-1 rounded-lg bg-brand-cyan/20 text-brand-cyan border border-brand-cyan/40">
+                      <span className="text-base font-mono font-bold px-3 py-1 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/40">
                         {burnMultiple.toFixed(1)}x Operating Cost
                       </span>
                     </div>
@@ -584,9 +592,9 @@ export default function About({
                       step="0.1"
                       value={burnMultiple}
                       onChange={(e) => setBurnMultiple(Number(e.target.value))}
-                      className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-brand-cyan"
+                      className="w-full h-2 bg-[#2d1e15] rounded-lg appearance-none cursor-pointer accent-amber-500"
                     />
-                    <div className="flex justify-between text-[11px] text-slate-500 font-mono">
+                    <div className="flex justify-between text-[11px] text-amber-200/60 font-mono">
                       <span>1.0x (Lean)</span>
                       <span>2.5x (Growth)</span>
                       <span className="text-rose-400">5.0x (Hyper-Burn)</span>
@@ -594,13 +602,13 @@ export default function About({
                   </div>
 
                   {/* Slider 3: Market Headwind Severity */}
-                  <div className="p-5 rounded-2xl bg-dark-900/90 border border-slate-800/80 space-y-3">
+                  <div className="p-5 rounded-2xl bg-[#1c120c]/95 border border-[#3d2719] space-y-3">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <TrendingUp className="w-4 h-4 text-brand-indigo" />
-                        <label className="text-sm font-semibold text-slate-200">Macro / Market Headwind Severity</label>
+                        <TrendingUp className="w-4 h-4 text-orange-400" />
+                        <label className="text-sm font-semibold text-amber-100">Macro / Market Headwind Severity</label>
                       </div>
-                      <span className="text-base font-mono font-bold px-3 py-1 rounded-lg bg-brand-indigo/20 text-brand-indigo border border-brand-indigo/40">
+                      <span className="text-base font-mono font-bold px-3 py-1 rounded-lg bg-orange-500/20 text-orange-300 border border-orange-500/40">
                         {headwindSeverity}% Shock
                       </span>
                     </div>
@@ -611,9 +619,9 @@ export default function About({
                       step="5"
                       value={headwindSeverity}
                       onChange={(e) => setHeadwindSeverity(Number(e.target.value))}
-                      className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-brand-indigo"
+                      className="w-full h-2 bg-[#2d1e15] rounded-lg appearance-none cursor-pointer accent-orange-500"
                     />
-                    <div className="flex justify-between text-[11px] text-slate-500 font-mono">
+                    <div className="flex justify-between text-[11px] text-amber-200/60 font-mono">
                       <span>0% (Favorable)</span>
                       <span>50% (Moderate Squeeze)</span>
                       <span className="text-red-400">100% (Category Crisis)</span>
@@ -621,8 +629,8 @@ export default function About({
                   </div>
 
                   {/* Selector: SKU & Product Complexity */}
-                  <div className="p-5 rounded-2xl bg-dark-900/90 border border-slate-800/80 space-y-3">
-                    <label className="text-sm font-semibold text-slate-200 block">Product / Portfolio SKU Complexity</label>
+                  <div className="p-5 rounded-2xl bg-[#1c120c]/95 border border-[#3d2719] space-y-3">
+                    <label className="text-sm font-semibold text-amber-100 block">Product / Portfolio SKU Complexity</label>
                     <div className="grid grid-cols-4 gap-2">
                       {['Low', 'Medium', 'High', 'Extreme'].map((lvl) => (
                         <button
@@ -630,8 +638,8 @@ export default function About({
                           onClick={() => setSkuComplexity(lvl)}
                           className={`py-2.5 px-3 rounded-xl text-xs font-semibold transition-all border ${
                             skuComplexity === lvl
-                              ? 'bg-brand-cyan/20 text-brand-cyan border-brand-cyan shadow-glow-cyan/50 font-bold'
-                              : 'bg-dark-800 text-slate-400 border-slate-700 hover:text-slate-200'
+                              ? 'bg-amber-500/25 text-amber-300 border-amber-500 shadow-glow-amber font-bold'
+                              : 'bg-[#28180f] text-amber-200/70 border-[#3d2719] hover:text-white'
                           }`}
                         >
                           {lvl}
@@ -650,18 +658,18 @@ export default function About({
                       initial={{ opacity: 0, scale: 0.96 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.4 }}
-                      className="flex-1 p-6 sm:p-7 rounded-3xl bg-dark-900/95 border-2 border-brand-cyan/50 shadow-glow-cyan/40 flex flex-col justify-between relative overflow-hidden"
+                      className="flex-1 p-6 sm:p-7 rounded-3xl bg-[#1c120c]/95 border-2 border-amber-500/50 shadow-glow-amber flex flex-col justify-between relative overflow-hidden"
                     >
                       {/* Scanline Effect */}
                       <div className="absolute inset-0 scanline pointer-events-none opacity-20" />
 
                       <div className="space-y-4">
                         <div className="flex items-center justify-between">
-                          <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-mono font-bold">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                          <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-mono font-bold">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
                             <span>{matchedTitan.score}% VECTOR MATCH</span>
                           </div>
-                          <span className="text-xs font-mono text-slate-400">Heuristic Cosine</span>
+                          <span className="text-xs font-mono text-amber-200/70">Heuristic Cosine</span>
                         </div>
 
                         {/* Matched Titan Header */}
@@ -676,43 +684,43 @@ export default function About({
                             <h3 className="text-2xl font-heading font-black text-white flex items-center space-x-2">
                               <span>{matchedTitan.name}</span>
                             </h3>
-                            <span className="text-xs font-mono text-brand-cyan">
+                            <span className="text-xs font-mono text-amber-400">
                               Crisis Epoch: {matchedTitan.crisisYear} • Recovery: {matchedTitan.recoveryYear}
                             </span>
                           </div>
                         </div>
 
                         {/* Match Rationale */}
-                        <div className="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 text-xs text-slate-300 space-y-1">
-                          <span className="text-[10px] font-mono uppercase tracking-wider text-brand-cyan block">Similarity Vector Diagnostic:</span>
+                        <div className="p-3.5 rounded-xl bg-[#120c08]/90 border border-[#3d2719] text-xs text-amber-100/90 space-y-1">
+                          <span className="text-[10px] font-mono uppercase tracking-wider text-amber-400 block font-bold">Similarity Vector Diagnostic:</span>
                           <p className="leading-relaxed">{matchedTitan.matchReason}</p>
                         </div>
 
                         {/* Historical Drop vs Catalyst */}
                         <div className="space-y-2.5 text-xs">
-                          <div className="p-3 rounded-xl bg-red-950/30 border border-red-900/50">
+                          <div className="p-3 rounded-xl bg-red-950/40 border border-red-900/50">
                             <span className="font-bold text-red-400 block mb-0.5">Historical Distress:</span>
-                            <span className="text-slate-300">{matchedTitan.dropDetail}</span>
+                            <span className="text-slate-200">{matchedTitan.dropDetail}</span>
                           </div>
 
-                          <div className="p-3 rounded-xl bg-emerald-950/30 border border-emerald-900/50">
+                          <div className="p-3 rounded-xl bg-emerald-950/40 border border-emerald-900/50">
                             <span className="font-bold text-emerald-400 block mb-0.5">Proven Turnaround Strategy:</span>
-                            <span className="text-slate-300">{matchedTitan.recoveryCatalyst}</span>
+                            <span className="text-slate-200">{matchedTitan.recoveryCatalyst}</span>
                           </div>
                         </div>
                       </div>
 
                       {/* Direct CTA to Strategy Steps */}
-                      <div className="pt-6 mt-4 border-t border-slate-800 space-y-2">
+                      <div className="pt-6 mt-4 border-t border-[#3d2719] space-y-2">
                         <button
                           onClick={() => handleLaunchToCompany(matchedTitan.id)}
-                          className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-indigo hover:from-brand-cyan/90 hover:to-brand-indigo/90 text-white font-bold text-xs font-heading shadow-glow-cyan transition-all flex items-center justify-center space-x-2"
+                          className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-bold text-xs font-heading shadow-glow-amber transition-all flex items-center justify-center space-x-2"
                         >
                           <Play className="w-3.5 h-3.5 fill-current" />
                           <span>Execute Full {matchedTitan.name} Roadmap</span>
                           <ArrowRight className="w-3.5 h-3.5" />
                         </button>
-                        <p className="text-[10px] text-center text-slate-500 font-mono">
+                        <p className="text-[10px] text-center text-amber-200/60 font-mono">
                           Inspect 3-Stage Heuristics (Stabilize, Pivot, Scale)
                         </p>
                       </div>
@@ -734,14 +742,14 @@ export default function About({
       <section className="space-y-8">
         <MotionSection direction="up" duration={0.6}>
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-brand-indigo/10 border border-brand-indigo/30 text-brand-indigo dark:text-brand-cyan text-xs font-semibold">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-800 dark:text-amber-400 text-xs font-semibold">
               <Cpu className="w-3.5 h-3.5" />
               <span>CORE ARCHITECTURAL FOUNDATION</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-heading font-extrabold text-slate-900 dark:text-white">
+            <h2 className="text-3xl sm:text-5xl font-heading font-extrabold text-[#24160d] dark:text-white">
               The Four Neural Pillars of ICLAS
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed font-normal">
+            <p className="text-[#6c4f38] dark:text-slate-400 text-sm sm:text-base leading-relaxed font-normal">
               How our system decodes corporate crisis data, normalizes multidimensional balance sheet indicators, and produces structured turnaround playbooks.
             </p>
           </div>
@@ -751,88 +759,88 @@ export default function About({
           
           {/* Pillar 1 */}
           <StaggerItem>
-            <div className="h-full p-6 sm:p-7 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200/80 dark:border-slate-800/80 shadow-md hover:shadow-xl hover:border-brand-cyan/50 dark:hover:border-brand-cyan/50 transition-all group flex flex-col justify-between">
+            <div className="h-full p-6 sm:p-7 rounded-3xl bg-[#fdfbf7] dark:bg-dark-900 border border-[#dcceb9] dark:border-slate-800/80 shadow-sm hover:shadow-xl hover:border-amber-500/50 dark:hover:border-amber-500/50 transition-all group flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <TrendingUp className="w-6 h-6 text-brand-cyan" />
+                <div className="w-12 h-12 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <TrendingUp className="w-6 h-6 text-amber-600 dark:text-amber-400" />
                 </div>
-                <span className="text-[11px] font-mono text-brand-cyan font-bold tracking-wider">PILLAR 01</span>
-                <h3 className="text-xl font-heading font-bold text-slate-900 dark:text-white mt-1 mb-3">
+                <span className="text-[11px] font-mono text-amber-700 dark:text-amber-400 font-bold tracking-wider">PILLAR 01</span>
+                <h3 className="text-xl font-heading font-bold text-[#24160d] dark:text-white mt-1 mb-3">
                   Longitudinal Forensics (T-3 to T+3)
                 </h3>
-                <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed font-normal">
+                <p className="text-[#6c4f38] dark:text-slate-400 text-xs sm:text-sm leading-relaxed font-normal">
                   Tracks 6-year operational metrics spanning 3 years pre-crisis and 3 years post-recovery across balance sheet indicators, cash flow velocity, and product portfolio size.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 text-[11px] font-mono text-slate-500 flex items-center justify-between">
+              <div className="mt-6 pt-4 border-t border-[#eee3d5] dark:border-slate-800 text-[11px] font-mono text-[#84654f] dark:text-slate-500 flex items-center justify-between">
                 <span>10-K Forensic Modeling</span>
-                <CheckCircle2 className="w-4 h-4 text-brand-cyan" />
+                <CheckCircle2 className="w-4 h-4 text-amber-600 dark:text-amber-400" />
               </div>
             </div>
           </StaggerItem>
 
           {/* Pillar 2 */}
           <StaggerItem>
-            <div className="h-full p-6 sm:p-7 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200/80 dark:border-slate-800/80 shadow-md hover:shadow-xl hover:border-brand-indigo/50 dark:hover:border-brand-indigo/50 transition-all group flex flex-col justify-between">
+            <div className="h-full p-6 sm:p-7 rounded-3xl bg-[#fdfbf7] dark:bg-dark-900 border border-[#dcceb9] dark:border-slate-800/80 shadow-sm hover:shadow-xl hover:border-orange-500/50 dark:hover:border-orange-500/50 transition-all group flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-brand-indigo/10 border border-brand-indigo/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <Database className="w-6 h-6 text-brand-indigo" />
+                <div className="w-12 h-12 rounded-2xl bg-orange-500/15 border border-orange-500/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <Database className="w-6 h-6 text-orange-600 dark:text-orange-400" />
                 </div>
-                <span className="text-[11px] font-mono text-brand-indigo font-bold tracking-wider">PILLAR 02</span>
-                <h3 className="text-xl font-heading font-bold text-slate-900 dark:text-white mt-1 mb-3">
+                <span className="text-[11px] font-mono text-orange-700 dark:text-orange-400 font-bold tracking-wider">PILLAR 02</span>
+                <h3 className="text-xl font-heading font-bold text-[#24160d] dark:text-white mt-1 mb-3">
                   Case-Based Reasoning (CBR)
                 </h3>
-                <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed font-normal">
+                <p className="text-[#6c4f38] dark:text-slate-400 text-xs sm:text-sm leading-relaxed font-normal">
                   Employs high-dimensional vector similarity algorithms (Cosine & Euclidean distance) to match real-time startup distress symptoms to benchmark corporate crises.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 text-[11px] font-mono text-slate-500 flex items-center justify-between">
+              <div className="mt-6 pt-4 border-t border-[#eee3d5] dark:border-slate-800 text-[11px] font-mono text-[#84654f] dark:text-slate-500 flex items-center justify-between">
                 <span>Vector Cosine Engine</span>
-                <CheckCircle2 className="w-4 h-4 text-brand-indigo" />
+                <CheckCircle2 className="w-4 h-4 text-orange-600 dark:text-orange-400" />
               </div>
             </div>
           </StaggerItem>
 
           {/* Pillar 3 */}
           <StaggerItem>
-            <div className="h-full p-6 sm:p-7 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200/80 dark:border-slate-800/80 shadow-md hover:shadow-xl hover:border-brand-emerald/50 dark:hover:border-brand-emerald/50 transition-all group flex flex-col justify-between">
+            <div className="h-full p-6 sm:p-7 rounded-3xl bg-[#fdfbf7] dark:bg-dark-900 border border-[#dcceb9] dark:border-slate-800/80 shadow-sm hover:shadow-xl hover:border-amber-600/50 dark:hover:border-amber-400/50 transition-all group flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-brand-emerald/10 border border-brand-emerald/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <ListOrdered className="w-6 h-6 text-brand-emerald" />
+                <div className="w-12 h-12 rounded-2xl bg-amber-600/15 border border-amber-600/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <ListOrdered className="w-6 h-6 text-amber-700 dark:text-amber-300" />
                 </div>
-                <span className="text-[11px] font-mono text-brand-emerald font-bold tracking-wider">PILLAR 03</span>
-                <h3 className="text-xl font-heading font-bold text-slate-900 dark:text-white mt-1 mb-3">
+                <span className="text-[11px] font-mono text-amber-700 dark:text-amber-300 font-bold tracking-wider">PILLAR 03</span>
+                <h3 className="text-xl font-heading font-bold text-[#24160d] dark:text-white mt-1 mb-3">
                   3-Stage Strategy Synthesizer
                 </h3>
-                <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed font-normal">
+                <p className="text-[#6c4f38] dark:text-slate-400 text-xs sm:text-sm leading-relaxed font-normal">
                   Synthesizes structured strategic roadmaps partitioned into Phase 1 (Stabilization & Cash Runway), Phase 2 (Core Re-engineering & Pivot), and Phase 3 (Scale & Re-emergence).
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 text-[11px] font-mono text-slate-500 flex items-center justify-between">
+              <div className="mt-6 pt-4 border-t border-[#eee3d5] dark:border-slate-800 text-[11px] font-mono text-[#84654f] dark:text-slate-500 flex items-center justify-between">
                 <span>Actionable Milestones</span>
-                <CheckCircle2 className="w-4 h-4 text-brand-emerald" />
+                <CheckCircle2 className="w-4 h-4 text-amber-700 dark:text-amber-300" />
               </div>
             </div>
           </StaggerItem>
 
           {/* Pillar 4 */}
           <StaggerItem>
-            <div className="h-full p-6 sm:p-7 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200/80 dark:border-slate-800/80 shadow-md hover:shadow-xl hover:border-brand-purple/50 dark:hover:border-brand-purple/50 transition-all group flex flex-col justify-between">
+            <div className="h-full p-6 sm:p-7 rounded-3xl bg-[#fdfbf7] dark:bg-dark-900 border border-[#dcceb9] dark:border-slate-800/80 shadow-sm hover:shadow-xl hover:border-rose-500/50 dark:hover:border-rose-500/50 transition-all group flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-brand-purple/10 border border-brand-purple/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <Briefcase className="w-6 h-6 text-brand-purple" />
+                <div className="w-12 h-12 rounded-2xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <Briefcase className="w-6 h-6 text-rose-600 dark:text-rose-400" />
                 </div>
-                <span className="text-[11px] font-mono text-brand-purple font-bold tracking-wider">PILLAR 04</span>
-                <h3 className="text-xl font-heading font-bold text-slate-900 dark:text-white mt-1 mb-3">
+                <span className="text-[11px] font-mono text-rose-700 dark:text-rose-400 font-bold tracking-wider">PILLAR 04</span>
+                <h3 className="text-xl font-heading font-bold text-[#24160d] dark:text-white mt-1 mb-3">
                   Founder-Investor Nexus & Stock AI
                 </h3>
-                <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed font-normal">
+                <p className="text-[#6c4f38] dark:text-slate-400 text-xs sm:text-sm leading-relaxed font-normal">
                   Connects resilient ventures with crisis-hardened investors, backed by interactive stock trend forecasting and cross-industry correlation models.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 text-[11px] font-mono text-slate-500 flex items-center justify-between">
+              <div className="mt-6 pt-4 border-t border-[#eee3d5] dark:border-slate-800 text-[11px] font-mono text-[#84654f] dark:text-slate-500 flex items-center justify-between">
                 <span>Capital Alignment</span>
-                <CheckCircle2 className="w-4 h-4 text-brand-purple" />
+                <CheckCircle2 className="w-4 h-4 text-rose-600 dark:text-rose-400" />
               </div>
             </div>
           </StaggerItem>
@@ -847,7 +855,7 @@ export default function About({
         <MotionSection direction="up" duration={0.6}>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-semibold mb-2">
+              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-brand-amber/10 border border-brand-amber/30 text-brand-caramel dark:text-brand-amber text-xs font-semibold mb-2">
                 <Award className="w-3.5 h-3.5" />
                 <span>BENCHMARK CORP DATASETS</span>
               </div>
@@ -935,7 +943,7 @@ export default function About({
                     if (setSelectedCompanyId) setSelectedCompanyId(titan.id);
                     setActiveTab('companies');
                   }}
-                  className="text-xs font-bold text-brand-cyan hover:underline flex items-center space-x-1"
+                  className="text-xs font-bold text-brand-caramel dark:text-brand-amber hover:underline flex items-center space-x-1"
                 >
                   <span>Explore 6-Year Financials</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -987,11 +995,11 @@ export default function About({
                       onClick={() => setPreviewPersona(p.id)}
                       className={`flex items-center space-x-2 px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                         isActive
-                          ? 'bg-white dark:bg-dark-900 text-brand-cyan shadow-sm font-bold'
+                          ? 'bg-white dark:bg-dark-900 text-brand-caramel dark:text-brand-amber shadow-sm font-bold'
                           : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                       }`}
                     >
-                      <Icon className={`w-4 h-4 ${isActive ? 'text-brand-cyan' : 'text-slate-400'}`} />
+                      <Icon className={`w-4 h-4 ${isActive ? 'text-brand-amber' : 'text-slate-400'}`} />
                       <span>{p.label}</span>
                     </button>
                   );
@@ -1012,7 +1020,7 @@ export default function About({
                 {previewPersona === 'Entrepreneur' && (
                   <>
                     <div className="p-6 rounded-2xl bg-white/80 dark:bg-dark-900/80 border border-slate-200/80 dark:border-slate-800 space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-cyan-500/10 text-brand-cyan flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-brand-caramel dark:text-brand-amber flex items-center justify-center">
                         <Search className="w-5 h-5" />
                       </div>
                       <h4 className="text-base font-bold text-slate-900 dark:text-white">Condition Matching</h4>
@@ -1139,7 +1147,7 @@ export default function About({
               title: 'Overview Dashboard',
               desc: 'Executive summary with aggregate turnaround metrics and recent intelligence updates.',
               icon: Layers,
-              color: 'text-brand-cyan',
+              color: 'text-brand-amber',
               btn: 'Launch Overview',
             },
             {
@@ -1147,7 +1155,7 @@ export default function About({
               title: '6-Year Company Intelligence',
               desc: 'Deep forensic breakdown of 11 corporations with balance sheet indicators and timelines.',
               icon: Building2,
-              color: 'text-brand-indigo',
+              color: 'text-brand-caramel',
               btn: 'Explore Companies',
             },
             {
@@ -1155,7 +1163,7 @@ export default function About({
               title: 'Search Crisis Condition',
               desc: 'Vector cosine query engine matching your specific distress symptoms to historical cases.',
               icon: Search,
-              color: 'text-brand-emerald',
+              color: 'text-brand-amber',
               btn: 'Search Conditions',
             },
             {
@@ -1163,7 +1171,7 @@ export default function About({
               title: 'Strategy Steps Roadmap',
               desc: 'Tactical 3-phase strategic turnaround roadmaps with implementation milestones.',
               icon: ListOrdered,
-              color: 'text-brand-purple',
+              color: 'text-brand-terracotta',
               btn: 'View Strategy Steps',
             },
             {
@@ -1171,7 +1179,7 @@ export default function About({
               title: 'Startup Intel (Vanished vs MNCs)',
               desc: 'Empirical post-mortems of vanished visionary startups mapped to the MNC playbooks that conquered the same crisis.',
               icon: ShieldCheck,
-              color: 'text-brand-rose',
+              color: 'text-brand-amber',
               btn: 'Inspect Vanished vs MNC Matrix',
             },
             {
@@ -1179,7 +1187,7 @@ export default function About({
               title: 'Graph Analysis & Stock AI',
               desc: 'Interactive financial trajectory plotting, multidimensional graphs, and predictive signals.',
               icon: TrendingUp,
-              color: 'text-blue-500',
+              color: 'text-brand-caramel',
               btn: 'Open Graph Analysis',
             },
           ].map((mod) => {
@@ -1189,16 +1197,16 @@ export default function About({
                 key={mod.id}
                 whileHover={{ y: -4 }}
                 onClick={() => setActiveTab(mod.id)}
-                className="cursor-pointer p-6 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-xl hover:border-brand-cyan/40 transition-all flex flex-col justify-between group"
+                className="cursor-pointer p-6 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-xl hover:border-brand-amber/50 transition-all flex flex-col justify-between group"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-dark-800 flex items-center justify-center group-hover:scale-110 transition-transform">
                       <Icon className={`w-5 h-5 ${mod.color}`} />
                     </div>
-                    <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-brand-cyan group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-brand-amber group-hover:translate-x-1 transition-all" />
                   </div>
-                  <h4 className="text-base font-heading font-bold text-slate-900 dark:text-white group-hover:text-brand-cyan transition-colors">
+                  <h4 className="text-base font-heading font-bold text-slate-900 dark:text-white group-hover:text-brand-amber transition-colors">
                     {mod.title}
                   </h4>
                   <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
@@ -1207,7 +1215,7 @@ export default function About({
                 </div>
 
                 <div className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800">
-                  <span className="text-xs font-bold text-brand-cyan flex items-center space-x-1">
+                  <span className="text-xs font-bold text-brand-caramel dark:text-brand-amber flex items-center space-x-1">
                     <span>{mod.btn}</span>
                     <ChevronRight className="w-3.5 h-3.5" />
                   </span>

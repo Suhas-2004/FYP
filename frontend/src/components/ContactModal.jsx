@@ -49,7 +49,7 @@ export default function ContactModal({ startup, onClose }) {
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200/80 dark:border-slate-800/80 bg-slate-50/90 dark:bg-dark-950/70">
           <div>
             <div className="flex items-center space-x-2">
-              <span className="px-2 py-0.5 text-[10px] font-bold bg-brand-cyan/20 text-brand-cyan rounded border border-brand-cyan/40 font-mono">
+              <span className="px-2 py-0.5 text-[10px] font-bold bg-brand-amber/15 text-brand-caramel dark:text-brand-amber rounded border border-brand-amber/40 font-mono">
                 Official Investor Channel
               </span>
               <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">ID: {startup.id}</span>
@@ -80,13 +80,13 @@ export default function ContactModal({ startup, onClose }) {
               </motion.div>
               <h4 className="text-xl font-heading font-bold text-slate-900 dark:text-white">Inquiry Dispatched Successfully!</h4>
               <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md mx-auto leading-relaxed">
-                Your investment inquiry has been delivered directly to <span className="text-brand-cyan font-bold">{startup.founder_email}</span>. A copy has been logged in the ICLAS dealflow registry.
+                Your investment inquiry has been delivered directly to <span className="text-brand-caramel dark:text-brand-amber font-bold">{startup.founder_email}</span>. A copy has been logged in the ICLAS dealflow registry.
               </p>
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={onClose}
-                className="mt-4 px-6 py-2.5 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-indigo text-white font-bold text-sm shadow-glow-cyan"
+                className="mt-4 px-6 py-2.5 rounded-xl bg-gradient-to-r from-brand-amber via-brand-caramel to-brand-terracotta text-white font-bold text-sm shadow-glow-amber"
               >
                 Done
               </motion.button>
@@ -111,7 +111,7 @@ export default function ContactModal({ startup, onClose }) {
                 </div>
                 <div>
                   <span className="text-slate-500 dark:text-slate-400 font-medium">Industry:</span>{' '}
-                  <span className="text-brand-cyan font-bold">{startup.industry}</span>
+                  <span className="text-brand-caramel dark:text-brand-amber font-bold">{startup.industry}</span>
                 </div>
               </div>
 
@@ -128,7 +128,7 @@ export default function ContactModal({ startup, onClose }) {
                       placeholder="e.g. Alex Morgan"
                       value={formData.investor_name}
                       onChange={(e) => setFormData({ ...formData, investor_name: e.target.value })}
-                      className="w-full pl-9 pr-3 py-2 text-xs bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-cyan shadow-sm font-medium"
+                      className="w-full pl-9 pr-3 py-2 text-xs bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
                     />
                   </div>
                 </div>
@@ -145,7 +145,7 @@ export default function ContactModal({ startup, onClose }) {
                       placeholder="e.g. Apex Ventures"
                       value={formData.investor_organization}
                       onChange={(e) => setFormData({ ...formData, investor_organization: e.target.value })}
-                      className="w-full pl-9 pr-3 py-2 text-xs bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-cyan shadow-sm font-medium"
+                      className="w-full pl-9 pr-3 py-2 text-xs bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
                     />
                   </div>
                 </div>
@@ -164,7 +164,7 @@ export default function ContactModal({ startup, onClose }) {
                       placeholder="e.g. alex@apexvc.com"
                       value={formData.investor_email}
                       onChange={(e) => setFormData({ ...formData, investor_email: e.target.value })}
-                      className="w-full pl-9 pr-3 py-2 text-xs bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-cyan shadow-sm font-medium"
+                      className="w-full pl-9 pr-3 py-2 text-xs bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
                     />
                   </div>
                 </div>
@@ -178,7 +178,7 @@ export default function ContactModal({ startup, onClose }) {
                     <select
                       value={formData.proposed_ticket_size}
                       onChange={(e) => setFormData({ ...formData, proposed_ticket_size: e.target.value })}
-                      className="w-full pl-9 pr-3 py-2 text-xs bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 focus:outline-none focus:border-brand-cyan shadow-sm font-medium"
+                      className="w-full pl-9 pr-3 py-2 text-xs bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
                     >
                       <option value="$100,000 - $250,000">$100,000 - $250,000 (Angel/Pre-seed)</option>
                       <option value="$250,000 - $500,000">$250,000 - $500,000 (Seed Co-lead)</option>
@@ -198,7 +198,7 @@ export default function ContactModal({ startup, onClose }) {
                   required
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full p-3 text-xs bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-cyan resize-none shadow-sm font-medium"
+                  className="w-full p-3 text-xs bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber resize-none shadow-sm font-medium"
                 />
               </div>
 
@@ -215,7 +215,7 @@ export default function ContactModal({ startup, onClose }) {
                   whileTap={{ scale: 0.98 }}
                   type="submit"
                   disabled={submitting}
-                  className="flex items-center space-x-2 px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-brand-cyan to-brand-indigo hover:opacity-95 transition-opacity disabled:opacity-50 shadow-glow-cyan"
+                  className="flex items-center space-x-2 px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-brand-amber via-brand-caramel to-brand-terracotta hover:opacity-95 transition-opacity disabled:opacity-50 shadow-glow-amber"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>{submitting ? 'Dispatching...' : 'Dispatch Investor Inquiry'}</span>

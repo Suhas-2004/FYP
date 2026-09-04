@@ -70,7 +70,7 @@ function MarketQuotesWidget() {
           >
             {tab.label}
             {activeTab === tab.id && (
-              <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#2962FF]" />
+              <div className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-amber" />
             )}
           </button>
         ))}

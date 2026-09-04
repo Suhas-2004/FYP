@@ -15,7 +15,6 @@ import MarketDashboard from './pages/MarketDashboard';
 const VALID_TABS = [
   'about',
   'overview',
-  'market-dashboard',
   'companies',
   'search-condition',
   'strategy-steps',
@@ -55,9 +54,9 @@ export default function App() {
 
   const [selectedPersona, setSelectedPersona] = useState('Entrepreneur');
   
-  // Theme State: 'dark' | 'light'
+  // Theme State: 'dark' | 'light' (Default to light coffee)
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('iclas_theme') || 'dark';
+    return localStorage.getItem('iclas_theme') || 'light';
   });
 
   useEffect(() => {
@@ -154,12 +153,12 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden selection:bg-brand-cyan/20 selection:text-brand-cyan transition-colors duration-300">
-      {/* Dynamic Ambient Background Aura Lighting (Gridless) */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-brand-cyan/10 dark:bg-brand-cyan/[0.07] rounded-full blur-[120px] animate-ambient-float" />
-        <div className="absolute top-1/3 -right-40 w-[550px] h-[550px] bg-brand-indigo/10 dark:bg-brand-indigo/[0.07] rounded-full blur-[130px] animate-ambient-float" style={{ animationDelay: '-4s' }} />
-        <div className="absolute -bottom-40 left-1/3 w-[500px] h-[500px] bg-brand-emerald/10 dark:bg-brand-emerald/[0.05] rounded-full blur-[140px] animate-ambient-float" style={{ animationDelay: '-2s' }} />
+    <div className="min-h-screen flex flex-col relative overflow-hidden selection:bg-amber-500/25 selection:text-amber-950 dark:selection:text-amber-200 transition-colors duration-300">
+      {/* Dynamic Ambient Background Aura Lighting (GPU-accelerated) */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" style={{ transform: 'translateZ(0)' }}>
+        <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-amber-500/10 dark:bg-amber-500/[0.08] rounded-full blur-[80px] animate-ambient-float will-change-transform" />
+        <div className="absolute top-1/3 -right-40 w-[450px] h-[450px] bg-orange-500/10 dark:bg-orange-500/[0.07] rounded-full blur-[90px] animate-ambient-float will-change-transform" style={{ animationDelay: '-4s' }} />
+        <div className="absolute -bottom-40 left-1/3 w-[450px] h-[450px] bg-amber-600/08 dark:bg-amber-600/[0.06] rounded-full blur-[90px] animate-ambient-float will-change-transform" style={{ animationDelay: '-2s' }} />
       </div>
 
       {/* Top Fixed Navigation & Persona / Theme Switcher */}
@@ -198,10 +197,6 @@ export default function App() {
                 selectedPersona={selectedPersona}
                 theme={theme}
               />
-            )}
-
-            {activeTab === 'market-dashboard' && (
-              <MarketDashboard />
             )}
 
             {activeTab === 'search-condition' && (
