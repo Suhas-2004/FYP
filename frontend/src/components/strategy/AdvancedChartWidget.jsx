@@ -53,6 +53,10 @@ function AdvancedChartWidget() {
     // Clear previous widget if re-rendered
     container.current.innerHTML = '';
 
+    const widgetNode = document.createElement('div');
+    widgetNode.className = "tradingview-widget-container__widget w-full h-full";
+    container.current.appendChild(widgetNode);
+
     const script = document.createElement("script");
     script.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
     script.type = "text/javascript";
