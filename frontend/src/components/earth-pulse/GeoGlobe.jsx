@@ -59,26 +59,46 @@ export default function GeoGlobe() {
     setRings(newRings);
   }, []);
 
-  // Initial spin and camera setup
+  const containerRef = useRef(null);
+
+  // Initial spin and camera setup with IntersectionObserver
   useEffect(() => {
+    let controls;
     if (globeEl.current) {
-      const controls = globeEl.current.controls();
+      controls = globeEl.current.controls();
       controls.autoRotate = true;
       controls.autoRotateSpeed = 0.5; // Very slow cinematic spin
       controls.enableZoom = false; // Disable zoom to allow page scrolling
       globeEl.current.pointOfView({ altitude: 2.5 });
     }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (globeEl.current) {
+        const ctrl = globeEl.current.controls();
+        if (ctrl) {
+          ctrl.autoRotate = entry.isIntersecting;
+        }
+      }
+    }, { threshold: 0.05 });
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   const getCountryColor = (score) => {
-    if (score >= 80) return 'rgba(239, 68, 68, 0.7)'; // Critical - Red
-    if (score >= 60) return 'rgba(245, 158, 11, 0.7)'; // High - Orange
-    if (score >= 35) return 'rgba(6, 182, 212, 0.6)'; // Medium - Cyan
-    return 'rgba(16, 185, 129, 0.5)'; // Low - Green
+    if (score >= 80) return 'rgba(224, 90, 54, 0.7)'; // Critical - Terracotta
+    if (score >= 60) return 'rgba(217, 119, 6, 0.7)'; // High - Amber
+    if (score >= 35) return 'rgba(180, 83, 9, 0.6)'; // Medium - Caramel
+    return 'rgba(16, 185, 129, 0.5)'; // Low - Emerald
   };
 
   return (
-    <div className="w-full h-full cursor-grab active:cursor-grabbing">
+    <div ref={containerRef} className="w-full h-full cursor-grab active:cursor-grabbing" style={{ transform: 'translateZ(0)' }}>
       <Globe
         ref={globeEl}
         backgroundColor="#03060f"
@@ -108,13 +128,13 @@ export default function GeoGlobe() {
 
         // Pulse Rings
         ringsData={rings}
-        ringColor={() => t => `rgba(6, 182, 212, ${1-t})`}
+        ringColor={() => t => `rgba(217, 119, 6, ${1-t})`}
         ringMaxRadius="maxR"
         ringPropagationSpeed="propagationSpeed"
         ringRepeatPeriod="repeatPeriod"
 
         // Atmosphere
-        atmosphereColor="#06B6D4"
+        atmosphereColor="#f59e0b"
         atmosphereAltitude={0.15}
       />
     </div>

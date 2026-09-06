@@ -100,9 +100,9 @@ function AdvancedChartWidget() {
                 onFocus={() => setShowDropdown(true)}
                 onBlur={() => setTimeout(() => setShowDropdown(false), 200)}
                 placeholder="Add Symbol (e.g. TSLA)" 
-                className="bg-[#2A2E39] text-white text-xs px-3 py-1.5 rounded outline-none border border-transparent focus:border-primary transition-colors w-40"
+                className="bg-[#2A2E39] text-white text-xs px-3 py-1.5 rounded outline-none border border-transparent focus:border-brand-amber transition-colors w-40"
               />
-              <button type="submit" className="bg-primary hover:bg-primary/90 text-white p-1.5 rounded transition-colors flex items-center justify-center">
+              <button type="submit" className="bg-brand-amber hover:bg-brand-caramel text-white p-1.5 rounded transition-colors flex items-center justify-center">
                 <Plus className="w-3 h-3" />
               </button>
             </form>

@@ -88,8 +88,8 @@ export default function GraphAnalysis({ theme }) {
                   onClick={() => setSelectedTicker(t.ticker)}
                   className={`px-3.5 py-2 rounded-xl text-xs font-bold font-mono transition-all duration-200 ${
                     isSelected
-                      ? 'bg-brand-cyan text-dark-950 shadow-glow-cyan'
-                      : 'bg-white/90 dark:bg-dark-900/90 hover:bg-slate-50 dark:hover:bg-dark-850 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-800/80 shadow-sm'
+                      ? 'bg-brand-amber text-dark-950 shadow-glow-amber'
+                      : 'bg-white/90 dark:bg-dark-900/90 hover:bg-slate-50 dark:hover:bg-dark-850 text-slate-700 dark:text-slate-300 border border-slate-200/90 dark:border-slate-800/80 shadow-sm'
                   }`}
                 >
                   {t.ticker}
@@ -102,7 +102,7 @@ export default function GraphAnalysis({ theme }) {
 
       {loading || !chartData ? (
         <div className="py-24 text-center space-y-3">
-          <div className="w-10 h-10 border-2 border-brand-cyan border-t-transparent rounded-full animate-spin mx-auto" />
+          <div className="w-10 h-10 border-2 border-brand-amber border-t-transparent rounded-full animate-spin mx-auto" />
           <p className="text-sm text-slate-500 dark:text-slate-400 font-mono">Running technical indicator models and momentum regressions...</p>
         </div>
       ) : (
@@ -110,7 +110,7 @@ export default function GraphAnalysis({ theme }) {
           
           {/* Top Asset Bar */}
           <MotionSection direction="scale" duration={0.35}>
-            <div className="glass-panel p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-lg">
+            <div className="glass-panel p-6 rounded-3xl border border-slate-200/90 dark:border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-lg">
               <div className="flex items-center space-x-4">
                 <CompanyLogo 
                   companyId={chartData.ticker?.toLowerCase()} 
@@ -126,7 +126,7 @@ export default function GraphAnalysis({ theme }) {
                     </span>
                   </div>
                   <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 dark:text-slate-400 mt-1 font-mono">
-                    <span>RSI (14): <strong className="text-brand-cyan">{chartData.technical_indicators?.rsi}</strong></span>
+                    <span>RSI (14): <strong className="text-brand-caramel dark:text-brand-amber">{chartData.technical_indicators?.rsi}</strong></span>
                     <span>•</span>
                     <span>SMA-20: ${chartData.technical_indicators?.sma20}</span>
                     <span>•</span>
@@ -141,7 +141,7 @@ export default function GraphAnalysis({ theme }) {
                   ${chartData.current_price?.toFixed(2)}
                 </div>
                 <div className={`text-xs font-bold font-mono flex items-center justify-end space-x-1 mt-0.5 ${
-                  chartData.day_change >= 0 ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'
+                  chartData.day_change >= 0 ? 'text-emerald-700 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'
                 }`}>
                   {chartData.day_change >= 0 ? <ArrowUpRight className="w-3.5 h-3.5" /> : <ArrowDownRight className="w-3.5 h-3.5" />}
                   <span>{chartData.day_change >= 0 ? '+' : ''}{chartData.day_change} ({chartData.day_change_percent}%)</span>
@@ -160,9 +160,9 @@ export default function GraphAnalysis({ theme }) {
                   ? 'border-emerald-500/50 shadow-glow-emerald bg-emerald-50/50 dark:bg-emerald-950/10'
                   : 'border-rose-500/50 shadow-glow-rose bg-rose-50/50 dark:bg-rose-950/10'
               }`}>
-                <div className="flex items-center justify-between pb-4 border-b border-slate-200/80 dark:border-slate-800/80 mb-4">
+                <div className="flex items-center justify-between pb-4 border-b border-slate-200/90 dark:border-slate-800/80 mb-4">
                   <div className="flex items-center space-x-2">
-                    <span className="p-2 rounded-xl bg-white/90 dark:bg-dark-950 text-brand-cyan border border-slate-200/80 dark:border-slate-800 shadow-sm">
+                    <span className="p-2 rounded-xl bg-white/95 dark:bg-dark-950 text-brand-amber border border-slate-200/90 dark:border-slate-800 shadow-sm">
                       <Clock className="w-4 h-4" />
                     </span>
                     <div>
@@ -194,21 +194,21 @@ export default function GraphAnalysis({ theme }) {
                           initial={{ width: 0 }}
                           whileInView={{ width: `${chartData.four_hour_prediction?.confidence}%` }}
                           transition={{ duration: 0.8 }}
-                          className="bg-brand-cyan h-full rounded-full"
+                          className="bg-gradient-to-r from-brand-amber to-brand-gold h-full rounded-full"
                         />
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between py-1 border-t border-slate-200/80 dark:border-slate-800/60">
+                  <div className="flex items-center justify-between py-1 border-t border-slate-200/90 dark:border-slate-800/60">
                     <span className="text-slate-600 dark:text-slate-400 font-medium">Short-Term Target Estimate:</span>
                     <span className="text-sm font-bold text-slate-800 dark:text-slate-200 font-mono">
                       ${chartData.four_hour_prediction?.target_price?.toFixed(2)}
                     </span>
                   </div>
 
-                  <div className="p-3.5 rounded-2xl bg-white/90 dark:bg-dark-950/80 border border-slate-200/80 dark:border-slate-800/80 space-y-1 shadow-sm">
-                    <span className="text-brand-cyan font-bold block text-[10px] uppercase font-mono">
+                  <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-dark-950/80 border border-slate-200/90 dark:border-slate-800/80 space-y-1 shadow-sm">
+                    <span className="text-brand-caramel dark:text-brand-amber font-bold block text-[10px] uppercase font-mono">
                       Technical Rationale & Catalyst:
                     </span>
                     <p className="text-slate-700 dark:text-slate-300 text-xs leading-relaxed font-medium">
@@ -228,9 +228,9 @@ export default function GraphAnalysis({ theme }) {
                   ? 'border-rose-500/50 shadow-glow-rose bg-rose-50/50 dark:bg-rose-950/10'
                   : 'border-slate-300/80 dark:border-slate-700 bg-white dark:bg-dark-900/40'
               }`}>
-                <div className="flex items-center justify-between pb-4 border-b border-slate-200/80 dark:border-slate-800/80 mb-4">
+                <div className="flex items-center justify-between pb-4 border-b border-slate-200/90 dark:border-slate-800/80 mb-4">
                   <div className="flex items-center space-x-2">
-                    <span className="p-2 rounded-xl bg-white/90 dark:bg-dark-950 text-brand-indigo border border-slate-200/80 dark:border-slate-800 shadow-sm">
+                    <span className="p-2 rounded-xl bg-white/95 dark:bg-dark-950 text-brand-terracotta border border-slate-200/90 dark:border-slate-800 shadow-sm">
                       <Activity className="w-4 h-4" />
                     </span>
                     <div>
@@ -264,21 +264,21 @@ export default function GraphAnalysis({ theme }) {
                           initial={{ width: 0 }}
                           whileInView={{ width: `${chartData.daily_prediction?.confidence}%` }}
                           transition={{ duration: 0.8 }}
-                          className="bg-brand-indigo h-full rounded-full"
+                          className="bg-gradient-to-r from-brand-caramel to-brand-terracotta h-full rounded-full"
                         />
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between py-1 border-t border-slate-200/80 dark:border-slate-800/60">
+                  <div className="flex items-center justify-between py-1 border-t border-slate-200/90 dark:border-slate-800/60">
                     <span className="text-slate-600 dark:text-slate-400 font-medium">Daily Target Estimate:</span>
                     <span className="text-sm font-bold text-slate-800 dark:text-slate-200 font-mono">
                       ${chartData.daily_prediction?.target_price?.toFixed(2)}
                     </span>
                   </div>
 
-                  <div className="p-3.5 rounded-2xl bg-white/90 dark:bg-dark-950/80 border border-slate-200/80 dark:border-slate-800/80 space-y-1 shadow-sm">
-                    <span className="text-brand-indigo font-bold block text-[10px] uppercase font-mono">
+                  <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-dark-950/80 border border-slate-200/90 dark:border-slate-800/80 space-y-1 shadow-sm">
+                    <span className="text-brand-terracotta font-bold block text-[10px] uppercase font-mono">
                       Macro & Trend Rationale:
                     </span>
                     <p className="text-slate-700 dark:text-slate-300 text-xs leading-relaxed font-medium">
@@ -293,18 +293,18 @@ export default function GraphAnalysis({ theme }) {
 
           {/* Interactive Chart Workspace */}
           <MotionSection direction="up" delay={0.15}>
-            <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 space-y-6 shadow-lg">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200/80 dark:border-slate-800/80">
+            <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200/90 dark:border-slate-800/80 space-y-6 shadow-lg">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200/90 dark:border-slate-800/80">
                 <div>
                   <h3 className="text-lg font-heading font-bold text-slate-900 dark:text-white">Historical Price & Technical Indicator Overlay</h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400">Moving averages (SMA20, EMA50) and trading volume distribution</p>
                 </div>
 
-                <div className="flex bg-slate-100/90 dark:bg-dark-950/90 p-1 rounded-xl border border-slate-200/80 dark:border-slate-800/80">
+                <div className="flex bg-slate-100/90 dark:bg-dark-950/90 p-1 rounded-xl border border-slate-200/90 dark:border-slate-800/80">
                   <button
                     onClick={() => setChartType('price-indicators')}
                     className={`px-3.5 py-1.5 text-xs rounded-lg font-semibold transition-all ${
-                      chartType === 'price-indicators' ? 'bg-brand-cyan text-dark-950 font-bold shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                      chartType === 'price-indicators' ? 'bg-brand-amber text-dark-950 font-bold shadow-glow-amber' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                     }`}
                   >
                     Price + SMA/EMA
@@ -312,7 +312,7 @@ export default function GraphAnalysis({ theme }) {
                   <button
                     onClick={() => setChartType('rsi-macd')}
                     className={`px-3.5 py-1.5 text-xs rounded-lg font-semibold transition-all ${
-                      chartType === 'rsi-macd' ? 'bg-brand-cyan text-dark-950 font-bold shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                      chartType === 'rsi-macd' ? 'bg-brand-amber text-dark-950 font-bold shadow-glow-amber' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                     }`}
                   >
                     RSI & MACD Oscillators
@@ -329,23 +329,23 @@ export default function GraphAnalysis({ theme }) {
                       <XAxis dataKey="date" stroke="#94a3b8" fontSize={11} />
                       <YAxis yAxisId="price" domain={['auto', 'auto']} stroke="#94a3b8" fontSize={11} unit="$" />
                       <YAxis yAxisId="volume" orientation="right" domain={[0, 'auto']} stroke="#475569" fontSize={10} hide />
-                      <Tooltip contentStyle={{ backgroundColor: theme === 'dark' ? '#0b1120' : '#ffffff', borderColor: '#334155', borderRadius: '12px', boxShadow: '0 10px 25px -5px rgba(0,0,0,0.3)' }} />
+                      <Tooltip contentStyle={{ backgroundColor: theme === 'dark' ? '#1b120c' : '#fdfbf7', borderColor: theme === 'dark' ? '#38261b' : '#cab89f', borderRadius: '12px', boxShadow: '0 10px 25px -5px rgba(0,0,0,0.3)' }} />
                       <Legend />
-                      <Area yAxisId="price" type="monotone" dataKey="close" name="Close Price ($)" fill="rgba(6, 182, 212, 0.1)" stroke="#06b6d4" strokeWidth={3} />
-                      <Line yAxisId="price" type="monotone" dataKey="sma20" name="SMA-20 ($)" stroke="#f59e0b" strokeWidth={2} dot={false} />
-                      <Line yAxisId="price" type="monotone" dataKey="ema50" name="EMA-50 ($)" stroke="#8b5cf6" strokeWidth={2} dot={false} />
-                      <Bar yAxisId="volume" dataKey="volume" name="Volume" fill="rgba(100, 116, 139, 0.25)" />
+                      <Area yAxisId="price" type="monotone" dataKey="close" name="Close Price ($)" fill="rgba(217, 119, 6, 0.12)" stroke="#d97706" strokeWidth={3} />
+                      <Line yAxisId="price" type="monotone" dataKey="sma20" name="SMA-20 ($)" stroke="#b45309" strokeWidth={2} dot={false} />
+                      <Line yAxisId="price" type="monotone" dataKey="ema50" name="EMA-50 ($)" stroke="#e05a36" strokeWidth={2} dot={false} />
+                      <Bar yAxisId="volume" dataKey="volume" name="Volume" fill="rgba(180, 83, 9, 0.2)" />
                     </ComposedChart>
                   ) : (
                     <ComposedChart data={chartData.chart_data}>
                       <CartesianGrid strokeDasharray="3 3" stroke="#94a3b833" />
                       <XAxis dataKey="date" stroke="#94a3b8" fontSize={11} />
                       <YAxis yAxisId="rsi" domain={[0, 100]} stroke="#94a3b8" fontSize={11} />
-                      <YAxis yAxisId="macd" orientation="right" stroke="#6366f1" fontSize={11} />
-                      <Tooltip contentStyle={{ backgroundColor: theme === 'dark' ? '#0b1120' : '#ffffff', borderColor: '#334155', borderRadius: '12px', boxShadow: '0 10px 25px -5px rgba(0,0,0,0.3)' }} />
+                      <YAxis yAxisId="macd" orientation="right" stroke="#b45309" fontSize={11} />
+                      <Tooltip contentStyle={{ backgroundColor: theme === 'dark' ? '#1b120c' : '#fdfbf7', borderColor: theme === 'dark' ? '#38261b' : '#cab89f', borderRadius: '12px', boxShadow: '0 10px 25px -5px rgba(0,0,0,0.3)' }} />
                       <Legend />
                       <Line yAxisId="rsi" type="monotone" dataKey="rsi" name="RSI (14)" stroke="#10b981" strokeWidth={3} dot={{ r: 3 }} />
-                      <Bar yAxisId="macd" dataKey="macd" name="MACD Histogram" fill="#6366f1" />
+                      <Bar yAxisId="macd" dataKey="macd" name="MACD Histogram" fill="#d97706" />
                       <Line yAxisId="macd" type="monotone" dataKey="macd_signal" name="Signal Line" stroke="#f43f5e" strokeWidth={2} dot={false} />
                     </ComposedChart>
                   )}
@@ -356,10 +356,10 @@ export default function GraphAnalysis({ theme }) {
 
           {/* Model Estimate Disclaimer Notice */}
           <MotionSection direction="up" delay={0.2}>
-            <div className="p-5 rounded-2xl bg-white/90 dark:bg-dark-900/90 border border-slate-200/80 dark:border-slate-800/80 flex items-start space-x-3 shadow-sm">
-              <ShieldAlert className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+            <div className="p-5 rounded-2xl bg-white/95 dark:bg-dark-900/90 border border-slate-200/90 dark:border-slate-800/80 flex items-start space-x-3 shadow-sm">
+              <ShieldAlert className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
               <div className="text-xs text-slate-600 dark:text-slate-400 space-y-1">
-                <span className="font-bold text-amber-700 dark:text-amber-300 uppercase tracking-wider block">
+                <span className="font-bold text-amber-800 dark:text-amber-300 uppercase tracking-wider block">
                   Predictive Model Estimate Disclaimer:
                 </span>
                 <p className="leading-relaxed">{chartData.disclaimer}</p>
