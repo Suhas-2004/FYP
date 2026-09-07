@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import {
   Sparkles,
   Activity,
@@ -27,162 +27,24 @@ import {
   ChevronRight,
   HelpCircle,
   Lightbulb,
-  ExternalLink
+  ExternalLink,
+  Phone,
+  FileText,
+  PieChart,
+  ArrowUpRight,
+  Globe,
+  Radio,
+  Clock,
+  Menu,
+  Sun,
+  Moon
 } from 'lucide-react';
 import CompanyLogo from '../components/CompanyLogo';
 import { MotionSection, StaggerContainer, StaggerItem } from '../components/MotionReveal';
 import GeoGlobe from '../components/earth-pulse/GeoGlobe';
 
 // ============================================================================
-// 1. NEURAL PARTICLE CANVAS COMPONENT
-// ============================================================================
-function NeuralCanvas({ theme }) {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let animationFrameId;
-    let width = (canvas.width = canvas.offsetWidth);
-    let height = (canvas.height = canvas.offsetHeight);
-
-    const handleResize = () => {
-      if (!canvas) return;
-      width = canvas.width = canvas.offsetWidth;
-      height = canvas.height = canvas.offsetHeight;
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    // Particle nodes
-    const particleCount = Math.min(Math.floor((width * height) / 14000), 75);
-    const particles = [];
-
-    const isDark = theme === 'dark' || document.documentElement.classList.contains('dark');
-    const baseColor = isDark ? '217, 119, 6' : '180, 83, 9'; // Amber / Caramel Gold
-    const altColor = isDark ? '224, 90, 54' : '194, 65, 12'; // Terracotta / Copper
-
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.7,
-        vy: (Math.random() - 0.5) * 0.7,
-        radius: Math.random() * 2 + 1.2,
-        color: Math.random() > 0.3 ? baseColor : altColor,
-        alpha: Math.random() * 0.5 + 0.3,
-        pulseSpeed: Math.random() * 0.02 + 0.01,
-      });
-    }
-
-    let mouse = { x: -1000, y: -1000, radius: 140 };
-
-    const handleMouseMove = (e) => {
-      const rect = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
-    };
-
-    const handleMouseLeave = () => {
-      mouse.x = -1000;
-      mouse.y = -1000;
-    };
-
-    canvas.addEventListener('mousemove', handleMouseMove);
-    canvas.addEventListener('mouseleave', handleMouseLeave);
-
-    let isVisible = true;
-    const observer = new IntersectionObserver(([entry]) => {
-      isVisible = entry.isIntersecting;
-      if (isVisible) {
-        cancelAnimationFrame(animationFrameId);
-        animationFrameId = requestAnimationFrame(render);
-      } else {
-        cancelAnimationFrame(animationFrameId);
-      }
-    }, { threshold: 0.05 });
-
-    observer.observe(canvas);
-
-    // Animation Loop
-    const render = () => {
-      if (!isVisible) return;
-      ctx.clearRect(0, 0, width, height);
-
-      // Draw particle connections
-      for (let i = 0; i < particles.length; i++) {
-        const p1 = particles[i];
-
-        // Move particles
-        p1.x += p1.vx;
-        p1.y += p1.vy;
-
-        // Bounce on boundary
-        if (p1.x < 0 || p1.x > width) p1.vx *= -1;
-        if (p1.y < 0 || p1.y > height) p1.vy *= -1;
-
-        // Mouse interaction
-        const dxMouse = mouse.x - p1.x;
-        const dyMouse = mouse.y - p1.y;
-        const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
-        if (distMouse < mouse.radius) {
-          const force = (1 - distMouse / mouse.radius) * 1.5;
-          p1.x -= (dxMouse / distMouse) * force;
-          p1.y -= (dyMouse / distMouse) * force;
-        }
-
-        // Draw connections
-        for (let j = i + 1; j < particles.length; j++) {
-          const p2 = particles[j];
-          const dx = p1.x - p2.x;
-          const dy = p1.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < 110) {
-            const lineAlpha = (1 - dist / 110) * (isDark ? 0.25 : 0.18);
-            ctx.strokeStyle = `rgba(${p1.color}, ${lineAlpha})`;
-            ctx.lineWidth = 0.8;
-            ctx.beginPath();
-            ctx.moveTo(p1.x, p1.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.stroke();
-          }
-        }
-
-        // Draw Particle Node
-        ctx.fillStyle = `rgba(${p1.color}, ${p1.alpha})`;
-        ctx.beginPath();
-        ctx.arc(p1.x, p1.y, p1.radius, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      animationFrameId = requestAnimationFrame(render);
-    };
-
-    render();
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener('resize', handleResize);
-      if (canvas) {
-        canvas.removeEventListener('mousemove', handleMouseMove);
-        canvas.removeEventListener('mouseleave', handleMouseLeave);
-      }
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, [theme]);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-auto z-0"
-    />
-  );
-}
-
-// ============================================================================
-// 2. BENCHMARK TITANS DATA
+// TITAN HISTORICAL CASE DATA FOR INTERACTIVE ENGINE
 // ============================================================================
 const TITAN_CASES = [
   {
@@ -191,12 +53,12 @@ const TITAN_CASES = [
     ticker: 'AAPL',
     crisisYear: '1997',
     recoveryYear: '2001-2007',
-    crisisFactor: '90 Days from Insolvency',
-    dropDetail: '-75% revenue decline, 3,000 redundancies, fragmented 20+ SKU portfolio.',
-    recoveryCatalyst: 'The $150M Microsoft Lifeline, radical SKU simplification to 4 quadrants, and the iMac & iPod ecosystem pivot.',
-    growthMultiple: '500x+ Value Expansion ($3T+ Peak)',
+    crisisFactor: '90 Days from Bankruptcy',
+    dropDetail: '350+ fragmented hardware SKUs, $1B annual loss, cash reserves down to 3 months.',
+    recoveryCatalyst: 'Steve Jobs 2x2 Matrix (slashed 70% of products), $150M Microsoft investment, iMac & iPod launches.',
+    growthMultiple: 'From Near-Bankruptcy to $3T+ Market Cap (1,200x+)',
     color: 'from-amber-500 to-orange-600',
-    logoColor: '#000000',
+    logoColor: '#A2AAAD',
     tags: ['Tech & Hardware', 'SKU Simplification', 'Ecosystem Pivot']
   },
   {
@@ -271,24 +133,65 @@ const TITAN_CASES = [
   }
 ];
 
+const STARTUP_POSTMORTEMS = [
+  {
+    name: 'Quibi',
+    loss: '$1.75B Lost',
+    reason: 'Format Arrogance & No Social Sharing',
+    matchedTitan: 'Netflix (2011 Pivot)',
+    lesson: 'Mobile-only short form failed; should have adapted to user social behaviors like Netflix pivot.'
+  },
+  {
+    name: 'WeWork',
+    loss: '$47B Valuation Crash',
+    reason: 'Hyper-Lease Liabilities & Tech Pretension',
+    matchedTitan: 'LEGO (2004 Asset Divestment)',
+    lesson: 'Asset-heavy expansion required immediate non-core divestment like LEGO theme parks.'
+  },
+  {
+    name: 'Theranos',
+    loss: '$9B Vaporized',
+    reason: 'Secretive Non-Working Tech & Fraud',
+    matchedTitan: 'Apple (1997 Radical Focus)',
+    lesson: 'Should have simplified down to 1 validated functional test instead of faking 200.'
+  },
+  {
+    name: 'Fast',
+    loss: '$120M Burned',
+    reason: 'Sky-high Burn ($10M/mo) vs $600k ARR',
+    matchedTitan: 'Tesla (2008 Emergency Survival)',
+    lesson: 'Must aggressively slash overhead to reach unit profitability before cash expires.'
+  }
+];
+
 // ============================================================================
-// 3. MAIN ABOUT PAGE COMPONENT
+// MAIN COMPONENT
 // ============================================================================
 export default function About({
   setActiveTab,
   setSelectedCompanyId,
   selectedPersona,
-  theme
+  theme,
+  toggleTheme
 }) {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  // Parallax transforms for sunny organic background pills
+  const shape1Y = useTransform(scrollYProgress, [0, 1], [0, 220]);
+  const shape2Y = useTransform(scrollYProgress, [0, 1], [0, -180]);
+  const shape3Rotate = useTransform(scrollYProgress, [0, 1], [0, 45]);
+  const heroCardY = useTransform(scrollYProgress, [0, 0.3], [0, -40]);
+
   // Sandbox Simulator State
   const [runwayMonths, setRunwayMonths] = useState(6);
   const [burnMultiple, setBurnMultiple] = useState(2.8);
   const [headwindSeverity, setHeadwindSeverity] = useState(70);
   const [skuComplexity, setSkuComplexity] = useState('High'); // Low | Med | High | Extreme
-  const [matchedTitan, setMatchedTitan] = useState(null);
-
-  // Active persona preview in About
-  const [previewPersona, setPreviewPersona] = useState(selectedPersona || 'Entrepreneur');
+  const [matchedTitan, setMatchedTitan] = useState(TITAN_CASES[0]);
 
   // Compute live match
   useEffect(() => {
@@ -341,186 +244,384 @@ export default function About({
     setActiveTab('strategy-steps');
   };
 
+  // FAQ Accordion State
+  const [openFaq, setOpenFaq] = useState(0);
+
+  const FAQS = [
+    {
+      q: 'How does ICLAS apply 1990s and 2000s turnaround heuristics to modern AI & SaaS startups?',
+      a: 'Corporate survival follows invariant mathematical laws: cash runway cliffs, portfolio SKU fragmentation, margin compression, and channel lockouts. ICLAS uses vector cosine similarity over 6-year longitudinal financial indicators (T-3 to T+3) to match current startup metrics with historical crisis archetypes.'
+    },
+    {
+      q: 'What is Case-Based Reasoning (CBR) in corporate advisory?',
+      a: 'CBR solves new problems by finding similar past cases, adapting their verified solutions, and evaluating the outcome. Rather than hallucinating generic advice, ICLAS retrieves empirically validated playbooks executed by Fortune 500 leadership teams.'
+    },
+    {
+      q: 'Can I track live markets and company stocks alongside historical cases?',
+      a: 'Yes! The Market Dashboard module features real-time TradingView technical charts, financial overview widgets, market quote comparisons, and live sentiment gauges to monitor macroeconomic shifts alongside historical turnarounds.'
+    },
+    {
+      q: 'How are startup post-mortems integrated with titan turnarounds?',
+      a: 'ICLAS maps catastrophic venture failures (e.g. Quibi, WeWork, Fast, Theranos) directly against titan counterparts that faced identical failure modes but successfully engineered turnaround playbooks to survive.'
+    }
+  ];
+
   return (
-    <div className="space-y-16 sm:space-y-24 pb-20 overflow-x-hidden">
+    <div ref={containerRef} className="space-y-16 sm:space-y-24 pb-24 overflow-x-hidden font-sans">
       
       {/* =========================================================================
-          HERO SECTION: Holographic Cyber Title & Interactive 3D Earth Background
+          1. ULTRA ATTRACTIVE SUNNY GOLD HERO SECTION (Matches Reference Design)
           ========================================================================= */}
-      <section className="relative w-screen min-h-[95vh] lg:min-h-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] flex flex-col justify-center items-center overflow-hidden bg-[#120c08] -mt-8 mb-16 py-12 sm:py-16">
+      <section className="relative w-screen min-h-[92vh] lg:min-h-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-[#F6CA45] text-[#111111] -mt-8 mb-12 px-6 sm:px-12 lg:px-16 pt-8 pb-16 flex flex-col justify-between overflow-hidden select-none">
         
-        {/* Interactive 3D Full-Screen Fixed Globe Background (100% luminous & visible, GPU composited) */}
+        {/* Layered Organic Smooth Geometric Shapes in Background (Parallax Driven) */}
         <motion.div 
-          className="absolute inset-0 pointer-events-auto z-0 opacity-100 flex items-center justify-center will-change-transform"
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          style={{
-            transformOrigin: 'center center',
-            transform: 'translateZ(0)'
-          }}
-        >
-           <GeoGlobe />
-        </motion.div>
+          style={{ y: shape1Y }}
+          className="absolute -right-20 top-16 w-[420px] sm:w-[580px] h-[340px] sm:h-[460px] rounded-[100px] sm:rounded-[140px] bg-[#ECA91E]/60 pointer-events-none z-0"
+        />
+        <motion.div 
+          style={{ y: shape2Y, rotate: shape3Rotate }}
+          className="absolute -right-12 bottom-12 w-[340px] sm:w-[480px] h-[320px] sm:h-[420px] rounded-[90px] sm:rounded-[130px] bg-[#EDA81E]/80 pointer-events-none z-0"
+        />
+        
+        {/* Floating Crisp White Circle (Reference Design Element) */}
+        <motion.div 
+          animate={{ y: [0, -12, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute right-1/4 sm:right-[32%] top-[46%] sm:top-[44%] w-24 h-24 sm:w-36 sm:h-36 rounded-full bg-white shadow-xl pointer-events-none z-0"
+        />
 
-        {/* Ambient Warm Golden Amber Atmosphere Orbs (GPU composited) */}
-        <div className="absolute -top-32 -left-32 w-[450px] h-[450px] bg-amber-500/20 rounded-full blur-[80px] pointer-events-none animate-pulse-slow will-change-transform" />
-        <div className="absolute top-1/2 -right-32 w-[450px] h-[450px] bg-orange-600/20 rounded-full blur-[90px] pointer-events-none animate-pulse-slow will-change-transform" style={{ animationDelay: '-3s' }} />
-        <div className="absolute -bottom-32 left-1/3 w-[400px] h-[400px] bg-amber-600/15 rounded-full blur-[80px] pointer-events-none animate-pulse-slow will-change-transform" style={{ animationDelay: '-1.5s' }} />
+        {/* Floating Ambient Sparkle Pill */}
+        <div className="absolute left-8 top-1/3 w-3 h-3 rounded-full bg-white/70 animate-ping pointer-events-none" />
 
-        {/* Seamless Bottom Section Transition Fade to Light Coffee / Dark Roast */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 z-[1] bg-gradient-to-t from-[#120c08] to-transparent pointer-events-none" />
-
-        {/* Hero Content Box */}
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-12 flex flex-col items-center text-center pointer-events-none">
+        {/* -------------------------------------------------------------
+            TOP BRAND & QUICK ACTION PILL BAR (Matches Reference Header)
+            ------------------------------------------------------------- */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto flex items-center justify-between pt-2">
           
-          {/* Holographic Status Pill */}
-          <motion.div
-            initial={{ opacity: 0, y: -20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center space-x-2.5 px-4 py-2 rounded-full bg-[#1c120c]/85 text-amber-200 border border-amber-500/40 shadow-[0_0_20px_rgba(217,119,6,0.35)] backdrop-blur-md text-xs font-mono mb-6 sm:mb-8 pointer-events-auto"
+          {/* Brand Monogram Badge */}
+          <motion.div 
+            whileHover={{ scale: 1.05, rotate: -4 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setActiveTab('about')}
+            className="flex items-center space-x-3 cursor-pointer group"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400 shadow-[0_0_8px_#f59e0b]"></span>
-            </span>
-            <span className="text-amber-400 font-bold tracking-wider">ICLAS AI ENGINE</span>
-            <span className="text-amber-600">•</span>
-            <span className="text-[#fdfaf5] font-medium">HISTORICAL CORPORATE INTELLIGENCE // ONLINE</span>
+            <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#111111] text-[#F6CA45] flex items-center justify-center font-heading font-black text-xl sm:text-2xl shadow-xl tracking-tighter border-2 border-black/10">
+              <span>IC</span>
+            </div>
+            <div className="hidden sm:block">
+              <span className="font-heading font-extrabold text-lg sm:text-xl text-[#111111] tracking-tight">ICLAS</span>
+              <span className="block text-[10px] font-mono font-semibold tracking-wider text-[#111111]/70 uppercase">Corporate Intelligence</span>
+            </div>
           </motion.div>
 
-          {/* Main Giant Cyber Headline with Crisp Multi-Layer Text Shadows */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl sm:text-6xl lg:text-7xl font-heading font-black tracking-tight text-white leading-[1.1] max-w-4xl pointer-events-auto [text-shadow:_0_3px_16px_rgba(0,0,0,0.95),_0_0_30px_rgba(18,12,8,0.9)]"
-          >
-            Corporate Turnaround Intelligence, <br className="hidden sm:inline" />
-            <span className="bg-gradient-to-r from-amber-300 via-orange-300 to-amber-400 bg-clip-text text-transparent [text-shadow:_0_0_35px_rgba(217,119,6,0.8)] filter drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
-              Engineered for Startup Survival.
-            </span>
-          </motion.h1>
-
-          {/* Subtitle Description with Highlight Badges and Crisp Legibility */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-6 text-base sm:text-lg lg:text-xl text-[#fdfaf5] max-w-3xl leading-relaxed font-normal pointer-events-auto [text-shadow:_0_2px_12px_rgba(0,0,0,0.95),_0_0_20px_rgba(18,12,8,0.85)]"
-          >
-            <span className="font-bold text-amber-300 bg-[#28180f]/80 border border-amber-500/40 px-2 py-0.5 rounded-md backdrop-blur-sm mr-1.5 shadow-sm">ICLAS</span> 
-            bridges the gap between historical corporate titans and early-stage ventures. Powered by 
-            <span className="font-semibold text-orange-300 bg-[#28180f]/80 border border-orange-500/40 px-2 py-0.5 rounded-md backdrop-blur-sm mx-1.5 shadow-sm">Case-Based Reasoning (CBR)</span>, 
-            longitudinal crisis forensics, and vector similarity models, we transform legendary corporate turnarounds into actionable survival playbooks.
-          </motion.p>
-
-          {/* Futuristic Interactive Action CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-9 flex flex-wrap items-center justify-center gap-4 sm:gap-5 pointer-events-auto"
-          >
-            {/* Primary CTA: Launch Platform */}
+          {/* Quick Pill Action Buttons */}
+          <div className="flex items-center space-x-3 sm:space-x-4">
+            
+            {/* Action Pill 1: Explore Playbooks */}
             <motion.button
-              whileHover={{ scale: 1.04, translateY: -2 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => setActiveTab('overview')}
-              className="relative group overflow-hidden px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white font-heading font-bold text-base shadow-[0_0_30px_rgba(217,119,6,0.5)] hover:shadow-[0_0_45px_rgba(217,119,6,0.8)] border border-amber-300/40 transition-all flex items-center space-x-3"
+              whileHover={{ scale: 1.05, translateY: -2 }}
+              whileTap={{ scale: 0.96 }}
+              onClick={() => setActiveTab('strategy-steps')}
+              className="px-5 sm:px-7 py-2.5 sm:py-3 rounded-full bg-white text-[#111111] font-heading font-bold text-xs sm:text-sm tracking-wide shadow-md hover:shadow-xl transition-all flex items-center space-x-1.5 cursor-pointer"
             >
-              <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <Activity className="w-5 h-5 text-white animate-pulse" />
-              <span>Launch Intelligence Dashboard</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <span>EXPLORE PLAYBOOKS</span>
+              <ArrowRight className="w-4 h-4 text-[#111111]" />
             </motion.button>
 
-            {/* Secondary CTA: Simulate Crisis Match */}
+            {/* Action Pill 2: Simulate Crisis */}
             <motion.button
-              whileHover={{ scale: 1.04, translateY: -2 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={{ scale: 1.05, translateY: -2 }}
+              whileTap={{ scale: 0.96 }}
               onClick={() => {
                 const el = document.getElementById('crisis-simulator-sandbox');
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="px-7 py-4 rounded-2xl bg-[#1c120c]/80 hover:bg-[#28180f]/95 border border-amber-500/40 hover:border-amber-400 text-[#fdfaf5] font-heading font-semibold text-base shadow-[0_4px_20px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all flex items-center space-x-2.5"
+              className="px-5 sm:px-7 py-2.5 sm:py-3 rounded-full bg-white text-[#111111] font-heading font-bold text-xs sm:text-sm tracking-wide shadow-md hover:shadow-xl transition-all flex items-center space-x-1.5 cursor-pointer"
             >
-              <Sliders className="w-5 h-5 text-amber-400" />
-              <span>Try Crisis Simulator</span>
+              <span>SIMULATE CRISIS</span>
+              <ArrowRight className="w-4 h-4 text-[#111111]" />
             </motion.button>
 
-            {/* Tertiary CTA: Companies Intel */}
+            {/* Quick Menu / Dashboard Icon */}
             <motion.button
-              whileHover={{ scale: 1.04, translateY: -2 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => setActiveTab('companies')}
-              className="px-6 py-4 rounded-2xl bg-[#1c120c]/65 hover:bg-[#28180f]/90 border border-[#382417] hover:border-amber-500/60 text-amber-200 hover:text-white font-heading font-medium text-sm backdrop-blur-md transition-all flex items-center space-x-2"
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.92 }}
+              onClick={() => setActiveTab('overview')}
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#111111] text-white flex items-center justify-center shadow-lg cursor-pointer hover:bg-black transition-colors"
+              title="Open Navigation Overview"
             >
-              <Building2 className="w-4 h-4 text-amber-400" />
-              <span>11 Benchmark Titans</span>
+              <Menu className="w-5 h-5 text-white" />
             </motion.button>
-          </motion.div>
 
-          {/* Real-time Telemetry Stat Cards with Translucent Frosted Glass (Globe visible underneath) */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
+          </div>
+        </div>
+
+        {/* -------------------------------------------------------------
+            HERO MAIN CONTENT AREA (Heading, Subtitle & Bento Action Cards)
+            ------------------------------------------------------------- */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto my-auto py-10 sm:py-16">
+          <div className="max-w-4xl space-y-6">
+            
+            {/* Main Giant High-Impact Neo-Grotesque Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.2rem] font-heading font-black tracking-tight text-[#111111] leading-[1.02] sm:leading-[1.03]"
+            >
+              Where corporate crisis meets strategic survival<span className="inline-block w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-white ml-2 align-baseline shadow-md animate-pulse"></span>
+            </motion.h1>
+
+            {/* Clean, Elegant Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="text-base sm:text-xl md:text-2xl text-[#111111]/85 font-medium max-w-2xl leading-relaxed"
+            >
+              Specialists in corporate turnaround intelligence, connecting startup survival with historical titan heuristics & AI Case-Based Reasoning.
+            </motion.p>
+          </div>
+
+          {/* -------------------------------------------------------------
+              INTERACTIVE FLOATING ACTION BENTO CARDS (Matches Reference Design)
+              ------------------------------------------------------------- */}
+          <motion.div 
+            style={{ y: heroCardY }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 w-full max-w-4xl pointer-events-auto"
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 max-w-5xl"
           >
-            {[
-              { label: 'Corporate Titans', val: '11 Benchmarks', sub: 'Longitudinal Data (T-3 to T+3)', icon: Building2, color: 'text-amber-400', glow: 'hover:border-amber-500/50 hover:shadow-[0_0_25px_rgba(217,119,6,0.4)]' },
-              { label: 'Decision Engine', val: 'Vector CBR', sub: 'Cosine Metric Similarity', icon: Cpu, color: 'text-orange-400', glow: 'hover:border-orange-500/50 hover:shadow-[0_0_25px_rgba(224,90,54,0.4)]' },
-              { label: 'Turnaround Archetypes', val: '3 Stages', sub: 'Stabilize • Pivot • Scale', icon: ListOrdered, color: 'text-amber-300', glow: 'hover:border-amber-400/50 hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]' },
-              { label: 'Forensic Depth', val: '6 Years', sub: 'Downfall to Peak Recovery', icon: TrendingUp, color: 'text-rose-400', glow: 'hover:border-rose-500/50 hover:shadow-[0_0_25px_rgba(244,63,94,0.35)]' },
-            ].map((stat, idx) => {
-              const Icon = stat.icon;
-              return (
-                <div
-                  key={idx}
-                  className={`p-4 sm:p-5 rounded-2xl bg-[#1c120c]/70 hover:bg-[#28180f]/90 border border-[#382417] backdrop-blur-md shadow-[0_8px_25px_rgb(0,0,0,0.5)] text-left transition-all hover:-translate-y-1 ${stat.glow}`}
-                >
-                  <div className="flex items-center space-x-2 mb-1.5">
-                    <div className="p-1 rounded-lg bg-white/5 border border-white/10">
-                      <Icon className={`w-4 h-4 ${stat.color}`} />
-                    </div>
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-amber-200/80 font-semibold">
-                      {stat.label}
-                    </span>
-                  </div>
-                  <div className="text-xl sm:text-2xl font-heading font-black text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-                    {stat.val}
-                  </div>
-                  <div className="text-[11px] text-amber-200/70 mt-1 font-normal truncate">
-                    {stat.sub}
-                  </div>
-                </div>
-              );
-            })}
-          </motion.div>
+            
+            {/* Card 1: Founder Track / Apply Playbook */}
+            <motion.div
+              whileHover={{ y: -8, scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => setActiveTab('strategy-steps')}
+              className="bg-white rounded-3xl p-6 sm:p-7 shadow-xl hover:shadow-2xl border border-black/5 transition-all flex flex-col justify-between group cursor-pointer min-h-[190px]"
+            >
+              <div>
+                <span className="text-[11px] font-mono font-bold tracking-wider uppercase text-[#EDA81E]">Founder Track</span>
+                <h3 className="text-xl sm:text-2xl font-heading font-extrabold text-[#111111] mt-1 group-hover:text-amber-700 transition-colors">
+                  I want to explore playbooks
+                </h3>
+                <p className="text-xs sm:text-sm text-[#555555] mt-1.5 font-normal leading-snug">
+                  Find your 6-year turnaround roadmap & crisis telemetry.
+                </p>
+              </div>
 
+              <div className="flex items-center justify-between pt-4 mt-2">
+                <div className="w-9 h-9 rounded-full bg-[#111111] group-hover:bg-[#EDA81E] text-white flex items-center justify-center transition-all group-hover:translate-x-1">
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+                {/* Tactile Illustrated Vector Badge */}
+                <div className="w-11 h-11 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-xl shadow-sm">
+                  📝
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Card 2: Investor Track / Evaluate Risk */}
+            <motion.div
+              whileHover={{ y: -8, scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => setActiveTab('investors-startups')}
+              className="bg-white rounded-3xl p-6 sm:p-7 shadow-xl hover:shadow-2xl border border-black/5 transition-all flex flex-col justify-between group cursor-pointer min-h-[190px]"
+            >
+              <div>
+                <span className="text-[11px] font-mono font-bold tracking-wider uppercase text-[#E05A36]">Investor Track</span>
+                <h3 className="text-xl sm:text-2xl font-heading font-extrabold text-[#111111] mt-1 group-hover:text-amber-700 transition-colors">
+                  I want to evaluate risk
+                </h3>
+                <p className="text-xs sm:text-sm text-[#555555] mt-1.5 font-normal leading-snug">
+                  Analyze CBR cosine similarity, burn rate stress tests & post-mortems.
+                </p>
+              </div>
+
+              <div className="flex items-center justify-between pt-4 mt-2">
+                <div className="w-9 h-9 rounded-full bg-[#111111] group-hover:bg-[#E05A36] text-white flex items-center justify-center transition-all group-hover:translate-x-1">
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+                {/* Tactile Illustrated Vector Badge */}
+                <div className="w-11 h-11 rounded-2xl bg-orange-50 border border-orange-200 flex items-center justify-center text-xl shadow-sm">
+                  🔍
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Card 3: Macro Markets Track */}
+            <motion.div
+              whileHover={{ y: -8, scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => setActiveTab('market-dashboard')}
+              className="bg-white rounded-3xl p-6 sm:p-7 shadow-xl hover:shadow-2xl border border-black/5 transition-all flex flex-col justify-between group cursor-pointer min-h-[190px]"
+            >
+              <div>
+                <span className="text-[11px] font-mono font-bold tracking-wider uppercase text-[#0891B2]">Macro Intel Track</span>
+                <h3 className="text-xl sm:text-2xl font-heading font-extrabold text-[#111111] mt-1 group-hover:text-amber-700 transition-colors">
+                  I want live market data
+                </h3>
+                <p className="text-xs sm:text-sm text-[#555555] mt-1.5 font-normal leading-snug">
+                  Live TradingView charts, sentiment gauges & real-time quotes.
+                </p>
+              </div>
+
+              <div className="flex items-center justify-between pt-4 mt-2">
+                <div className="w-9 h-9 rounded-full bg-[#111111] group-hover:bg-[#0891B2] text-white flex items-center justify-center transition-all group-hover:translate-x-1">
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+                {/* Tactile Illustrated Vector Badge */}
+                <div className="w-11 h-11 rounded-2xl bg-cyan-50 border border-cyan-200 flex items-center justify-center text-xl shadow-sm">
+                  📈
+                </div>
+              </div>
+            </motion.div>
+
+          </motion.div>
+        </div>
+
+        {/* -------------------------------------------------------------
+            FLOATING LIVE STATUS / HOTLINE PILL (Bottom Right of Hero)
+            ------------------------------------------------------------- */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto flex items-center justify-between pt-4">
+          <div className="hidden sm:flex items-center space-x-2 text-xs font-mono font-semibold text-[#111111]/70">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            <span>SYSTEM OPERATIONAL // 11 BENCHMARK CORPORATE TITANS LOADED</span>
+          </div>
+
+          {/* Floating Pill on Bottom Right */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setActiveTab('companies')}
+            className="ml-auto bg-white text-[#111111] px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-heading font-bold text-xs sm:text-sm shadow-2xl border border-black/5 flex items-center space-x-2.5 cursor-pointer hover:shadow-glow-amber transition-all"
+          >
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981] animate-pulse"></span>
+            <span>⚡ LIVE INTEL // 6 TITAN PLAYBOOKS ACTIVE</span>
+          </motion.div>
+        </div>
+
+      </section>
+
+      {/* =========================================================================
+          2. PLAYFUL LIVE CRISIS TICKER / MARQUEE RIBBON
+          ========================================================================= */}
+      <section className="w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-[#111111] py-4 overflow-hidden border-y border-amber-500/30 select-none -mt-8">
+        <div className="animate-marquee-infinite flex items-center space-x-8 text-xs sm:text-sm font-mono font-bold text-[#F6CA45] uppercase tracking-widest whitespace-nowrap">
+          <span>🔥 APPLE 1997: 90 DAYS TO CASH ZERO ➔ $3T REBOUND</span>
+          <span className="text-white/40">•</span>
+          <span>⚡ NETFLIX 2011: QWIKSTER 75% STOCK CRASH ➔ ORIGINAL STREAMING GIANT</span>
+          <span className="text-white/40">•</span>
+          <span>🧱 LEGO 2004: $800M LIQUIDATION CRISIS ➔ WORLD'S #1 TOYMAKER</span>
+          <span className="text-white/40">•</span>
+          <span>🛡️ MARVEL 1996: CHAPTER 11 BANKRUPTCY ➔ $30B+ MCU FRANCHISE</span>
+          <span className="text-white/40">•</span>
+          <span>🚀 TESLA 2008: ZERO-CASH PRODUCTION HELL ➔ $1T+ AUTO LEADER</span>
+          <span className="text-white/40">•</span>
+          <span>💻 IBM 1993: $8.1B HISTORIC LOSS ➔ ENTERPRISE SERVICES LEADER</span>
+          <span className="text-white/40">•</span>
+          <span>🔥 APPLE 1997: 90 DAYS TO CASH ZERO ➔ $3T REBOUND</span>
+          <span className="text-white/40">•</span>
+          <span>⚡ NETFLIX 2011: QWIKSTER 75% STOCK CRASH ➔ ORIGINAL STREAMING GIANT</span>
+          <span className="text-white/40">•</span>
+          <span>🧱 LEGO 2004: $800M LIQUIDATION CRISIS ➔ WORLD'S #1 TOYMAKER</span>
+          <span className="text-white/40">•</span>
+          <span>🛡️ MARVEL 1996: CHAPTER 11 BANKRUPTCY ➔ $30B+ MCU FRANCHISE</span>
+          <span className="text-white/40">•</span>
+          <span>🚀 TESLA 2008: ZERO-CASH PRODUCTION HELL ➔ $1T+ AUTO LEADER</span>
+          <span className="text-white/40">•</span>
+          <span>💻 IBM 1993: $8.1B HISTORIC LOSS ➔ ENTERPRISE SERVICES LEADER</span>
         </div>
       </section>
 
       {/* =========================================================================
-          LIVE CRISIS CONDITION SIMULATOR & VECTOR MATCHER SANDBOX
+          3. INTERACTIVE 3D EARTH GLOBE & GLOBAL CRISIS GEOGRAPHY
           ========================================================================= */}
-      <section id="crisis-simulator-sandbox" className="scroll-mt-24">
+      <section className="space-y-6 max-w-7xl mx-auto px-4 sm:px-6">
+        <MotionSection direction="up" duration={0.6}>
+          <div className="relative rounded-3xl border border-[#dcceb9] dark:border-slate-800/80 bg-gradient-to-br from-[#1b120c] via-[#120c08] to-[#24160d] text-white p-6 sm:p-10 shadow-2xl overflow-hidden">
+            
+            {/* Ambient Warm Golden Atmosphere */}
+            <div className="absolute -top-24 -right-24 w-80 h-80 bg-amber-500/20 rounded-full blur-[90px] pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-orange-600/20 rounded-full blur-[90px] pointer-events-none" />
+
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              {/* Left Details */}
+              <div className="lg:col-span-6 space-y-5">
+                <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-mono font-bold">
+                  <Globe className="w-3.5 h-3.5 text-amber-400" />
+                  <span>GEOGRAPHIC TURNAROUND TELEMETRY</span>
+                </div>
+                
+                <h2 className="text-3xl sm:text-4xl font-heading font-black text-white leading-tight">
+                  Global Forensics of <br />
+                  <span className="bg-gradient-to-r from-amber-300 via-orange-300 to-amber-400 bg-clip-text text-transparent">
+                    Legendary Corporate Turnarounds
+                  </span>
+                </h2>
+
+                <p className="text-amber-100/80 text-sm sm:text-base leading-relaxed font-normal">
+                  Corporate distress is not isolated to Silicon Valley. Explore how iconic enterprises across North America, Europe, and Asia executed radical pivots to survive financial cliffs.
+                </p>
+
+                <div className="grid grid-cols-2 gap-3 pt-2">
+                  <div className="p-3.5 rounded-2xl bg-[#1c120c]/90 border border-[#3d2719]">
+                    <span className="text-[11px] font-mono text-amber-400 font-bold uppercase block">Silicon Valley</span>
+                    <span className="text-sm font-bold text-white">Apple, Tesla, Netflix</span>
+                    <span className="text-[10px] text-amber-200/70 block mt-0.5">Cupertino • Los Gatos • Austin</span>
+                  </div>
+                  <div className="p-3.5 rounded-2xl bg-[#1c120c]/90 border border-[#3d2719]">
+                    <span className="text-[11px] font-mono text-amber-400 font-bold uppercase block">Europe & East Coast</span>
+                    <span className="text-sm font-bold text-white">LEGO, IBM, Marvel</span>
+                    <span className="text-[10px] text-amber-200/70 block mt-0.5">Billund • Armonk • NYC</span>
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <button
+                    onClick={() => setActiveTab('companies')}
+                    className="px-6 py-3 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-600 text-white font-heading font-bold text-xs shadow-glow-amber hover:shadow-xl transition-all flex items-center space-x-2"
+                  >
+                    <span>View All 11 Benchmark Titan Cases</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Right: Interactive 3D Globe Viewport */}
+              <div className="lg:col-span-6 h-[380px] sm:h-[440px] rounded-2xl overflow-hidden relative border border-[#3d2719] bg-[#0c0805]/90 flex items-center justify-center">
+                <GeoGlobe />
+                <div className="absolute bottom-3 right-3 px-3 py-1 rounded-lg bg-black/70 backdrop-blur-md border border-amber-500/30 text-[10px] font-mono text-amber-300">
+                  Interactive 3D WebGL Engine
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </MotionSection>
+      </section>
+
+      {/* =========================================================================
+          4. INTERACTIVE CRISIS VECTOR SIMULATOR (Sandbox Survival Calculator)
+          ========================================================================= */}
+      <section id="crisis-simulator-sandbox" className="scroll-mt-24 max-w-7xl mx-auto px-4 sm:px-6">
         <MotionSection direction="up" duration={0.6}>
           <div className="relative rounded-3xl border border-[#dcceb9] dark:border-slate-800/80 bg-gradient-to-br from-[#1a110a] via-[#120c08] to-[#1f140d] text-white p-6 sm:p-10 lg:p-12 shadow-2xl overflow-hidden">
             
             {/* Ambient Holographic Ring */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/15 rounded-full blur-[110px] pointer-events-none animate-pulse-slow" />
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-600/15 rounded-full blur-[110px] pointer-events-none animate-pulse-slow" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/15 rounded-full blur-[110px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-600/15 rounded-full blur-[110px] pointer-events-none" />
 
             <div className="relative z-10">
               
               {/* Header */}
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 border-b border-[#3d2719]">
                 <div>
-                  <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-mono mb-3">
-                    <Sliders className="w-3.5 h-3.5" />
+                  <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-mono font-bold mb-3">
+                    <Sliders className="w-3.5 h-3.5 text-amber-400" />
                     <span>INTERACTIVE TELEMETRY SANDBOX</span>
                   </div>
                   <h2 className="text-2xl sm:text-4xl font-heading font-extrabold text-white">
@@ -531,7 +632,7 @@ export default function About({
                   </p>
                 </div>
 
-                <div className="flex items-center space-x-2 text-xs font-mono text-amber-200/80 bg-[#1c120c]/90 px-4 py-2 rounded-xl border border-[#3d2719] self-start md:self-auto">
+                <div className="flex items-center space-x-2 text-xs font-mono text-amber-200/80 bg-[#1c120c]/90 px-4 py-2 rounded-xl border border-[#3d2719] self-start md:self-auto shadow-sm">
                   <span className="h-2 w-2 rounded-full bg-amber-400 animate-pulse" />
                   <span>Real-time Cosine Heuristic Model</span>
                 </div>
@@ -660,9 +761,6 @@ export default function About({
                       transition={{ duration: 0.4 }}
                       className="flex-1 p-6 sm:p-7 rounded-3xl bg-[#1c120c]/95 border-2 border-amber-500/50 shadow-glow-amber flex flex-col justify-between relative overflow-hidden"
                     >
-                      {/* Scanline Effect */}
-                      <div className="absolute inset-0 scanline pointer-events-none opacity-20" />
-
                       <div className="space-y-4">
                         <div className="flex items-center justify-between">
                           <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-mono font-bold">
@@ -720,9 +818,6 @@ export default function About({
                           <span>Execute Full {matchedTitan.name} Roadmap</span>
                           <ArrowRight className="w-3.5 h-3.5" />
                         </button>
-                        <p className="text-[10px] text-center text-amber-200/60 font-mono">
-                          Inspect 3-Stage Heuristics (Stabilize, Pivot, Scale)
-                        </p>
                       </div>
 
                     </motion.div>
@@ -737,493 +832,316 @@ export default function About({
       </section>
 
       {/* =========================================================================
-          THE 4 NEURAL CORE PILLARS OF ICLAS
+          5. 6-TITAN TURNAROUND PLAYBOOK GALLERY (Interactive Bento Grid)
           ========================================================================= */}
-      <section className="space-y-8">
+      <section className="space-y-8 max-w-7xl mx-auto px-4 sm:px-6">
         <MotionSection direction="up" duration={0.6}>
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-800 dark:text-amber-400 text-xs font-semibold">
-              <Cpu className="w-3.5 h-3.5" />
-              <span>CORE ARCHITECTURAL FOUNDATION</span>
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-800 dark:text-amber-400 text-xs font-bold font-mono">
+              <Award className="w-3.5 h-3.5" />
+              <span>THE 6 PILLAR PLAYBOOKS</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-heading font-extrabold text-[#24160d] dark:text-white">
-              The Four Neural Pillars of ICLAS
+              Benchmark Corporate Turnarounds
             </h2>
-            <p className="text-[#6c4f38] dark:text-slate-400 text-sm sm:text-base leading-relaxed font-normal">
-              How our system decodes corporate crisis data, normalizes multidimensional balance sheet indicators, and produces structured turnaround playbooks.
+            <p className="text-[#6c4f38] dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+              Every playbook is backed by 6-year empirical balance sheet records, executive decisions, and 3-stage turnaround roadmaps.
             </p>
           </div>
         </MotionSection>
 
-        <StaggerContainer staggerDelay={0.12} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          
-          {/* Pillar 1 */}
-          <StaggerItem>
-            <div className="h-full p-6 sm:p-7 rounded-3xl bg-[#fdfbf7] dark:bg-dark-900 border border-[#dcceb9] dark:border-slate-800/80 shadow-sm hover:shadow-xl hover:border-amber-500/50 dark:hover:border-amber-500/50 transition-all group flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <TrendingUp className="w-6 h-6 text-amber-600 dark:text-amber-400" />
-                </div>
-                <span className="text-[11px] font-mono text-amber-700 dark:text-amber-400 font-bold tracking-wider">PILLAR 01</span>
-                <h3 className="text-xl font-heading font-bold text-[#24160d] dark:text-white mt-1 mb-3">
-                  Longitudinal Forensics (T-3 to T+3)
-                </h3>
-                <p className="text-[#6c4f38] dark:text-slate-400 text-xs sm:text-sm leading-relaxed font-normal">
-                  Tracks 6-year operational metrics spanning 3 years pre-crisis and 3 years post-recovery across balance sheet indicators, cash flow velocity, and product portfolio size.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-[#eee3d5] dark:border-slate-800 text-[11px] font-mono text-[#84654f] dark:text-slate-500 flex items-center justify-between">
-                <span>10-K Forensic Modeling</span>
-                <CheckCircle2 className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-              </div>
-            </div>
-          </StaggerItem>
-
-          {/* Pillar 2 */}
-          <StaggerItem>
-            <div className="h-full p-6 sm:p-7 rounded-3xl bg-[#fdfbf7] dark:bg-dark-900 border border-[#dcceb9] dark:border-slate-800/80 shadow-sm hover:shadow-xl hover:border-orange-500/50 dark:hover:border-orange-500/50 transition-all group flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-orange-500/15 border border-orange-500/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <Database className="w-6 h-6 text-orange-600 dark:text-orange-400" />
-                </div>
-                <span className="text-[11px] font-mono text-orange-700 dark:text-orange-400 font-bold tracking-wider">PILLAR 02</span>
-                <h3 className="text-xl font-heading font-bold text-[#24160d] dark:text-white mt-1 mb-3">
-                  Case-Based Reasoning (CBR)
-                </h3>
-                <p className="text-[#6c4f38] dark:text-slate-400 text-xs sm:text-sm leading-relaxed font-normal">
-                  Employs high-dimensional vector similarity algorithms (Cosine & Euclidean distance) to match real-time startup distress symptoms to benchmark corporate crises.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-[#eee3d5] dark:border-slate-800 text-[11px] font-mono text-[#84654f] dark:text-slate-500 flex items-center justify-between">
-                <span>Vector Cosine Engine</span>
-                <CheckCircle2 className="w-4 h-4 text-orange-600 dark:text-orange-400" />
-              </div>
-            </div>
-          </StaggerItem>
-
-          {/* Pillar 3 */}
-          <StaggerItem>
-            <div className="h-full p-6 sm:p-7 rounded-3xl bg-[#fdfbf7] dark:bg-dark-900 border border-[#dcceb9] dark:border-slate-800/80 shadow-sm hover:shadow-xl hover:border-amber-600/50 dark:hover:border-amber-400/50 transition-all group flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-amber-600/15 border border-amber-600/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <ListOrdered className="w-6 h-6 text-amber-700 dark:text-amber-300" />
-                </div>
-                <span className="text-[11px] font-mono text-amber-700 dark:text-amber-300 font-bold tracking-wider">PILLAR 03</span>
-                <h3 className="text-xl font-heading font-bold text-[#24160d] dark:text-white mt-1 mb-3">
-                  3-Stage Strategy Synthesizer
-                </h3>
-                <p className="text-[#6c4f38] dark:text-slate-400 text-xs sm:text-sm leading-relaxed font-normal">
-                  Synthesizes structured strategic roadmaps partitioned into Phase 1 (Stabilization & Cash Runway), Phase 2 (Core Re-engineering & Pivot), and Phase 3 (Scale & Re-emergence).
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-[#eee3d5] dark:border-slate-800 text-[11px] font-mono text-[#84654f] dark:text-slate-500 flex items-center justify-between">
-                <span>Actionable Milestones</span>
-                <CheckCircle2 className="w-4 h-4 text-amber-700 dark:text-amber-300" />
-              </div>
-            </div>
-          </StaggerItem>
-
-          {/* Pillar 4 */}
-          <StaggerItem>
-            <div className="h-full p-6 sm:p-7 rounded-3xl bg-[#fdfbf7] dark:bg-dark-900 border border-[#dcceb9] dark:border-slate-800/80 shadow-sm hover:shadow-xl hover:border-rose-500/50 dark:hover:border-rose-500/50 transition-all group flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <Briefcase className="w-6 h-6 text-rose-600 dark:text-rose-400" />
-                </div>
-                <span className="text-[11px] font-mono text-rose-700 dark:text-rose-400 font-bold tracking-wider">PILLAR 04</span>
-                <h3 className="text-xl font-heading font-bold text-[#24160d] dark:text-white mt-1 mb-3">
-                  Founder-Investor Nexus & Stock AI
-                </h3>
-                <p className="text-[#6c4f38] dark:text-slate-400 text-xs sm:text-sm leading-relaxed font-normal">
-                  Connects resilient ventures with crisis-hardened investors, backed by interactive stock trend forecasting and cross-industry correlation models.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-[#eee3d5] dark:border-slate-800 text-[11px] font-mono text-[#84654f] dark:text-slate-500 flex items-center justify-between">
-                <span>Capital Alignment</span>
-                <CheckCircle2 className="w-4 h-4 text-rose-600 dark:text-rose-400" />
-              </div>
-            </div>
-          </StaggerItem>
-
-        </StaggerContainer>
-      </section>
-
-      {/* =========================================================================
-          BENCHMARK TITANS HALL OF FAME (6-YEAR TURNAROUND CASES)
-          ========================================================================= */}
-      <section className="space-y-8">
-        <MotionSection direction="up" duration={0.6}>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-            <div>
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-brand-amber/10 border border-brand-amber/30 text-brand-caramel dark:text-brand-amber text-xs font-semibold mb-2">
-                <Award className="w-3.5 h-3.5" />
-                <span>BENCHMARK CORP DATASETS</span>
-              </div>
-              <h2 className="text-3xl sm:text-5xl font-heading font-extrabold text-slate-900 dark:text-white">
-                Legendary Corporate Turnaround Cases
-              </h2>
-              <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-1 max-w-2xl font-normal">
-                Explored through six years of rigorous financial data from near-death to global dominance.
-              </p>
-            </div>
-
-            <button
-              onClick={() => setActiveTab('companies')}
-              className="flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-slate-100 dark:bg-dark-900 hover:bg-slate-200 dark:hover:bg-dark-800 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 text-xs font-bold font-heading self-start md:self-auto transition-all"
-            >
-              <span>View All 11 Companies</span>
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
-        </MotionSection>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {TITAN_CASES.map((titan) => (
+          {TITAN_CASES.map((titan, idx) => (
             <motion.div
               key={titan.id}
-              whileHover={{ y: -4 }}
-              className="p-6 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200/80 dark:border-slate-800/80 shadow-md hover:shadow-xl transition-all flex flex-col justify-between"
+              whileHover={{ y: -6, scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+              className="p-6 sm:p-7 rounded-3xl bg-[#fdfaf5] dark:bg-[#1c120c]/90 border border-[#dcceb9] dark:border-[#382417] shadow-lg hover:shadow-2xl transition-all flex flex-col justify-between group"
             >
               <div className="space-y-4">
-                
-                {/* Header */}
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <CompanyLogo
-                      companyId={titan.id}
-                      ticker={titan.ticker}
-                      size={44}
-                      className="w-11 h-11"
-                    />
-                    <div>
-                      <h4 className="text-lg font-heading font-bold text-slate-900 dark:text-white">
-                        {titan.name}
-                      </h4>
-                      <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
-                        {titan.ticker} • {titan.crisisYear} Crisis
-                      </span>
-                    </div>
-                  </div>
-                  <span className="text-[11px] font-mono font-bold px-2.5 py-1 rounded-full bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20">
-                    {titan.crisisFactor}
+                  <CompanyLogo
+                    companyId={titan.id}
+                    ticker={titan.ticker}
+                    size={48}
+                    className="w-12 h-12"
+                  />
+                  <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-800 dark:text-amber-400 border border-amber-500/30">
+                    {titan.crisisYear} Crisis
                   </span>
                 </div>
 
-                {/* Tags */}
+                <div>
+                  <h3 className="text-xl font-heading font-extrabold text-[#24160d] dark:text-white group-hover:text-amber-600 transition-colors">
+                    {titan.name}
+                  </h3>
+                  <p className="text-xs font-semibold text-red-600 dark:text-red-400 mt-0.5">
+                    {titan.crisisFactor}
+                  </p>
+                </div>
+
+                <div className="space-y-2 text-xs text-[#6c4f38] dark:text-slate-300">
+                  <div className="p-3 rounded-xl bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/40">
+                    <span className="font-bold text-red-700 dark:text-red-400 block mb-0.5">Critical Drop:</span>
+                    <p className="line-clamp-2">{titan.dropDetail}</p>
+                  </div>
+
+                  <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/40">
+                    <span className="font-bold text-emerald-700 dark:text-emerald-400 block mb-0.5">Catalyst Execution:</span>
+                    <p className="line-clamp-2">{titan.recoveryCatalyst}</p>
+                  </div>
+                </div>
+
                 <div className="flex flex-wrap gap-1.5 pt-1">
-                  {titan.tags.map((tag, i) => (
-                    <span
-                      key={i}
-                      className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-dark-800 text-slate-600 dark:text-slate-300 text-[10px] font-medium"
-                    >
+                  {titan.tags.map(tag => (
+                    <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-[#ede3d4] dark:bg-[#2d1e15] text-[#6c4f38] dark:text-amber-200/80">
                       {tag}
                     </span>
                   ))}
                 </div>
-
-                {/* Recovery Strategy & Growth */}
-                <div className="space-y-2 pt-2 text-xs">
-                  <div className="p-3 rounded-2xl bg-slate-50 dark:bg-dark-950/70 border border-slate-200/60 dark:border-slate-800/60">
-                    <span className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Turnaround Catalyst:</span>
-                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed font-normal">{titan.recoveryCatalyst}</p>
-                  </div>
-
-                  <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-semibold flex items-center space-x-2">
-                    <TrendingUp className="w-3.5 h-3.5 flex-shrink-0" />
-                    <span>{titan.growthMultiple}</span>
-                  </div>
-                </div>
-
               </div>
 
-              {/* Inspect Button */}
-              <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                <button
-                  onClick={() => {
-                    if (setSelectedCompanyId) setSelectedCompanyId(titan.id);
-                    setActiveTab('companies');
-                  }}
-                  className="text-xs font-bold text-brand-caramel dark:text-brand-amber hover:underline flex items-center space-x-1"
-                >
-                  <span>Explore 6-Year Financials</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+              <div className="pt-5 mt-4 border-t border-[#dcceb9]/80 dark:border-[#382417] flex items-center justify-between">
+                <span className="text-xs font-bold text-amber-800 dark:text-amber-400 truncate max-w-[170px]">
+                  {titan.growthMultiple}
+                </span>
                 <button
                   onClick={() => handleLaunchToCompany(titan.id)}
-                  className="text-xs font-medium text-slate-500 hover:text-slate-900 dark:hover:text-white"
+                  className="px-3.5 py-1.5 rounded-xl bg-[#111111] dark:bg-amber-500 text-white dark:text-black text-xs font-bold font-heading hover:scale-105 transition-transform flex items-center space-x-1"
                 >
-                  View Strategy Steps
+                  <span>Explore</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
-
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* =========================================================================
-          MULTI-PERSONA HOLOGRAPHIC VIEWPORT
+          6. VENTURE FAILURE POST-MORTEM & TURNAROUND MATRIX
           ========================================================================= */}
-      <section className="space-y-8">
+      <section className="space-y-8 max-w-7xl mx-auto px-4 sm:px-6">
         <MotionSection direction="up" duration={0.6}>
-          <div className="p-8 sm:p-12 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 bg-gradient-to-b from-white via-slate-50/60 to-slate-100/60 dark:from-dark-900 dark:via-dark-950 dark:to-dark-950 shadow-xl transition-colors duration-300">
-            
-            <div className="max-w-3xl mx-auto text-center space-y-3 mb-8">
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-brand-purple/10 border border-brand-purple/30 text-brand-purple dark:text-brand-purple text-xs font-semibold">
-                <Users className="w-3.5 h-3.5" />
-                <span>TAILORED FOR EVERY STAKEHOLDER</span>
+          <div className="p-8 sm:p-10 rounded-3xl bg-[#f8f3eb] dark:bg-dark-900/90 border border-[#dcceb9] dark:border-slate-800/80 shadow-xl space-y-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+              <div>
+                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-700 dark:text-rose-400 text-xs font-mono font-bold mb-2">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  <span>VENTURE FAILURE FORENSICS</span>
+                </div>
+                <h2 className="text-2xl sm:text-4xl font-heading font-extrabold text-[#24160d] dark:text-white">
+                  Why Startups Fail vs How Titans Survived
+                </h2>
+                <p className="text-[#6c4f38] dark:text-slate-400 text-xs sm:text-sm mt-1 max-w-2xl">
+                  Examining catastrophic Silicon Valley startup implosions mapped against corporate turnaround heuristics.
+                </p>
               </div>
-              <h2 className="text-2xl sm:text-4xl font-heading font-extrabold text-slate-900 dark:text-white">
-                How ICLAS Serves Your Perspective
-              </h2>
-              <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base font-normal">
-                Select your role to preview how the platform adapts its decision heuristics, data visualizers, and toolkits.
-              </p>
 
-              {/* Persona Switcher Tabs */}
-              <div className="inline-flex p-1 rounded-2xl bg-slate-200/70 dark:bg-dark-800 border border-slate-300/60 dark:border-slate-700 mt-4">
-                {[
-                  { id: 'Entrepreneur', label: 'Entrepreneurs & Founders', icon: Zap },
-                  { id: 'Investor', label: 'Venture Capital & Angels', icon: Briefcase },
-                  { id: 'Researcher', label: 'Academic Researchers', icon: Database },
-                ].map((p) => {
-                  const Icon = p.icon;
-                  const isActive = previewPersona === p.id;
-                  return (
-                    <button
-                      key={p.id}
-                      onClick={() => setPreviewPersona(p.id)}
-                      className={`flex items-center space-x-2 px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
-                        isActive
-                          ? 'bg-white dark:bg-dark-900 text-brand-caramel dark:text-brand-amber shadow-sm font-bold'
-                          : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-                      }`}
-                    >
-                      <Icon className={`w-4 h-4 ${isActive ? 'text-brand-amber' : 'text-slate-400'}`} />
-                      <span>{p.label}</span>
-                    </button>
-                  );
-                })}
-              </div>
+              <button
+                onClick={() => setActiveTab('startup-intel')}
+                className="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs font-heading shadow-md transition-all flex items-center space-x-1.5 self-start md:self-auto"
+              >
+                <span>View Full Startup Matrix</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
             </div>
 
-            {/* Persona Content Display */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={previewPersona}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
-                className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4"
-              >
-                {previewPersona === 'Entrepreneur' && (
-                  <>
-                    <div className="p-6 rounded-2xl bg-white/80 dark:bg-dark-900/80 border border-slate-200/80 dark:border-slate-800 space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-brand-caramel dark:text-brand-amber flex items-center justify-center">
-                        <Search className="w-5 h-5" />
-                      </div>
-                      <h4 className="text-base font-bold text-slate-900 dark:text-white">Condition Matching</h4>
-                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
-                        Input your current runway, burn rate, and tech bottleneck to extract proven playbook heuristics that rescued titans in the same spot.
-                      </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              {STARTUP_POSTMORTEMS.map((startup, idx) => (
+                <div
+                  key={idx}
+                  className="p-5 rounded-2xl bg-white dark:bg-[#1c120c] border border-[#dcceb9] dark:border-[#382417] shadow-sm flex flex-col justify-between space-y-3"
+                >
+                  <div className="space-y-1.5">
+                    <div className="flex items-center justify-between">
+                      <h4 className="font-heading font-bold text-base text-[#24160d] dark:text-white">{startup.name}</h4>
+                      <span className="text-[10px] font-mono font-bold text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-950/50 px-2 py-0.5 rounded">
+                        {startup.loss}
+                      </span>
                     </div>
+                    <p className="text-xs text-red-700 dark:text-red-300 font-medium">{startup.reason}</p>
+                    <p className="text-[11px] text-[#6c4f38] dark:text-slate-400 leading-relaxed pt-1">{startup.lesson}</p>
+                  </div>
 
-                    <div className="p-6 rounded-2xl bg-white/80 dark:bg-dark-900/80 border border-slate-200/80 dark:border-slate-800 space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-indigo-500/10 text-brand-indigo flex items-center justify-center">
-                        <ListOrdered className="w-5 h-5" />
-                      </div>
-                      <h4 className="text-base font-bold text-slate-900 dark:text-white">3-Phase Action Roadmap</h4>
-                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
-                        Receive a prioritized, phased turnaround roadmap: Stabilization (Cash preservation), Core Re-engineering, and Scaled Growth.
-                      </p>
-                    </div>
-
-                    <div className="p-6 rounded-2xl bg-white/80 dark:bg-dark-900/80 border border-slate-200/80 dark:border-slate-800 space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-brand-emerald flex items-center justify-center">
-                        <Briefcase className="w-5 h-5" />
-                      </div>
-                      <h4 className="text-base font-bold text-slate-900 dark:text-white">Investor Credibility</h4>
-                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
-                        Show investors you have anchored your turnaround strategy in historical corporate data, elevating pitch deck authority.
-                      </p>
-                    </div>
-                  </>
-                )}
-
-                {previewPersona === 'Investor' && (
-                  <>
-                    <div className="p-6 rounded-2xl bg-white/80 dark:bg-dark-900/80 border border-slate-200/80 dark:border-slate-800 space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-purple-500/10 text-brand-purple flex items-center justify-center">
-                        <ShieldCheck className="w-5 h-5" />
-                      </div>
-                      <h4 className="text-base font-bold text-slate-900 dark:text-white">Downside Risk Forensics</h4>
-                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
-                        Stress-test portfolio startup burn rates against historical downturn benchmarks to evaluate turnaround plausibility.
-                      </p>
-                    </div>
-
-                    <div className="p-6 rounded-2xl bg-white/80 dark:bg-dark-900/80 border border-slate-200/80 dark:border-slate-800 space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center">
-                        <TrendingUp className="w-5 h-5" />
-                      </div>
-                      <h4 className="text-base font-bold text-slate-900 dark:text-white">Stock AI & Market Signals</h4>
-                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
-                        Access multi-timeframe predictive indicators and sector market movements to time liquidity and follow-on rounds.
-                      </p>
-                    </div>
-
-                    <div className="p-6 rounded-2xl bg-white/80 dark:bg-dark-900/80 border border-slate-200/80 dark:border-slate-800 space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-brand-emerald flex items-center justify-center">
-                        <Users className="w-5 h-5" />
-                      </div>
-                      <h4 className="text-base font-bold text-slate-900 dark:text-white">Direct Founder Discovery</h4>
-                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
-                        Discover vetted startups executing structured corporate playbooks with high recovery and scaling potential.
-                      </p>
-                    </div>
-                  </>
-                )}
-
-                {previewPersona === 'Researcher' && (
-                  <>
-                    <div className="p-6 rounded-2xl bg-white/80 dark:bg-dark-900/80 border border-slate-200/80 dark:border-slate-800 space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-indigo-500/10 text-brand-indigo flex items-center justify-center">
-                        <Database className="w-5 h-5" />
-                      </div>
-                      <h4 className="text-base font-bold text-slate-900 dark:text-white">Longitudinal Datasets</h4>
-                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
-                        Inspect clean 6-year operational metrics across 11 major global corporations spanning 8 sectors.
-                      </p>
-                    </div>
-
-                    <div className="p-6 rounded-2xl bg-white/80 dark:bg-dark-900/80 border border-slate-200/80 dark:border-slate-800 space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-cyan-500/10 text-brand-cyan flex items-center justify-center">
-                        <Cpu className="w-5 h-5" />
-                      </div>
-                      <h4 className="text-base font-bold text-slate-900 dark:text-white">CBR Heuristic Validation</h4>
-                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
-                        Evaluate the efficacy of Case-Based Reasoning algorithms applied to corporate distress scenarios.
-                      </p>
-                    </div>
-
-                    <div className="p-6 rounded-2xl bg-white/80 dark:bg-dark-900/80 border border-slate-200/80 dark:border-slate-800 space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center">
-                        <BarChart3 className="w-5 h-5" />
-                      </div>
-                      <h4 className="text-base font-bold text-slate-900 dark:text-white">Multi-Variable Graph Analysis</h4>
-                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
-                        Plot multidimensional financial trajectories, correlate indicators, and export findings for academic publication.
-                      </p>
-                    </div>
-                  </>
-                )}
-              </motion.div>
-            </AnimatePresence>
-
+                  <div className="pt-3 border-t border-[#ede3d4] dark:border-[#2d1e15]">
+                    <span className="text-[10px] font-mono uppercase text-amber-700 dark:text-amber-400 font-bold block">Matched Playbook:</span>
+                    <span className="text-xs font-bold text-[#24160d] dark:text-white">{startup.matchedTitan}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </MotionSection>
       </section>
 
       {/* =========================================================================
-          MODULE LAUNCHPAD COMMAND DECK
+          7. THE 4 NEURAL PILLARS OF ICLAS ARCHITECTURE
           ========================================================================= */}
-      <section className="space-y-8">
+      <section className="space-y-8 max-w-7xl mx-auto px-4 sm:px-6">
         <MotionSection direction="up" duration={0.6}>
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <h2 className="text-2xl sm:text-4xl font-heading font-extrabold text-slate-900 dark:text-white">
-              Launch Intelligence Modules
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-800 dark:text-amber-400 text-xs font-bold font-mono">
+              <Cpu className="w-3.5 h-3.5" />
+              <span>CORE ARCHITECTURAL FOUNDATION</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-heading font-extrabold text-[#24160d] dark:text-white">
+              The Four Neural Pillars of ICLAS
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 text-sm font-normal">
-              Jump directly into any analysis engine across the ICLAS platform.
+            <p className="text-[#6c4f38] dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+              Combining computational case reasoning, structured financial heuristics, and multi-sector crisis forensic taxonomies.
             </p>
           </div>
         </MotionSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             {
-              id: 'overview',
-              title: 'Overview Dashboard',
-              desc: 'Executive summary with aggregate turnaround metrics and recent intelligence updates.',
-              icon: Layers,
-              color: 'text-brand-amber',
-              btn: 'Launch Overview',
+              title: 'Vector Cosine CBR Engine',
+              desc: 'Transforms 12+ company crisis parameters into multidimensional vectors, matching cosine distances against verified historical recoveries.',
+              icon: Cpu,
+              color: 'text-amber-600 dark:text-amber-400',
+              bg: 'bg-amber-500/10'
             },
             {
-              id: 'companies',
-              title: '6-Year Company Intelligence',
-              desc: 'Deep forensic breakdown of 11 corporations with balance sheet indicators and timelines.',
-              icon: Building2,
-              color: 'text-brand-caramel',
-              btn: 'Explore Companies',
+              title: '6-Year Longitudinal Telemetry',
+              desc: 'Tracks balance sheet indicators from T-3 (onset of down-cycle) through T-0 (crisis inflection) to T+3 (sustainable recovery multiple).',
+              icon: BarChart3,
+              color: 'text-orange-600 dark:text-orange-400',
+              bg: 'bg-orange-500/10'
             },
             {
-              id: 'search-condition',
-              title: 'Search Crisis Condition',
-              desc: 'Vector cosine query engine matching your specific distress symptoms to historical cases.',
-              icon: Search,
-              color: 'text-brand-amber',
-              btn: 'Search Conditions',
-            },
-            {
-              id: 'strategy-steps',
-              title: 'Strategy Steps Roadmap',
-              desc: 'Tactical 3-phase strategic turnaround roadmaps with implementation milestones.',
+              title: '3-Stage Turnaround Roadmap',
+              desc: 'Generates progressive, time-phased tactical intervention steps: Stage 1 (Stabilize Cash), Stage 2 (Strategic Pivot), Stage 3 (Scale Moat).',
               icon: ListOrdered,
-              color: 'text-brand-terracotta',
-              btn: 'View Strategy Steps',
+              color: 'text-amber-700 dark:text-amber-300',
+              bg: 'bg-amber-600/10'
             },
             {
-              id: 'startup-intel',
-              title: 'Startup Intel (Vanished vs MNCs)',
-              desc: 'Empirical post-mortems of vanished visionary startups mapped to the MNC playbooks that conquered the same crisis.',
-              icon: ShieldCheck,
-              color: 'text-brand-amber',
-              btn: 'Inspect Vanished vs MNC Matrix',
-            },
-            {
-              id: 'graph-analysis',
-              title: 'Graph Analysis & Stock AI',
-              desc: 'Interactive financial trajectory plotting, multidimensional graphs, and predictive signals.',
-              icon: TrendingUp,
-              color: 'text-brand-caramel',
-              btn: 'Open Graph Analysis',
-            },
-          ].map((mod) => {
-            const Icon = mod.icon;
+              title: 'Live Macroeconomic Hub',
+              desc: 'Integrates real-time TradingView technical charts, financial quotes, and news sentiment to cross-reference macro volatility with strategy.',
+              icon: Activity,
+              color: 'text-cyan-600 dark:text-cyan-400',
+              bg: 'bg-cyan-500/10'
+            }
+          ].map((pillar, idx) => {
+            const Icon = pillar.icon;
             return (
-              <motion.div
-                key={mod.id}
-                whileHover={{ y: -4 }}
-                onClick={() => setActiveTab(mod.id)}
-                className="cursor-pointer p-6 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-xl hover:border-brand-amber/50 transition-all flex flex-col justify-between group"
+              <div
+                key={idx}
+                className="p-6 rounded-3xl bg-[#fdfaf5] dark:bg-[#1c120c]/80 border border-[#dcceb9] dark:border-[#382417] shadow-md hover:shadow-xl transition-all flex flex-col justify-between space-y-4 hover:-translate-y-1"
               >
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-dark-800 flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Icon className={`w-5 h-5 ${mod.color}`} />
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-brand-amber group-hover:translate-x-1 transition-all" />
+                  <div className={`w-12 h-12 rounded-2xl ${pillar.bg} flex items-center justify-center`}>
+                    <Icon className={`w-6 h-6 ${pillar.color}`} />
                   </div>
-                  <h4 className="text-base font-heading font-bold text-slate-900 dark:text-white group-hover:text-brand-amber transition-colors">
-                    {mod.title}
-                  </h4>
-                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
-                    {mod.desc}
+                  <h3 className="text-lg font-heading font-extrabold text-[#24160d] dark:text-white">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-xs text-[#6c4f38] dark:text-slate-400 leading-relaxed font-normal">
+                    {pillar.desc}
                   </p>
                 </div>
-
-                <div className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800">
-                  <span className="text-xs font-bold text-brand-caramel dark:text-brand-amber flex items-center space-x-1">
-                    <span>{mod.btn}</span>
-                    <ChevronRight className="w-3.5 h-3.5" />
-                  </span>
-                </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
+      </section>
+
+      {/* =========================================================================
+          8. FREQUENTLY ASKED QUESTIONS (Interactive Accordion)
+          ========================================================================= */}
+      <section className="space-y-8 max-w-4xl mx-auto px-4 sm:px-6">
+        <MotionSection direction="up" duration={0.6}>
+          <div className="text-center space-y-3">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/15 text-amber-800 dark:text-amber-400 text-xs font-bold font-mono">
+              <HelpCircle className="w-3.5 h-3.5" />
+              <span>FREQUENTLY ASKED QUESTIONS</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#24160d] dark:text-white">
+              Questions About ICLAS Intelligence
+            </h2>
+          </div>
+        </MotionSection>
+
+        <div className="space-y-4">
+          {FAQS.map((faq, idx) => (
+            <div
+              key={idx}
+              className="rounded-2xl border border-[#dcceb9] dark:border-[#382417] bg-[#fdfaf5] dark:bg-[#1c120c]/90 overflow-hidden shadow-sm transition-all"
+            >
+              <button
+                onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                className="w-full p-5 sm:p-6 text-left flex items-center justify-between font-heading font-bold text-sm sm:text-base text-[#24160d] dark:text-white hover:text-amber-600 transition-colors"
+              >
+                <span>{faq.q}</span>
+                <ChevronRight className={`w-5 h-5 text-amber-600 transform transition-transform duration-300 ${openFaq === idx ? 'rotate-90' : ''}`} />
+              </button>
+              <AnimatePresence>
+                {openFaq === idx && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-[#6c4f38] dark:text-slate-300 leading-relaxed font-normal border-t border-[#dcceb9]/50 dark:border-[#382417]/50 pt-3"
+                  >
+                    {faq.a}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* =========================================================================
+          9. FINAL SUNNY HIGH-ENERGY CALL TO ACTION BANNER
+          ========================================================================= */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6">
+        <MotionSection direction="up" duration={0.6}>
+          <div className="rounded-3xl bg-[#F6CA45] text-[#111111] p-8 sm:p-12 lg:p-16 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+            
+            {/* Ambient Background Circles */}
+            <div className="absolute -right-12 -top-12 w-64 h-64 rounded-full bg-[#ECA91E]/60 pointer-events-none" />
+            <div className="absolute -left-12 -bottom-12 w-64 h-64 rounded-full bg-[#EDA81E]/60 pointer-events-none" />
+
+            <div className="relative z-10 max-w-2xl space-y-4">
+              <span className="text-xs font-mono font-bold tracking-widest uppercase text-[#111111]/70">
+                STARTUP SURVIVAL ENGINE // FULL ACCESS
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-heading font-black tracking-tight text-[#111111] leading-tight">
+                Ready to execute your corporate turnaround roadmap?
+              </h2>
+              <p className="text-sm sm:text-base text-[#111111]/85 font-medium leading-relaxed">
+                Connect your company metrics with 11 corporate titans, explore 6-year empirical data, and test your cash runway in the live simulator.
+              </p>
+            </div>
+
+            <div className="relative z-10 flex flex-col sm:flex-row gap-4 flex-shrink-0">
+              <motion.button
+                whileHover={{ scale: 1.05, translateY: -2 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setActiveTab('overview')}
+                className="px-8 py-4 rounded-full bg-[#111111] text-white font-heading font-bold text-sm shadow-xl hover:bg-black transition-all flex items-center justify-center space-x-2 cursor-pointer"
+              >
+                <span>Launch ICLAS Engine</span>
+                <ArrowRight className="w-4 h-4" />
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.05, translateY: -2 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setActiveTab('search-condition')}
+                className="px-8 py-4 rounded-full bg-white text-[#111111] font-heading font-bold text-sm shadow-xl hover:shadow-2xl transition-all flex items-center justify-center space-x-2 cursor-pointer"
+              >
+                <span>Find Matched Titan</span>
+                <Search className="w-4 h-4" />
+              </motion.button>
+            </div>
+
+          </div>
+        </MotionSection>
       </section>
 
     </div>
