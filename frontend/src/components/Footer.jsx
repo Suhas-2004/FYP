@@ -81,6 +81,11 @@ export default function Footer({ setActiveTab }) {
                   Graph Analysis & Stock AI
                 </button>
               </li>
+              <li>
+                <button onClick={() => setActiveTab('market-dashboard')} className="hover:text-amber-700 dark:hover:text-amber-400 transition-colors text-[#6c4f38] dark:text-slate-400 font-medium">
+                  Live Market Dashboard
+                </button>
+              </li>
             </ul>
           </div>
 

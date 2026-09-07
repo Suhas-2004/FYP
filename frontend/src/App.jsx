@@ -20,7 +20,8 @@ const VALID_TABS = [
   'strategy-steps',
   'startup-intel',
   'investors-startups',
-  'graph-analysis'
+  'graph-analysis',
+  'market-dashboard'
 ];
 
 function parseHash(hashStr) {
@@ -241,6 +242,12 @@ export default function App() {
 
             {activeTab === 'graph-analysis' && (
               <GraphAnalysis 
+                theme={theme}
+              />
+            )}
+
+            {activeTab === 'market-dashboard' && (
+              <MarketDashboard 
                 theme={theme}
               />
             )}

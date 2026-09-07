@@ -35,6 +35,7 @@ const NAV_ITEMS = [
   { id: 'startup-intel', label: 'Startup Intel', icon: ShieldCheck },
   { id: 'investors-startups', label: 'Investors & Startups', icon: Briefcase },
   { id: 'graph-analysis', label: 'Graph Analysis', icon: TrendingUp },
+  { id: 'market-dashboard', label: 'Market Dashboard', icon: Activity },
 ];
 
 export default function Navbar({
