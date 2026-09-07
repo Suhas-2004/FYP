@@ -26,7 +26,6 @@
   }
 
   html {
-    scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
   }
 
@@ -223,22 +222,6 @@ html:not(.dark) .text-slate-400 {
   background: linear-gradient(90deg, rgba(217,119,6,0.12) 0%, rgba(217,119,6,0.3) 50%, rgba(217,119,6,0.12) 100%);
   background-size: 200% 100%;
   animation: shimmer 3s infinite linear;
-}
-
-/* Marquee Ribbon */
-@keyframes marquee-scroll {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-marquee-infinite {
-  display: flex;
-  width: max-content;
-  animation: marquee-scroll 32s linear infinite;
-}
-
-.animate-marquee-infinite:hover {
-  animation-play-state: paused;
 }
 
 /* Custom Scrollbar */

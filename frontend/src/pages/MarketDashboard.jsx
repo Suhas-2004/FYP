@@ -18,8 +18,8 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.98 },
-  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { duration: 0.4, ease: "easeOut" } }
 };
 
 export default function MarketDashboardPage({ theme }) {
@@ -31,9 +31,9 @@ export default function MarketDashboardPage({ theme }) {
       
       {/* Header Area */}
       <motion.div 
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
         className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8"
       >
         <div>

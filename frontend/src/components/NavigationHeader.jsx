@@ -11,7 +11,8 @@ import {
   ShieldCheck, 
   Briefcase, 
   TrendingUp, 
-  Layers 
+  Layers,
+  Activity
 } from 'lucide-react';
 
 const TAB_METADATA = {
@@ -62,9 +63,9 @@ export default function NavigationHeader({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: -6 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.25 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.18 }}
       className="mb-6 flex flex-wrap items-center justify-between gap-3 px-4 py-2.5 rounded-2xl bg-white/85 dark:bg-dark-900/85 border border-slate-200/90 dark:border-slate-800/80 backdrop-blur-xl shadow-sm text-xs"
     >
       {/* Left: Back Button & Breadcrumbs */}

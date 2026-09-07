@@ -73,7 +73,7 @@ export default function Navbar({
         if (!isVisible) setIsLocked(true);
       }}
       style={{ transitionDuration: `${ANIM_DURATION}s` }}
-      className={`sticky top-0 z-50 w-full h-16 transition-all ease-in-out cursor-default select-none ${
+      className={`sticky top-0 z-50 w-full h-16 transition-[background-color,border-color,box-shadow] duration-200 cursor-default select-none ${
         isVisible
           ? 'bg-[#fdfaf5]/95 dark:bg-dark-950/95 backdrop-blur-xl border-b border-[#dcceb9]/80 dark:border-slate-800/80 shadow-md dark:shadow-2xl'
           : 'bg-[#fdfaf5]/40 dark:bg-dark-950/30 backdrop-blur-md border-b border-[#dcceb9]/50 dark:border-slate-800/50 shadow-sm'
@@ -84,7 +84,7 @@ export default function Navbar({
         {/* =========================================================================
             1. IDLE STATE: Colourless Bar Placeholder (Visible on page load when not hovered)
             ========================================================================= */}
-        <AnimatePresence>
+        <AnimatePresence initial={false}>
           {!isVisible && (
             <motion.div
               key="idle-placeholder"
@@ -128,13 +128,13 @@ export default function Navbar({
         {/* =========================================================================
             2. HOVERED/CLICKED STATE: Full Navigation Items (Fades in without moving page)
             ========================================================================= */}
-        <AnimatePresence>
+        <AnimatePresence initial={false}>
           {isVisible && (
             <motion.div
               key="active-navbar-content"
-              initial={{ opacity: 0, y: -4 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -4 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: ANIM_DURATION, ease: [0.16, 1, 0.3, 1] }}
               className="w-full flex items-center justify-between"
             >

@@ -97,7 +97,7 @@ export default function App() {
       window.history.replaceState({ tab, companyId: targetCompanyId }, '', hash);
     }
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   const setActiveTab = (tab) => {
@@ -121,6 +121,11 @@ export default function App() {
 
   // Popstate Listener (Handles Browser Back / Forward buttons & mouse back keys)
   useEffect(() => {
+    // Prevent browser smooth-scroll restoration jitter on reload
+    if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
     const handlePopState = (e) => {
       if (e.state && e.state.tab) {
         setActiveTabState(e.state.tab);
@@ -134,7 +139,7 @@ export default function App() {
           setSelectedCompanyIdState(parsed.companyId);
         }
       }
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo(0, 0);
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -171,15 +176,15 @@ export default function App() {
         toggleTheme={toggleTheme}
       />
 
-      {/* Main Content Area with Animated Page Transition */}
+      {/* Main Content Area with Fixed-Anchor Page Transition */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 pt-6 sm:pt-8 relative z-10">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={activeTab}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.18, ease: "easeOut" }}
           >
             {activeTab === 'about' && (
               <About
