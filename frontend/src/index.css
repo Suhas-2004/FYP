@@ -74,6 +74,57 @@
   }
 }
 
+/* Reference-Style Curled Paper Corner Effect */
+.card-curl {
+  position: relative;
+}
+.card-curl::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, transparent 50%, rgba(217, 119, 6, 0.18) 50%),
+              linear-gradient(45deg, rgba(253, 250, 245, 0.95) 50%, #e8dcce 50%);
+  border-top-right-radius: 6px;
+  box-shadow: 2px -2px 5px rgba(0, 0, 0, 0.06);
+  pointer-events: none;
+}
+.dark .card-curl::after {
+  background: linear-gradient(135deg, transparent 50%, rgba(217, 119, 6, 0.35) 50%),
+              linear-gradient(45deg, #1c120c 50%, #2d1e15 50%);
+  box-shadow: 2px -2px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* Airplane & Banner Keyframe Animations */
+@keyframes planeHover {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(1.5deg);
+  }
+}
+
+@keyframes bannerFlutter {
+  0%, 100% {
+    transform: skewY(0deg) scaleY(1);
+  }
+  50% {
+    transform: skewY(-2.5deg) scaleY(0.97);
+  }
+}
+
+.animate-plane-hover {
+  animation: planeHover 3.6s ease-in-out infinite;
+}
+
+.animate-banner-flutter {
+  animation: bannerFlutter 2.8s ease-in-out infinite;
+  transform-origin: left center;
+}
+
 /* Light Coffee Surfaces: Warm Porcelain Foam, Creamy Latte, Cappuccino */
 html.light .bg-white,
 html:not(.dark) .bg-white {
