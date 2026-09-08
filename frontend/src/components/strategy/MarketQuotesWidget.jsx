@@ -3,38 +3,32 @@
 import React, { useEffect, useRef, memo, useState } from 'react';
 import { DASHBOARD_CHARTS } from './search-data';
 
-// Helper component for a single category
-function SingleQuoteWidget({ name, symbols }) {
+const SingleQuoteWidget = memo(({ name, symbols }) => {
   const container = useRef(null);
 
   useEffect(() => {
     if (!container.current) return;
-    container.current.innerHTML = '';
-
-    const symbolsGroups = [
-      {
-        name: name,
-        originalName: name,
-        symbols: symbols.map(s => ({ name: s, displayName: s }))
-      }
-    ];
-
     const script = document.createElement("script");
     script.src = "https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js";
     script.type = "text/javascript";
     script.async = true;
-    script.innerHTML = `
-      {
-        "width": "100%",
-        "height": "100%",
-        "symbolsGroups": ${JSON.stringify(symbolsGroups)},
-        "showSymbolLogo": true,
-        "isTransparent": true,
-        "colorTheme": "dark",
-        "locale": "en"
-      }`;
+    script.innerHTML = JSON.stringify({
+      width: "100%",
+      height: "100%",
+      symbolsGroups: [
+        {
+          name: name,
+          originalName: name,
+          symbols: symbols.map(s => ({ name: s, displayName: s }))
+        }
+      ],
+      showSymbolLogo: true,
+      isTransparent: true,
+      colorTheme: "dark",
+      locale: "en"
+    });
     container.current.appendChild(script);
-  }, [name, symbols]);
+  }, []); // Run exactly once per key mount
 
   return (
     <div className="w-full h-full relative">
@@ -43,7 +37,7 @@ function SingleQuoteWidget({ name, symbols }) {
       </div>
     </div>
   );
-}
+});
 
 function MarketQuotesWidget() {
   const [activeTab, setActiveTab] = useState('Financial');
@@ -85,7 +79,7 @@ function MarketQuotesWidget() {
               activeTab === tab.id ? 'opacity-100 z-10' : 'opacity-0 -z-10 pointer-events-none'
             }`}
           >
-            <SingleQuoteWidget name={tab.label} symbols={tab.symbols} />
+            <SingleQuoteWidget key={tab.id} name={tab.label} symbols={tab.symbols} />
           </div>
         ))}
       </div>

@@ -3,31 +3,28 @@
 import React, { useEffect, useRef, useState, memo } from 'react';
 import { Search } from 'lucide-react';
 
-const Gauge = ({ symbol, title }) => {
+const Gauge = memo(({ symbol, title }) => {
   const container = useRef(null);
 
   useEffect(() => {
     if (!container.current) return;
-    container.current.innerHTML = '';
-    
     const script = document.createElement("script");
     script.src = "https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js";
     script.type = "text/javascript";
     script.async = true;
-    script.innerHTML = `
-      {
-        "interval": "1D",
-        "width": "100%",
-        "isTransparent": true,
-        "height": "100%",
-        "symbol": "${symbol}",
-        "showIntervalTabs": true,
-        "displayMode": "single",
-        "locale": "en",
-        "colorTheme": "dark"
-      }`;
+    script.innerHTML = JSON.stringify({
+      interval: "1D",
+      width: "100%",
+      isTransparent: true,
+      height: "100%",
+      symbol: symbol,
+      showIntervalTabs: true,
+      displayMode: "single",
+      locale: "en",
+      colorTheme: "dark"
+    });
     container.current.appendChild(script);
-  }, [symbol]);
+  }, []);
 
   return (
     <div className="flex-1 min-w-[200px] h-full flex flex-col items-center">
@@ -39,7 +36,7 @@ const Gauge = ({ symbol, title }) => {
       </div>
     </div>
   );
-};
+});
 
 function MarketSentimentWidget() {
   const [searchInput, setSearchInput] = useState("");
@@ -85,7 +82,7 @@ function MarketSentimentWidget() {
       </div>
       
       <div className="flex-1 w-full p-4 flex gap-4 overflow-x-auto custom-scrollbar items-center">
-        <Gauge symbol={activeSymbol} title={activeTitle} />
+        <Gauge key={activeSymbol} symbol={activeSymbol} title={activeTitle} />
       </div>
     </div>
   );

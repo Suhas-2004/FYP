@@ -7,7 +7,6 @@ function TopStoriesWidget() {
 
   useEffect(() => {
     if (!container.current) return;
-    container.current.innerHTML = '';
     const script = document.createElement("script");
     script.src = "https://s3.tradingview.com/external-embedding/embed-widget-timeline.js";
     script.type = "text/javascript";

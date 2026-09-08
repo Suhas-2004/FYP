@@ -4,9 +4,43 @@ import React, { useEffect, useRef, memo, useState } from 'react';
 import { DASHBOARD_CHARTS, DEFAULT_SEARCH_STOCKS } from './search-data';
 import { Plus, X } from 'lucide-react';
 
-function AdvancedChartWidget() {
+// Dedicated container component to handle safe TradingView script injection
+const ChartContainer = memo(({ watchlist }) => {
   const container = useRef(null);
 
+  useEffect(() => {
+    if (!container.current) return;
+    const script = document.createElement("script");
+    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+    script.type = "text/javascript";
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+      autosize: true,
+      symbol: watchlist[0] || 'JPM',
+      interval: "D",
+      timezone: "Etc/UTC",
+      theme: "dark",
+      style: "1",
+      locale: "en",
+      enable_publishing: false,
+      backgroundColor: "rgba(19, 23, 34, 1)",
+      gridColor: "rgba(42, 46, 57, 0.06)",
+      allow_symbol_change: true,
+      watchlist: watchlist,
+      calendar: false,
+      support_host: "https://www.tradingview.com"
+    });
+    container.current.appendChild(script);
+  }, [watchlist]);
+
+  return (
+    <div className="tradingview-widget-container w-full h-full absolute inset-0" ref={container}>
+      <div className="tradingview-widget-container__widget w-full h-full"></div>
+    </div>
+  );
+});
+
+function AdvancedChartWidget() {
   const [watchlist, setWatchlist] = useState([
     ...DASHBOARD_CHARTS.Financials.slice(0, 4),
     ...DASHBOARD_CHARTS.Technology.slice(0, 4),
@@ -46,41 +80,6 @@ function AdvancedChartWidget() {
   const handleRemove = (symbolToRemove) => {
     setWatchlist(prev => prev.filter(s => s !== symbolToRemove));
   };
-
-  useEffect(() => {
-    if (!container.current) return;
-    
-    // Clear previous widget if re-rendered
-    container.current.innerHTML = '';
-
-    const widgetNode = document.createElement('div');
-    widgetNode.className = "tradingview-widget-container__widget w-full h-full";
-    container.current.appendChild(widgetNode);
-
-    const script = document.createElement("script");
-    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
-    script.type = "text/javascript";
-    script.async = true;
-    script.innerHTML = `
-      {
-        "width": "100%",
-        "height": "100%",
-        "symbol": "${watchlist[0] || 'JPM'}",
-        "interval": "D",
-        "timezone": "Etc/UTC",
-        "theme": "dark",
-        "style": "1",
-        "locale": "en",
-        "enable_publishing": false,
-        "backgroundColor": "rgba(19, 23, 34, 1)",
-        "gridColor": "rgba(42, 46, 57, 0.06)",
-        "allow_symbol_change": true,
-        "watchlist": ${JSON.stringify(watchlist)},
-        "calendar": false,
-        "support_host": "https://www.tradingview.com"
-      }`;
-    container.current.appendChild(script);
-  }, [watchlist]);
 
   return (
     <div className="w-full h-full min-h-[600px] flex flex-col bg-[#131722] rounded-xl overflow-hidden border border-[#2A2E39]">
@@ -143,9 +142,7 @@ function AdvancedChartWidget() {
       </div>
 
       <div className="flex-1 w-full relative">
-        <div className="tradingview-widget-container w-full h-full absolute inset-0" ref={container}>
-          <div className="tradingview-widget-container__widget w-full h-full"></div>
-        </div>
+        <ChartContainer key={watchlist.join(',')} watchlist={watchlist} />
       </div>
     </div>
   );

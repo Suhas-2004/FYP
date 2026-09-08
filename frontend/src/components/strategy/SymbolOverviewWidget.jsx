@@ -8,9 +8,6 @@ function SymbolOverviewWidget() {
 
   useEffect(() => {
     if (!container.current) return;
-    
-    // Clear previous widget if re-rendered
-    container.current.innerHTML = '';
 
     const companyNames = {
       JPM: "JPMorgan Chase", WFC: "Wells Fargo", BAC: "Bank of America", HSBC: "HSBC Holdings", C: "Citigroup", MA: "Mastercard",
