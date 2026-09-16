@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publication Diagrams</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default', scale: 2 });
+    </script>
+    <style>
+        body { font-family: sans-serif; padding: 40px; background: white; }
+        .diagram-container { margin-bottom: 80px; padding: 20px; border: 1px solid #ddd; background: white; }
+        h2 { text-align: center; font-family: serif; margin-bottom: 30px; }
+    </style>
+</head>
+<body>
+
+    <div class="diagram-container" id="fig1">
+        <h2>Fig. 1. Overall architecture of the proposed ICLAS framework.</h2>
+        <div class="mermaid">
+flowchart LR
+    subgraph Data Sources
+        MD[Market Data APIs]
+        NR[News Repositories]
+        CM[Corporate Metrics]
+    end
+
+    subgraph Backend Processing
+        direction TB
+        EX[Express.js Server]
+        DP[Data Parsing & Normalization]
+        routing[REST API Routing]
+        
+        EX --> DP
+        DP --> routing
+    end
+
+    subgraph Frontend Intelligence Engine
+        direction TB
+        UI[React 18 User Interface]
+        GL[3D Earth Pulse WebGL]
+        TV[TradingView Analysis Core]
+        RC[Recharts Visualization]
+        
+        UI --> GL
+        UI --> TV
+        UI --> RC
+    end
+
+    subgraph Outputs
+        MD_Out[Interactive Market Dashboard]
+        3D_Out[Global Market Interconnectivity]
+        SA_Out[Sentiment Analysis Gauges]
+    end
+
+    MD --> EX
+    NR --> EX
+    CM --> EX
+
+    routing --> UI
+
+    GL --> 3D_Out
+    TV --> MD_Out
+    RC --> SA_Out
+
+    style Data Sources fill:#f8fafc,stroke:#3b82f6
+    style Backend Processing fill:#f8fafc,stroke:#10b981
+    style Frontend Intelligence Engine fill:#f8fafc,stroke:#f59e0b
+    style Outputs fill:#f8fafc,stroke:#8b5cf6
+        </div>
+    </div>
+
+    <div class="diagram-container" id="fig2">
+        <h2>Fig. 2. Workflow of the ICLAS system.</h2>
+        <div class="mermaid">
+flowchart TD
+    Start([Start]) --> Persona[User Selects Advisory Persona]
+    Persona --> Dash[Navigate to Macro Dashboard]
+    
+    Dash --> Select[Select Market/Company Ticker]
+    Select --> Fetch[System Fetches Live OHLCV & News Data]
+    
+    Fetch --> Processing{Parallel Processing}
+    
+    Processing --> |Technical Data| TV[Render Advanced TradingView Chart]
+    Processing --> |News & Text| Sent[Calculate Sentiment Gauges]
+    Processing --> |Global Context| 3D[Update 3D Earth Pulse Vectors]
+    
+    TV --> Report[Generate Comprehensive Market Overview]
+    Sent --> Report
+    3D --> Report
+    
+    Report --> End([End])
+
+    style Start fill:#fff,stroke:#000
+    style End fill:#fff,stroke:#000
+    style Processing fill:#f8fafc,stroke:#000
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Experimental Results</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: sans-serif; display: flex; flex-wrap: wrap; gap: 40px; padding: 40px; background: white; justify-content: center;}
+        .chart-container { width: 500px; height: 350px; border: 1px solid #ddd; padding: 20px; text-align: center; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h3 { margin-bottom: 15px; font-size: 16px; font-weight: normal; }
+    </style>
+</head>
+<body>
+
+    <div class="chart-container" id="chart1">
+        <h3>Fig 4. Distribution of Sentiment Categories in Financial News</h3>
+        <canvas id="sentimentChart"></canvas>
+    </div>
+
+    <div class="chart-container" id="chart2">
+        <h3>Fig 5. Actual vs. Predicted Stock Price using ICLAS Engine</h3>
+        <canvas id="predictionChart"></canvas>
+    </div>
+
+    <div class="chart-container" id="chart3">
+        <h3>Fig 6. Detected Anomalies in Trading Volume</h3>
+        <canvas id="anomalyChart"></canvas>
+    </div>
+
+    <script>
+        // Sentiment Chart
+        new Chart(document.getElementById('sentimentChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Positive', 'Neutral', 'Negative'],
+                datasets: [{
+                    label: 'Number of Articles',
+                    data: [85, 42, 28],
+                    backgroundColor: ['#4caf50', '#9e9e9e', '#f44336']
+                }]
+            },
+            options: {
+                scales: { y: { beginAtZero: true, title: { display: true, text: 'Number of Articles' } } },
+                plugins: { legend: { display: false } }
+            }
+        });
+
+        // Prediction Chart
+        const labels = Array.from({length: 30}, (_, i) => `Day ${i+1}`);
+        const actual = labels.map((_, i) => 300 + Math.sin(i * 0.5) * 50 + (i * 5) + Math.random() * 20);
+        const predicted = actual.map(val => val + (Math.random() - 0.5) * 25);
+        
+        new Chart(document.getElementById('predictionChart'), {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    { label: 'Actual Price', data: actual, borderColor: '#000', borderWidth: 2, fill: false, tension: 0.1 },
+                    { label: 'Predicted Price', data: predicted, borderColor: '#666', borderDash: [5, 5], borderWidth: 2, fill: false, tension: 0.1 }
+                ]
+            },
+            options: {
+                elements: { point: { radius: 0 } },
+                scales: { y: { title: { display: true, text: 'Price ($)' } }, x: { display: false } }
+            }
+        });
+
+        // Anomaly Chart
+        const anomalyData = Array.from({length: 20}, () => 400 + Math.random() * 50);
+        anomalyData[5] = 620; // Anomaly 1
+        anomalyData[14] = 580; // Anomaly 2
+        
+        new Chart(document.getElementById('anomalyChart'), {
+            type: 'line',
+            data: {
+                labels: Array.from({length: 20}, (_, i) => `Oct ${i+1}`),
+                datasets: [{
+                    label: 'Close Price',
+                    data: anomalyData,
+                    borderColor: '#333',
+                    borderWidth: 1.5,
+                    fill: false,
+                    tension: 0.1,
+                    pointBackgroundColor: anomalyData.map(v => v > 550 ? 'red' : '#333'),
+                    pointRadius: anomalyData.map(v => v > 550 ? 5 : 2)
+                }]
+            },
+            options: {
+                scales: { y: { title: { display: true, text: 'Price ($)' } } },
+                plugins: {
+                    legend: {
+                        labels: { generateLabels: (chart) => [{ text: 'Close Price', fillStyle: '#333' }, { text: 'Anomaly', fillStyle: 'red' }] }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
