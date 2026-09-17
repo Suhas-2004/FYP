@@ -1,109 +1,12 @@
-[
-  {
-    "id": "startup-1",
-    "name": "NeuroLedger AI",
-    "industry": "FinTech",
-    "founder_name": "Elena Rostova & David K.",
-    "founder_title": "Co-Founders (Ex-Stripe Risk & MIT CSAIL)",
-    "founder_email": "founders@neuroledger.ai",
-    "tagline": "Autonomous real-time fraud mitigation & instant cross-border settlement for neo-banks.",
-    "idea": "An AI-native graph neural network engine that detects synthetic identity fraud in sub-10ms transaction streams and routes compliant multi-currency liquidity.",
-    "problem_solved": "Neo-banks lose $4.2B annually to synthetic identity and chargeback fraud, while traditional rule engines generate 40% false positives.",
-    "proposed_solution": "Edge-deployed graph neural network models trained on multi-bank anonymized telemetry, cutting fraud by 88% and false declines by 65%.",
-    "target_market": "Global Fintechs, Challenger Banks, B2B SaaS Gateways ($48B TAM).",
-    "expected_usability": "Drop-in REST & Webhook SDK with pre-built adapters for Stripe, Plaid, and Marqeta.",
-    "future_potential": "Projected $12M ARR by Year 3 with 82% net gross margins due to zero balance-sheet liability.",
-    "potential_rating": "High",
-    "business_model": "Usage-based fee ($0.004 per transaction analyzed) + Enterprise Tier ($5,000/mo flat SLA).",
-    "funding_requirement": "$2,500,000 (Seed Round)",
-    "expected_returns": "8x-12x projected over a 5-year investment horizon.",
-    "supporting_info": "Currently processing $18M/month in live beta with 6 challenger banks; SOC-2 Type II compliant.",
-    "submitted_at": "2026-08-15"
-  },
-  {
-    "id": "startup-2",
-    "name": "CelluMatrix Health",
-    "industry": "Healthcare",
-    "founder_name": "Dr. Sarah Chen, MD-PhD",
-    "founder_title": "Chief Executive & Lead Bioengineer (Stanford BioX)",
-    "founder_email": "contact@cellumatrix.health",
-    "tagline": "AI-accelerated biomaterial scaffolding for rapid organoid drug screening.",
-    "idea": "3D-bioprinted personalized micro-tissue arrays paired with computer vision telemetry to test cancer therapeutics on patient biopsies in 72 hours.",
-    "problem_solved": "Oncology clinical trials suffer from a 90% attrition rate because 2D cell cultures fail to model human solid tumor responses accurately.",
-    "proposed_solution": "Automated high-throughput 3D micro-tumor arrays that predict patient chemotherapy sensitivity with 94% clinical concordance.",
-    "target_market": "Pharma Oncology Discovery Units & Specialized Cancer Research Institutes ($28B TAM).",
-    "expected_usability": "Standardized 96-well automated assay kits compatible with mainstream robotic liquid handlers.",
-    "future_potential": "Partnering with top 5 global biopharma leaders for drug co-development and target milestone licensing.",
-    "potential_rating": "High",
-    "business_model": "Consumables kit sales + Per-compound screening milestone licensing contracts.",
-    "funding_requirement": "$4,000,000 (Series A)",
-    "expected_returns": "15x return potential via biopharma M&A buyout within 4-6 years.",
-    "supporting_info": "3 patent applications granted; published in Nature Biomedical Engineering 2025.",
-    "submitted_at": "2026-08-18"
-  },
-  {
-    "id": "startup-3",
-    "name": "OmniStore Robotics",
-    "industry": "Retail",
-    "founder_name": "Marcus Vance & Priya Nair",
-    "founder_title": "Founders (Former Amazon Robotics & Target Logistics)",
-    "founder_email": "marcus@omnistorerobotics.com",
-    "tagline": "Modular micro-fulfillment robotic grid for suburban grocery and electronics stores.",
-    "idea": "Transforms the back 1,000 sq ft of existing retail stores into an automated 15-minute click-and-collect fulfillment powerhouse.",
-    "problem_solved": "Physical retail stores lose e-commerce market share to warehouse giants due to high manual picking labor costs ($4.50/order).",
-    "proposed_solution": "Ultra-dense vertical tote robotics that pick customer orders in under 90 seconds at $0.40/order cost.",
-    "target_market": "Regional grocery chains, convenience store networks, and retail pharmacies ($35B TAM).",
-    "expected_usability": "Turnkey 14-day installation with zero foundation retrofits required in standard commercial retail units.",
-    "future_potential": "Enables 10,000+ local retailers to compete head-to-head with Amazon Prime 2-hour delivery.",
-    "potential_rating": "High",
-    "business_model": "Robotics-as-a-Service (RaaS) subscription ($3,500/month/store) + $0.25/pick fee.",
-    "funding_requirement": "$3,200,000 (Seed Extension)",
-    "expected_returns": "6x-10x projected across 5 years.",
-    "supporting_info": "12 live pilot stores operating in Midwest US with 99.8% uptime over 6 months.",
-    "submitted_at": "2026-08-20"
-  },
-  {
-    "id": "startup-4",
-    "name": "UrbanGrid PropTech",
-    "industry": "Real Estate",
-    "founder_name": "Julian Hayes",
-    "founder_title": "Founder & CEO (Ex-Brookfield Asset Management)",
-    "founder_email": "invest@urbangrid.io",
-    "tagline": "Dynamic micro-leasing & energy optimization OS for commercial real estate.",
-    "idea": "A digital twin building operating system that automatically dynamically leases vacant floor space for pop-ups, studios, and hybrid flex-offices while cutting HVAC power by 30%.",
-    "problem_solved": "Commercial office vacancy sits at historic highs of 22%, destroying building valuations under fixed multi-year master leases.",
-    "proposed_solution": "Automated spot-market dynamic booking software connecting enterprise tenants with landlords on flexible 1-to-90 day fractional occupancy.",
-    "target_market": "Commercial REITs, Class-A/B Office Landlords, Coworking Operators ($19B TAM).",
-    "expected_usability": "Integrates directly with building BMS, smart locks, and property management accounting ERPs.",
-    "future_potential": "Transforms stranded commercial office buildings into diversified multi-income cash flow hubs.",
-    "potential_rating": "Medium",
-    "business_model": "12% marketplace booking commission + $0.05/sq ft monthly building IoT SaaS fee.",
-    "funding_requirement": "$1,800,000 (Pre-Seed)",
-    "expected_returns": "5x-8x over 4-6 years.",
-    "supporting_info": "Over 850,000 sq ft managed across Chicago and Austin with $1.4M ARR.",
-    "submitted_at": "2026-08-22"
-  },
-  {
-    "id": "startup-5",
-    "name": "AeroVolt Logistics",
-    "industry": "Automobile",
-    "founder_name": "Vikram Sethi & Chloe Dupont",
-    "founder_title": "Co-Founders (Ex-Tesla Powertrain & Rivian)",
-    "founder_email": "partners@aerovolt.tech",
-    "tagline": "Universal swappable battery powertrains for urban last-mile delivery fleets.",
-    "idea": "Modular 3-minute robotic battery swap stations and powertrain conversion kits for standard commercial delivery vans.",
-    "problem_solved": "Electric delivery fleets lose 4 hours of prime delivery time daily waiting at DC fast chargers, degrading battery health.",
-    "proposed_solution": "Drive-through robotic under-chassis swap station that replaces depleted battery packs with 100% charged units in 180 seconds.",
-    "target_market": "Courier services, postal operators, and urban grocery delivery fleets ($22B TAM).",
-    "expected_usability": "Compatible with standard Class 2b and Class 3 commercial delivery van chassis.",
-    "future_potential": "Guarantees 24/7 continuous electric fleet uptime without requiring high-power grid substation upgrades.",
-    "potential_rating": "High",
-    "business_model": "Energy subscription per kilowatt-hour dispensed ($0.32/kWh) + vehicle conversion kit leasing.",
-    "funding_requirement": "$5,500,000 (Series A)",
-    "expected_returns": "10x-14x projected across 6 years.",
-    "supporting_info": "4 commercial fleet contracts signed representing 450 delivery vehicles in Los Angeles.",
-    "submitted_at": "2026-08-24"
-  },
+"""
+Replace startups_data.json with 30 realistic startup profiles.
+Run: python add_startups.py
+"""
+import json, os, random
+
+DATA_PATH = os.path.join(os.path.dirname(__file__), 'data', 'startups_data.json')
+
+STARTUPS = [
   {
     "id": "startup-001",
     "name": "NeuroLedger AI",
@@ -117,15 +20,7 @@
     "proposed_solution": "Graph neural network trained on 500M transaction edges detecting fraud in <50ms with 94% accuracy and 8% false-positive rate — a 3x improvement over industry average.",
     "target_market": "Tier 1 and Tier 2 banks processing international wire transfers",
     "revenue_model": "SaaS per-transaction fee ($0.004/transaction) + annual enterprise license",
-    "traction": {
-      "mrr_usd": 48000,
-      "users": 12,
-      "pilot_partners": [
-        "HDFC Bank",
-        "Yes Bank",
-        "Axis Bank"
-      ]
-    },
+    "traction": {"mrr_usd": 48000, "users": 12, "pilot_partners": ["HDFC Bank", "Yes Bank", "Axis Bank"]},
     "funding_ask_usd": 3000000,
     "equity_offered_percent": 12,
     "use_of_funds": "Model training on larger datasets, RBI regulatory sandbox, EU GDPR compliance, sales team in Singapore",
@@ -145,14 +40,7 @@
     "proposed_solution": "Multimodal AI model analyzing 47 biomarkers from standard CBC blood panels to flag cancer risk 12–18 months before clinical symptoms.",
     "target_market": "Diagnostic labs and preventive health platforms in India and Southeast Asia",
     "revenue_model": "B2B SaaS — per-test fee (₹120/test) to diagnostic labs",
-    "traction": {
-      "mrr_usd": 8500,
-      "users": 3,
-      "pilot_partners": [
-        "Metropolis Healthcare",
-        "Thyrocare"
-      ]
-    },
+    "traction": {"mrr_usd": 8500, "users": 3, "pilot_partners": ["Metropolis Healthcare", "Thyrocare"]},
     "funding_ask_usd": 1200000,
     "equity_offered_percent": 10,
     "use_of_funds": "Clinical trial data collection across 10,000 patients, CDSCO regulatory approval, model accuracy improvement",
@@ -172,14 +60,7 @@
     "proposed_solution": "Autonomous robot fleet achieving 1,200 orders/hour per dark store at 60% lower picking cost using custom vision-guided arms.",
     "target_market": "Blinkit, Zepto, Swiggy Instamart, Amazon Fresh dark store operators",
     "revenue_model": "Robotics-as-a-Service (RaaS) — ₹8/order fulfilled + annual maintenance",
-    "traction": {
-      "mrr_usd": 72000,
-      "users": 4,
-      "pilot_partners": [
-        "Zepto",
-        "BigBasket"
-      ]
-    },
+    "traction": {"mrr_usd": 72000, "users": 4, "pilot_partners": ["Zepto", "BigBasket"]},
     "funding_ask_usd": 5000000,
     "equity_offered_percent": 15,
     "use_of_funds": "Robot manufacturing scale-up, Tamil Nadu facility, 10 new dark store deployments",
@@ -199,14 +80,7 @@
     "proposed_solution": "ML model trained on 2M+ lease transactions providing real-time comparable lease benchmarks and AI-negotiation playbooks.",
     "target_market": "Fortune 500 companies expanding office footprint in tier-1 Indian cities",
     "revenue_model": "Success fee (1.5% of annual contract value saved) + SaaS subscription",
-    "traction": {
-      "mrr_usd": 2100,
-      "users": 8,
-      "pilot_partners": [
-        "Infosys",
-        "TCS (pilot)"
-      ]
-    },
+    "traction": {"mrr_usd": 2100, "users": 8, "pilot_partners": ["Infosys", "TCS (pilot)"]},
     "funding_ask_usd": 500000,
     "equity_offered_percent": 8,
     "use_of_funds": "Data acquisition partnerships, product development, sales hire",
@@ -226,14 +100,7 @@
     "proposed_solution": "Fixed-wing electric cargo drones with 25km range and temperature-controlled payload delivering medicines in under 90 minutes.",
     "target_market": "Apollo Pharmacy, MedPlus, government AYUSH health programs",
     "revenue_model": "Per-delivery fee (₹85/delivery) + fleet-as-a-service for pharmacy chains",
-    "traction": {
-      "mrr_usd": 11000,
-      "users": 5,
-      "pilot_partners": [
-        "Apollo Pharmacy",
-        "Telangana Govt Health Dept"
-      ]
-    },
+    "traction": {"mrr_usd": 11000, "users": 5, "pilot_partners": ["Apollo Pharmacy", "Telangana Govt Health Dept"]},
     "funding_ask_usd": 2000000,
     "equity_offered_percent": 12,
     "use_of_funds": "DGCA type certification, fleet expansion to 50 drones, 3 new state partnerships",
@@ -253,14 +120,7 @@
     "proposed_solution": "API-first platform that auto-calculates Scope 1/2/3 emissions from accounting data (Tally, Zoho Books) and connects to verified offset projects.",
     "target_market": "Textile, pharma, and auto-component exporters needing EU CBAM compliance",
     "revenue_model": "SaaS (₹4,999/month) + 2% transaction fee on offset purchases",
-    "traction": {
-      "mrr_usd": 14000,
-      "users": 180,
-      "pilot_partners": [
-        "Tirupur Exporters Association",
-        "FICCI SME"
-      ]
-    },
+    "traction": {"mrr_usd": 14000, "users": 180, "pilot_partners": ["Tirupur Exporters Association", "FICCI SME"]},
     "funding_ask_usd": 1500000,
     "equity_offered_percent": 10,
     "use_of_funds": "EU CBAM compliance module, carbon registry integrations, 500 customer expansion",
@@ -280,15 +140,7 @@
     "proposed_solution": "Mobile-first platform delivering job-specific microlearning in 14 regional languages with AR simulation for hands-on trade skills.",
     "target_market": "ITI graduates, gig workers, and blue-collar workers in manufacturing and construction",
     "revenue_model": "B2B enterprise (₹2,500/learner/year) + B2C freemium with ₹299/month premium",
-    "traction": {
-      "mrr_usd": 95000,
-      "users": 185000,
-      "pilot_partners": [
-        "Larsen & Toubro",
-        "Tata Steel",
-        "MSDE (Ministry of Skill)"
-      ]
-    },
+    "traction": {"mrr_usd": 95000, "users": 185000, "pilot_partners": ["Larsen & Toubro", "Tata Steel", "MSDE (Ministry of Skill)"]},
     "funding_ask_usd": 8000000,
     "equity_offered_percent": 18,
     "use_of_funds": "Content creation in 6 new trades, Southeast Asia expansion, AI assessment engine",
@@ -308,14 +160,7 @@
     "proposed_solution": "Solar-powered IoT soil sensors (NPK + moisture + pH) with AI recommendations delivered via WhatsApp — no smartphone app required.",
     "target_market": "Grape, onion, and cotton farmers across Maharashtra and Karnataka",
     "revenue_model": "Hardware sale (₹3,500 sensor) + ₹199/month subscription for AI recommendations",
-    "traction": {
-      "mrr_usd": 18000,
-      "users": 2800,
-      "pilot_partners": [
-        "Maharashtra State Agriculture Dept",
-        "FMC Corporation"
-      ]
-    },
+    "traction": {"mrr_usd": 18000, "users": 2800, "pilot_partners": ["Maharashtra State Agriculture Dept", "FMC Corporation"]},
     "funding_ask_usd": 1800000,
     "equity_offered_percent": 11,
     "use_of_funds": "Sensor manufacturing at scale, 10,000 farmer expansion, Tamil Nadu and AP entry",
@@ -335,14 +180,7 @@
     "proposed_solution": "Offline-capable tablet app with AI symptom checker (trained on ICD-11 codes) enabling ASHA workers to triage patients and initiate telemedicine consultations.",
     "target_market": "National Health Mission ASHA and ANM networks across 6 high-priority states",
     "revenue_model": "Government B2G contract (₹80/consultation) + pharmaceutical partnership revenue",
-    "traction": {
-      "mrr_usd": 3200,
-      "users": 240,
-      "pilot_partners": [
-        "MP State Health Dept",
-        "WHO India"
-      ]
-    },
+    "traction": {"mrr_usd": 3200, "users": 240, "pilot_partners": ["MP State Health Dept", "WHO India"]},
     "funding_ask_usd": 600000,
     "equity_offered_percent": 9,
     "use_of_funds": "Offline AI model improvement, 1000 ASHA worker onboarding, regulatory approval",
@@ -362,15 +200,7 @@
     "proposed_solution": "AI scheduling engine that optimizes 10,000+ employee shifts across 50+ compliance rule types in under 3 minutes, with real-time WhatsApp notifications.",
     "target_market": "Retail chains, BPOs, hospitals, and manufacturing units across Southeast Asia",
     "revenue_model": "SaaS — $12/employee/month with annual enterprise contracts",
-    "traction": {
-      "mrr_usd": 142000,
-      "users": 15,
-      "pilot_partners": [
-        "FairPrice Group",
-        "Parkway Health",
-        "DHL SEA"
-      ]
-    },
+    "traction": {"mrr_usd": 142000, "users": 15, "pilot_partners": ["FairPrice Group", "Parkway Health", "DHL SEA"]},
     "funding_ask_usd": 6000000,
     "equity_offered_percent": 14,
     "use_of_funds": "India market entry, AI compliance rule engine for 8 new jurisdictions, enterprise sales team",
@@ -390,14 +220,7 @@
     "proposed_solution": "AI route optimization considering real-time battery state, charging station availability, and delivery windows — extending effective EV range by 35%.",
     "target_market": "Ekart, Delhivery, BlueDart transitioning last-mile fleets to EV",
     "revenue_model": "SaaS per-vehicle per-month (₹2,200/vehicle) + charging station API revenue",
-    "traction": {
-      "mrr_usd": 22000,
-      "users": 6,
-      "pilot_partners": [
-        "Ekart Logistics",
-        "BPCL EV charging network"
-      ]
-    },
+    "traction": {"mrr_usd": 22000, "users": 6, "pilot_partners": ["Ekart Logistics", "BPCL EV charging network"]},
     "funding_ask_usd": 2500000,
     "equity_offered_percent": 13,
     "use_of_funds": "V2G (vehicle-to-grid) API integration, 500 vehicle fleet expansion, Pune and Chennai entry",
@@ -417,14 +240,7 @@
     "proposed_solution": "LLM fine-tuned on Indian contract law extracting key clauses, flagging jurisdiction-specific risks, and suggesting standard safe alternatives in plain English.",
     "target_market": "SMEs in manufacturing, export, and IT services with 50-500 employee size",
     "revenue_model": "Freemium SaaS — ₹2,499/month for unlimited contract reviews",
-    "traction": {
-      "mrr_usd": 4800,
-      "users": 320,
-      "pilot_partners": [
-        "FICCI LegalTech",
-        "Bar Council of India (observer)"
-      ]
-    },
+    "traction": {"mrr_usd": 4800, "users": 320, "pilot_partners": ["FICCI LegalTech", "Bar Council of India (observer)"]},
     "funding_ask_usd": 400000,
     "equity_offered_percent": 8,
     "use_of_funds": "Legal dataset expansion, BCI compliance certification, 1000 SME customer target",
@@ -444,14 +260,7 @@
     "proposed_solution": "Proprietary pyrolysis process converting mixed plastic waste into HDPE/PP pellets at 85% yield rate, accepted by major polymer manufacturers.",
     "target_market": "FMCG companies (Unilever, P&G) with EPR (Extended Producer Responsibility) compliance mandates",
     "revenue_model": "Waste tipping fees (₹4/kg input) + polymer pellet sales (₹65/kg output)",
-    "traction": {
-      "mrr_usd": 31000,
-      "users": 8,
-      "pilot_partners": [
-        "Unilever India",
-        "GPCB (Gujarat Pollution Control)"
-      ]
-    },
+    "traction": {"mrr_usd": 31000, "users": 8, "pilot_partners": ["Unilever India", "GPCB (Gujarat Pollution Control)"]},
     "funding_ask_usd": 3500000,
     "equity_offered_percent": 15,
     "use_of_funds": "10-tonne/day plant construction, BIS polymer quality certification, 3 FMCG offtake agreements",
@@ -471,14 +280,7 @@
     "proposed_solution": "Robotic cooking arms with computer vision quality control producing 400 meals/hour with <2% defect rate and zero food waste.",
     "target_market": "Swiggy, Zomato, and McDonald's cloud kitchen operators in metro cities",
     "revenue_model": "RaaS — ₹12/meal produced + monthly maintenance contract",
-    "traction": {
-      "mrr_usd": 19000,
-      "users": 3,
-      "pilot_partners": [
-        "Rebel Foods",
-        "Swiggy Access (pilot)"
-      ]
-    },
+    "traction": {"mrr_usd": 19000, "users": 3, "pilot_partners": ["Rebel Foods", "Swiggy Access (pilot)"]},
     "funding_ask_usd": 2800000,
     "equity_offered_percent": 14,
     "use_of_funds": "Robot manufacturing, FSSAI certification, 10 cloud kitchen deployments",
@@ -498,15 +300,7 @@
     "proposed_solution": "WhatsApp-native AI chatbot in Hindi, Tamil, and 10 regional languages guiding users to the most suitable formal credit product (Mudra, PM SVANidhi, PMFBY).",
     "target_market": "Jan Dhan account holders, SHG members, and kirana store owners",
     "revenue_model": "Lead generation fee from NBFC and MFI partners (₹400/successful loan disbursement)",
-    "traction": {
-      "mrr_usd": 7200,
-      "users": 18000,
-      "pilot_partners": [
-        "Ujjivan SFB",
-        "Cashkumar MFI",
-        "Arohan Financial"
-      ]
-    },
+    "traction": {"mrr_usd": 7200, "users": 18000, "pilot_partners": ["Ujjivan SFB", "Cashkumar MFI", "Arohan Financial"]},
     "funding_ask_usd": 900000,
     "equity_offered_percent": 9,
     "use_of_funds": "8 new language models, RBI NBFC partnership compliance, 100,000 user milestone",
@@ -526,14 +320,7 @@
     "proposed_solution": "Middleware layer implementing NIST-certified post-quantum algorithms (CRYSTALS-Kyber, FALCON) without requiring legacy system replacement — zero downtime migration.",
     "target_market": "RBI-regulated banks and SEBI-regulated brokerages with 10+ year legacy system cycles",
     "revenue_model": "Annual enterprise license (₹45L/year per bank) + professional services",
-    "traction": {
-      "mrr_usd": 5500,
-      "users": 2,
-      "pilot_partners": [
-        "Union Bank of India (PoC)",
-        "SEBI FinTech Regulatory Sandbox"
-      ]
-    },
+    "traction": {"mrr_usd": 5500, "users": 2, "pilot_partners": ["Union Bank of India (PoC)", "SEBI FinTech Regulatory Sandbox"]},
     "funding_ask_usd": 1000000,
     "equity_offered_percent": 10,
     "use_of_funds": "CERT-In security audit, RBI compliance certification, 5 bank pilot conversions",
@@ -553,14 +340,7 @@
     "proposed_solution": "Shared solar microgrid with AI demand forecasting and battery management, delivering 24x7 power at ₹5.50/unit — 55% cheaper than diesel.",
     "target_market": "Textile, foundry, and food processing MSME clusters in Tamil Nadu, Gujarat, and MP",
     "revenue_model": "Energy-as-a-Service (EaaS) — per-unit billing with 15-year power purchase agreements",
-    "traction": {
-      "mrr_usd": 88000,
-      "users": 14,
-      "pilot_partners": [
-        "SIDBI Energy Finance",
-        "Tamil Nadu MSME Dept"
-      ]
-    },
+    "traction": {"mrr_usd": 88000, "users": 14, "pilot_partners": ["SIDBI Energy Finance", "Tamil Nadu MSME Dept"]},
     "funding_ask_usd": 7000000,
     "equity_offered_percent": 16,
     "use_of_funds": "3 new cluster deployments (Maharashtra, Gujarat), battery storage capacity doubling, DISCOM grid integration",
@@ -580,14 +360,7 @@
     "proposed_solution": "Hub-and-spoke model with trained phlebotomist network and mobile micro-lab vans delivering results in 4 hours via WhatsApp.",
     "target_market": "Working professionals and senior citizens in 30 tier-2 cities across Maharashtra and MP",
     "revenue_model": "Per-test fee (₹300-2500 depending on panel) + corporate health package subscription",
-    "traction": {
-      "mrr_usd": 24000,
-      "users": 4200,
-      "pilot_partners": [
-        "Star Health Insurance",
-        "Manipal Health (franchise)"
-      ]
-    },
+    "traction": {"mrr_usd": 24000, "users": 4200, "pilot_partners": ["Star Health Insurance", "Manipal Health (franchise)"]},
     "funding_ask_usd": 2200000,
     "equity_offered_percent": 12,
     "use_of_funds": "15 new city expansions, mobile lab van fleet, NABL accreditation",
@@ -607,14 +380,7 @@
     "proposed_solution": "AI-scanned and 3D-printed custom prosthetics at ₹8,000 ($95) using recycled PETG polymer — delivered in 72 hours.",
     "target_market": "Government prosthetic schemes (ADIP), NGOs, and WHO humanitarian aid programs",
     "revenue_model": "Direct-to-patient (₹8,000) + B2G government ADIP scheme contracts at scale",
-    "traction": {
-      "mrr_usd": 12000,
-      "users": 420,
-      "pilot_partners": [
-        "Jaipur Foot (NROI)",
-        "Ministry of Social Justice ADIP scheme"
-      ]
-    },
+    "traction": {"mrr_usd": 12000, "users": 420, "pilot_partners": ["Jaipur Foot (NROI)", "Ministry of Social Justice ADIP scheme"]},
     "funding_ask_usd": 1500000,
     "equity_offered_percent": 11,
     "use_of_funds": "FDA CE mark certification for export, 5 district hospital partnerships, carbon-composite socket development",
@@ -634,14 +400,7 @@
     "proposed_solution": "Federated learning platform allowing organizations to train shared ML models without ever exposing raw data — privacy by design, legally compliant.",
     "target_market": "Banking, telecom, and e-commerce enterprises wanting to enrich customer data without data sharing",
     "revenue_model": "SaaS platform fee (₹8L/month for up to 5 federation partners) + consulting",
-    "traction": {
-      "mrr_usd": 6000,
-      "users": 3,
-      "pilot_partners": [
-        "Jio Platforms (PoC)",
-        "NASSCOM Data Council"
-      ]
-    },
+    "traction": {"mrr_usd": 6000, "users": 3, "pilot_partners": ["Jio Platforms (PoC)", "NASSCOM Data Council"]},
     "funding_ask_usd": 800000,
     "equity_offered_percent": 9,
     "use_of_funds": "PDPB compliance certification, 3 federation network launches, ML research team hiring",
@@ -661,14 +420,7 @@
     "proposed_solution": "Weekly satellite imagery + on-site drone captures analyzed by CV models to detect construction progress, safety violations, and material theft in real-time.",
     "target_market": "NHAI highway projects, Smart Cities Mission, and large real estate developers",
     "revenue_model": "SaaS per-site (₹85,000/site/year) + risk analytics premium tier",
-    "traction": {
-      "mrr_usd": 28000,
-      "users": 5,
-      "pilot_partners": [
-        "NHAI (3 highway segments)",
-        "L&T Realty"
-      ]
-    },
+    "traction": {"mrr_usd": 28000, "users": 5, "pilot_partners": ["NHAI (3 highway segments)", "L&T Realty"]},
     "funding_ask_usd": 2500000,
     "equity_offered_percent": 13,
     "use_of_funds": "High-resolution satellite imagery partnerships, 50-site expansion, PMGSY rural roads program bid",
@@ -688,14 +440,7 @@
     "proposed_solution": "Solar-powered IoT water sensors testing 12 contamination parameters every 6 hours with automated SMS alerts to village water committee members.",
     "target_market": "Jal Jeevan Mission municipalities, WHO rural water programs, state Jal Boards",
     "revenue_model": "B2G sensor lease (₹1,200/sensor/month) + water quality dashboard SaaS for municipalities",
-    "traction": {
-      "mrr_usd": 2800,
-      "users": 12,
-      "pilot_partners": [
-        "UP Jal Nigam",
-        "UNICEF India Water Safety"
-      ]
-    },
+    "traction": {"mrr_usd": 2800, "users": 12, "pilot_partners": ["UP Jal Nigam", "UNICEF India Water Safety"]},
     "funding_ask_usd": 450000,
     "equity_offered_percent": 8,
     "use_of_funds": "500 sensor manufacturing, 5 district Jal Jeevan Mission contracts, BIS sensor certification",
@@ -715,14 +460,7 @@
     "proposed_solution": "WhatsApp-native claims bot with document OCR, image damage assessment, and ML fraud scoring — settling 80% of motor claims in under 4 hours without human intervention.",
     "target_market": "IRDAI-regulated general insurance companies processing 10M+ motor claims annually",
     "revenue_model": "Per-claim processed fee (₹180/claim) + annual enterprise license",
-    "traction": {
-      "mrr_usd": 38000,
-      "users": 4,
-      "pilot_partners": [
-        "HDFC ERGO",
-        "New India Assurance (PoC)"
-      ]
-    },
+    "traction": {"mrr_usd": 38000, "users": 4, "pilot_partners": ["HDFC ERGO", "New India Assurance (PoC)"]},
     "funding_ask_usd": 2000000,
     "equity_offered_percent": 12,
     "use_of_funds": "Health claims module launch, IRDAI tech sandbox approval, 10 insurer onboarding",
@@ -742,14 +480,7 @@
     "proposed_solution": "High-speed camera + custom CNN detecting 23 defect types in real-time at 1,200m of fabric per hour — 4x faster than human inspection with 97% accuracy.",
     "target_market": "Surat power loom cluster (600,000 looms) and Tirupur knitwear exporters",
     "revenue_model": "Machine-lease model (₹18,000/month per inspection unit) + defect analytics SaaS",
-    "traction": {
-      "mrr_usd": 9000,
-      "users": 8,
-      "pilot_partners": [
-        "Texcraft Association Surat",
-        "Garment Export Promotion Council"
-      ]
-    },
+    "traction": {"mrr_usd": 9000, "users": 8, "pilot_partners": ["Texcraft Association Surat", "Garment Export Promotion Council"]},
     "funding_ask_usd": 700000,
     "equity_offered_percent": 9,
     "use_of_funds": "Manufacturing 50 inspection units, EU textile import quality standard compliance, Tirupur cluster entry",
@@ -769,14 +500,7 @@
     "proposed_solution": "Instant credit against confirmed Walmart/Amazon purchase orders using ML invoice validation and buyer creditworthiness scoring — funds in 24 hours.",
     "target_market": "1.4M MSME exporters on Amazon Global Selling, Flipkart Wholesale, and direct EU/US buyers",
     "revenue_model": "2.1% discount fee on invoice value (annualized 8-10% yield) + platform subscription",
-    "traction": {
-      "mrr_usd": 55000,
-      "users": 340,
-      "pilot_partners": [
-        "Amazon Global Selling India",
-        "ECGC (Export Credit Guarantee)"
-      ]
-    },
+    "traction": {"mrr_usd": 55000, "users": 340, "pilot_partners": ["Amazon Global Selling India", "ECGC (Export Credit Guarantee)"]},
     "funding_ask_usd": 4000000,
     "equity_offered_percent": 14,
     "use_of_funds": "NBFC license application, ₹50 crore lending book growth, EU market entry",
@@ -796,14 +520,7 @@
     "proposed_solution": "Gamified learning platform screening children for 8 learning disabilities during play, providing personalized learning paths and teacher alerts within the first 30 days.",
     "target_market": "CBSE and ICSE private schools for grades 1-5 across Kerala, Karnataka, and Tamil Nadu",
     "revenue_model": "B2B school license (₹350/student/year) + B2C parent premium at ₹499/month",
-    "traction": {
-      "mrr_usd": 5200,
-      "users": 1800,
-      "pilot_partners": [
-        "Kendriya Vidyalaya Sangathan (3 schools)",
-        "National Institute of Mental Health"
-      ]
-    },
+    "traction": {"mrr_usd": 5200, "users": 1800, "pilot_partners": ["Kendriya Vidyalaya Sangathan (3 schools)", "National Institute of Mental Health"]},
     "funding_ask_usd": 600000,
     "equity_offered_percent": 9,
     "use_of_funds": "Clinical validation study, 100 school expansion, Hindi and Tamil language version",
@@ -823,14 +540,7 @@
     "proposed_solution": "VARA-regulated smart contract platform enabling institutional commodity delivery vs payment settlement in T+15 minutes with cryptographic ownership proofs.",
     "target_market": "Dubai Multi Commodities Centre (DMCC) members, Singapore SGX commodity traders",
     "revenue_model": "0.12% settlement fee per transaction + API license for commodity exchanges",
-    "traction": {
-      "mrr_usd": 32000,
-      "users": 22,
-      "pilot_partners": [
-        "DMCC (MOU)",
-        "Sucafina (coffee trader)"
-      ]
-    },
+    "traction": {"mrr_usd": 32000, "users": 22, "pilot_partners": ["DMCC (MOU)", "Sucafina (coffee trader)"]},
     "funding_ask_usd": 3000000,
     "equity_offered_percent": 13,
     "use_of_funds": "VARA full license, Singapore MAS approval, gold and crude oil settlement modules",
@@ -850,14 +560,7 @@
     "proposed_solution": "Satellite AQ data + weather modeling providing 48-hour hyperlocal pollution forecasts at 500m resolution — 4x better spatial resolution than CPCB stations.",
     "target_market": "Delhi, Haryana, UP industrial estates; municipal corporations for GRAP enforcement",
     "revenue_model": "API subscription for industries (₹3L/year) + CPCB and municipal licensing",
-    "traction": {
-      "mrr_usd": 4100,
-      "users": 28,
-      "pilot_partners": [
-        "CPCB (data partnership)",
-        "Haryana HSPCB"
-      ]
-    },
+    "traction": {"mrr_usd": 4100, "users": 28, "pilot_partners": ["CPCB (data partnership)", "Haryana HSPCB"]},
     "funding_ask_usd": 550000,
     "equity_offered_percent": 8,
     "use_of_funds": "Physical sensor network for model calibration, 5 state pollution board contracts, EU Copernicus data partnership",
@@ -877,14 +580,7 @@
     "proposed_solution": "IoT-enabled electric wheelchairs with QR scan self-service, GPS tracking, and automatic charging docks — reducing patient wait time to under 3 minutes.",
     "target_market": "NABH-accredited hospitals and AAI airports across India",
     "revenue_model": "Fleet-as-a-Service (₹6,500/wheelchair/month) with zero CapEx for hospitals",
-    "traction": {
-      "mrr_usd": 3800,
-      "users": 4,
-      "pilot_partners": [
-        "Manipal Hospital Bengaluru",
-        "Kempegowda International Airport (trial)"
-      ]
-    },
+    "traction": {"mrr_usd": 3800, "users": 4, "pilot_partners": ["Manipal Hospital Bengaluru", "Kempegowda International Airport (trial)"]},
     "funding_ask_usd": 450000,
     "equity_offered_percent": 8,
     "use_of_funds": "Manufacturing 200 units, 10 hospital onboardings, Hyderabad and Chennai expansion",
@@ -904,15 +600,7 @@
     "proposed_solution": "SAR satellite imagery at 3m resolution with AI change-detection models providing 72-hour hyperlocal flood forecasts — 3x the accuracy of current NDRF systems.",
     "target_market": "NDMA, state disaster management authorities, World Bank DRR programs, UN OCHA",
     "revenue_model": "B2G analytics API (₹1.2 crore/state/year) + World Bank DRR project contract revenue",
-    "traction": {
-      "mrr_usd": 41000,
-      "users": 6,
-      "pilot_partners": [
-        "Odisha SDMA",
-        "World Bank South Asia DRR",
-        "ISRO-IN-SPACe MOU"
-      ]
-    },
+    "traction": {"mrr_usd": 41000, "users": 6, "pilot_partners": ["Odisha SDMA", "World Bank South Asia DRR", "ISRO-IN-SPACe MOU"]},
     "funding_ask_usd": 3500000,
     "equity_offered_percent": 14,
     "use_of_funds": "Nanosatellite constellation (3 units via ISRO PSLV), 12 state SDMA contracts, Bangladesh and Vietnam expansion",
@@ -920,3 +608,30 @@
     "submitted_at": "2024-07-30T09:00:00Z"
   }
 ]
+
+def main():
+    with open(DATA_PATH, 'r', encoding='utf-8') as f:
+        existing = json.load(f)
+
+    existing_ids = {s.get('id','') for s in existing}
+    added = 0
+
+    for startup in STARTUPS:
+        if startup['id'] not in existing_ids:
+            existing.append(startup)
+            added += 1
+            print(f"  Added: {startup['name']} | {startup['industry']} | {startup['stage']}")
+        else:
+            print(f"  Updating: {startup['name']}")
+            for i, s in enumerate(existing):
+                if s.get('id') == startup['id']:
+                    existing[i] = startup
+                    break
+
+    with open(DATA_PATH, 'w', encoding='utf-8') as f:
+        json.dump(existing, f, indent=2, ensure_ascii=False)
+
+    print(f"\nDone. Added {added} new startups. Total: {len(existing)}")
+
+if __name__ == '__main__':
+    main()

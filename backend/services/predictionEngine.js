@@ -124,11 +124,14 @@ class StockPredictionEngine {
       const signal4h  = deriveSignal(ohlcv.slice(-10));
       const signalDay = deriveSignal(ohlcv.slice(-20));
 
-      // Build chart_data from last 35 real OHLCV days
-      const chartSlice = ohlcv.slice(-35);
+      const mapTimeframe = { '1M': 22, '3M': 65, '6M': 130, '1Y': 252, 'ALL': 1200 };
+      const pointsNeeded = mapTimeframe[timeframe.toUpperCase()] || 35;
+      
+      // Build chart_data from real OHLCV days
+      const chartSlice = ohlcv.slice(-pointsNeeded);
       const chartData = chartSlice.map((row, i) => ({
         index: i + 1,
-        date: row.date || `D-${35 - i}`,
+        date: row.date || `D-${pointsNeeded - i}`,
         open: row.open, high: row.high, low: row.low, close: row.close,
         volume: row.volume,
         sma20: row.sma_20,
@@ -174,9 +177,10 @@ class StockPredictionEngine {
     const basePrice = profile.current_price;
     const seed = sym.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0) + 42;
     const rng  = createSeededRandom(seed);
-    const numPoints = 35;
+    const mapTimeframe = { '1M': 22, '3M': 65, '6M': 130, '1Y': 252, 'ALL': 252 };
+    const numPoints = mapTimeframe[timeframe.toUpperCase()] || 35;
     const dataPoints = [];
-    let price = basePrice * 0.88;
+    let price = basePrice * (1 - (numPoints * profile.trend_bias * 0.8));
     const closes = [];
 
     for (let i = 0; i < numPoints; i++) {

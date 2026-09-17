@@ -1,0 +1,1618 @@
+{
+  "meta": {
+    "total_nodes": 55,
+    "total_edges": 120,
+    "internal_nodes": 26,
+    "external_nodes": 29,
+    "relationship_types": [
+      "competitor",
+      "supplier",
+      "partner",
+      "investor",
+      "acquirer",
+      "subsidiary",
+      "rival_vc"
+    ],
+    "edge_color_legend": {
+      "competitor": "#ef4444",
+      "supplier": "#10b981",
+      "partner": "#3b82f6",
+      "investor": "#f59e0b",
+      "acquirer": "#8b5cf6",
+      "subsidiary": "#06b6d4",
+      "rival_vc": "#f97316"
+    },
+    "sector_color_legend": {
+      "Technology": "#6366f1",
+      "Media": "#ec4899",
+      "Retail": "#f59e0b",
+      "Automobile": "#10b981",
+      "FinTech": "#3b82f6",
+      "Finance": "#0ea5e9",
+      "Real Estate": "#84cc16",
+      "Healthcare": "#ef4444",
+      "Consumer Goods": "#f97316",
+      "Manufacturing": "#8b5cf6",
+      "External": "#94a3b8"
+    }
+  },
+  "nodes": [
+    {
+      "id": "alibaba",
+      "label": "Alibaba Group",
+      "ticker": "BABA",
+      "sector": "Technology",
+      "color": "#6366f1",
+      "market_cap": "$220B",
+      "is_internal": true
+    },
+    {
+      "id": "amzn",
+      "label": "Amzn",
+      "ticker": "",
+      "sector": "External",
+      "color": "#94a3b8",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "apple",
+      "label": "Apple Inc.",
+      "ticker": "AAPL",
+      "sector": "Technology",
+      "color": "#6366f1",
+      "market_cap": "$3.42T",
+      "is_internal": true
+    },
+    {
+      "id": "bac",
+      "label": "Bac",
+      "ticker": "",
+      "sector": "External",
+      "color": "#94a3b8",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "binance",
+      "label": "Binance",
+      "ticker": "PRIVATE",
+      "sector": "FinTech",
+      "color": "#3b82f6",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "block",
+      "label": "Block, Inc. (formerly Square)",
+      "ticker": "SQ",
+      "sector": "FinTech",
+      "color": "#3b82f6",
+      "market_cap": "$48B",
+      "is_internal": true
+    },
+    {
+      "id": "boeing",
+      "label": "Boeing",
+      "ticker": "BA",
+      "sector": "Manufacturing",
+      "color": "#8b5cf6",
+      "market_cap": "$100B",
+      "is_internal": true
+    },
+    {
+      "id": "canon",
+      "label": "Canon",
+      "ticker": "CAJ",
+      "sector": "Technology",
+      "color": "#6366f1",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "coinbase",
+      "label": "Coinbase",
+      "ticker": "COIN",
+      "sector": "FinTech",
+      "color": "#3b82f6",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "comcast",
+      "label": "Comcast/NBCUniversal",
+      "ticker": "CMCSA",
+      "sector": "Media",
+      "color": "#ec4899",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "disney",
+      "label": "Walt Disney Company",
+      "ticker": "DIS",
+      "sector": "Media",
+      "color": "#ec4899",
+      "market_cap": "$190B",
+      "is_internal": true
+    },
+    {
+      "id": "ericsson",
+      "label": "Ericsson",
+      "ticker": "ERIC",
+      "sector": "Technology",
+      "color": "#6366f1",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "first_citizens",
+      "label": "First Citizens",
+      "ticker": "FCNCA",
+      "sector": "Finance",
+      "color": "#0ea5e9",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "flipkart",
+      "label": "Flipkart",
+      "ticker": "PRIVATE",
+      "sector": "Retail",
+      "color": "#f59e0b",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "ford",
+      "label": "Ford Motor Company",
+      "ticker": "F",
+      "sector": "Automobile",
+      "color": "#10b981",
+      "market_cap": "$44B",
+      "is_internal": true
+    },
+    {
+      "id": "ftx",
+      "label": "FTX / Sam Bankman-Fried",
+      "ticker": "FTT",
+      "sector": "FinTech",
+      "color": "#3b82f6",
+      "market_cap": "$0",
+      "is_internal": true
+    },
+    {
+      "id": "fujifilm",
+      "label": "Fujifilm",
+      "ticker": "FUJIY",
+      "sector": "Technology",
+      "color": "#6366f1",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "ge_aerospace",
+      "label": "GE Aerospace",
+      "ticker": "GE",
+      "sector": "Manufacturing",
+      "color": "#8b5cf6",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "general_electric",
+      "label": "General Electric",
+      "ticker": "GE",
+      "sector": "Manufacturing",
+      "color": "#8b5cf6",
+      "market_cap": "$180B",
+      "is_internal": true
+    },
+    {
+      "id": "googl",
+      "label": "Googl",
+      "ticker": "",
+      "sector": "External",
+      "color": "#94a3b8",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "hsbc",
+      "label": "Hsbc",
+      "ticker": "",
+      "sector": "External",
+      "color": "#94a3b8",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "intel",
+      "label": "Intel Corporation",
+      "ticker": "INTC",
+      "sector": "Technology",
+      "color": "#6366f1",
+      "market_cap": "$90B",
+      "is_internal": true
+    },
+    {
+      "id": "jpm",
+      "label": "Jpm",
+      "ticker": "",
+      "sector": "External",
+      "color": "#94a3b8",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "kodak",
+      "label": "Kodak",
+      "ticker": "KODK",
+      "sector": "Technology",
+      "color": "#6366f1",
+      "market_cap": "$0.5B",
+      "is_internal": true
+    },
+    {
+      "id": "lyft",
+      "label": "Lyft",
+      "ticker": "LYFT",
+      "sector": "Technology",
+      "color": "#6366f1",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "ma",
+      "label": "Ma",
+      "ticker": "",
+      "sector": "External",
+      "color": "#94a3b8",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "meta",
+      "label": "Meta Platforms",
+      "ticker": "META",
+      "sector": "Technology",
+      "color": "#6366f1",
+      "market_cap": "$1.35T",
+      "is_internal": true
+    },
+    {
+      "id": "msft",
+      "label": "Msft",
+      "ticker": "",
+      "sector": "External",
+      "color": "#94a3b8",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "netflix",
+      "label": "Netflix Inc.",
+      "ticker": "NFLX",
+      "sector": "Media",
+      "color": "#ec4899",
+      "market_cap": "$310B",
+      "is_internal": true
+    },
+    {
+      "id": "nokia",
+      "label": "Nokia",
+      "ticker": "NOK",
+      "sector": "Technology",
+      "color": "#6366f1",
+      "market_cap": "$21B",
+      "is_internal": true
+    },
+    {
+      "id": "nvda",
+      "label": "Nvda",
+      "ticker": "",
+      "sector": "External",
+      "color": "#94a3b8",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "paypal",
+      "label": "PayPal Holdings, Inc.",
+      "ticker": "PYPL",
+      "sector": "FinTech",
+      "color": "#3b82f6",
+      "market_cap": "$72B",
+      "is_internal": true
+    },
+    {
+      "id": "peloton",
+      "label": "Peloton Interactive",
+      "ticker": "PTON",
+      "sector": "Consumer Goods",
+      "color": "#f97316",
+      "market_cap": "$1.2B",
+      "is_internal": true
+    },
+    {
+      "id": "pypl",
+      "label": "Pypl",
+      "ticker": "",
+      "sector": "External",
+      "color": "#94a3b8",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "regus",
+      "label": "IWG/Regus",
+      "ticker": "IWG.L",
+      "sector": "Real Estate",
+      "color": "#84cc16",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "rivian",
+      "label": "Rivian Automotive",
+      "ticker": "RIVN",
+      "sector": "Automobile",
+      "color": "#10b981",
+      "market_cap": "$13B",
+      "is_internal": true
+    },
+    {
+      "id": "safeway",
+      "label": "Safeway",
+      "ticker": "PRIVATE",
+      "sector": "Retail",
+      "color": "#f59e0b",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "samsung",
+      "label": "Samsung",
+      "ticker": "005930.KS",
+      "sector": "Technology",
+      "color": "#6366f1",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "sears",
+      "label": "Sears Holdings",
+      "ticker": "SHLDQ",
+      "sector": "Retail",
+      "color": "#f59e0b",
+      "market_cap": "$0.1B",
+      "is_internal": true
+    },
+    {
+      "id": "snapchat",
+      "label": "Snap Inc.",
+      "ticker": "SNAP",
+      "sector": "Technology",
+      "color": "#6366f1",
+      "market_cap": "$17B",
+      "is_internal": true
+    },
+    {
+      "id": "softbank",
+      "label": "SoftBank Group",
+      "ticker": "SFTBY",
+      "sector": "Finance",
+      "color": "#0ea5e9",
+      "market_cap": "$85B",
+      "is_internal": true
+    },
+    {
+      "id": "svb",
+      "label": "Silicon Valley Bank",
+      "ticker": "SIVB",
+      "sector": "Finance",
+      "color": "#0ea5e9",
+      "market_cap": "$0",
+      "is_internal": true
+    },
+    {
+      "id": "t",
+      "label": "T",
+      "ticker": "",
+      "sector": "External",
+      "color": "#94a3b8",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "tesla",
+      "label": "Tesla, Inc.",
+      "ticker": "TSLA",
+      "sector": "Automobile",
+      "color": "#10b981",
+      "market_cap": "$750B",
+      "is_internal": true
+    },
+    {
+      "id": "theranos",
+      "label": "Theranos",
+      "ticker": "PRIVATE",
+      "sector": "Healthcare",
+      "color": "#ef4444",
+      "market_cap": "$0",
+      "is_internal": true
+    },
+    {
+      "id": "tsmc",
+      "label": "TSMC",
+      "ticker": "TSM",
+      "sector": "Technology",
+      "color": "#6366f1",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "twitter",
+      "label": "Twitter / X Corp",
+      "ticker": "X",
+      "sector": "Technology",
+      "color": "#6366f1",
+      "market_cap": "$19B",
+      "is_internal": true
+    },
+    {
+      "id": "uber",
+      "label": "Uber Technologies",
+      "ticker": "UBER",
+      "sector": "Technology",
+      "color": "#6366f1",
+      "market_cap": "$155B",
+      "is_internal": true
+    },
+    {
+      "id": "v",
+      "label": "V",
+      "ticker": "",
+      "sector": "External",
+      "color": "#94a3b8",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "vw",
+      "label": "Volkswagen",
+      "ticker": "VWAGY",
+      "sector": "Automobile",
+      "color": "#10b981",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "walgreens",
+      "label": "Walgreens",
+      "ticker": "WBA",
+      "sector": "Retail",
+      "color": "#f59e0b",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "walmart",
+      "label": "Walmart",
+      "ticker": "",
+      "sector": "External",
+      "color": "#94a3b8",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "wework",
+      "label": "WeWork",
+      "ticker": "WE",
+      "sector": "Real Estate",
+      "color": "#84cc16",
+      "market_cap": "$0.05B",
+      "is_internal": true
+    },
+    {
+      "id": "wfc",
+      "label": "Wfc",
+      "ticker": "",
+      "sector": "External",
+      "color": "#94a3b8",
+      "market_cap": "",
+      "is_internal": false
+    },
+    {
+      "id": "zoom",
+      "label": "Zoom Video Communications",
+      "ticker": "ZM",
+      "sector": "Technology",
+      "color": "#6366f1",
+      "market_cap": "$17B",
+      "is_internal": true
+    }
+  ],
+  "edges": [
+    {
+      "id": "e000",
+      "source": "apple",
+      "target": "googl",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Compete in smartphone OS, cloud, and AI assistants",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e001",
+      "source": "apple",
+      "target": "msft",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Compete in enterprise productivity, cloud, and PC",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e002",
+      "source": "apple",
+      "target": "meta",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Compete in AR/VR hardware (Vision Pro vs Quest)",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e003",
+      "source": "apple",
+      "target": "samsung",
+      "relationship": "supplier",
+      "label": "Supplier",
+      "description": "Samsung supplies OLED displays for iPhone",
+      "color": "#10b981"
+    },
+    {
+      "id": "e004",
+      "source": "apple",
+      "target": "tsmc",
+      "relationship": "supplier",
+      "label": "Supplier",
+      "description": "TSMC exclusively fabricates Apple Silicon (M/A series)",
+      "color": "#10b981"
+    },
+    {
+      "id": "e005",
+      "source": "apple",
+      "target": "nvda",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "Nvidia dominates AI chips Apple is designing in-house",
+      "color": "#f97316"
+    },
+    {
+      "id": "e006",
+      "source": "netflix",
+      "target": "disney",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Direct streaming rivals — both compete for subscriber share",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e007",
+      "source": "netflix",
+      "target": "amzn",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Amazon Prime Video competes for streaming audience",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e008",
+      "source": "netflix",
+      "target": "meta",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Meta Reels and short video erodes Netflix screen time",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e009",
+      "source": "netflix",
+      "target": "googl",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "YouTube Premium and YouTube compete for ad-supported video",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e010",
+      "source": "tesla",
+      "target": "rivian",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Compete directly in EV pickup trucks (Cybertruck vs R1T)",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e011",
+      "source": "tesla",
+      "target": "nvda",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "Tesla builds own AI chips (Dojo) competing with NVIDIA",
+      "color": "#f97316"
+    },
+    {
+      "id": "e012",
+      "source": "tesla",
+      "target": "ford",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Ford F-150 Lightning competes with Tesla Cybertruck",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e013",
+      "source": "tesla",
+      "target": "msft",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "Azure cloud powers Tesla's telematics and fleet analytics",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e014",
+      "source": "block",
+      "target": "pypl",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Square POS and Cash App compete with PayPal and Venmo",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e015",
+      "source": "block",
+      "target": "v",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Compete in merchant payment acquiring and card networks",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e016",
+      "source": "block",
+      "target": "ma",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Compete in global merchant payment processing",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e017",
+      "source": "paypal",
+      "target": "block",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Venmo vs Cash App — direct competition in P2P payments",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e018",
+      "source": "paypal",
+      "target": "v",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "PayPal issues Visa-branded cards for wallet users",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e019",
+      "source": "paypal",
+      "target": "ma",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "PayPal uses Mastercard network for card processing",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e020",
+      "source": "paypal",
+      "target": "amzn",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "PayPal accepted as payment method on Amazon",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e021",
+      "source": "meta",
+      "target": "googl",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Compete in digital advertising — combined 50%+ global ad share",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e022",
+      "source": "meta",
+      "target": "twitter",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Threads directly competes with X/Twitter for microblogging",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e023",
+      "source": "meta",
+      "target": "snapchat",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Instagram Stories copied Snapchat; compete for Gen Z attention",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e024",
+      "source": "meta",
+      "target": "msft",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "Meta Quest vs Microsoft Mesh — compete in enterprise metaverse",
+      "color": "#f97316"
+    },
+    {
+      "id": "e025",
+      "source": "meta",
+      "target": "nvda",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "NVIDIA supplies H100 GPUs for Meta's AI model training",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e026",
+      "source": "msft",
+      "target": "googl",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Compete in cloud (Azure vs GCP), productivity (Office vs Workspace), and AI (Copilot vs Gemini)",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e027",
+      "source": "msft",
+      "target": "amzn",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Azure and AWS compete for enterprise cloud market share",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e028",
+      "source": "msft",
+      "target": "nvda",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "Microsoft Azure is the largest NVIDIA cloud GPU customer",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e029",
+      "source": "msft",
+      "target": "meta",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "Teams vs Meta Workplace; competing enterprise communication platforms",
+      "color": "#f97316"
+    },
+    {
+      "id": "e030",
+      "source": "msft",
+      "target": "zoom",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Teams has effectively bundled and commoditized Zoom in SMB/mid-market",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e031",
+      "source": "nvda",
+      "target": "intel",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Compete in data center compute; NVIDIA GPUs vs Intel CPUs/Gaudi",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e032",
+      "source": "nvda",
+      "target": "amzn",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "AWS is NVIDIA's largest cloud infrastructure customer",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e033",
+      "source": "nvda",
+      "target": "msft",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "Azure CoreWeave and Microsoft SuperCloud run on NVIDIA H100 clusters",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e034",
+      "source": "nvda",
+      "target": "meta",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "Meta runs 350,000+ H100 GPUs on NVIDIA silicon",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e035",
+      "source": "nvda",
+      "target": "googl",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "Google TPUs compete directly with NVIDIA GPUs for AI workloads",
+      "color": "#f97316"
+    },
+    {
+      "id": "e036",
+      "source": "googl",
+      "target": "amzn",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "GCP vs AWS in cloud; compete in e-commerce ads and smart home",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e037",
+      "source": "googl",
+      "target": "meta",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Compete for ~50% of global digital advertising spend",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e038",
+      "source": "googl",
+      "target": "msft",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Compete in search (Bing AI vs Google), cloud, and productivity",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e039",
+      "source": "googl",
+      "target": "nvda",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "TPU v5 chips compete with NVIDIA H100 for AI training workloads",
+      "color": "#f97316"
+    },
+    {
+      "id": "e040",
+      "source": "amzn",
+      "target": "msft",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "AWS vs Azure — world's top two cloud platforms",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e041",
+      "source": "amzn",
+      "target": "googl",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "AWS vs GCP; compete in e-commerce ads and logistics",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e042",
+      "source": "amzn",
+      "target": "walmart",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Amazon.com and Walmart.com compete in US e-commerce and grocery",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e043",
+      "source": "amzn",
+      "target": "rivian",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "Amazon invested $700M in Rivian and ordered 100,000 delivery vans",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e044",
+      "source": "alibaba",
+      "target": "amzn",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Compete in global e-commerce and cloud (Alibaba Cloud vs AWS)",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e045",
+      "source": "alibaba",
+      "target": "meta",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "Alibaba and Meta compete for SE Asia digital advertising",
+      "color": "#f97316"
+    },
+    {
+      "id": "e046",
+      "source": "alibaba",
+      "target": "softbank",
+      "relationship": "investor",
+      "label": "Investor",
+      "description": "SoftBank invested $20M in 1999 Alibaba Seed round (200,000x return)",
+      "color": "#f59e0b"
+    },
+    {
+      "id": "e047",
+      "source": "alibaba",
+      "target": "walmart",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "Alibaba JD.com ecosystem competes with Walmart's Flipkart in India",
+      "color": "#f97316"
+    },
+    {
+      "id": "e048",
+      "source": "softbank",
+      "target": "alibaba",
+      "relationship": "investor",
+      "label": "Investor",
+      "description": "SoftBank's $20M Alibaba 1999 investment returned $60B+ (greatest VC return ever)",
+      "color": "#f59e0b"
+    },
+    {
+      "id": "e049",
+      "source": "softbank",
+      "target": "uber",
+      "relationship": "investor",
+      "label": "Investor",
+      "description": "SoftBank invested $7.7B in Uber (largest single tech investment at time)",
+      "color": "#f59e0b"
+    },
+    {
+      "id": "e050",
+      "source": "softbank",
+      "target": "wework",
+      "relationship": "investor",
+      "label": "Investor",
+      "description": "SoftBank led WeWork investment ($18.5B total); complete write-down",
+      "color": "#f59e0b"
+    },
+    {
+      "id": "e051",
+      "source": "softbank",
+      "target": "nvda",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "SoftBank owns ARM Holdings (IPO 2023) — NVIDIA designs on ARM architecture",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e052",
+      "source": "zoom",
+      "target": "msft",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Microsoft Teams bundled free in Office 365 — displaced Zoom in SMB",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e053",
+      "source": "zoom",
+      "target": "googl",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Google Meet bundled free in Workspace — competes for consumer/SME",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e054",
+      "source": "zoom",
+      "target": "meta",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "Meta Horizon Workrooms and WhatsApp video compete for social video",
+      "color": "#f97316"
+    },
+    {
+      "id": "e055",
+      "source": "twitter",
+      "target": "meta",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Threads directly threatens X's microblogging position",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e056",
+      "source": "twitter",
+      "target": "snapchat",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Compete for Gen Z short-form content and creator monetization",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e057",
+      "source": "twitter",
+      "target": "googl",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "YouTube Shorts competes with X video for creator monetization",
+      "color": "#f97316"
+    },
+    {
+      "id": "e058",
+      "source": "snapchat",
+      "target": "meta",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Instagram Stories and Reels directly copied Snapchat's innovations",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e059",
+      "source": "snapchat",
+      "target": "twitter",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Compete for Gen Z attention and short-form content creators",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e060",
+      "source": "snapchat",
+      "target": "googl",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "YouTube competes for Snapchat's Gen Z video audience",
+      "color": "#f97316"
+    },
+    {
+      "id": "e061",
+      "source": "boeing",
+      "target": "ge_aerospace",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "GE Aviation (GE Aerospace) manufactures LEAP engines for Boeing 737 MAX",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e062",
+      "source": "boeing",
+      "target": "msft",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "Microsoft Azure powers Boeing's digital twin and design simulation",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e063",
+      "source": "boeing",
+      "target": "intel",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "Intel aerospace avionics compete with Honeywell in Boeing avionics supply",
+      "color": "#f97316"
+    },
+    {
+      "id": "e064",
+      "source": "general_electric",
+      "target": "boeing",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "GE Aviation LEAP engines power Boeing 737 MAX and 777X fleets",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e065",
+      "source": "general_electric",
+      "target": "msft",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "Microsoft Azure powers GE Predix industrial IoT platform",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e066",
+      "source": "general_electric",
+      "target": "softbank",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "GE Capital and SoftBank Vision Fund competed in industrial tech investment",
+      "color": "#f97316"
+    },
+    {
+      "id": "e067",
+      "source": "intel",
+      "target": "nvda",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Compete in data center AI chips (Gaudi vs H100) and GPU market",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e068",
+      "source": "intel",
+      "target": "msft",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "Microsoft Windows runs on Intel x86; long-standing foundational partnership",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e069",
+      "source": "intel",
+      "target": "amzn",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "AWS Graviton custom ARM chips compete with Intel server CPUs",
+      "color": "#f97316"
+    },
+    {
+      "id": "e070",
+      "source": "intel",
+      "target": "tsmc",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "Intel Foundry competes with TSMC for external semiconductor manufacturing",
+      "color": "#f97316"
+    },
+    {
+      "id": "e071",
+      "source": "intel",
+      "target": "apple",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "Apple switched from Intel to TSMC-made M-series chips in 2020",
+      "color": "#f97316"
+    },
+    {
+      "id": "e072",
+      "source": "kodak",
+      "target": "fujifilm",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Fujifilm and Kodak competed in film, then diverged — Fujifilm survived via healthcare pivot",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e073",
+      "source": "kodak",
+      "target": "canon",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Canon's digital cameras accelerated Kodak's film market collapse",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e074",
+      "source": "kodak",
+      "target": "googl",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "Google Images and smartphone cameras replaced Kodak's consumer print market",
+      "color": "#f97316"
+    },
+    {
+      "id": "e075",
+      "source": "nokia",
+      "target": "apple",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Apple iPhone displaced Nokia as dominant smartphone maker 2007-2012",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e076",
+      "source": "nokia",
+      "target": "msft",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "Nokia adopted Windows Phone OS in 2011 — strategic partnership that failed",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e077",
+      "source": "nokia",
+      "target": "samsung",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Samsung Android phones competed with Nokia Symbian in emerging markets",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e078",
+      "source": "nokia",
+      "target": "ericsson",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Ericsson and Nokia compete head-to-head in 5G infrastructure globally",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e079",
+      "source": "sears",
+      "target": "amzn",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Amazon e-commerce destroyed Sears' retail value proposition",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e080",
+      "source": "sears",
+      "target": "walmart",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Walmart's physical and digital retail dominance contributed to Sears' collapse",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e081",
+      "source": "uber",
+      "target": "lyft",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Lyft and Uber compete in US ride-hailing — Uber dominant at 68% market share",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e082",
+      "source": "uber",
+      "target": "googl",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "Google Maps powers Uber's routing; Google Ventures invested $258M in Uber",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e083",
+      "source": "uber",
+      "target": "softbank",
+      "relationship": "investor",
+      "label": "Investor",
+      "description": "SoftBank invested $7.7B in Uber, becoming largest shareholder",
+      "color": "#f59e0b"
+    },
+    {
+      "id": "e084",
+      "source": "uber",
+      "target": "amzn",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "Amazon Logistics competes with Uber Eats in last-mile delivery",
+      "color": "#f97316"
+    },
+    {
+      "id": "e085",
+      "source": "wework",
+      "target": "softbank",
+      "relationship": "investor",
+      "label": "Investor",
+      "description": "SoftBank led $18.5B investment in WeWork — largest single startup investment",
+      "color": "#f59e0b"
+    },
+    {
+      "id": "e086",
+      "source": "wework",
+      "target": "regus",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "IWG/Regus competes with WeWork in flexible office space globally",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e087",
+      "source": "peloton",
+      "target": "apple",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "Peloton app available on Apple TV; Apple Fitness+ competes with Peloton content",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e088",
+      "source": "peloton",
+      "target": "amzn",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "Amazon Halo and Echo Fitness hardware compete with Peloton's connected fitness",
+      "color": "#f97316"
+    },
+    {
+      "id": "e089",
+      "source": "peloton",
+      "target": "googl",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "Google Fitbit and YouTube Fitness compete with Peloton",
+      "color": "#f97316"
+    },
+    {
+      "id": "e090",
+      "source": "rivian",
+      "target": "tesla",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "R1T pickup and R1S SUV compete with Tesla Cybertruck and Model X",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e091",
+      "source": "rivian",
+      "target": "amzn",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "Amazon invested $700M and ordered 100,000 Rivian electric delivery vans",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e092",
+      "source": "rivian",
+      "target": "ford",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "F-150 Lightning EV competes with Rivian R1T in electric pickup segment",
+      "color": "#f97316"
+    },
+    {
+      "id": "e093",
+      "source": "rivian",
+      "target": "vw",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "Volkswagen invested $5B in Rivian for EV software and platform sharing",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e094",
+      "source": "svb",
+      "target": "hsbc",
+      "relationship": "acquirer",
+      "label": "Acquirer",
+      "description": "HSBC acquired SVB's UK subsidiary for £1 to protect UK tech startup deposits",
+      "color": "#8b5cf6"
+    },
+    {
+      "id": "e095",
+      "source": "svb",
+      "target": "first_citizens",
+      "relationship": "acquirer",
+      "label": "Acquirer",
+      "description": "First Citizens BancShares acquired SVB's US banking assets from FDIC at discount",
+      "color": "#8b5cf6"
+    },
+    {
+      "id": "e096",
+      "source": "theranos",
+      "target": "walgreens",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "Walgreens signed exclusive partnership to deploy Theranos blood test kiosks in 40 stores",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e097",
+      "source": "theranos",
+      "target": "safeway",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "Safeway invested $350M to host Theranos wellness centres in stores",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e098",
+      "source": "disney",
+      "target": "netflix",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Disney+ competes directly with Netflix for streaming subscribers globally",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e099",
+      "source": "disney",
+      "target": "amzn",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Amazon Prime Video and Disney+ compete for streaming and live sports",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e100",
+      "source": "disney",
+      "target": "comcast",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "Peacock (NBC Universal/Comcast) competes with Disney+ for streaming",
+      "color": "#f97316"
+    },
+    {
+      "id": "e101",
+      "source": "disney",
+      "target": "apple",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "Disney+ available on Apple TV; Disney content in Apple TV+ bundle",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e102",
+      "source": "ftx",
+      "target": "binance",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Binance and FTX competed as the world's two largest crypto exchanges — Binance liquidated FTT triggering FTX collapse",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e103",
+      "source": "ftx",
+      "target": "coinbase",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "FTX and Coinbase competed for institutional and retail crypto trading volume",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e104",
+      "source": "walmart",
+      "target": "amzn",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Walmart and Amazon compete across e-commerce, grocery, and cloud (AWS vs Walmart Connect)",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e105",
+      "source": "walmart",
+      "target": "googl",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "Walmart partnered with Google for voice commerce via Google Assistant",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e106",
+      "source": "walmart",
+      "target": "flipkart",
+      "relationship": "acquirer",
+      "label": "Acquirer",
+      "description": "Walmart acquired Flipkart (India) for $16B in 2018",
+      "color": "#8b5cf6"
+    },
+    {
+      "id": "e107",
+      "source": "v",
+      "target": "ma",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Visa and Mastercard compete in global card network duopoly",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e108",
+      "source": "v",
+      "target": "pypl",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "PayPal issues Visa cards and uses Visa network for card transactions",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e109",
+      "source": "v",
+      "target": "block",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Block/Square competes with Visa in merchant acquiring",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e110",
+      "source": "ma",
+      "target": "v",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Mastercard and Visa are direct network competitors processing $15T+ annually",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e111",
+      "source": "ma",
+      "target": "pypl",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "PayPal uses Mastercard network and issues co-branded Mastercard debit",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e112",
+      "source": "jpm",
+      "target": "bac",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "JPMorgan Chase and Bank of America compete in consumer banking, investment banking, and wealth management",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e113",
+      "source": "jpm",
+      "target": "wfc",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "Wells Fargo and JPMorgan compete in US consumer banking and mortgage",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e114",
+      "source": "jpm",
+      "target": "svb",
+      "relationship": "rival_vc",
+      "label": "Rival Vc",
+      "description": "JPMorgan acquired some SVB customer accounts after FDIC seizure",
+      "color": "#f97316"
+    },
+    {
+      "id": "e115",
+      "source": "jpm",
+      "target": "v",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "JPMorgan issues Visa credit cards and partners on Chase Sapphire ecosystem",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e116",
+      "source": "t",
+      "target": "msft",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "AT&T uses Microsoft Azure for 5G edge computing and enterprise cloud",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e117",
+      "source": "t",
+      "target": "amzn",
+      "relationship": "partner",
+      "label": "Partner",
+      "description": "AT&T and AWS partner on 5G network edge computing infrastructure",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "e118",
+      "source": "hsbc",
+      "target": "jpm",
+      "relationship": "competitor",
+      "label": "Competitor",
+      "description": "HSBC and JPMorgan compete in investment banking and trade finance globally",
+      "color": "#ef4444"
+    },
+    {
+      "id": "e119",
+      "source": "hsbc",
+      "target": "svb",
+      "relationship": "acquirer",
+      "label": "Acquirer",
+      "description": "HSBC UK acquired SVB UK for £1 to protect British startup deposits",
+      "color": "#8b5cf6"
+    }
+  ]
+}

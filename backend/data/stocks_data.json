@@ -1,20 +1,20 @@
 {
   "JPM": {
     "ticker": "JPM",
-    "collected_at": "2026-09-16T18:34:02.806797+00:00",
+    "collected_at": "2026-09-16T18:35:37.163786+00:00",
     "info": {
       "name": "JPMorgan Chase & Co.",
       "sector": "Financial Services",
-      "market_cap": 931056320512,
-      "pe_ratio": 15.0132885,
+      "market_cap": 930083438592,
+      "pe_ratio": 14.997601,
       "52w_high": 366.5,
       "52w_low": 279.1,
       "beta": 0.975,
       "dividend_yield": 1.7
     },
-    "current_price": 350.26,
-    "day_change": -2.23,
-    "day_change_percent": -0.63,
+    "current_price": 349.89,
+    "day_change": -2.6,
+    "day_change_percent": -0.74,
     "ohlcv": [
       {
         "date": "2024-09-16",
@@ -3199,7 +3199,7 @@
       {
         "date": "2025-07-23",
         "open": 287.34,
-        "high": 291.41,
+        "high": 291.42,
         "low": 287.06,
         "close": 291.19,
         "volume": 7083500,
@@ -5375,7 +5375,7 @@
         "date": "2026-02-19",
         "open": 304.24,
         "high": 306.23,
-        "low": 302.21,
+        "low": 302.2,
         "close": 305.11,
         "volume": 6737700,
         "sma_20": 305.5,
@@ -7536,34 +7536,34 @@
         "open": 353.38,
         "high": 355.6,
         "low": 348.65,
-        "close": 350.26,
-        "volume": 3676214,
-        "sma_20": 355.03,
-        "ema_50": 349.28,
-        "rsi_14": 42.15,
-        "macd": 0.98,
-        "macd_signal": 0.8,
-        "bollinger_upper": 360.81,
-        "bollinger_lower": 349.25
+        "close": 349.89,
+        "volume": 3702117,
+        "sma_20": 355.01,
+        "ema_50": 349.27,
+        "rsi_14": 41.76,
+        "macd": 0.62,
+        "macd_signal": 0.51,
+        "bollinger_upper": 360.86,
+        "bollinger_lower": 349.16
       }
     ]
   },
   "WFC": {
     "ticker": "WFC",
-    "collected_at": "2026-09-16T18:34:03.801736+00:00",
+    "collected_at": "2026-09-16T18:35:38.026832+00:00",
     "info": {
       "name": "Wells Fargo & Company",
       "sector": "Financial Services",
-      "market_cap": 266051469312,
-      "pe_ratio": 12.787791,
+      "market_cap": 265900261376,
+      "pe_ratio": 12.780523,
       "52w_high": 97.76,
       "52w_low": 72.78,
       "beta": 0.916,
       "dividend_yield": 2.25
     },
-    "current_price": 87.98,
-    "day_change": -1.74,
-    "day_change_percent": -1.94,
+    "current_price": 87.93,
+    "day_change": -1.79,
+    "day_change_percent": -2.0,
     "ohlcv": [
       {
         "date": "2024-09-16",
@@ -15085,34 +15085,34 @@
         "open": 89.72,
         "high": 89.72,
         "low": 87.9,
-        "close": 87.98,
-        "volume": 5786956,
-        "sma_20": 87.28,
-        "ema_50": 86.61,
-        "rsi_14": 59.09,
-        "macd": 1.37,
-        "macd_signal": 1.12,
-        "bollinger_upper": 91.6,
-        "bollinger_lower": 82.96
+        "close": 87.93,
+        "volume": 5812643,
+        "sma_20": 87.27,
+        "ema_50": 86.6,
+        "rsi_14": 58.89,
+        "macd": 1.33,
+        "macd_signal": 1.09,
+        "bollinger_upper": 91.59,
+        "bollinger_lower": 82.95
       }
     ]
   },
   "BAC": {
     "ticker": "BAC",
-    "collected_at": "2026-09-16T18:34:04.722270+00:00",
+    "collected_at": "2026-09-16T18:35:38.837189+00:00",
     "info": {
       "name": "Bank of America Corporation",
       "sector": "Financial Services",
-      "market_cap": 406526951424,
-      "pe_ratio": 13.426213,
+      "market_cap": 406068920320,
+      "pe_ratio": 13.411086,
       "52w_high": 65.23,
       "52w_low": 46.12,
       "beta": 1.164,
       "dividend_yield": 2.15
     },
-    "current_price": 58.14,
-    "day_change": -1.38,
-    "day_change_percent": -2.32,
+    "current_price": 58.06,
+    "day_change": -1.46,
+    "day_change_percent": -2.45,
     "ohlcv": [
       {
         "date": "2024-09-16",
@@ -22633,35 +22633,35 @@
         "date": "2026-09-16",
         "open": 59.27,
         "high": 59.39,
-        "low": 58.08,
-        "close": 58.14,
-        "volume": 24544725,
+        "low": 58.06,
+        "close": 58.06,
+        "volume": 24647995,
         "sma_20": 61.65,
         "ema_50": 60.78,
-        "rsi_14": 29.4,
-        "macd": -2.64,
-        "macd_signal": -2.16,
-        "bollinger_upper": 64.12,
-        "bollinger_lower": 59.18
+        "rsi_14": 29.14,
+        "macd": -2.72,
+        "macd_signal": -2.23,
+        "bollinger_upper": 64.14,
+        "bollinger_lower": 59.16
       }
     ]
   },
   "HSBC": {
     "ticker": "HSBC",
-    "collected_at": "2026-09-16T18:34:05.616627+00:00",
+    "collected_at": "2026-09-16T18:35:39.668474+00:00",
     "info": {
       "name": "HSBC Holdings plc",
       "sector": "Financial Services",
-      "market_cap": 347546222592,
-      "pe_ratio": 14.500714,
+      "market_cap": 347255177216,
+      "pe_ratio": 14.488571,
       "52w_high": 107.92,
       "52w_low": 64.65,
       "beta": 0.571,
       "dividend_yield": 3.67
     },
-    "current_price": 101.5,
-    "day_change": -0.72,
-    "day_change_percent": -0.7,
+    "current_price": 101.49,
+    "day_change": -0.73,
+    "day_change_percent": -0.71,
     "ohlcv": [
       {
         "date": "2024-09-16",
@@ -30183,34 +30183,34 @@
         "open": 102.6,
         "high": 102.6,
         "low": 101.47,
-        "close": 101.5,
-        "volume": 1077703,
+        "close": 101.49,
+        "volume": 1080976,
         "sma_20": 104.02,
         "ema_50": 101.93,
-        "rsi_14": 42.66,
-        "macd": -0.43,
-        "macd_signal": -0.35,
-        "bollinger_upper": 106.94,
-        "bollinger_lower": 101.1
+        "rsi_14": 42.63,
+        "macd": -0.44,
+        "macd_signal": -0.36,
+        "bollinger_upper": 106.95,
+        "bollinger_lower": 101.09
       }
     ]
   },
   "AAPL": {
     "ticker": "AAPL",
-    "collected_at": "2026-09-16T18:34:06.569745+00:00",
+    "collected_at": "2026-09-16T18:35:40.469242+00:00",
     "info": {
       "name": "Apple Inc.",
       "sector": "Technology",
-      "market_cap": 4871537295360,
-      "pe_ratio": 38.323765,
+      "market_cap": 4864970063872,
+      "pe_ratio": 38.272102,
       "52w_high": 344.57,
       "52w_low": 236.65,
       "beta": 1.085,
       "dividend_yield": 0.33
     },
-    "current_price": 333.8,
-    "day_change": 2.46,
-    "day_change_percent": 0.74,
+    "current_price": 333.44,
+    "day_change": 2.1,
+    "day_change_percent": 0.63,
     "ohlcv": [
       {
         "date": "2024-09-16",
@@ -32917,13 +32917,13 @@
         "open": 202.52,
         "high": 203.77,
         "low": 199.19,
-        "close": 199.67,
+        "close": 199.66,
         "volume": 55126100,
         "sma_20": 202.94,
         "ema_50": 205.9,
-        "rsi_14": 30.52,
-        "macd": -6.23,
-        "macd_signal": -5.11,
+        "rsi_14": 30.51,
+        "macd": -6.24,
+        "macd_signal": -5.12,
         "bollinger_upper": 213.58,
         "bollinger_lower": 192.3
       },
@@ -32936,7 +32936,7 @@
         "volume": 46607700,
         "sma_20": 203.28,
         "ema_50": 205.78,
-        "rsi_14": 38.11,
+        "rsi_14": 38.12,
         "macd": -2.84,
         "macd_signal": -2.33,
         "bollinger_upper": 213.48,
@@ -32951,7 +32951,7 @@
         "volume": 72862600,
         "sma_20": 203.43,
         "ema_50": 205.57,
-        "rsi_14": 38.11,
+        "rsi_14": 38.12,
         "macd": -5.09,
         "macd_signal": -4.17,
         "bollinger_upper": 213.35,
@@ -32966,7 +32966,7 @@
         "volume": 54672600,
         "sma_20": 203.03,
         "ema_50": 205.42,
-        "rsi_14": 43.05,
+        "rsi_14": 43.06,
         "macd": -3.72,
         "macd_signal": -3.05,
         "bollinger_upper": 212.53,
@@ -33041,7 +33041,7 @@
         "volume": 38856200,
         "sma_20": 199.63,
         "ema_50": 203.84,
-        "rsi_14": 40.52,
+        "rsi_14": 40.53,
         "macd": -9.14,
         "macd_signal": -7.49,
         "bollinger_upper": 205.12,
@@ -33131,7 +33131,7 @@
         "volume": 50799100,
         "sma_20": 199.42,
         "ema_50": 202.9,
-        "rsi_14": 50.65,
+        "rsi_14": 50.67,
         "macd": -2.87,
         "macd_signal": -2.35,
         "bollinger_upper": 203.85,
@@ -33919,7 +33919,7 @@
       },
       {
         "date": "2025-09-11",
-        "open": 226.05,
+        "open": 226.04,
         "high": 229.6,
         "low": 225.82,
         "close": 229.18,
@@ -37732,34 +37732,34 @@
         "open": 332.42,
         "high": 335.48,
         "low": 331.87,
-        "close": 333.8,
-        "volume": 18427951,
-        "sma_20": 320.46,
-        "ema_50": 316.07,
-        "rsi_14": 68.3,
-        "macd": 17.73,
-        "macd_signal": 14.54,
-        "bollinger_upper": 336.65,
-        "bollinger_lower": 304.27
+        "close": 333.44,
+        "volume": 18569322,
+        "sma_20": 320.44,
+        "ema_50": 316.06,
+        "rsi_14": 68.09,
+        "macd": 17.38,
+        "macd_signal": 14.25,
+        "bollinger_upper": 336.57,
+        "bollinger_lower": 304.31
       }
     ]
   },
   "GOOGL": {
     "ticker": "GOOGL",
-    "collected_at": "2026-09-16T18:34:07.410445+00:00",
+    "collected_at": "2026-09-16T18:35:41.289240+00:00",
     "info": {
       "name": "Alphabet Inc.",
       "sector": "Communication Services",
-      "market_cap": 4216874336256,
-      "pe_ratio": 17.291845,
+      "market_cap": 4215169351680,
+      "pe_ratio": 17.284855,
       "52w_high": 408.61,
       "52w_low": 235.84,
       "beta": 1.225,
       "dividend_yield": 0.26
     },
-    "current_price": 344.8,
-    "day_change": -0.18,
-    "day_change_percent": -0.05,
+    "current_price": 344.7,
+    "day_change": -0.28,
+    "day_change_percent": -0.08,
     "ohlcv": [
       {
         "date": "2024-09-16",
@@ -39503,7 +39503,7 @@
       },
       {
         "date": "2025-03-05",
-        "open": 169.52,
+        "open": 169.53,
         "high": 172.77,
         "low": 168.07,
         "close": 172.01,
@@ -43225,7 +43225,7 @@
         "date": "2026-03-02",
         "open": 302.64,
         "high": 307.89,
-        "low": 300.71,
+        "low": 300.72,
         "close": 305.92,
         "volume": 34790200,
         "sma_20": 315.55,
@@ -45281,34 +45281,34 @@
         "open": 346.98,
         "high": 348.4,
         "low": 343.75,
-        "close": 344.8,
-        "volume": 8867982,
-        "sma_20": 341.18,
-        "ema_50": 345.84,
-        "rsi_14": 52.46,
-        "macd": -1.04,
-        "macd_signal": -0.85,
-        "bollinger_upper": 351.11,
+        "close": 344.7,
+        "volume": 8907908,
+        "sma_20": 341.17,
+        "ema_50": 345.83,
+        "rsi_14": 52.38,
+        "macd": -1.13,
+        "macd_signal": -0.93,
+        "bollinger_upper": 351.09,
         "bollinger_lower": 331.25
       }
     ]
   },
   "MSFT": {
     "ticker": "MSFT",
-    "collected_at": "2026-09-16T18:34:08.270025+00:00",
+    "collected_at": "2026-09-16T18:35:42.087621+00:00",
     "info": {
       "name": "Microsoft Corporation",
       "sector": "Technology",
-      "market_cap": 3656487272448,
-      "pe_ratio": 27.432869,
+      "market_cap": 3649878360064,
+      "pe_ratio": 27.383286,
       "52w_high": 553.72,
       "52w_low": 349.2,
       "beta": 1.108,
       "dividend_yield": 0.73
     },
-    "current_price": 492.46,
-    "day_change": -4.66,
-    "day_change_percent": -0.94,
+    "current_price": 491.53,
+    "day_change": -5.59,
+    "day_change_percent": -1.12,
     "ohlcv": [
       {
         "date": "2024-09-16",
@@ -47265,13 +47265,13 @@
         "open": 389.35,
         "high": 391.76,
         "low": 388.08,
-        "close": 390.57,
+        "close": 390.58,
         "volume": 15775000,
         "sma_20": 385.24,
         "ema_50": 398.39,
-        "rsi_14": 44.87,
-        "macd": -7.82,
-        "macd_signal": -6.41,
+        "rsi_14": 44.88,
+        "macd": -7.81,
+        "macd_signal": -6.4,
         "bollinger_upper": 397.67,
         "bollinger_lower": 372.81
       },
@@ -47284,7 +47284,7 @@
         "volume": 16108400,
         "sma_20": 384.75,
         "ema_50": 397.88,
-        "rsi_14": 44.06,
+        "rsi_14": 44.07,
         "macd": -12.43,
         "macd_signal": -10.19,
         "bollinger_upper": 396.33,
@@ -47317,8 +47317,8 @@
         "rsi_14": 48.73,
         "macd": -22.12,
         "macd_signal": -18.14,
-        "bollinger_upper": 395.51,
-        "bollinger_lower": 372.01
+        "bollinger_upper": 395.52,
+        "bollinger_lower": 372.0
       },
       {
         "date": "2025-03-31",
@@ -47332,8 +47332,8 @@
         "rsi_14": 45.55,
         "macd": -24.49,
         "macd_signal": -20.08,
-        "bollinger_upper": 396.1,
-        "bollinger_lower": 370.12
+        "bollinger_upper": 396.11,
+        "bollinger_lower": 370.11
       },
       {
         "date": "2025-04-01",
@@ -47377,8 +47377,8 @@
         "rsi_14": 36.16,
         "macd": -24.38,
         "macd_signal": -19.99,
-        "bollinger_upper": 392.76,
-        "bollinger_lower": 368.62
+        "bollinger_upper": 392.77,
+        "bollinger_lower": 368.61
       },
       {
         "date": "2025-04-04",
@@ -47389,7 +47389,7 @@
         "volume": 49209900,
         "sma_20": 379.03,
         "ema_50": 391.69,
-        "rsi_14": 29.06,
+        "rsi_14": 29.07,
         "macd": -36.03,
         "macd_signal": -29.54,
         "bollinger_upper": 394.75,
@@ -47404,7 +47404,7 @@
         "volume": 50425000,
         "sma_20": 377.93,
         "ema_50": 390.2,
-        "rsi_14": 30.48,
+        "rsi_14": 30.49,
         "macd": -36.49,
         "macd_signal": -29.92,
         "bollinger_upper": 397.12,
@@ -47419,7 +47419,7 @@
         "volume": 35868900,
         "sma_20": 376.65,
         "ema_50": 388.64,
-        "rsi_14": 24.31,
+        "rsi_14": 24.32,
         "macd": -38.19,
         "macd_signal": -31.32,
         "bollinger_upper": 399.28,
@@ -47479,7 +47479,7 @@
         "volume": 19251200,
         "sma_20": 377.08,
         "ema_50": 387.74,
-        "rsi_14": 46.61,
+        "rsi_14": 46.6,
         "macd": -4.43,
         "macd_signal": -3.63,
         "bollinger_upper": 399.97,
@@ -47527,8 +47527,8 @@
         "rsi_14": 45.02,
         "macd": -22.28,
         "macd_signal": -18.27,
-        "bollinger_upper": 399.08,
-        "bollinger_lower": 351.82
+        "bollinger_upper": 399.09,
+        "bollinger_lower": 351.81
       },
       {
         "date": "2025-04-21",
@@ -47557,8 +47557,8 @@
         "rsi_14": 43.42,
         "macd": -21.16,
         "macd_signal": -17.35,
-        "bollinger_upper": 396.7,
-        "bollinger_lower": 348.42
+        "bollinger_upper": 396.71,
+        "bollinger_lower": 348.41
       },
       {
         "date": "2025-04-23",
@@ -48089,7 +48089,7 @@
         "date": "2025-06-12",
         "open": 470.37,
         "high": 475.72,
-        "low": 468.88,
+        "low": 468.89,
         "close": 474.18,
         "volume": 18950600,
         "sma_20": 457.54,
@@ -48194,7 +48194,7 @@
         "date": "2025-06-24",
         "open": 484.16,
         "high": 487.04,
-        "low": 482.04,
+        "low": 482.03,
         "close": 485.31,
         "volume": 22305600,
         "sma_20": 466.64,
@@ -48732,7 +48732,7 @@
       },
       {
         "date": "2025-08-14",
-        "open": 517.44,
+        "open": 517.45,
         "high": 520.8,
         "low": 515.05,
         "close": 517.37,
@@ -50022,7 +50022,7 @@
       },
       {
         "date": "2025-12-16",
-        "open": 468.93,
+        "open": 468.94,
         "high": 474.88,
         "low": 467.91,
         "close": 473.39,
@@ -52830,34 +52830,34 @@
         "open": 493.17,
         "high": 495.92,
         "low": 491.13,
-        "close": 492.46,
-        "volume": 7508598,
-        "sma_20": 496.27,
-        "ema_50": 468.7,
-        "rsi_14": 47.88,
-        "macd": 23.76,
-        "macd_signal": 19.48,
-        "bollinger_upper": 513.76,
-        "bollinger_lower": 478.78
+        "close": 491.53,
+        "volume": 7563952,
+        "sma_20": 496.22,
+        "ema_50": 468.66,
+        "rsi_14": 47.41,
+        "macd": 22.87,
+        "macd_signal": 18.75,
+        "bollinger_upper": 513.75,
+        "bollinger_lower": 478.69
       }
     ]
   },
   "META": {
     "ticker": "META",
-    "collected_at": "2026-09-16T18:34:09.118075+00:00",
+    "collected_at": "2026-09-16T18:35:43.115150+00:00",
     "info": {
       "name": "Meta Platforms, Inc.",
       "sector": "Communication Services",
-      "market_cap": 1725145677824,
-      "pe_ratio": 25.515825,
+      "market_cap": 1723642675200,
+      "pe_ratio": 25.493593,
       "52w_high": 790.8,
       "52w_low": 520.26,
       "beta": 1.243,
       "dividend_yield": 0.31
     },
-    "current_price": 676.99,
-    "day_change": 6.75,
-    "day_change_percent": 1.01,
+    "current_price": 676.6,
+    "day_change": 6.36,
+    "day_change_percent": 0.95,
     "ohlcv": [
       {
         "date": "2024-09-16",
@@ -53042,7 +53042,7 @@
       {
         "date": "2024-10-02",
         "open": 571.57,
-        "high": 572.7,
+        "high": 572.71,
         "low": 566.08,
         "close": 569.53,
         "volume": 6524700,
@@ -54677,7 +54677,7 @@
       {
         "date": "2025-03-12",
         "open": 626.8,
-        "high": 630.22,
+        "high": 630.21,
         "low": 606.35,
         "close": 616.51,
         "volume": 15747000,
@@ -54904,12 +54904,12 @@
         "open": 572.59,
         "high": 590.27,
         "low": 571.05,
-        "close": 581.57,
+        "close": 581.58,
         "volume": 13470800,
         "sma_20": 597.94,
         "ema_50": 622.16,
         "rsi_14": 47.92,
-        "macd": -40.59,
+        "macd": -40.58,
         "macd_signal": -33.28,
         "bollinger_upper": 630.84,
         "bollinger_lower": 565.04
@@ -55118,11 +55118,11 @@
         "volume": 18173900,
         "sma_20": 539.68,
         "ema_50": 577.4,
-        "rsi_14": 39.69,
+        "rsi_14": 39.68,
         "macd": -59.23,
         "macd_signal": -48.57,
-        "bollinger_upper": 615.33,
-        "bollinger_lower": 464.03
+        "bollinger_upper": 615.34,
+        "bollinger_lower": 464.02
       },
       {
         "date": "2025-04-24",
@@ -55151,8 +55151,8 @@
         "rsi_14": 58.3,
         "macd": -29.32,
         "macd_signal": -24.04,
-        "bollinger_upper": 595.41,
-        "bollinger_lower": 470.69
+        "bollinger_upper": 595.42,
+        "bollinger_lower": 470.68
       },
       {
         "date": "2025-04-28",
@@ -56329,15 +56329,15 @@
         "open": 764.61,
         "high": 764.66,
         "low": 746.91,
-        "close": 749.02,
+        "close": 749.03,
         "volume": 12286700,
-        "sma_20": 749.66,
+        "sma_20": 749.67,
         "ema_50": 721.68,
         "rsi_14": 61.56,
-        "macd": 27.34,
-        "macd_signal": 22.42,
-        "bollinger_upper": 809.75,
-        "bollinger_lower": 689.57
+        "macd": 27.35,
+        "macd_signal": 22.43,
+        "bollinger_upper": 809.76,
+        "bollinger_lower": 689.58
       },
       {
         "date": "2025-08-20",
@@ -56451,13 +56451,13 @@
         "low": 732.95,
         "close": 736.29,
         "volume": 9070500,
-        "sma_20": 760.07,
+        "sma_20": 760.08,
         "ema_50": 728.28,
         "rsi_14": 39.23,
         "macd": 8.01,
         "macd_signal": 6.57,
-        "bollinger_upper": 789.5,
-        "bollinger_lower": 730.64
+        "bollinger_upper": 789.51,
+        "bollinger_lower": 730.65
       },
       {
         "date": "2025-09-02",
@@ -56541,13 +56541,13 @@
         "low": 750.97,
         "close": 763.2,
         "volume": 10999000,
-        "sma_20": 754.21,
+        "sma_20": 754.22,
         "ema_50": 732.22,
         "rsi_14": 58.11,
         "macd": 30.98,
         "macd_signal": 25.4,
-        "bollinger_upper": 786.19,
-        "bollinger_lower": 722.23
+        "bollinger_upper": 786.2,
+        "bollinger_lower": 722.24
       },
       {
         "date": "2025-09-10",
@@ -57767,7 +57767,7 @@
       {
         "date": "2026-01-06",
         "open": 658.4,
-        "high": 664.34,
+        "high": 664.33,
         "low": 650.74,
         "close": 659.44,
         "volume": 11074400,
@@ -60379,34 +60379,34 @@
         "open": 679.75,
         "high": 685.31,
         "low": 673.3,
-        "close": 676.99,
-        "volume": 10235672,
-        "sma_20": 601.98,
-        "ema_50": 605.51,
-        "rsi_14": 84.19,
-        "macd": 71.48,
-        "macd_signal": 58.61,
-        "bollinger_upper": 687.91,
-        "bollinger_lower": 516.05
+        "close": 676.6,
+        "volume": 10304422,
+        "sma_20": 601.96,
+        "ema_50": 605.49,
+        "rsi_14": 84.15,
+        "macd": 71.11,
+        "macd_signal": 58.31,
+        "bollinger_upper": 687.82,
+        "bollinger_lower": 516.1
       }
     ]
   },
   "AMZN": {
     "ticker": "AMZN",
-    "collected_at": "2026-09-16T18:34:09.958004+00:00",
+    "collected_at": "2026-09-16T18:35:43.936322+00:00",
     "info": {
       "name": "Amazon.com, Inc.",
       "sector": "Consumer Cyclical",
-      "market_cap": 2661630607360,
-      "pe_ratio": 19.867954,
+      "market_cap": 2657531985920,
+      "pe_ratio": 19.837358,
       "52w_high": 287.2,
       "52w_low": 196.0,
       "beta": 1.443,
       "dividend_yield": null
     },
-    "current_price": 246.76,
-    "day_change": -1.66,
-    "day_change_percent": -0.67,
+    "current_price": 246.41,
+    "day_change": -2.01,
+    "day_change_percent": -0.81,
     "ohlcv": [
       {
         "date": "2024-09-16",
@@ -67927,35 +67927,35 @@
         "date": "2026-09-16",
         "open": 248.2,
         "high": 249.26,
-        "low": 246.69,
-        "close": 246.76,
-        "volume": 17618104,
-        "sma_20": 257.23,
-        "ema_50": 255.25,
-        "rsi_14": 36.9,
-        "macd": -8.49,
-        "macd_signal": -6.96,
-        "bollinger_upper": 267.15,
-        "bollinger_lower": 247.31
+        "low": 246.38,
+        "close": 246.41,
+        "volume": 17804809,
+        "sma_20": 257.21,
+        "ema_50": 255.24,
+        "rsi_14": 36.65,
+        "macd": -8.83,
+        "macd_signal": -7.24,
+        "bollinger_upper": 267.2,
+        "bollinger_lower": 247.22
       }
     ]
   },
   "BABA": {
     "ticker": "BABA",
-    "collected_at": "2026-09-16T18:34:10.958145+00:00",
+    "collected_at": "2026-09-16T18:35:44.768926+00:00",
     "info": {
       "name": "Alibaba Group Holding Limited",
       "sector": "Consumer Cyclical",
-      "market_cap": 267987517440,
-      "pe_ratio": 24.337473,
+      "market_cap": 267639521280,
+      "pe_ratio": 24.30587,
       "52w_high": 192.67,
       "52w_low": 91.99,
       "beta": 0.5,
       "dividend_yield": 0.96
     },
-    "current_price": 107.82,
-    "day_change": -1.52,
-    "day_change_percent": -1.39,
+    "current_price": 107.66,
+    "day_change": -1.68,
+    "day_change_percent": -1.54,
     "ohlcv": [
       {
         "date": "2024-09-16",
@@ -68187,13 +68187,13 @@
         "open": 114.45,
         "high": 114.81,
         "low": 110.47,
-        "close": 114.52,
+        "close": 114.51,
         "volume": 38404000,
         "sma_20": 97.66,
         "ema_50": 90.12,
-        "rsi_14": 86.9,
-        "macd": 24.4,
-        "macd_signal": 20.01,
+        "rsi_14": 86.89,
+        "macd": 24.39,
+        "macd_signal": 20.0,
         "bollinger_upper": 121.21,
         "bollinger_lower": 74.11
       },
@@ -68206,7 +68206,7 @@
         "volume": 37414400,
         "sma_20": 98.21,
         "ema_50": 90.78,
-        "rsi_14": 74.27,
+        "rsi_14": 74.28,
         "macd": 16.1,
         "macd_signal": 13.2,
         "bollinger_upper": 121.46,
@@ -68221,7 +68221,7 @@
         "volume": 28793000,
         "sma_20": 98.59,
         "ema_50": 91.34,
-        "rsi_14": 69.48,
+        "rsi_14": 69.49,
         "macd": 13.79,
         "macd_signal": 11.31,
         "bollinger_upper": 121.41,
@@ -68236,7 +68236,7 @@
         "volume": 19736600,
         "sma_20": 99.01,
         "ema_50": 91.93,
-        "rsi_14": 70.6,
+        "rsi_14": 70.61,
         "macd": 14.56,
         "macd_signal": 11.94,
         "bollinger_upper": 121.5,
@@ -68251,7 +68251,7 @@
         "volume": 18042600,
         "sma_20": 99.42,
         "ema_50": 92.53,
-        "rsi_14": 70.04,
+        "rsi_14": 70.05,
         "macd": 14.79,
         "macd_signal": 12.13,
         "bollinger_upper": 121.64,
@@ -68311,11 +68311,11 @@
         "volume": 15808200,
         "sma_20": 102.87,
         "ema_50": 93.67,
-        "rsi_14": 40.93,
+        "rsi_14": 40.92,
         "macd": 3.84,
         "macd_signal": 3.15,
-        "bollinger_upper": 118.3,
-        "bollinger_lower": 87.44
+        "bollinger_upper": 118.29,
+        "bollinger_lower": 87.45
       },
       {
         "date": "2024-10-18",
@@ -68324,13 +68324,13 @@
         "low": 99.06,
         "close": 99.81,
         "volume": 20824600,
-        "sma_20": 103.56,
+        "sma_20": 103.55,
         "ema_50": 93.91,
-        "rsi_14": 45.52,
+        "rsi_14": 45.51,
         "macd": 5.9,
         "macd_signal": 4.84,
-        "bollinger_upper": 117.02,
-        "bollinger_lower": 90.1
+        "bollinger_upper": 117.01,
+        "bollinger_lower": 90.09
       },
       {
         "date": "2024-10-21",
@@ -68341,11 +68341,11 @@
         "volume": 10328600,
         "sma_20": 104.08,
         "ema_50": 94.08,
-        "rsi_14": 33.61,
+        "rsi_14": 33.6,
         "macd": 4.25,
         "macd_signal": 3.48,
-        "bollinger_upper": 115.74,
-        "bollinger_lower": 92.42
+        "bollinger_upper": 115.73,
+        "bollinger_lower": 92.43
       },
       {
         "date": "2024-10-22",
@@ -68356,7 +68356,7 @@
         "volume": 20650100,
         "sma_20": 104.24,
         "ema_50": 94.23,
-        "rsi_14": 28.28,
+        "rsi_14": 28.27,
         "macd": 3.66,
         "macd_signal": 3.0,
         "bollinger_upper": 115.46,
@@ -68371,11 +68371,11 @@
         "volume": 13638200,
         "sma_20": 104.37,
         "ema_50": 94.28,
-        "rsi_14": 28.24,
+        "rsi_14": 28.22,
         "macd": 1.21,
         "macd_signal": 0.99,
-        "bollinger_upper": 115.14,
-        "bollinger_lower": 93.6
+        "bollinger_upper": 115.13,
+        "bollinger_lower": 93.61
       },
       {
         "date": "2024-10-24",
@@ -68386,11 +68386,11 @@
         "volume": 13602900,
         "sma_20": 103.94,
         "ema_50": 94.27,
-        "rsi_14": 23.31,
+        "rsi_14": 23.3,
         "macd": -0.37,
         "macd_signal": -0.3,
-        "bollinger_upper": 115.62,
-        "bollinger_lower": 92.26
+        "bollinger_upper": 115.61,
+        "bollinger_lower": 92.27
       },
       {
         "date": "2024-10-25",
@@ -68434,8 +68434,8 @@
         "rsi_14": 33.92,
         "macd": 2.75,
         "macd_signal": 2.25,
-        "bollinger_upper": 114.98,
-        "bollinger_lower": 90.08
+        "bollinger_upper": 114.97,
+        "bollinger_lower": 90.09
       },
       {
         "date": "2024-10-30",
@@ -68449,8 +68449,8 @@
         "rsi_14": 28.65,
         "macd": 1.59,
         "macd_signal": 1.3,
-        "bollinger_upper": 113.61,
-        "bollinger_lower": 89.83
+        "bollinger_upper": 113.6,
+        "bollinger_lower": 89.84
       },
       {
         "date": "2024-10-31",
@@ -68479,8 +68479,8 @@
         "rsi_14": 27.49,
         "macd": 0.44,
         "macd_signal": 0.36,
-        "bollinger_upper": 110.91,
-        "bollinger_lower": 89.43
+        "bollinger_upper": 110.9,
+        "bollinger_lower": 89.44
       },
       {
         "date": "2024-11-04",
@@ -75477,34 +75477,34 @@
         "open": 108.6,
         "high": 108.61,
         "low": 107.21,
-        "close": 107.82,
-        "volume": 3869228,
-        "sma_20": 115.09,
+        "close": 107.66,
+        "volume": 3892801,
+        "sma_20": 115.08,
         "ema_50": 116.59,
-        "rsi_14": 22.39,
-        "macd": -8.77,
-        "macd_signal": -7.19,
-        "bollinger_upper": 127.59,
-        "bollinger_lower": 102.59
+        "rsi_14": 22.23,
+        "macd": -8.93,
+        "macd_signal": -7.32,
+        "bollinger_upper": 127.6,
+        "bollinger_lower": 102.56
       }
     ]
   },
   "T": {
     "ticker": "T",
-    "collected_at": "2026-09-16T18:34:11.834176+00:00",
+    "collected_at": "2026-09-16T18:35:45.859086+00:00",
     "info": {
       "name": "AT&T Inc.",
       "sector": "Communication Services",
-      "market_cap": 178778750976,
-      "pe_ratio": 8.610561,
+      "market_cap": 178607439872,
+      "pe_ratio": 8.60231,
       "52w_high": 29.58,
       "52w_low": 19.89,
       "beta": 0.431,
       "dividend_yield": 4.15
     },
-    "current_price": 26.09,
-    "day_change": -0.63,
-    "day_change_percent": -2.36,
+    "current_price": 26.07,
+    "day_change": -0.65,
+    "day_change_percent": -2.43,
     "ohlcv": [
       {
         "date": "2024-09-16",
@@ -83025,14 +83025,14 @@
         "date": "2026-09-16",
         "open": 26.61,
         "high": 26.83,
-        "low": 26.09,
-        "close": 26.09,
-        "volume": 16762702,
+        "low": 26.07,
+        "close": 26.07,
+        "volume": 16926722,
         "sma_20": 25.79,
         "ema_50": 24.74,
-        "rsi_14": 52.3,
-        "macd": 1.35,
-        "macd_signal": 1.11,
+        "rsi_14": 52.08,
+        "macd": 1.33,
+        "macd_signal": 1.09,
         "bollinger_upper": 26.64,
         "bollinger_lower": 24.94
       }
@@ -83040,20 +83040,20 @@
   },
   "WMT": {
     "ticker": "WMT",
-    "collected_at": "2026-09-16T18:34:12.768134+00:00",
+    "collected_at": "2026-09-16T18:35:46.704938+00:00",
     "info": {
       "name": "Walmart Inc.",
       "sector": "Consumer Defensive",
-      "market_cap": 861621190656,
-      "pe_ratio": 39.22826,
+      "market_cap": 861780377600,
+      "pe_ratio": 39.235508,
       "52w_high": 135.16,
       "52w_low": 98.88,
       "beta": 0.595,
       "dividend_yield": 0.92
     },
-    "current_price": 108.27,
-    "day_change": 0.18,
-    "day_change_percent": 0.17,
+    "current_price": 108.29,
+    "day_change": 0.2,
+    "day_change_percent": 0.19,
     "ohlcv": [
       {
         "date": "2024-09-16",
@@ -90575,34 +90575,34 @@
         "open": 108.32,
         "high": 108.68,
         "low": 107.57,
-        "close": 108.27,
-        "volume": 6739429,
-        "sma_20": 106.29,
+        "close": 108.29,
+        "volume": 6773412,
+        "sma_20": 106.3,
         "ema_50": 110.14,
-        "rsi_14": 63.36,
-        "macd": -1.87,
-        "macd_signal": -1.53,
-        "bollinger_upper": 111.31,
-        "bollinger_lower": 101.27
+        "rsi_14": 63.41,
+        "macd": -1.85,
+        "macd_signal": -1.52,
+        "bollinger_upper": 111.32,
+        "bollinger_lower": 101.28
       }
     ]
   },
   "TSLA": {
     "ticker": "TSLA",
-    "collected_at": "2026-09-16T18:34:13.726994+00:00",
+    "collected_at": "2026-09-16T18:35:47.630355+00:00",
     "info": {
       "name": "Tesla, Inc.",
       "sector": "Consumer Cyclical",
-      "market_cap": 1420375752704,
-      "pe_ratio": 336.10278,
+      "market_cap": 1416465743872,
+      "pe_ratio": 335.17758,
       "52w_high": 498.83,
       "52w_low": 297.38,
       "beta": 1.845,
       "dividend_yield": null
     },
-    "current_price": 359.63,
-    "day_change": 3.05,
-    "day_change_percent": 0.86,
+    "current_price": 358.56,
+    "day_change": 1.98,
+    "day_change_percent": 0.56,
     "ohlcv": [
       {
         "date": "2024-09-16",
@@ -98124,34 +98124,34 @@
         "open": 357.71,
         "high": 365.05,
         "low": 354.89,
-        "close": 359.63,
-        "volume": 21821247,
-        "sma_20": 357.97,
-        "ema_50": 359.17,
-        "rsi_14": 55.7,
-        "macd": 0.46,
-        "macd_signal": 0.38,
-        "bollinger_upper": 374.53,
-        "bollinger_lower": 341.41
+        "close": 358.56,
+        "volume": 21979956,
+        "sma_20": 357.91,
+        "ema_50": 359.13,
+        "rsi_14": 55.3,
+        "macd": -0.57,
+        "macd_signal": -0.47,
+        "bollinger_upper": 374.45,
+        "bollinger_lower": 341.37
       }
     ]
   },
   "NFLX": {
     "ticker": "NFLX",
-    "collected_at": "2026-09-16T18:34:14.722439+00:00",
+    "collected_at": "2026-09-16T18:35:48.445220+00:00",
     "info": {
       "name": "Netflix, Inc.",
       "sector": "Communication Services",
-      "market_cap": 321268744192,
-      "pe_ratio": 24.262577,
+      "market_cap": 321081376768,
+      "pe_ratio": 24.248426,
       "52w_high": 124.86,
       "52w_low": 65.08,
       "beta": 1.526,
       "dividend_yield": null
     },
-    "current_price": 77.15,
-    "day_change": -0.75,
-    "day_change_percent": -0.96,
+    "current_price": 77.11,
+    "day_change": -0.79,
+    "day_change_percent": -1.01,
     "ohlcv": [
       {
         "date": "2024-09-16",
@@ -105673,34 +105673,34 @@
         "open": 77.8,
         "high": 77.8,
         "low": 77.06,
-        "close": 77.15,
-        "volume": 10446705,
+        "close": 77.11,
+        "volume": 10562030,
         "sma_20": 79.61,
         "ema_50": 77.97,
-        "rsi_14": 39.5,
-        "macd": -0.82,
-        "macd_signal": -0.67,
-        "bollinger_upper": 83.81,
-        "bollinger_lower": 75.41
+        "rsi_14": 39.43,
+        "macd": -0.86,
+        "macd_signal": -0.71,
+        "bollinger_upper": 83.82,
+        "bollinger_lower": 75.4
       }
     ]
   },
   "NVDA": {
     "ticker": "NVDA",
-    "collected_at": "2026-09-16T18:34:15.600406+00:00",
+    "collected_at": "2026-09-16T18:35:49.306099+00:00",
     "info": {
       "name": "NVIDIA Corporation",
       "sector": "Technology",
-      "market_cap": 5193053765632,
-      "pe_ratio": 27.18837,
+      "market_cap": 5181702406144,
+      "pe_ratio": 27.128939,
       "52w_high": 236.54,
       "52w_low": 164.27,
       "beta": 2.217,
       "dividend_yield": 0.47
     },
-    "current_price": 215.03,
-    "day_change": 2.86,
-    "day_change_percent": 1.35,
+    "current_price": 214.59,
+    "day_change": 2.42,
+    "day_change_percent": 1.14,
     "ohlcv": [
       {
         "date": "2024-09-16",
@@ -107371,7 +107371,7 @@
         "date": "2025-02-26",
         "open": 129.65,
         "high": 133.38,
-        "low": 128.16,
+        "low": 128.15,
         "close": 130.94,
         "volume": 322553800,
         "sma_20": 129.67,
@@ -109230,7 +109230,7 @@
       {
         "date": "2025-08-25",
         "open": 177.91,
-        "high": 181.47,
+        "high": 181.46,
         "low": 176.14,
         "close": 179.37,
         "volume": 163012800,
@@ -109427,13 +109427,13 @@
         "open": 177.35,
         "high": 178.17,
         "low": 176.03,
-        "close": 177.4,
+        "close": 177.39,
         "volume": 124911000,
         "sma_20": 175.34,
         "ema_50": 169.77,
-        "rsi_14": 49.76,
-        "macd": 7.63,
-        "macd_signal": 6.26,
+        "rsi_14": 49.75,
+        "macd": 7.62,
+        "macd_signal": 6.25,
         "bollinger_upper": 184.36,
         "bollinger_lower": 166.32
       },
@@ -109459,13 +109459,13 @@
         "low": 173.96,
         "close": 174.46,
         "volume": 140737800,
-        "sma_20": 174.86,
+        "sma_20": 174.85,
         "ema_50": 170.24,
-        "rsi_14": 38.86,
+        "rsi_14": 38.85,
         "macd": 4.22,
         "macd_signal": 3.46,
-        "bollinger_upper": 183.19,
-        "bollinger_lower": 166.53
+        "bollinger_upper": 183.18,
+        "bollinger_lower": 166.52
       },
       {
         "date": "2025-09-17",
@@ -109476,7 +109476,7 @@
         "volume": 211843800,
         "sma_20": 174.59,
         "ema_50": 170.23,
-        "rsi_14": 34.0,
+        "rsi_14": 33.99,
         "macd": -0.35,
         "macd_signal": -0.29,
         "bollinger_upper": 183.19,
@@ -109506,7 +109506,7 @@
         "volume": 237182100,
         "sma_20": 174.72,
         "ema_50": 170.68,
-        "rsi_14": 53.65,
+        "rsi_14": 53.66,
         "macd": 5.57,
         "macd_signal": 4.57,
         "bollinger_upper": 183.37,
@@ -109536,7 +109536,7 @@
         "volume": 192559600,
         "sma_20": 174.93,
         "ema_50": 171.44,
-        "rsi_14": 59.12,
+        "rsi_14": 59.13,
         "macd": 6.56,
         "macd_signal": 5.38,
         "bollinger_upper": 184.15,
@@ -109551,7 +109551,7 @@
         "volume": 143564100,
         "sma_20": 174.69,
         "ema_50": 171.64,
-        "rsi_14": 56.15,
+        "rsi_14": 56.16,
         "macd": 4.91,
         "macd_signal": 4.03,
         "bollinger_upper": 183.48,
@@ -109566,7 +109566,7 @@
         "volume": 191586700,
         "sma_20": 174.5,
         "ema_50": 171.86,
-        "rsi_14": 63.58,
+        "rsi_14": 63.59,
         "macd": 5.41,
         "macd_signal": 4.44,
         "bollinger_upper": 182.87,
@@ -109596,7 +109596,7 @@
         "volume": 193063500,
         "sma_20": 174.78,
         "ema_50": 172.46,
-        "rsi_14": 63.97,
+        "rsi_14": 63.98,
         "macd": 8.96,
         "macd_signal": 7.35,
         "bollinger_upper": 183.49,
@@ -109626,11 +109626,11 @@
         "volume": 173844900,
         "sma_20": 176.4,
         "ema_50": 173.54,
-        "rsi_14": 63.1,
+        "rsi_14": 63.11,
         "macd": 13.25,
         "macd_signal": 10.87,
-        "bollinger_upper": 186.98,
-        "bollinger_lower": 165.82
+        "bollinger_upper": 186.97,
+        "bollinger_lower": 165.83
       },
       {
         "date": "2025-10-02",
@@ -109641,7 +109641,7 @@
         "volume": 136805800,
         "sma_20": 177.26,
         "ema_50": 174.12,
-        "rsi_14": 64.04,
+        "rsi_14": 64.05,
         "macd": 14.32,
         "macd_signal": 11.74,
         "bollinger_upper": 188.77,
@@ -110207,15 +110207,15 @@
         "open": 174.49,
         "high": 177.73,
         "low": 169.14,
-        "close": 177.4,
+        "close": 177.39,
         "volume": 320600300,
-        "sma_20": 190.89,
+        "sma_20": 190.88,
         "ema_50": 184.91,
         "rsi_14": 36.6,
-        "macd": -7.51,
-        "macd_signal": -6.16,
-        "bollinger_upper": 208.74,
-        "bollinger_lower": 173.04
+        "macd": -7.52,
+        "macd_signal": -6.17,
+        "bollinger_upper": 208.73,
+        "bollinger_lower": 173.03
       },
       {
         "date": "2025-11-26",
@@ -110226,7 +110226,7 @@
         "volume": 183852000,
         "sma_20": 189.55,
         "ema_50": 184.71,
-        "rsi_14": 43.5,
+        "rsi_14": 43.51,
         "macd": -4.88,
         "macd_signal": -4.0,
         "bollinger_upper": 206.49,
@@ -110271,7 +110271,7 @@
         "volume": 182632200,
         "sma_20": 185.86,
         "ema_50": 184.08,
-        "rsi_14": 38.54,
+        "rsi_14": 38.55,
         "macd": -3.05,
         "macd_signal": -2.5,
         "bollinger_upper": 199.28,
@@ -110421,7 +110421,7 @@
         "volume": 148588100,
         "sma_20": 180.38,
         "ema_50": 182.83,
-        "rsi_14": 49.86,
+        "rsi_14": 49.88,
         "macd": -5.52,
         "macd_signal": -4.53,
         "bollinger_upper": 186.49,
@@ -110484,8 +110484,8 @@
         "rsi_14": 52.63,
         "macd": 1.26,
         "macd_signal": 1.03,
-        "bollinger_upper": 187.03,
-        "bollinger_lower": 171.97
+        "bollinger_upper": 187.04,
+        "bollinger_lower": 171.96
       },
       {
         "date": "2025-12-23",
@@ -110499,8 +110499,8 @@
         "rsi_14": 60.42,
         "macd": 6.5,
         "macd_signal": 5.33,
-        "bollinger_upper": 188.32,
-        "bollinger_lower": 171.34
+        "bollinger_upper": 188.33,
+        "bollinger_lower": 171.33
       },
       {
         "date": "2025-12-24",
@@ -113222,34 +113222,34 @@
         "open": 214.14,
         "high": 216.76,
         "low": 213.31,
-        "close": 215.03,
-        "volume": 54724847,
-        "sma_20": 218.39,
-        "ema_50": 214.49,
-        "rsi_14": 53.92,
-        "macd": 0.54,
-        "macd_signal": 0.44,
-        "bollinger_upper": 230.84,
-        "bollinger_lower": 205.94
+        "close": 214.59,
+        "volume": 55072277,
+        "sma_20": 218.37,
+        "ema_50": 214.47,
+        "rsi_14": 53.64,
+        "macd": 0.12,
+        "macd_signal": 0.1,
+        "bollinger_upper": 230.85,
+        "bollinger_lower": 205.89
       }
     ]
   },
   "MRNA": {
     "ticker": "MRNA",
-    "collected_at": "2026-09-16T18:34:16.669817+00:00",
+    "collected_at": "2026-09-16T18:35:50.150930+00:00",
     "info": {
       "name": "Moderna, Inc.",
       "sector": "Healthcare",
-      "market_cap": 58476085248,
+      "market_cap": 58324336640,
       "pe_ratio": null,
       "52w_high": 176.66,
       "52w_low": 22.28,
       "beta": 1.106,
       "dividend_yield": null
     },
-    "current_price": 146.47,
-    "day_change": 2.7,
-    "day_change_percent": 1.88,
+    "current_price": 146.09,
+    "day_change": 2.32,
+    "day_change_percent": 1.61,
     "ohlcv": [
       {
         "date": "2024-09-16",
@@ -120771,34 +120771,34 @@
         "open": 145.41,
         "high": 148.93,
         "low": 142.67,
-        "close": 146.47,
-        "volume": 5242451,
-        "sma_20": 145.71,
-        "ema_50": 106.7,
-        "rsi_14": 47.48,
-        "macd": 39.77,
-        "macd_signal": 32.61,
-        "bollinger_upper": 163.81,
-        "bollinger_lower": 127.61
+        "close": 146.09,
+        "volume": 5279752,
+        "sma_20": 145.69,
+        "ema_50": 106.69,
+        "rsi_14": 47.16,
+        "macd": 39.4,
+        "macd_signal": 32.31,
+        "bollinger_upper": 163.79,
+        "bollinger_lower": 127.59
       }
     ]
   },
   "XYZ": {
     "ticker": "XYZ",
-    "collected_at": "2026-09-16T18:34:17.620903+00:00",
+    "collected_at": "2026-09-16T18:35:51.060357+00:00",
     "info": {
       "name": "Block, Inc.",
       "sector": "Technology",
-      "market_cap": 46532173824,
-      "pe_ratio": 138.30534,
+      "market_cap": 46393393152,
+      "pe_ratio": 137.89285,
       "52w_high": 86.92,
       "52w_low": 48.21,
       "beta": 2.522,
       "dividend_yield": null
     },
-    "current_price": 77.45,
-    "day_change": -0.86,
-    "day_change_percent": -1.1,
+    "current_price": 77.22,
+    "day_change": -1.09,
+    "day_change_percent": -1.39,
     "ohlcv": [
       {
         "date": "2024-09-16",
@@ -128320,34 +128320,34 @@
         "open": 78.46,
         "high": 78.43,
         "low": 76.71,
-        "close": 77.45,
-        "volume": 1621843,
-        "sma_20": 81.02,
-        "ema_50": 79.48,
-        "rsi_14": 36.53,
-        "macd": -2.03,
-        "macd_signal": -1.66,
-        "bollinger_upper": 85.15,
-        "bollinger_lower": 76.89
+        "close": 77.22,
+        "volume": 1629060,
+        "sma_20": 81.0,
+        "ema_50": 79.47,
+        "rsi_14": 36.13,
+        "macd": -2.25,
+        "macd_signal": -1.84,
+        "bollinger_upper": 85.17,
+        "bollinger_lower": 76.83
       }
     ]
   },
   "PYPL": {
     "ticker": "PYPL",
-    "collected_at": "2026-09-16T18:34:18.561457+00:00",
+    "collected_at": "2026-09-16T18:35:51.892204+00:00",
     "info": {
       "name": "PayPal Holdings, Inc.",
       "sector": "Financial Services",
-      "market_cap": 45339426816,
-      "pe_ratio": 10.018904,
+      "market_cap": 45236772864,
+      "pe_ratio": 9.99622,
       "52w_high": 79.215,
       "52w_low": 38.46,
       "beta": 1.286,
       "dividend_yield": 1.04
     },
-    "current_price": 53.0,
-    "day_change": -0.81,
-    "day_change_percent": -1.51,
+    "current_price": 52.88,
+    "day_change": -0.93,
+    "day_change_percent": -1.73,
     "ohlcv": [
       {
         "date": "2024-09-16",
@@ -135868,35 +135868,35 @@
         "date": "2026-09-16",
         "open": 53.6,
         "high": 53.83,
-        "low": 52.88,
-        "close": 53.0,
-        "volume": 3656683,
+        "low": 52.87,
+        "close": 52.88,
+        "volume": 3672943,
         "sma_20": 56.45,
         "ema_50": 54.66,
-        "rsi_14": 29.58,
-        "macd": -1.66,
-        "macd_signal": -1.36,
-        "bollinger_upper": 64.27,
-        "bollinger_lower": 48.63
+        "rsi_14": 29.41,
+        "macd": -1.78,
+        "macd_signal": -1.46,
+        "bollinger_upper": 64.28,
+        "bollinger_lower": 48.62
       }
     ]
   },
   "V": {
     "ticker": "V",
-    "collected_at": "2026-09-16T18:34:19.445815+00:00",
+    "collected_at": "2026-09-16T18:35:52.848697+00:00",
     "info": {
       "name": "Visa Inc.",
       "sector": "Financial Services",
-      "market_cap": 692730724352,
-      "pe_ratio": 31.550177,
+      "market_cap": 691423608832,
+      "pe_ratio": 31.490644,
       "52w_high": 385.57,
       "52w_low": 293.89,
       "beta": 0.761,
       "dividend_yield": 0.71
     },
-    "current_price": 371.03,
-    "day_change": -4.59,
-    "day_change_percent": -1.22,
+    "current_price": 370.33,
+    "day_change": -5.29,
+    "day_change_percent": -1.41,
     "ohlcv": [
       {
         "date": "2024-09-16",
@@ -137988,15 +137988,15 @@
         "open": 298.65,
         "high": 318.53,
         "low": 295.62,
-        "close": 308.78,
+        "close": 308.79,
         "volume": 12163400,
-        "sma_20": 333.33,
+        "sma_20": 333.34,
         "ema_50": 333.75,
         "rsi_14": 35.45,
-        "macd": -24.97,
-        "macd_signal": -20.48,
-        "bollinger_upper": 353.41,
-        "bollinger_lower": 313.25
+        "macd": -24.96,
+        "macd_signal": -20.47,
+        "bollinger_upper": 353.42,
+        "bollinger_lower": 313.26
       },
       {
         "date": "2025-04-08",
@@ -138020,13 +138020,13 @@
         "low": 302.18,
         "close": 328.67,
         "volume": 11361800,
-        "sma_20": 332.13,
+        "sma_20": 332.14,
         "ema_50": 332.46,
         "rsi_14": 46.46,
         "macd": -3.79,
         "macd_signal": -3.11,
-        "bollinger_upper": 355.72,
-        "bollinger_lower": 308.54
+        "bollinger_upper": 355.73,
+        "bollinger_lower": 308.55
       },
       {
         "date": "2025-04-10",
@@ -138055,8 +138055,8 @@
         "rsi_14": 44.99,
         "macd": -2.29,
         "macd_signal": -1.88,
-        "bollinger_upper": 355.87,
-        "bollinger_lower": 308.17
+        "bollinger_upper": 355.86,
+        "bollinger_lower": 308.18
       },
       {
         "date": "2025-04-14",
@@ -138085,8 +138085,8 @@
         "rsi_14": 46.04,
         "macd": 0.11,
         "macd_signal": 0.09,
-        "bollinger_upper": 355.94,
-        "bollinger_lower": 308.26
+        "bollinger_upper": 355.93,
+        "bollinger_lower": 308.27
       },
       {
         "date": "2025-04-16",
@@ -138145,8 +138145,8 @@
         "rsi_14": 43.1,
         "macd": -3.13,
         "macd_signal": -2.57,
-        "bollinger_upper": 354.18,
-        "bollinger_lower": 305.44
+        "bollinger_upper": 354.17,
+        "bollinger_lower": 305.45
       },
       {
         "date": "2025-04-23",
@@ -138175,8 +138175,8 @@
         "rsi_14": 48.26,
         "macd": 1.1,
         "macd_signal": 0.9,
-        "bollinger_upper": 352.24,
-        "bollinger_lower": 305.52
+        "bollinger_upper": 352.23,
+        "bollinger_lower": 305.53
       },
       {
         "date": "2025-04-25",
@@ -143417,35 +143417,35 @@
         "date": "2026-09-16",
         "open": 374.96,
         "high": 376.47,
-        "low": 370.39,
-        "close": 371.03,
-        "volume": 2978632,
-        "sma_20": 374.69,
-        "ema_50": 364.11,
-        "rsi_14": 35.93,
-        "macd": 6.92,
-        "macd_signal": 5.67,
-        "bollinger_upper": 386.68,
-        "bollinger_lower": 362.7
+        "low": 370.33,
+        "close": 370.33,
+        "volume": 3005735,
+        "sma_20": 374.66,
+        "ema_50": 364.08,
+        "rsi_14": 35.39,
+        "macd": 6.25,
+        "macd_signal": 5.12,
+        "bollinger_upper": 386.69,
+        "bollinger_lower": 362.63
       }
     ]
   },
   "MA": {
     "ticker": "MA",
-    "collected_at": "2026-09-16T18:34:20.411166+00:00",
+    "collected_at": "2026-09-16T18:35:53.779773+00:00",
     "info": {
       "name": "Mastercard Incorporated",
       "sector": "Financial Services",
-      "market_cap": 498664275968,
-      "pe_ratio": 31.328838,
+      "market_cap": 498147459072,
+      "pe_ratio": 31.29637,
       "52w_high": 601.62,
       "52w_low": 464.52,
       "beta": 0.735,
       "dividend_yield": 0.61
     },
-    "current_price": 569.36,
-    "day_change": -3.91,
-    "day_change_percent": -0.68,
+    "current_price": 568.66,
+    "day_change": -4.61,
+    "day_change_percent": -0.8,
     "ohlcv": [
       {
         "date": "2024-09-16",
@@ -143794,7 +143794,7 @@
       },
       {
         "date": "2024-10-17",
-        "open": 510.84,
+        "open": 510.83,
         "high": 511.58,
         "low": 506.12,
         "close": 508.33,
@@ -144201,7 +144201,7 @@
         "date": "2024-11-25",
         "open": 516.13,
         "high": 522.67,
-        "low": 515.52,
+        "low": 515.51,
         "close": 521.04,
         "volume": 4503900,
         "sma_20": 511.65,
@@ -146659,7 +146659,7 @@
       },
       {
         "date": "2025-07-25",
-        "open": 560.86,
+        "open": 560.87,
         "high": 566.43,
         "low": 560.36,
         "close": 564.7,
@@ -146856,7 +146856,7 @@
         "date": "2025-08-13",
         "open": 573.75,
         "high": 576.68,
-        "low": 570.49,
+        "low": 570.48,
         "close": 574.32,
         "volume": 2352900,
         "sma_20": 561.44,
@@ -148746,7 +148746,7 @@
         "date": "2026-02-12",
         "open": 538.1,
         "high": 541.16,
-        "low": 525.36,
+        "low": 525.37,
         "close": 525.67,
         "volume": 3466200,
         "sma_20": 535.76,
@@ -150967,15 +150967,15 @@
         "open": 571.59,
         "high": 573.04,
         "low": 567.61,
-        "close": 569.36,
-        "volume": 881002,
-        "sma_20": 581.32,
-        "ema_50": 562.31,
-        "rsi_14": 28.73,
-        "macd": 7.05,
-        "macd_signal": 5.78,
-        "bollinger_upper": 603.56,
-        "bollinger_lower": 559.08
+        "close": 568.66,
+        "volume": 898169,
+        "sma_20": 581.29,
+        "ema_50": 562.28,
+        "rsi_14": 28.44,
+        "macd": 6.38,
+        "macd_signal": 5.23,
+        "bollinger_upper": 603.6,
+        "bollinger_lower": 558.98
       }
     ]
   }

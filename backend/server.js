@@ -1,11 +1,13 @@
 const express = require('express');
 const cors = require('cors');
 
-const overviewRouter = require('./routers/overview');
-const crisisRouter = require('./routers/crisis');
+const overviewRouter  = require('./routers/overview');
+const crisisRouter    = require('./routers/crisis');
 const companiesRouter = require('./routers/companies');
-const startupsRouter = require('./routers/startups');
-const marketRouter = require('./routers/market');
+const startupsRouter  = require('./routers/startups');
+const marketRouter    = require('./routers/market');
+const investorsRouter = require('./routers/investors');
+const graphRouter     = require('./routers/graph');
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -22,11 +24,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Register API Routers
-app.use('/api/overview', overviewRouter);
-app.use('/api/crisis', crisisRouter);
-app.use('/api/companies', companiesRouter);
-app.use('/api/startups', startupsRouter);
-app.use('/api/market', marketRouter);
+app.use('/api/overview',   overviewRouter);
+app.use('/api/crisis',     crisisRouter);
+app.use('/api/companies',  companiesRouter);
+app.use('/api/startups',   startupsRouter);
+app.use('/api/market',     marketRouter);
+app.use('/api/investors',  investorsRouter);
+app.use('/api/graph',      graphRouter);
 
 // Root Status Endpoint
 app.get('/', (req, res) => {
@@ -48,7 +52,15 @@ app.get('/', (req, res) => {
       '/api/startups/contact',
       '/api/startups/intel/evidence-matrix',
       '/api/market/tickers',
-      '/api/market/prediction/:ticker'
+      '/api/market/prediction/:ticker',
+      '/api/investors',
+      '/api/investors/:id',
+      '/api/investors/meta/filters',
+      '/api/graph',
+      '/api/graph/meta',
+      '/api/graph/nodes',
+      '/api/graph/edges',
+      '/api/graph/node/:id'
     ]
   });
 });

@@ -54,4 +54,15 @@ export const api = {
   getTickers: () => fetchJson('/api/market/tickers'),
   getStockPrediction: (ticker, timeframe = '1D') => 
     fetchJson(`/api/market/prediction/${ticker}?timeframe=${timeframe}`),
+
+  // Company Relationship Graph (DS-6)
+  getGraph: () => fetchJson('/api/graph'),
+  getGraphNode: (id) => fetchJson(`/api/graph/node/${id}`),
+  getGraphEdges: (relationship = 'All') =>
+    fetchJson(`/api/graph/edges?relationship=${encodeURIComponent(relationship)}`),
+
+  // Investor Profiles (DS-4)
+  getInvestors: (stage = 'All', type = 'All') =>
+    fetchJson(`/api/investors?stage=${encodeURIComponent(stage)}&type=${encodeURIComponent(type)}`),
+  getInvestorFilters: () => fetchJson('/api/investors/meta/filters'),
 };

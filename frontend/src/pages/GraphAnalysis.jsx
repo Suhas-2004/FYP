@@ -10,47 +10,68 @@ import {
   DollarSign,
   ArrowUpRight,
   ArrowDownRight,
-  SlidersHorizontal,
-  BarChart3
+  BarChart3,
+  Network
 } from 'lucide-react';
-import { 
-  ResponsiveContainer, 
-  ComposedChart, 
-  Line, 
-  Area, 
-  Bar, 
-  XAxis, 
-  YAxis, 
-  CartesianGrid, 
-  Tooltip, 
-  Legend 
-} from 'recharts';
+
 import { api } from '../services/api';
 import { MotionSection, StaggerContainer, StaggerItem } from '../components/MotionReveal';
 import CompanyLogo from '../components/CompanyLogo';
+import CompanyNetworkGraph from '../components/CompanyNetworkGraph';
+import AdvancedStockChart from '../components/AdvancedStockChart';
 
 const TICKERS = [
-  { ticker: 'AAPL', name: 'Apple Inc.' },
-  { ticker: 'TSLA', name: 'Tesla, Inc.' },
-  { ticker: 'NFLX', name: 'Netflix Inc.' },
-  { ticker: 'BBY', name: 'Best Buy Co.' },
-  { ticker: 'SQ', name: 'Block, Inc.' },
-  { ticker: 'PYPL', name: 'PayPal Holdings' },
-  { ticker: 'MRNA', name: 'Moderna, Inc.' },
+  { ticker: 'AAPL',  name: 'Apple Inc.' },
+  { ticker: 'MSFT',  name: 'Microsoft Corp.' },
+  { ticker: 'GOOGL', name: 'Alphabet Inc.' },
+  { ticker: 'META',  name: 'Meta Platforms' },
+  { ticker: 'AMZN',  name: 'Amazon.com' },
+  { ticker: 'NVDA',  name: 'NVIDIA Corp.' },
+  { ticker: 'TSLA',  name: 'Tesla, Inc.' },
+  { ticker: 'NFLX',  name: 'Netflix Inc.' },
+  { ticker: 'PYPL',  name: 'PayPal Holdings' },
+  { ticker: 'MRNA',  name: 'Moderna, Inc.' },
+  { ticker: 'XYZ',   name: 'Block, Inc.' },
+  { ticker: 'JPM',   name: 'JPMorgan Chase' },
+  { ticker: 'BAC',   name: 'Bank of America' },
+  { ticker: 'WFC',   name: 'Wells Fargo' },
+  { ticker: 'HSBC',  name: 'HSBC Holdings' },
+  { ticker: 'V',     name: 'Visa Inc.' },
+  { ticker: 'MA',    name: 'Mastercard' },
+  { ticker: 'BABA',  name: 'Alibaba Group' },
+  { ticker: 'T',     name: 'AT&T Inc.' },
+  { ticker: 'WMT',   name: 'Walmart Inc.' },
 ];
 
+
 export default function GraphAnalysis({ theme }) {
+  const [viewMode, setViewMode] = useState('stock-ai'); // 'stock-ai' | 'network'
   const [selectedTicker, setSelectedTicker] = useState('AAPL');
   const [chartData, setChartData] = useState(null);
-  const [chartType, setChartType] = useState('price-indicators');
+  
+  // TradingView Features State
+  const [timeframe, setTimeframe] = useState('3M');
+  const [chartStyle, setChartStyle] = useState('candlestick'); // 'candlestick' | 'line' | 'area'
+  const [activeIndicators, setActiveIndicators] = useState({ sma20: true, ema50: true, bb: false });
+  const [compareTicker, setCompareTicker] = useState('');
+  const [compareData, setCompareData] = useState(null);
+  
+  const [chartType, setChartType] = useState('price-indicators'); // 'price-indicators' | 'rsi-macd'
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadAnalysis() {
       setLoading(true);
       try {
-        const data = await api.getStockPrediction(selectedTicker);
+        const data = await api.getStockPrediction(selectedTicker, timeframe);
         setChartData(data);
+        
+        if (compareTicker && compareTicker !== selectedTicker) {
+          const compData = await api.getStockPrediction(compareTicker, timeframe);
+          setCompareData(compData);
+        } else {
+          setCompareData(null);
+        }
       } catch (err) {
         console.error('Failed to load stock prediction:', err);
       } finally {
@@ -58,29 +79,94 @@ export default function GraphAnalysis({ theme }) {
       }
     }
     loadAnalysis();
-  }, [selectedTicker]);
+  }, [selectedTicker, compareTicker, timeframe]);
+
+  // Live Data SSE Connection
+  useEffect(() => {
+    if (viewMode !== 'stock-ai') return;
+    
+    const eventSource = new EventSource(`http://127.0.0.1:8000/api/market/stream/${selectedTicker}`);
+    
+    eventSource.onmessage = (event) => {
+      try {
+        const liveCandle = JSON.parse(event.data);
+        setChartData(prev => {
+          if (!prev || !prev.chart_data) return prev;
+          const newData = [...prev.chart_data];
+          // Replace the last candle with the live ticking one
+          newData[newData.length - 1] = liveCandle;
+          return { ...prev, chart_data: newData, current_price: liveCandle.close };
+        });
+      } catch (err) {
+        console.error('SSE Error parsing data:', err);
+      }
+    };
+
+    eventSource.onerror = (error) => {
+      console.error('SSE connection error:', error);
+      eventSource.close();
+    };
+
+    return () => {
+      eventSource.close();
+    };
+  }, [selectedTicker, viewMode]);
 
   return (
     <div className="space-y-8 pb-12">
       {/* Header */}
       <MotionSection direction="down" duration={0.5}>
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200/80 dark:border-slate-800/80 pb-6">
+        <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-slate-200/80 dark:border-slate-800/80 pb-6">
           <div>
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold mb-2">
-              <TrendingUp className="w-3.5 h-3.5" />
-              <span>Dual-Horizon Market Trend Forecasting</span>
+            <div className="flex items-center gap-3 mb-4">
+              <button
+                onClick={() => setViewMode('stock-ai')}
+                className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
+                  viewMode === 'stock-ai'
+                    ? 'bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/40 shadow-glow-emerald'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 border border-transparent'
+                }`}
+              >
+                Stock AI Analysis
+              </button>
+              <button
+                onClick={() => setViewMode('network')}
+                className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
+                  viewMode === 'network'
+                    ? 'bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-500/40 shadow-glow-indigo'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 border border-transparent'
+                }`}
+              >
+                Company Network
+              </button>
             </div>
+
+            {viewMode === 'stock-ai' ? (
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold mb-2">
+                <TrendingUp className="w-3.5 h-3.5" />
+                <span>Dual-Horizon Market Trend Forecasting</span>
+              </div>
+            ) : (
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-600 dark:text-indigo-400 text-xs font-semibold mb-2">
+                <Network className="w-3.5 h-3.5" />
+                <span>Ecosystem Relationship Mapping</span>
+              </div>
+            )}
+
             <h1 className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 dark:text-white tracking-tight">
-              Graph Analysis & Stock AI
+              {viewMode === 'stock-ai' ? 'Graph Analysis & Stock AI' : 'Corporate Relationship Intelligence'}
             </h1>
             <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1 max-w-2xl leading-relaxed">
-              Algorithmic technical indicator decomposition, momentum tracking, and dual-timeframe (**4-Hour** vs **Daily**) directional forecast modeling.
+              {viewMode === 'stock-ai' 
+                ? 'Algorithmic technical indicator decomposition, momentum tracking, and dual-timeframe (**4-Hour** vs **Daily**) directional forecast modeling.'
+                : 'Interactive ecosystem mapping of competitors, partners, investors, and adjacent threats across 50+ global entities.'}
             </p>
           </div>
 
           {/* Live Ticker Switcher */}
-          <div className="flex overflow-x-auto pb-1 space-x-2 scrollbar-none">
-            {TICKERS.map((t) => {
+          {viewMode === 'stock-ai' && (
+            <div className="flex overflow-x-auto pb-1 space-x-2 scrollbar-none w-full md:w-auto md:max-w-[50%] lg:max-w-xl">
+              {TICKERS.map((t) => {
               const isSelected = selectedTicker === t.ticker;
               return (
                 <button
@@ -96,11 +182,16 @@ export default function GraphAnalysis({ theme }) {
                 </button>
               );
             })}
-          </div>
+            </div>
+          )}
         </div>
       </MotionSection>
 
-      {loading || !chartData ? (
+      {viewMode === 'network' ? (
+        <MotionSection direction="up" delay={0.1}>
+          <CompanyNetworkGraph theme={theme} />
+        </MotionSection>
+      ) : loading || !chartData ? (
         <div className="py-24 text-center space-y-3">
           <div className="w-10 h-10 border-2 border-brand-amber border-t-transparent rounded-full animate-spin mx-auto" />
           <p className="text-sm text-slate-500 dark:text-slate-400 font-mono">Running technical indicator models and momentum regressions...</p>
@@ -119,11 +210,21 @@ export default function GraphAnalysis({ theme }) {
                   size={52}
                 />
                 <div>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2 flex-wrap gap-y-1">
                     <h2 className="text-2xl font-heading font-bold text-slate-900 dark:text-white">{chartData.company_name}</h2>
                     <span className="px-2 py-0.5 text-xs font-mono font-bold bg-slate-100 dark:bg-dark-950 text-slate-800 dark:text-slate-300 rounded border border-slate-300 dark:border-slate-700">
                       NASDAQ: {chartData.ticker}
                     </span>
+                    {chartData.data_source === 'real' ? (
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-bold font-mono rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-600 dark:text-emerald-400">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        LIVE DATA
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-bold font-mono rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-600 dark:text-amber-400">
+                        SIMULATED
+                      </span>
+                    )}
                   </div>
                   <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 dark:text-slate-400 mt-1 font-mono">
                     <span>RSI (14): <strong className="text-brand-caramel dark:text-brand-amber">{chartData.technical_indicators?.rsi}</strong></span>
@@ -131,6 +232,9 @@ export default function GraphAnalysis({ theme }) {
                     <span>SMA-20: ${chartData.technical_indicators?.sma20}</span>
                     <span>•</span>
                     <span>MACD: {chartData.technical_indicators?.macd}</span>
+                    {chartData.collected_at && (
+                      <><span>•</span><span className="text-slate-400">Updated: {new Date(chartData.collected_at).toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'})}</span></>
+                    )}
                   </div>
                 </div>
               </div>
@@ -321,35 +425,68 @@ export default function GraphAnalysis({ theme }) {
               </div>
 
               {/* Main Interactive Chart */}
-              <div className="h-80 w-full">
-                <ResponsiveContainer width="100%" height="100%">
-                  {chartType === 'price-indicators' ? (
-                    <ComposedChart data={chartData.chart_data}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#94a3b833" />
-                      <XAxis dataKey="date" stroke="#94a3b8" fontSize={11} />
-                      <YAxis yAxisId="price" domain={['auto', 'auto']} stroke="#94a3b8" fontSize={11} unit="$" />
-                      <YAxis yAxisId="volume" orientation="right" domain={[0, 'auto']} stroke="#475569" fontSize={10} hide />
-                      <Tooltip contentStyle={{ backgroundColor: theme === 'dark' ? '#1b120c' : '#fdfbf7', borderColor: theme === 'dark' ? '#38261b' : '#cab89f', borderRadius: '12px', boxShadow: '0 10px 25px -5px rgba(0,0,0,0.3)' }} />
-                      <Legend />
-                      <Area yAxisId="price" type="monotone" dataKey="close" name="Close Price ($)" fill="rgba(217, 119, 6, 0.12)" stroke="#d97706" strokeWidth={3} />
-                      <Line yAxisId="price" type="monotone" dataKey="sma20" name="SMA-20 ($)" stroke="#b45309" strokeWidth={2} dot={false} />
-                      <Line yAxisId="price" type="monotone" dataKey="ema50" name="EMA-50 ($)" stroke="#e05a36" strokeWidth={2} dot={false} />
-                      <Bar yAxisId="volume" dataKey="volume" name="Volume" fill="rgba(180, 83, 9, 0.2)" />
-                    </ComposedChart>
-                  ) : (
-                    <ComposedChart data={chartData.chart_data}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#94a3b833" />
-                      <XAxis dataKey="date" stroke="#94a3b8" fontSize={11} />
-                      <YAxis yAxisId="rsi" domain={[0, 100]} stroke="#94a3b8" fontSize={11} />
-                      <YAxis yAxisId="macd" orientation="right" stroke="#b45309" fontSize={11} />
-                      <Tooltip contentStyle={{ backgroundColor: theme === 'dark' ? '#1b120c' : '#fdfbf7', borderColor: theme === 'dark' ? '#38261b' : '#cab89f', borderRadius: '12px', boxShadow: '0 10px 25px -5px rgba(0,0,0,0.3)' }} />
-                      <Legend />
-                      <Line yAxisId="rsi" type="monotone" dataKey="rsi" name="RSI (14)" stroke="#10b981" strokeWidth={3} dot={{ r: 3 }} />
-                      <Bar yAxisId="macd" dataKey="macd" name="MACD Histogram" fill="#d97706" />
-                      <Line yAxisId="macd" type="monotone" dataKey="macd_signal" name="Signal Line" stroke="#f43f5e" strokeWidth={2} dot={false} />
-                    </ComposedChart>
-                  )}
-                </ResponsiveContainer>
+              <div className="flex flex-col space-y-4">
+                {/* Trading Toolbar */}
+                <div className="flex flex-wrap items-center justify-between gap-3 bg-slate-50 dark:bg-dark-900/50 p-2 rounded-xl border border-slate-200/80 dark:border-slate-800/80">
+                  <div className="flex items-center gap-2">
+                    {/* Timeframes */}
+                    <div className="flex bg-white dark:bg-dark-950 rounded-lg p-0.5 border border-slate-200 dark:border-slate-700 shadow-sm">
+                      {['1M', '3M', '6M', '1Y', 'ALL'].map(tf => (
+                        <button key={tf} onClick={() => setTimeframe(tf)}
+                          className={`px-2.5 py-1 text-[11px] font-bold rounded-md transition-all ${timeframe === tf ? 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'}`}>
+                          {tf}
+                        </button>
+                      ))}
+                    </div>
+                    <div className="w-px h-5 bg-slate-200 dark:bg-slate-700" />
+                    {/* Chart Styles */}
+                    <div className="flex bg-white dark:bg-dark-950 rounded-lg p-0.5 border border-slate-200 dark:border-slate-700 shadow-sm">
+                      {['candlestick', 'line', 'area'].map(style => (
+                        <button key={style} onClick={() => setChartStyle(style)}
+                          className={`px-2.5 py-1 text-[11px] font-bold capitalize rounded-md transition-all ${chartStyle === style ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400' : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'}`}>
+                          {style}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    {/* Indicators */}
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Indicators:</span>
+                      {['sma20', 'ema50', 'bb'].map(ind => (
+                        <button key={ind} onClick={() => setActiveIndicators(p => ({ ...p, [ind]: !p[ind] }))}
+                          className={`px-2 py-0.5 text-[10px] font-bold uppercase rounded-md border transition-all ${activeIndicators[ind] ? 'bg-brand-amber/10 border-brand-amber text-brand-amber' : 'bg-white dark:bg-dark-950 border-slate-200 dark:border-slate-700 text-slate-500'}`}>
+                          {ind}
+                        </button>
+                      ))}
+                    </div>
+                    <div className="w-px h-5 bg-slate-200 dark:bg-slate-700" />
+                    {/* Compare */}
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Compare:</span>
+                      <select 
+                        value={compareTicker} 
+                        onChange={(e) => setCompareTicker(e.target.value)}
+                        className="bg-white dark:bg-dark-950 border border-slate-200 dark:border-slate-700 text-xs font-bold rounded-md px-2 py-1 outline-none focus:border-indigo-500"
+                      >
+                        <option value="">None</option>
+                        {TICKERS.map(t => t.ticker !== selectedTicker && <option key={t.ticker} value={t.ticker}>{t.ticker}</option>)}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="h-80 w-full relative z-0">
+                  <AdvancedStockChart 
+                    data={chartData.chart_data}
+                    compareData={compareData?.chart_data}
+                    chartType={chartType} 
+                    chartStyle={chartStyle}
+                    indicators={activeIndicators}
+                    theme={theme} 
+                  />
+                </div>
               </div>
             </div>
           </MotionSection>
