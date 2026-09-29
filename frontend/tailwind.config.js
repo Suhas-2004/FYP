@@ -18,18 +18,18 @@ export default {
           600: '#563c2b'
         },
         coffee: {
-          50: '#fdfbf7',
-          100: '#f7f2ea',
-          150: '#f3ede2',
-          200: '#ede3d4',
-          300: '#dccbb5',
-          400: '#c4ab90',
-          500: '#a9896c',
-          600: '#8a6a4f',
-          700: '#6c4f38',
-          800: '#503725',
-          900: '#362215',
-          950: '#20130b',
+          50: '#f8f9fc',
+          100: '#eef0fa',
+          150: '#dce0f5',
+          200: '#c5cbf0',
+          300: '#a6b0e8',
+          400: '#8592de',
+          500: '#6c6ecd',
+          600: '#5255b8',
+          700: '#414399',
+          800: '#343675',
+          900: '#282a57',
+          950: '#0c0c16',
         },
         brand: {
           cyan: '#0891b2',
@@ -43,7 +43,9 @@ export default {
           indigo: '#6366f1',
           purple: '#8b5cf6',
           blue: '#2563eb'
-        }
+        },
+        accent:"#6c6ecd",
+        card:"#3d3e7e"
       },
       fontFamily: {
         heading: ['Outfit', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],

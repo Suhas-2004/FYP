@@ -62,9 +62,9 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
   
   // Track if we are viewing the dedicated detail page or the directory list
   const [viewingCompanyId, setViewingCompanyId] = useState(() => {
-    const hash = window.location.hash || '';
-    if (hash.startsWith('#companies') && hash.includes('company=')) {
-      const params = new URLSearchParams(hash.split('?')[1]);
+    const search = window.location.search || '';
+    if (window.location.pathname === '/companies' && search.includes('company=')) {
+      const params = new URLSearchParams(search);
       return params.get('company') || null;
     }
     return null;
@@ -73,12 +73,12 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
   // Listen to browser Back/Forward within Companies page
   useEffect(() => {
     const handlePop = () => {
-      const hash = window.location.hash || '';
-      if (hash.startsWith('#companies') && hash.includes('company=')) {
-        const params = new URLSearchParams(hash.split('?')[1]);
+      const search = window.location.search || '';
+      if (window.location.pathname === '/companies' && search.includes('company=')) {
+        const params = new URLSearchParams(search);
         const comp = params.get('company');
         setViewingCompanyId(comp);
-      } else if (hash.startsWith('#companies')) {
+      } else if (window.location.pathname === '/companies') {
         setViewingCompanyId(null);
       }
     };

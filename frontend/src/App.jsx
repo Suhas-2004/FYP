@@ -11,6 +11,8 @@ import StartupIntel from './pages/StartupIntel';
 import InvestorsStartups from './pages/InvestorsStartups';
 import GraphAnalysis from './pages/GraphAnalysis';
 import MarketDashboard from './pages/MarketDashboard';
+import LandingPage from './pages/LandingPage';
+import OmniQuery from './components/OmniQuery';
 
 const VALID_TABS = [
   'about',
@@ -21,19 +23,19 @@ const VALID_TABS = [
   'startup-intel',
   'investors-startups',
   'graph-analysis',
-  'market-dashboard'
+  'market-dashboard',
+  'landing'
 ];
 
-function parseHash(hashStr) {
-  const clean = (hashStr || '').replace(/^#\/?/, '');
-  if (!clean) return { tab: 'about', companyId: null };
+function parsePath(pathStr, searchStr) {
+  const clean = (pathStr || '').replace(/^\//, '');
+  if (!clean) return { tab: 'landing', companyId: null };
 
-  const [tabPart, queryPart] = clean.split('?');
-  const tab = VALID_TABS.includes(tabPart) ? tabPart : 'about';
+  const tab = VALID_TABS.includes(clean) ? clean : 'about';
   
   let companyId = null;
-  if (queryPart) {
-    const params = new URLSearchParams(queryPart);
+  if (searchStr) {
+    const params = new URLSearchParams(searchStr);
     if (params.get('company')) companyId = params.get('company');
     if (params.get('id')) companyId = params.get('id');
   }
@@ -43,43 +45,18 @@ function parseHash(hashStr) {
 
 export default function App() {
   const [activeTab, setActiveTabState] = useState(() => {
-    const parsed = parseHash(window.location.hash);
+    const parsed = parsePath(window.location.pathname, window.location.search);
     return parsed.tab;
   });
 
   const [selectedCompanyId, setSelectedCompanyIdState] = useState(() => {
-    const parsed = parseHash(window.location.hash);
+    const parsed = parsePath(window.location.pathname, window.location.search);
     return parsed.companyId || 'apple';
   });
 
   const [selectedPersona, setSelectedPersona] = useState('Entrepreneur');
-  
-  // Theme State: 'dark' | 'light' (Default to light coffee)
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('iclas_theme') || 'light';
-  });
 
-  useEffect(() => {
-    const root = document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-      root.classList.remove('light');
-      document.body.classList.add('dark');
-      document.body.classList.remove('light');
-    } else {
-      root.classList.add('light');
-      root.classList.remove('dark');
-      document.body.classList.add('light');
-      document.body.classList.remove('dark');
-    }
-    localStorage.setItem('iclas_theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
-  };
-
-  // Enhanced Navigation with HTML5 History & URL Hash Sync
+  // Enhanced Navigation with HTML5 History & URL Sync
   const navigateTo = (tab, companyId = null, push = true) => {
     const targetCompanyId = companyId || selectedCompanyId;
     setActiveTabState(tab);
@@ -87,14 +64,16 @@ export default function App() {
       setSelectedCompanyIdState(companyId);
     }
 
-    const hash = targetCompanyId && (tab === 'companies' || tab === 'strategy-steps')
-      ? `#${tab}?company=${targetCompanyId}`
-      : `#${tab}`;
+    const path = `/${tab}`;
+    const search = targetCompanyId && (tab === 'companies' || tab === 'strategy-steps')
+      ? `?company=${targetCompanyId}`
+      : '';
+    const fullPath = path + search;
 
     if (push) {
-      window.history.pushState({ tab, companyId: targetCompanyId }, '', hash);
+      window.history.pushState({ tab, companyId: targetCompanyId }, '', fullPath);
     } else {
-      window.history.replaceState({ tab, companyId: targetCompanyId }, '', hash);
+      window.history.replaceState({ tab, companyId: targetCompanyId }, '', fullPath);
     }
 
     window.scrollTo(0, 0);
@@ -107,7 +86,7 @@ export default function App() {
   const setSelectedCompanyId = (id) => {
     setSelectedCompanyIdState(id);
     if (activeTab === 'companies' || activeTab === 'strategy-steps') {
-      window.history.replaceState({ tab: activeTab, companyId: id }, '', `#${activeTab}?company=${id}`);
+      window.history.replaceState({ tab: activeTab, companyId: id }, '', `/${activeTab}?company=${id}`);
     }
   };
 
@@ -133,7 +112,7 @@ export default function App() {
           setSelectedCompanyIdState(e.state.companyId);
         }
       } else {
-        const parsed = parseHash(window.location.hash);
+        const parsed = parsePath(window.location.pathname, window.location.search);
         setActiveTabState(parsed.tab);
         if (parsed.companyId) {
           setSelectedCompanyIdState(parsed.companyId);
@@ -146,34 +125,37 @@ export default function App() {
 
     // Initial state sync
     if (!window.history.state) {
-      const initial = parseHash(window.location.hash);
+      const initial = parsePath(window.location.pathname, window.location.search);
+      const search = initial.companyId ? `?company=${initial.companyId}` : '';
       window.history.replaceState(
         { tab: initial.tab, companyId: initial.companyId || 'apple' },
         '',
-        window.location.hash || '#about'
+        `/${initial.tab}${search}`
       );
     }
 
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
+  if (activeTab === 'landing') {
+    return <LandingPage onNavigate={(tab) => navigateTo(tab)} />;
+  }
+
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden selection:bg-amber-500/25 selection:text-amber-950 dark:selection:text-amber-200 transition-colors duration-300">
+    <div className="min-h-screen flex flex-col relative overflow-hidden selection:bg-indigo-500/25 selection:text-indigo-200 transition-colors duration-300">
       {/* Dynamic Ambient Background Aura Lighting (GPU-accelerated) */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" style={{ transform: 'translateZ(0)' }}>
-        <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-amber-500/10 dark:bg-amber-500/[0.08] rounded-full blur-[80px] animate-ambient-float will-change-transform" />
-        <div className="absolute top-1/3 -right-40 w-[450px] h-[450px] bg-orange-500/10 dark:bg-orange-500/[0.07] rounded-full blur-[90px] animate-ambient-float will-change-transform" style={{ animationDelay: '-4s' }} />
-        <div className="absolute -bottom-40 left-1/3 w-[450px] h-[450px] bg-amber-600/08 dark:bg-amber-600/[0.06] rounded-full blur-[90px] animate-ambient-float will-change-transform" style={{ animationDelay: '-2s' }} />
+        <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[80px] animate-ambient-float will-change-transform" />
+        <div className="absolute top-1/3 -right-40 w-[450px] h-[450px] bg-purple-500/10 rounded-full blur-[90px] animate-ambient-float will-change-transform" style={{ animationDelay: '-4s' }} />
+        <div className="absolute -bottom-40 left-1/3 w-[450px] h-[450px] bg-indigo-600/10 rounded-full blur-[90px] animate-ambient-float will-change-transform" style={{ animationDelay: '-2s' }} />
       </div>
 
-      {/* Top Fixed Navigation & Persona / Theme Switcher */}
+      {/* Top Fixed Navigation & Persona Switcher */}
       <Navbar
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         selectedPersona={selectedPersona}
         setSelectedPersona={setSelectedPersona}
-        theme={theme}
-        toggleTheme={toggleTheme}
       />
 
       {/* Main Content Area with Fixed-Anchor Page Transition */}
@@ -191,7 +173,6 @@ export default function App() {
                 setActiveTab={setActiveTab}
                 setSelectedCompanyId={setSelectedCompanyId}
                 selectedPersona={selectedPersona}
-                theme={theme}
               />
             )}
 
@@ -200,7 +181,6 @@ export default function App() {
                 setActiveTab={setActiveTab}
                 setSelectedCompanyId={setSelectedCompanyId}
                 selectedPersona={selectedPersona}
-                theme={theme}
               />
             )}
 
@@ -208,7 +188,6 @@ export default function App() {
               <SearchCondition
                 setActiveTab={setActiveTab}
                 setSelectedCompanyId={setSelectedCompanyId}
-                theme={theme}
               />
             )}
 
@@ -217,7 +196,6 @@ export default function App() {
                 selectedCompanyId={selectedCompanyId}
                 setActiveTab={setActiveTab}
                 setSelectedCompanyId={setSelectedCompanyId}
-                theme={theme}
               />
             )}
 
@@ -226,7 +204,6 @@ export default function App() {
                 setActiveTab={setActiveTab}
                 selectedCompanyId={selectedCompanyId}
                 setSelectedCompanyId={setSelectedCompanyId}
-                theme={theme}
               />
             )}
 
@@ -234,26 +211,22 @@ export default function App() {
               <StartupIntel
                 setActiveTab={setActiveTab}
                 setSelectedCompanyId={setSelectedCompanyId}
-                theme={theme}
               />
             )}
 
             {activeTab === 'investors-startups' && (
               <InvestorsStartups
                 selectedPersona={selectedPersona}
-                theme={theme}
               />
             )}
 
             {activeTab === 'graph-analysis' && (
               <GraphAnalysis 
-                theme={theme}
               />
             )}
 
             {activeTab === 'market-dashboard' && (
               <MarketDashboard 
-                theme={theme}
               />
             )}
           </motion.div>
@@ -261,7 +234,8 @@ export default function App() {
       </main>
 
       {/* Corporate Global Footer */}
-      <Footer setActiveTab={setActiveTab} theme={theme} />
+      <Footer setActiveTab={setActiveTab} />
+      <OmniQuery onNavigate={setActiveTab} />
     </div>
   );
 }
