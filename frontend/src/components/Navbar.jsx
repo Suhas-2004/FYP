@@ -1,29 +1,23 @@
 import React from 'react';
 import {
-  Sparkles,
-  Layers,
   Search,
-  ListOrdered,
-  Building2,
-  ShieldCheck,
-  Briefcase,
-  TrendingUp,
   Activity,
-  Users
 } from 'lucide-react';
 import SentinelAlerts from './SentinelAlerts';
+import { FloatingDock } from "./ui/floating-dock";
+import {
+  IconHome,
+  IconLayoutDashboard,
+  IconChartHistogram,
+  IconExchange,
+  IconNewSection,
+  IconTerminal2,
+  IconBuildingSkyscraper,
+  IconTrendingUp,
+  IconRoute
+} from "@tabler/icons-react";
 
-const NAV_ITEMS = [
-  { id: 'about', label: 'Dashboard', icon: Sparkles },
-  { id: 'overview', label: 'Overview', icon: Layers },
-  { id: 'companies', label: 'Companies', icon: Building2 },
-  { id: 'search-condition', label: 'Crisis Engine', icon: Search },
-  { id: 'strategy-steps', label: 'Strategies', icon: ListOrdered },
-  { id: 'startup-intel', label: 'Startup Intel', icon: ShieldCheck },
-  { id: 'investors-startups', label: 'Deal Flow', icon: Briefcase },
-  { id: 'graph-analysis', label: 'Network', icon: TrendingUp },
-  { id: 'market-dashboard', label: 'Markets', icon: Activity },
-];
+
 
 export default function Navbar({
   activeTab,
@@ -32,7 +26,7 @@ export default function Navbar({
   setSelectedPersona
 }) {
   return (
-    <header className="sticky top-0 z-50 w-full h-[70px] bg-[#0c0c10]/95 backdrop-blur-xl border-b border-white/10 select-none">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full h-[70px] bg-[#0c0c10]/70 backdrop-blur-xl border-b border-white/10 select-none shadow-sm">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 h-full flex items-center justify-between">
         
         {/* Logo & Brand Name */}
@@ -53,33 +47,69 @@ export default function Navbar({
           </span>
         </div>
 
-        {/* Navigation Items */}
-        <nav className="flex items-center space-x-1 overflow-x-auto scrollbar-none mx-4">
-          {NAV_ITEMS.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeTab === item.id;
-            return (
-              <button
-                key={item.id}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setActiveTab(item.id);
-                }}
-                className={`relative flex-shrink-0 flex items-center space-x-2 px-3 py-1.5 rounded-md text-[11px] font-medium transition-all ${
-                  isActive
-                    ? 'text-white bg-white/10'
-                    : 'text-white/50 hover:text-white/90 hover:bg-white/5'
-                }`}
-              >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-indigo-400' : 'text-white/40'}`} />
-                <span className="whitespace-nowrap tracking-wide">{item.label}</span>
-                {isActive && (
-                  <span className="absolute bottom-[-18px] left-1/2 -translate-x-1/2 w-4 h-[2px] bg-indigo-500 rounded-full shadow-[0_0_8px_rgba(99,102,241,0.8)]" />
-                )}
-              </button>
-            );
-          })}
-        </nav>
+        {/* Navigation handled by the Floating Dock */}
+        <div className="flex-grow flex justify-center items-center pointer-events-auto">
+          <FloatingDock
+            desktopClassName="bg-transparent border-none shadow-none h-14"
+            mobileClassName="translate-y-20"
+            items={[
+              {
+                title: "Dashboard",
+                icon: <IconLayoutDashboard className="h-full w-full text-slate-300" />,
+                onClick: () => setActiveTab('about'),
+                active: activeTab === 'about'
+              },
+              {
+                title: "Home",
+                icon: <IconHome className="h-full w-full text-slate-300" />,
+                onClick: () => setActiveTab('overview'),
+                active: activeTab === 'overview'
+              },
+              {
+                title: "Market",
+                icon: <IconChartHistogram className="h-full w-full text-slate-300" />,
+                onClick: () => setActiveTab('market-dashboard'),
+                active: activeTab === 'market-dashboard'
+              },
+              {
+                title: "Companies",
+                icon: <IconBuildingSkyscraper className="h-full w-full text-slate-300" />,
+                onClick: () => setActiveTab('companies'),
+                active: activeTab === 'companies'
+              },
+              {
+                title: "AI Crisis Matcher",
+                icon: <IconExchange className="h-full w-full text-slate-300" />,
+                onClick: () => setActiveTab('search-condition'),
+                active: activeTab === 'search-condition'
+              },
+              {
+                title: "Strategies",
+                icon: <IconRoute className="h-full w-full text-slate-300" />,
+                onClick: () => setActiveTab('strategy-steps'),
+                active: activeTab === 'strategy-steps'
+              },
+              {
+                title: "Graph Analysis",
+                icon: <IconTrendingUp className="h-full w-full text-slate-300" />,
+                onClick: () => setActiveTab('graph-analysis'),
+                active: activeTab === 'graph-analysis'
+              },
+              {
+                title: "Startup Intel",
+                icon: <IconTerminal2 className="h-full w-full text-slate-300" />,
+                onClick: () => setActiveTab('startup-intel'),
+                active: activeTab === 'startup-intel'
+              },
+              {
+                title: "Dealflow",
+                icon: <IconNewSection className="h-full w-full text-slate-300" />,
+                onClick: () => setActiveTab('investors-startups'),
+                active: activeTab === 'investors-startups'
+              }
+            ]}
+          />
+        </div>
 
         {/* Right Controls: Persona Switcher */}
         <div className="flex items-center space-x-4 flex-shrink-0">

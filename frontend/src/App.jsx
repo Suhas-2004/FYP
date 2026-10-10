@@ -159,7 +159,7 @@ export default function App() {
       />
 
       {/* Main Content Area with Fixed-Anchor Page Transition */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 pt-6 sm:pt-8 relative z-10">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 pt-[90px] pb-10 relative z-10">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={activeTab}
@@ -232,6 +232,8 @@ export default function App() {
           </motion.div>
         </AnimatePresence>
       </main>
+
+
 
       {/* Corporate Global Footer */}
       <Footer setActiveTab={setActiveTab} />

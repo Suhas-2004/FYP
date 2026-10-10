@@ -60,8 +60,8 @@ function NeuralCanvas({ theme }) {
     const particles = [];
 
     const isDark = theme === 'dark' || document.documentElement.classList.contains('dark');
-    const baseColor = isDark ? '217, 119, 6' : '180, 83, 9'; // Amber / Caramel Gold
-    const altColor = isDark ? '224, 90, 54' : '194, 65, 12'; // Terracotta / Copper
+    const baseColor = isDark ? '6, 182, 212' : '8, 145, 178'; // Amber / Caramel Gold
+    const altColor = isDark ? '20, 184, 166' : '13, 148, 136'; // Terracotta / Copper
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
@@ -195,7 +195,7 @@ const TITAN_CASES = [
     dropDetail: '-75% revenue decline, 3,000 redundancies, fragmented 20+ SKU portfolio.',
     recoveryCatalyst: 'The $150M Microsoft Lifeline, radical SKU simplification to 4 quadrants, and the iMac & iPod ecosystem pivot.',
     growthMultiple: '500x+ Value Expansion ($3T+ Peak)',
-    color: 'from-amber-500 to-orange-600',
+    color: 'from-cyan-500 to-orange-600',
     logoColor: '#000000',
     tags: ['Tech & Hardware', 'SKU Simplification', 'Ecosystem Pivot']
   },
@@ -223,7 +223,7 @@ const TITAN_CASES = [
     dropDetail: 'Lost 800,000 subscribers in 3 months; market cap dropped from $16B to $3B.',
     recoveryCatalyst: 'Absorbed public backlash, unbundled DVD by mail, and invested $100M into original programming (House of Cards).',
     growthMultiple: 'Streaming Supremacy ($250B+ Market Cap)',
-    color: 'from-rose-500 to-red-700',
+    color: 'from-fuchsia-500 to-red-700',
     logoColor: '#E50914',
     tags: ['Streaming & Tech', 'Aggressive Pivot', 'Original Content Engine']
   },
@@ -237,7 +237,7 @@ const TITAN_CASES = [
     dropDetail: '30% negative operational margins, overdiversification into theme parks and non-brick toys.',
     recoveryCatalyst: 'Divested LEGOLAND parks, halved brick piece variants from 12,000 to 6,000, engaged adult fans (AFOL) & film franchises.',
     growthMultiple: "World's #1 Most Profitable Toy Maker",
-    color: 'from-amber-500 to-yellow-600',
+    color: 'from-cyan-500 to-yellow-600',
     logoColor: '#D11013',
     tags: ['Consumer Goods', 'Core SKU Focus', 'Community Co-Creation']
   },
@@ -364,7 +364,7 @@ export default function About({
         </motion.div>
 
         {/* Ambient Warm Golden Amber Atmosphere Orbs (GPU composited) */}
-        <div className="absolute -top-32 -left-32 w-[450px] h-[450px] bg-amber-500/20 rounded-full blur-[80px] pointer-events-none animate-pulse-slow will-change-transform" />
+        <div className="absolute -top-32 -left-32 w-[450px] h-[450px] bg-cyan-500/20 rounded-full blur-[80px] pointer-events-none animate-pulse-slow will-change-transform" />
         <div className="absolute top-1/2 -right-32 w-[450px] h-[450px] bg-orange-600/20 rounded-full blur-[90px] pointer-events-none animate-pulse-slow will-change-transform" style={{ animationDelay: '-3s' }} />
         <div className="absolute -bottom-32 left-1/3 w-[400px] h-[400px] bg-amber-600/15 rounded-full blur-[80px] pointer-events-none animate-pulse-slow will-change-transform" style={{ animationDelay: '-1.5s' }} />
 
@@ -379,13 +379,13 @@ export default function About({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="inline-flex items-center space-x-2.5 px-4 py-2 rounded-full bg-[#1c120c]/85 text-amber-200 border border-amber-500/40 shadow-[0_0_20px_rgba(217,119,6,0.35)] backdrop-blur-md text-xs font-mono mb-6 sm:mb-8 pointer-events-auto"
+            className="inline-flex items-center space-x-2.5 px-4 py-2 rounded-full bg-[#1c120c]/85 text-cyan-200 border border-cyan-500/40 shadow-[0_0_20px_rgba(217,119,6,0.35)] backdrop-blur-md text-xs font-mono mb-6 sm:mb-8 pointer-events-auto"
           >
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400 shadow-[0_0_8px_#f59e0b]"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400 shadow-[0_0_8px_#f59e0b]"></span>
             </span>
-            <span className="text-amber-400 font-bold tracking-wider">ICLAS AI ENGINE</span>
+            <span className="text-cyan-400 font-bold tracking-wider">ICLAS AI ENGINE</span>
             <span className="text-amber-600">•</span>
             <span className="text-[#fdfaf5] font-medium">HISTORICAL CORPORATE INTELLIGENCE // ONLINE</span>
           </motion.div>
@@ -398,7 +398,7 @@ export default function About({
             className="text-4xl sm:text-6xl lg:text-7xl font-heading font-black tracking-tight text-white leading-[1.1] max-w-4xl pointer-events-auto [text-shadow:_0_3px_16px_rgba(0,0,0,0.95),_0_0_30px_rgba(18,12,8,0.9)]"
           >
             Corporate Turnaround Intelligence, <br className="hidden sm:inline" />
-            <span className="bg-gradient-to-r from-amber-300 via-orange-300 to-amber-400 bg-clip-text text-transparent [text-shadow:_0_0_35px_rgba(217,119,6,0.8)] filter drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+            <span className="bg-gradient-to-r from-cyan-300 via-teal-300 to-cyan-400 bg-clip-text text-transparent [text-shadow:_0_0_35px_rgba(217,119,6,0.8)] filter drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
               Engineered for Startup Survival.
             </span>
           </motion.h1>
@@ -410,9 +410,9 @@ export default function About({
             transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             className="mt-6 text-base sm:text-lg lg:text-xl text-[#fdfaf5] max-w-3xl leading-relaxed font-normal pointer-events-auto [text-shadow:_0_2px_12px_rgba(0,0,0,0.95),_0_0_20px_rgba(18,12,8,0.85)]"
           >
-            <span className="font-bold text-amber-300 bg-[#28180f]/80 border border-amber-500/40 px-2 py-0.5 rounded-md backdrop-blur-sm mr-1.5 shadow-sm">ICLAS</span> 
+            <span className="font-bold text-cyan-300 bg-[#28180f]/80 border border-cyan-500/40 px-2 py-0.5 rounded-md backdrop-blur-sm mr-1.5 shadow-sm">ICLAS</span> 
             bridges the gap between historical corporate titans and early-stage ventures. Powered by 
-            <span className="font-semibold text-orange-300 bg-[#28180f]/80 border border-orange-500/40 px-2 py-0.5 rounded-md backdrop-blur-sm mx-1.5 shadow-sm">Case-Based Reasoning (CBR)</span>, 
+            <span className="font-semibold text-teal-300 bg-[#28180f]/80 border border-teal-500/40 px-2 py-0.5 rounded-md backdrop-blur-sm mx-1.5 shadow-sm">Case-Based Reasoning (CBR)</span>, 
             longitudinal crisis forensics, and vector similarity models, we transform legendary corporate turnarounds into actionable survival playbooks.
           </motion.p>
 
@@ -428,7 +428,7 @@ export default function About({
               whileHover={{ scale: 1.04, translateY: -2 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => setActiveTab('overview')}
-              className="relative group overflow-hidden px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white font-heading font-bold text-base shadow-[0_0_30px_rgba(217,119,6,0.5)] hover:shadow-[0_0_45px_rgba(217,119,6,0.8)] border border-amber-300/40 transition-all flex items-center space-x-3"
+              className="relative group overflow-hidden px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 via-teal-500 to-amber-600 text-white font-heading font-bold text-base shadow-[0_0_30px_rgba(217,119,6,0.5)] hover:shadow-[0_0_45px_rgba(217,119,6,0.8)] border border-cyan-300/40 transition-all flex items-center space-x-3"
             >
               <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <Activity className="w-5 h-5 text-white animate-pulse" />
@@ -444,9 +444,9 @@ export default function About({
                 const el = document.getElementById('crisis-simulator-sandbox');
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="px-7 py-4 rounded-2xl bg-[#1c120c]/80 hover:bg-[#28180f]/95 border border-amber-500/40 hover:border-amber-400 text-[#fdfaf5] font-heading font-semibold text-base shadow-[0_4px_20px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all flex items-center space-x-2.5"
+              className="px-7 py-4 rounded-2xl bg-[#1c120c]/80 hover:bg-[#28180f]/95 border border-cyan-500/40 hover:border-cyan-400 text-[#fdfaf5] font-heading font-semibold text-base shadow-[0_4px_20px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all flex items-center space-x-2.5"
             >
-              <Sliders className="w-5 h-5 text-amber-400" />
+              <Sliders className="w-5 h-5 text-cyan-400" />
               <span>Try Crisis Simulator</span>
             </motion.button>
 
@@ -455,9 +455,9 @@ export default function About({
               whileHover={{ scale: 1.04, translateY: -2 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => setActiveTab('companies')}
-              className="px-6 py-4 rounded-2xl bg-[#1c120c]/65 hover:bg-[#28180f]/90 border border-[#382417] hover:border-amber-500/60 text-amber-200 hover:text-white font-heading font-medium text-sm backdrop-blur-md transition-all flex items-center space-x-2"
+              className="px-6 py-4 rounded-2xl bg-[#1c120c]/65 hover:bg-[#28180f]/90 border border-[#382417] hover:border-cyan-500/60 text-cyan-200 hover:text-white font-heading font-medium text-sm backdrop-blur-md transition-all flex items-center space-x-2"
             >
-              <Building2 className="w-4 h-4 text-amber-400" />
+              <Building2 className="w-4 h-4 text-cyan-400" />
               <span>11 Benchmark Titans</span>
             </motion.button>
           </motion.div>
@@ -470,10 +470,10 @@ export default function About({
             className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 w-full max-w-4xl pointer-events-auto"
           >
             {[
-              { label: 'Corporate Titans', val: '11 Benchmarks', sub: 'Longitudinal Data (T-3 to T+3)', icon: Building2, color: 'text-amber-400', glow: 'hover:border-amber-500/50 hover:shadow-[0_0_25px_rgba(217,119,6,0.4)]' },
-              { label: 'Decision Engine', val: 'Vector CBR', sub: 'Cosine Metric Similarity', icon: Cpu, color: 'text-orange-400', glow: 'hover:border-orange-500/50 hover:shadow-[0_0_25px_rgba(224,90,54,0.4)]' },
-              { label: 'Turnaround Archetypes', val: '3 Stages', sub: 'Stabilize • Pivot • Scale', icon: ListOrdered, color: 'text-amber-300', glow: 'hover:border-amber-400/50 hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]' },
-              { label: 'Forensic Depth', val: '6 Years', sub: 'Downfall to Peak Recovery', icon: TrendingUp, color: 'text-rose-400', glow: 'hover:border-rose-500/50 hover:shadow-[0_0_25px_rgba(244,63,94,0.35)]' },
+              { label: 'Corporate Titans', val: '11 Benchmarks', sub: 'Longitudinal Data (T-3 to T+3)', icon: Building2, color: 'text-cyan-400', glow: 'hover:border-cyan-500/50 hover:shadow-[0_0_25px_rgba(217,119,6,0.4)]' },
+              { label: 'Decision Engine', val: 'Vector CBR', sub: 'Cosine Metric Similarity', icon: Cpu, color: 'text-teal-400', glow: 'hover:border-teal-500/50 hover:shadow-[0_0_25px_rgba(224,90,54,0.4)]' },
+              { label: 'Turnaround Archetypes', val: '3 Stages', sub: 'Stabilize • Pivot • Scale', icon: ListOrdered, color: 'text-cyan-300', glow: 'hover:border-cyan-400/50 hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]' },
+              { label: 'Forensic Depth', val: '6 Years', sub: 'Downfall to Peak Recovery', icon: TrendingUp, color: 'text-fuchsia-400', glow: 'hover:border-fuchsia-500/50 hover:shadow-[0_0_25px_rgba(244,63,94,0.35)]' },
             ].map((stat, idx) => {
               const Icon = stat.icon;
               return (
@@ -485,14 +485,14 @@ export default function About({
                     <div className="p-1 rounded-lg bg-white/5 border border-white/10">
                       <Icon className={`w-4 h-4 ${stat.color}`} />
                     </div>
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-amber-200/80 font-semibold">
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-cyan-200/80 font-semibold">
                       {stat.label}
                     </span>
                   </div>
                   <div className="text-xl sm:text-2xl font-heading font-black text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                     {stat.val}
                   </div>
-                  <div className="text-[11px] text-amber-200/70 mt-1 font-normal truncate">
+                  <div className="text-[11px] text-cyan-200/70 mt-1 font-normal truncate">
                     {stat.sub}
                   </div>
                 </div>
@@ -508,10 +508,10 @@ export default function About({
           ========================================================================= */}
       <section id="crisis-simulator-sandbox" className="scroll-mt-24">
         <MotionSection direction="up" duration={0.6}>
-          <div className="relative rounded-3xl border border-[#dcceb9] dark:border-slate-800/80 bg-gradient-to-br from-[#1a110a] via-[#120c08] to-[#1f140d] text-white p-6 sm:p-10 lg:p-12 shadow-2xl overflow-hidden">
+          <div className="relative rounded-3xl border border-[#dcceb9] dark:border-white/10/80 bg-gradient-to-br from-[#1a110a] via-[#120c08] to-[#1f140d] text-white p-6 sm:p-10 lg:p-12 shadow-2xl overflow-hidden">
             
             {/* Ambient Holographic Ring */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/15 rounded-full blur-[110px] pointer-events-none animate-pulse-slow" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/15 rounded-full blur-[110px] pointer-events-none animate-pulse-slow" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-600/15 rounded-full blur-[110px] pointer-events-none animate-pulse-slow" />
 
             <div className="relative z-10">
@@ -519,20 +519,20 @@ export default function About({
               {/* Header */}
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 border-b border-[#3d2719]">
                 <div>
-                  <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-mono mb-3">
+                  <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-xs font-mono mb-3">
                     <Sliders className="w-3.5 h-3.5" />
                     <span>INTERACTIVE TELEMETRY SANDBOX</span>
                   </div>
                   <h2 className="text-2xl sm:text-4xl font-heading font-extrabold text-white">
                     Simulate Your Startup's Crisis Vector
                   </h2>
-                  <p className="text-amber-100/70 text-sm sm:text-base mt-2 max-w-2xl font-normal">
+                  <p className="text-cyan-100/70 text-sm sm:text-base mt-2 max-w-2xl font-normal">
                     Adjust real-world startup distress parameters to see which corporate titan experienced the exact same crisis condition and how they engineered their turnaround.
                   </p>
                 </div>
 
-                <div className="flex items-center space-x-2 text-xs font-mono text-amber-200/80 bg-[#1c120c]/90 px-4 py-2 rounded-xl border border-[#3d2719] self-start md:self-auto">
-                  <span className="h-2 w-2 rounded-full bg-amber-400 animate-pulse" />
+                <div className="flex items-center space-x-2 text-xs font-mono text-cyan-200/80 bg-[#1c120c]/90 px-4 py-2 rounded-xl border border-[#3d2719] self-start md:self-auto">
+                  <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
                   <span>Real-time Cosine Heuristic Model</span>
                 </div>
               </div>
@@ -547,12 +547,12 @@ export default function About({
                   <div className="p-5 rounded-2xl bg-[#1c120c]/95 border border-[#3d2719] space-y-3">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <Zap className="w-4 h-4 text-amber-400" />
-                        <label className="text-sm font-semibold text-amber-100">Cash Runway Remaining</label>
+                        <Zap className="w-4 h-4 text-cyan-400" />
+                        <label className="text-sm font-semibold text-cyan-100">Cash Runway Remaining</label>
                       </div>
                       <span className={`text-base font-mono font-bold px-3 py-1 rounded-lg ${
                         runwayMonths <= 3 ? 'bg-red-500/20 text-red-400 border border-red-500/40' :
-                        runwayMonths <= 6 ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40' :
+                        runwayMonths <= 6 ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40' :
                         'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40'
                       }`}>
                         {runwayMonths} {runwayMonths === 1 ? 'Month' : 'Months'}
@@ -565,9 +565,9 @@ export default function About({
                       step="1"
                       value={runwayMonths}
                       onChange={(e) => setRunwayMonths(Number(e.target.value))}
-                      className="w-full h-2 bg-[#2d1e15] rounded-lg appearance-none cursor-pointer accent-amber-500"
+                      className="w-full h-2 bg-[#2d1e15] rounded-lg appearance-none cursor-pointer accent-cyan-500"
                     />
-                    <div className="flex justify-between text-[11px] text-amber-200/60 font-mono">
+                    <div className="flex justify-between text-[11px] text-cyan-200/60 font-mono">
                       <span className="text-red-400">1 Mo (Insolvency Cliff)</span>
                       <span>12 Mo</span>
                       <span className="text-emerald-400">24 Mo (Stable)</span>
@@ -578,10 +578,10 @@ export default function About({
                   <div className="p-5 rounded-2xl bg-[#1c120c]/95 border border-[#3d2719] space-y-3">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <Activity className="w-4 h-4 text-amber-400" />
-                        <label className="text-sm font-semibold text-amber-100">Burn Rate Multiple</label>
+                        <Activity className="w-4 h-4 text-cyan-400" />
+                        <label className="text-sm font-semibold text-cyan-100">Burn Rate Multiple</label>
                       </div>
-                      <span className="text-base font-mono font-bold px-3 py-1 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/40">
+                      <span className="text-base font-mono font-bold px-3 py-1 rounded-lg bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
                         {burnMultiple.toFixed(1)}x Operating Cost
                       </span>
                     </div>
@@ -592,12 +592,12 @@ export default function About({
                       step="0.1"
                       value={burnMultiple}
                       onChange={(e) => setBurnMultiple(Number(e.target.value))}
-                      className="w-full h-2 bg-[#2d1e15] rounded-lg appearance-none cursor-pointer accent-amber-500"
+                      className="w-full h-2 bg-[#2d1e15] rounded-lg appearance-none cursor-pointer accent-cyan-500"
                     />
-                    <div className="flex justify-between text-[11px] text-amber-200/60 font-mono">
+                    <div className="flex justify-between text-[11px] text-cyan-200/60 font-mono">
                       <span>1.0x (Lean)</span>
                       <span>2.5x (Growth)</span>
-                      <span className="text-rose-400">5.0x (Hyper-Burn)</span>
+                      <span className="text-fuchsia-400">5.0x (Hyper-Burn)</span>
                     </div>
                   </div>
 
@@ -605,10 +605,10 @@ export default function About({
                   <div className="p-5 rounded-2xl bg-[#1c120c]/95 border border-[#3d2719] space-y-3">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <TrendingUp className="w-4 h-4 text-orange-400" />
-                        <label className="text-sm font-semibold text-amber-100">Macro / Market Headwind Severity</label>
+                        <TrendingUp className="w-4 h-4 text-teal-400" />
+                        <label className="text-sm font-semibold text-cyan-100">Macro / Market Headwind Severity</label>
                       </div>
-                      <span className="text-base font-mono font-bold px-3 py-1 rounded-lg bg-orange-500/20 text-orange-300 border border-orange-500/40">
+                      <span className="text-base font-mono font-bold px-3 py-1 rounded-lg bg-teal-500/20 text-teal-300 border border-teal-500/40">
                         {headwindSeverity}% Shock
                       </span>
                     </div>
@@ -619,9 +619,9 @@ export default function About({
                       step="5"
                       value={headwindSeverity}
                       onChange={(e) => setHeadwindSeverity(Number(e.target.value))}
-                      className="w-full h-2 bg-[#2d1e15] rounded-lg appearance-none cursor-pointer accent-orange-500"
+                      className="w-full h-2 bg-[#2d1e15] rounded-lg appearance-none cursor-pointer accent-teal-500"
                     />
-                    <div className="flex justify-between text-[11px] text-amber-200/60 font-mono">
+                    <div className="flex justify-between text-[11px] text-cyan-200/60 font-mono">
                       <span>0% (Favorable)</span>
                       <span>50% (Moderate Squeeze)</span>
                       <span className="text-red-400">100% (Category Crisis)</span>
@@ -630,7 +630,7 @@ export default function About({
 
                   {/* Selector: SKU & Product Complexity */}
                   <div className="p-5 rounded-2xl bg-[#1c120c]/95 border border-[#3d2719] space-y-3">
-                    <label className="text-sm font-semibold text-amber-100 block">Product / Portfolio SKU Complexity</label>
+                    <label className="text-sm font-semibold text-cyan-100 block">Product / Portfolio SKU Complexity</label>
                     <div className="grid grid-cols-4 gap-2">
                       {['Low', 'Medium', 'High', 'Extreme'].map((lvl) => (
                         <button
@@ -638,8 +638,8 @@ export default function About({
                           onClick={() => setSkuComplexity(lvl)}
                           className={`py-2.5 px-3 rounded-xl text-xs font-semibold transition-all border ${
                             skuComplexity === lvl
-                              ? 'bg-amber-500/25 text-amber-300 border-amber-500 shadow-glow-amber font-bold'
-                              : 'bg-[#28180f] text-amber-200/70 border-[#3d2719] hover:text-white'
+                              ? 'bg-cyan-500/25 text-cyan-300 border-cyan-500 shadow-glow-amber font-bold'
+                              : 'bg-[#28180f] text-cyan-200/70 border-[#3d2719] hover:text-white'
                           }`}
                         >
                           {lvl}
@@ -658,18 +658,18 @@ export default function About({
                       initial={{ opacity: 0, scale: 0.96 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.4 }}
-                      className="flex-1 p-6 sm:p-7 rounded-3xl bg-[#1c120c]/95 border-2 border-amber-500/50 shadow-glow-amber flex flex-col justify-between relative overflow-hidden"
+                      className="flex-1 p-6 sm:p-7 rounded-3xl bg-[#1c120c]/95 border-2 border-cyan-500/50 shadow-glow-amber flex flex-col justify-between relative overflow-hidden"
                     >
                       {/* Scanline Effect */}
                       <div className="absolute inset-0 scanline pointer-events-none opacity-20" />
 
                       <div className="space-y-4">
                         <div className="flex items-center justify-between">
-                          <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-mono font-bold">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
+                          <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 text-xs font-mono font-bold">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400" />
                             <span>{matchedTitan.score}% VECTOR MATCH</span>
                           </div>
-                          <span className="text-xs font-mono text-amber-200/70">Heuristic Cosine</span>
+                          <span className="text-xs font-mono text-cyan-200/70">Heuristic Cosine</span>
                         </div>
 
                         {/* Matched Titan Header */}
@@ -684,15 +684,15 @@ export default function About({
                             <h3 className="text-2xl font-heading font-black text-white flex items-center space-x-2">
                               <span>{matchedTitan.name}</span>
                             </h3>
-                            <span className="text-xs font-mono text-amber-400">
+                            <span className="text-xs font-mono text-cyan-400">
                               Crisis Epoch: {matchedTitan.crisisYear} • Recovery: {matchedTitan.recoveryYear}
                             </span>
                           </div>
                         </div>
 
                         {/* Match Rationale */}
-                        <div className="p-3.5 rounded-xl bg-[#120c08]/90 border border-[#3d2719] text-xs text-amber-100/90 space-y-1">
-                          <span className="text-[10px] font-mono uppercase tracking-wider text-amber-400 block font-bold">Similarity Vector Diagnostic:</span>
+                        <div className="p-3.5 rounded-xl bg-[#120c08]/90 border border-[#3d2719] text-xs text-cyan-100/90 space-y-1">
+                          <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 block font-bold">Similarity Vector Diagnostic:</span>
                           <p className="leading-relaxed">{matchedTitan.matchReason}</p>
                         </div>
 
@@ -714,13 +714,13 @@ export default function About({
                       <div className="pt-6 mt-4 border-t border-[#3d2719] space-y-2">
                         <button
                           onClick={() => handleLaunchToCompany(matchedTitan.id)}
-                          className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-bold text-xs font-heading shadow-glow-amber transition-all flex items-center justify-center space-x-2"
+                          className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-cyan-500 via-teal-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-bold text-xs font-heading shadow-glow-amber transition-all flex items-center justify-center space-x-2"
                         >
                           <Play className="w-3.5 h-3.5 fill-current" />
                           <span>Execute Full {matchedTitan.name} Roadmap</span>
                           <ArrowRight className="w-3.5 h-3.5" />
                         </button>
-                        <p className="text-[10px] text-center text-amber-200/60 font-mono">
+                        <p className="text-[10px] text-center text-cyan-200/60 font-mono">
                           Inspect 3-Stage Heuristics (Stabilize, Pivot, Scale)
                         </p>
                       </div>
@@ -742,7 +742,7 @@ export default function About({
       <section className="space-y-8">
         <MotionSection direction="up" duration={0.6}>
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-800 dark:text-amber-400 text-xs font-semibold">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-cyan-500/15 border border-cyan-500/30 text-cyan-800 dark:text-cyan-400 text-xs font-semibold">
               <Cpu className="w-3.5 h-3.5" />
               <span>CORE ARCHITECTURAL FOUNDATION</span>
             </div>
@@ -759,12 +759,12 @@ export default function About({
           
           {/* Pillar 1 */}
           <StaggerItem>
-            <div className="h-full p-6 sm:p-7 rounded-3xl bg-[#fdfbf7] dark:bg-dark-900 border border-[#dcceb9] dark:border-slate-800/80 shadow-sm hover:shadow-xl hover:border-amber-500/50 dark:hover:border-amber-500/50 transition-all group flex flex-col justify-between">
+            <div className="h-full p-6 sm:p-7 rounded-3xl bg-[#fdfbf7] dark:bg-dark-900 border border-[#dcceb9] dark:border-white/10/80 shadow-sm hover:shadow-xl hover:border-cyan-500/50 dark:hover:border-cyan-500/50 transition-all group flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <TrendingUp className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+                <div className="w-12 h-12 rounded-2xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <TrendingUp className="w-6 h-6 text-amber-600 dark:text-cyan-400" />
                 </div>
-                <span className="text-[11px] font-mono text-amber-700 dark:text-amber-400 font-bold tracking-wider">PILLAR 01</span>
+                <span className="text-[11px] font-mono text-cyan-700 dark:text-cyan-400 font-bold tracking-wider">PILLAR 01</span>
                 <h3 className="text-xl font-heading font-bold text-[#24160d] dark:text-white mt-1 mb-3">
                   Longitudinal Forensics (T-3 to T+3)
                 </h3>
@@ -772,21 +772,21 @@ export default function About({
                   Tracks 6-year operational metrics spanning 3 years pre-crisis and 3 years post-recovery across balance sheet indicators, cash flow velocity, and product portfolio size.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-[#eee3d5] dark:border-slate-800 text-[11px] font-mono text-[#84654f] dark:text-slate-500 flex items-center justify-between">
+              <div className="mt-6 pt-4 border-t border-[#eee3d5] dark:border-white/10 text-[11px] font-mono text-[#84654f] dark:text-slate-400 flex items-center justify-between">
                 <span>10-K Forensic Modeling</span>
-                <CheckCircle2 className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                <CheckCircle2 className="w-4 h-4 text-amber-600 dark:text-cyan-400" />
               </div>
             </div>
           </StaggerItem>
 
           {/* Pillar 2 */}
           <StaggerItem>
-            <div className="h-full p-6 sm:p-7 rounded-3xl bg-[#fdfbf7] dark:bg-dark-900 border border-[#dcceb9] dark:border-slate-800/80 shadow-sm hover:shadow-xl hover:border-orange-500/50 dark:hover:border-orange-500/50 transition-all group flex flex-col justify-between">
+            <div className="h-full p-6 sm:p-7 rounded-3xl bg-[#fdfbf7] dark:bg-dark-900 border border-[#dcceb9] dark:border-white/10/80 shadow-sm hover:shadow-xl hover:border-teal-500/50 dark:hover:border-teal-500/50 transition-all group flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-orange-500/15 border border-orange-500/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <Database className="w-6 h-6 text-orange-600 dark:text-orange-400" />
+                <div className="w-12 h-12 rounded-2xl bg-teal-500/15 border border-teal-500/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <Database className="w-6 h-6 text-orange-600 dark:text-teal-400" />
                 </div>
-                <span className="text-[11px] font-mono text-orange-700 dark:text-orange-400 font-bold tracking-wider">PILLAR 02</span>
+                <span className="text-[11px] font-mono text-orange-700 dark:text-teal-400 font-bold tracking-wider">PILLAR 02</span>
                 <h3 className="text-xl font-heading font-bold text-[#24160d] dark:text-white mt-1 mb-3">
                   Case-Based Reasoning (CBR)
                 </h3>
@@ -794,21 +794,21 @@ export default function About({
                   Employs high-dimensional vector similarity algorithms (Cosine & Euclidean distance) to match real-time startup distress symptoms to benchmark corporate crises.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-[#eee3d5] dark:border-slate-800 text-[11px] font-mono text-[#84654f] dark:text-slate-500 flex items-center justify-between">
+              <div className="mt-6 pt-4 border-t border-[#eee3d5] dark:border-white/10 text-[11px] font-mono text-[#84654f] dark:text-slate-400 flex items-center justify-between">
                 <span>Vector Cosine Engine</span>
-                <CheckCircle2 className="w-4 h-4 text-orange-600 dark:text-orange-400" />
+                <CheckCircle2 className="w-4 h-4 text-orange-600 dark:text-teal-400" />
               </div>
             </div>
           </StaggerItem>
 
           {/* Pillar 3 */}
           <StaggerItem>
-            <div className="h-full p-6 sm:p-7 rounded-3xl bg-[#fdfbf7] dark:bg-dark-900 border border-[#dcceb9] dark:border-slate-800/80 shadow-sm hover:shadow-xl hover:border-amber-600/50 dark:hover:border-amber-400/50 transition-all group flex flex-col justify-between">
+            <div className="h-full p-6 sm:p-7 rounded-3xl bg-[#fdfbf7] dark:bg-dark-900 border border-[#dcceb9] dark:border-white/10/80 shadow-sm hover:shadow-xl hover:border-amber-600/50 dark:hover:border-cyan-400/50 transition-all group flex flex-col justify-between">
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-amber-600/15 border border-amber-600/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <ListOrdered className="w-6 h-6 text-amber-700 dark:text-amber-300" />
+                  <ListOrdered className="w-6 h-6 text-cyan-700 dark:text-cyan-300" />
                 </div>
-                <span className="text-[11px] font-mono text-amber-700 dark:text-amber-300 font-bold tracking-wider">PILLAR 03</span>
+                <span className="text-[11px] font-mono text-cyan-700 dark:text-cyan-300 font-bold tracking-wider">PILLAR 03</span>
                 <h3 className="text-xl font-heading font-bold text-[#24160d] dark:text-white mt-1 mb-3">
                   3-Stage Strategy Synthesizer
                 </h3>
@@ -816,21 +816,21 @@ export default function About({
                   Synthesizes structured strategic roadmaps partitioned into Phase 1 (Stabilization & Cash Runway), Phase 2 (Core Re-engineering & Pivot), and Phase 3 (Scale & Re-emergence).
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-[#eee3d5] dark:border-slate-800 text-[11px] font-mono text-[#84654f] dark:text-slate-500 flex items-center justify-between">
+              <div className="mt-6 pt-4 border-t border-[#eee3d5] dark:border-white/10 text-[11px] font-mono text-[#84654f] dark:text-slate-400 flex items-center justify-between">
                 <span>Actionable Milestones</span>
-                <CheckCircle2 className="w-4 h-4 text-amber-700 dark:text-amber-300" />
+                <CheckCircle2 className="w-4 h-4 text-cyan-700 dark:text-cyan-300" />
               </div>
             </div>
           </StaggerItem>
 
           {/* Pillar 4 */}
           <StaggerItem>
-            <div className="h-full p-6 sm:p-7 rounded-3xl bg-[#fdfbf7] dark:bg-dark-900 border border-[#dcceb9] dark:border-slate-800/80 shadow-sm hover:shadow-xl hover:border-rose-500/50 dark:hover:border-rose-500/50 transition-all group flex flex-col justify-between">
+            <div className="h-full p-6 sm:p-7 rounded-3xl bg-[#fdfbf7] dark:bg-dark-900 border border-[#dcceb9] dark:border-white/10/80 shadow-sm hover:shadow-xl hover:border-fuchsia-500/50 dark:hover:border-fuchsia-500/50 transition-all group flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <Briefcase className="w-6 h-6 text-rose-600 dark:text-rose-400" />
+                <div className="w-12 h-12 rounded-2xl bg-fuchsia-500/15 border border-fuchsia-500/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <Briefcase className="w-6 h-6 text-rose-600 dark:text-fuchsia-400" />
                 </div>
-                <span className="text-[11px] font-mono text-rose-700 dark:text-rose-400 font-bold tracking-wider">PILLAR 04</span>
+                <span className="text-[11px] font-mono text-rose-700 dark:text-fuchsia-400 font-bold tracking-wider">PILLAR 04</span>
                 <h3 className="text-xl font-heading font-bold text-[#24160d] dark:text-white mt-1 mb-3">
                   Founder-Investor Nexus & Stock AI
                 </h3>
@@ -838,9 +838,9 @@ export default function About({
                   Connects resilient ventures with crisis-hardened investors, backed by interactive stock trend forecasting and cross-industry correlation models.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-[#eee3d5] dark:border-slate-800 text-[11px] font-mono text-[#84654f] dark:text-slate-500 flex items-center justify-between">
+              <div className="mt-6 pt-4 border-t border-[#eee3d5] dark:border-white/10 text-[11px] font-mono text-[#84654f] dark:text-slate-400 flex items-center justify-between">
                 <span>Capital Alignment</span>
-                <CheckCircle2 className="w-4 h-4 text-rose-600 dark:text-rose-400" />
+                <CheckCircle2 className="w-4 h-4 text-rose-600 dark:text-fuchsia-400" />
               </div>
             </div>
           </StaggerItem>
@@ -859,17 +859,17 @@ export default function About({
                 <Award className="w-3.5 h-3.5" />
                 <span>BENCHMARK CORP DATASETS</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-heading font-extrabold text-slate-900 dark:text-white">
+              <h2 className="text-3xl sm:text-5xl font-heading font-extrabold text-white dark:text-white">
                 Legendary Corporate Turnaround Cases
               </h2>
-              <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-1 max-w-2xl font-normal">
+              <p className="text-slate-300 dark:text-slate-400 text-sm sm:text-base mt-1 max-w-2xl font-normal">
                 Explored through six years of rigorous financial data from near-death to global dominance.
               </p>
             </div>
 
             <button
               onClick={() => setActiveTab('companies')}
-              className="flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-slate-100 dark:bg-dark-900 hover:bg-slate-200 dark:hover:bg-dark-800 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 text-xs font-bold font-heading self-start md:self-auto transition-all"
+              className="flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-white/5 dark:bg-dark-900 hover:bg-white/10 dark:hover:bg-dark-800 border border-white/10 text-white text-xs font-bold font-heading self-start md:self-auto transition-all"
             >
               <span>View All 11 Companies</span>
               <ChevronRight className="w-4 h-4" />
@@ -882,7 +882,7 @@ export default function About({
             <motion.div
               key={titan.id}
               whileHover={{ y: -4 }}
-              className="p-6 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200/80 dark:border-slate-800/80 shadow-md hover:shadow-xl transition-all flex flex-col justify-between"
+              className="p-6 rounded-3xl bg-[#0c0c16] border border-white/10 shadow-md hover:shadow-xl transition-all flex flex-col justify-between"
             >
               <div className="space-y-4">
                 
@@ -896,10 +896,10 @@ export default function About({
                       className="w-11 h-11"
                     />
                     <div>
-                      <h4 className="text-lg font-heading font-bold text-slate-900 dark:text-white">
+                      <h4 className="text-lg font-heading font-bold text-white dark:text-white">
                         {titan.name}
                       </h4>
-                      <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
+                      <span className="text-xs font-mono text-slate-400 dark:text-slate-400">
                         {titan.ticker} • {titan.crisisYear} Crisis
                       </span>
                     </div>
@@ -914,7 +914,7 @@ export default function About({
                   {titan.tags.map((tag, i) => (
                     <span
                       key={i}
-                      className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-dark-800 text-slate-600 dark:text-slate-300 text-[10px] font-medium"
+                      className="px-2 py-0.5 rounded-md bg-white/5 dark:bg-dark-800 text-slate-300 dark:text-slate-300 text-[10px] font-medium"
                     >
                       {tag}
                     </span>
@@ -923,9 +923,9 @@ export default function About({
 
                 {/* Recovery Strategy & Growth */}
                 <div className="space-y-2 pt-2 text-xs">
-                  <div className="p-3 rounded-2xl bg-slate-50 dark:bg-dark-950/70 border border-slate-200/60 dark:border-slate-800/60">
+                  <div className="p-3 rounded-2xl bg-[#0c0c16]/70 border border-white/10">
                     <span className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Turnaround Catalyst:</span>
-                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed font-normal">{titan.recoveryCatalyst}</p>
+                    <p className="text-slate-300 dark:text-slate-400 leading-relaxed font-normal">{titan.recoveryCatalyst}</p>
                   </div>
 
                   <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-semibold flex items-center space-x-2">
@@ -937,7 +937,7 @@ export default function About({
               </div>
 
               {/* Inspect Button */}
-              <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+              <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
                 <button
                   onClick={() => {
                     if (setSelectedCompanyId) setSelectedCompanyId(titan.id);
@@ -950,7 +950,7 @@ export default function About({
                 </button>
                 <button
                   onClick={() => handleLaunchToCompany(titan.id)}
-                  className="text-xs font-medium text-slate-500 hover:text-slate-900 dark:hover:text-white"
+                  className="text-xs font-medium text-slate-400 hover:text-white dark:hover:text-white"
                 >
                   View Strategy Steps
                 </button>
@@ -966,22 +966,22 @@ export default function About({
           ========================================================================= */}
       <section className="space-y-8">
         <MotionSection direction="up" duration={0.6}>
-          <div className="p-8 sm:p-12 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 bg-gradient-to-b from-white via-slate-50/60 to-slate-100/60 dark:from-dark-900 dark:via-dark-950 dark:to-dark-950 shadow-xl transition-colors duration-300">
+          <div className="p-8 sm:p-12 rounded-3xl border border-white/10 bg-gradient-to-b from-white via-slate-50/60 to-slate-100/60 dark:from-dark-900 dark:via-dark-950 dark:to-dark-950 shadow-xl transition-colors duration-300">
             
             <div className="max-w-3xl mx-auto text-center space-y-3 mb-8">
               <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-brand-purple/10 border border-brand-purple/30 text-brand-purple dark:text-brand-purple text-xs font-semibold">
                 <Users className="w-3.5 h-3.5" />
                 <span>TAILORED FOR EVERY STAKEHOLDER</span>
               </div>
-              <h2 className="text-2xl sm:text-4xl font-heading font-extrabold text-slate-900 dark:text-white">
+              <h2 className="text-2xl sm:text-4xl font-heading font-extrabold text-white dark:text-white">
                 How ICLAS Serves Your Perspective
               </h2>
-              <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base font-normal">
+              <p className="text-slate-300 dark:text-slate-400 text-sm sm:text-base font-normal">
                 Select your role to preview how the platform adapts its decision heuristics, data visualizers, and toolkits.
               </p>
 
               {/* Persona Switcher Tabs */}
-              <div className="inline-flex p-1 rounded-2xl bg-slate-200/70 dark:bg-dark-800 border border-slate-300/60 dark:border-slate-700 mt-4">
+              <div className="inline-flex p-1 rounded-2xl bg-white/10 dark:bg-dark-800 border border-white/10 mt-4">
                 {[
                   { id: 'Entrepreneur', label: 'Entrepreneurs & Founders', icon: Zap },
                   { id: 'Investor', label: 'Venture Capital & Angels', icon: Briefcase },
@@ -995,8 +995,8 @@ export default function About({
                       onClick={() => setPreviewPersona(p.id)}
                       className={`flex items-center space-x-2 px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                         isActive
-                          ? 'bg-white dark:bg-dark-900 text-brand-caramel dark:text-brand-amber shadow-sm font-bold'
-                          : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                          ? 'bg-[#0c0c16] text-brand-caramel dark:text-brand-amber shadow-sm font-bold'
+                          : 'text-slate-300 dark:text-slate-400 hover:text-white dark:hover:text-white'
                       }`}
                     >
                       <Icon className={`w-4 h-4 ${isActive ? 'text-brand-amber' : 'text-slate-400'}`} />
@@ -1019,32 +1019,32 @@ export default function About({
               >
                 {previewPersona === 'Entrepreneur' && (
                   <>
-                    <div className="p-6 rounded-2xl bg-white/80 dark:bg-dark-900/80 border border-slate-200/80 dark:border-slate-800 space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-brand-caramel dark:text-brand-amber flex items-center justify-center">
+                    <div className="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-3">
+                      <div className="w-10 h-10 rounded-xl bg-cyan-500/10 text-brand-caramel dark:text-brand-amber flex items-center justify-center">
                         <Search className="w-5 h-5" />
                       </div>
-                      <h4 className="text-base font-bold text-slate-900 dark:text-white">Condition Matching</h4>
-                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+                      <h4 className="text-base font-bold text-white dark:text-white">Condition Matching</h4>
+                      <p className="text-xs text-slate-300 dark:text-slate-400 leading-relaxed font-normal">
                         Input your current runway, burn rate, and tech bottleneck to extract proven playbook heuristics that rescued titans in the same spot.
                       </p>
                     </div>
 
-                    <div className="p-6 rounded-2xl bg-white/80 dark:bg-dark-900/80 border border-slate-200/80 dark:border-slate-800 space-y-3">
+                    <div className="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-3">
                       <div className="w-10 h-10 rounded-xl bg-indigo-500/10 text-brand-indigo flex items-center justify-center">
                         <ListOrdered className="w-5 h-5" />
                       </div>
-                      <h4 className="text-base font-bold text-slate-900 dark:text-white">3-Phase Action Roadmap</h4>
-                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+                      <h4 className="text-base font-bold text-white dark:text-white">3-Phase Action Roadmap</h4>
+                      <p className="text-xs text-slate-300 dark:text-slate-400 leading-relaxed font-normal">
                         Receive a prioritized, phased turnaround roadmap: Stabilization (Cash preservation), Core Re-engineering, and Scaled Growth.
                       </p>
                     </div>
 
-                    <div className="p-6 rounded-2xl bg-white/80 dark:bg-dark-900/80 border border-slate-200/80 dark:border-slate-800 space-y-3">
+                    <div className="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-3">
                       <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-brand-emerald flex items-center justify-center">
                         <Briefcase className="w-5 h-5" />
                       </div>
-                      <h4 className="text-base font-bold text-slate-900 dark:text-white">Investor Credibility</h4>
-                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+                      <h4 className="text-base font-bold text-white dark:text-white">Investor Credibility</h4>
+                      <p className="text-xs text-slate-300 dark:text-slate-400 leading-relaxed font-normal">
                         Show investors you have anchored your turnaround strategy in historical corporate data, elevating pitch deck authority.
                       </p>
                     </div>
@@ -1053,32 +1053,32 @@ export default function About({
 
                 {previewPersona === 'Investor' && (
                   <>
-                    <div className="p-6 rounded-2xl bg-white/80 dark:bg-dark-900/80 border border-slate-200/80 dark:border-slate-800 space-y-3">
+                    <div className="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-3">
                       <div className="w-10 h-10 rounded-xl bg-purple-500/10 text-brand-purple flex items-center justify-center">
                         <ShieldCheck className="w-5 h-5" />
                       </div>
-                      <h4 className="text-base font-bold text-slate-900 dark:text-white">Downside Risk Forensics</h4>
-                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+                      <h4 className="text-base font-bold text-white dark:text-white">Downside Risk Forensics</h4>
+                      <p className="text-xs text-slate-300 dark:text-slate-400 leading-relaxed font-normal">
                         Stress-test portfolio startup burn rates against historical downturn benchmarks to evaluate turnaround plausibility.
                       </p>
                     </div>
 
-                    <div className="p-6 rounded-2xl bg-white/80 dark:bg-dark-900/80 border border-slate-200/80 dark:border-slate-800 space-y-3">
+                    <div className="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-3">
                       <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center">
                         <TrendingUp className="w-5 h-5" />
                       </div>
-                      <h4 className="text-base font-bold text-slate-900 dark:text-white">Stock AI & Market Signals</h4>
-                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+                      <h4 className="text-base font-bold text-white dark:text-white">Stock AI & Market Signals</h4>
+                      <p className="text-xs text-slate-300 dark:text-slate-400 leading-relaxed font-normal">
                         Access multi-timeframe predictive indicators and sector market movements to time liquidity and follow-on rounds.
                       </p>
                     </div>
 
-                    <div className="p-6 rounded-2xl bg-white/80 dark:bg-dark-900/80 border border-slate-200/80 dark:border-slate-800 space-y-3">
+                    <div className="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-3">
                       <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-brand-emerald flex items-center justify-center">
                         <Users className="w-5 h-5" />
                       </div>
-                      <h4 className="text-base font-bold text-slate-900 dark:text-white">Direct Founder Discovery</h4>
-                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+                      <h4 className="text-base font-bold text-white dark:text-white">Direct Founder Discovery</h4>
+                      <p className="text-xs text-slate-300 dark:text-slate-400 leading-relaxed font-normal">
                         Discover vetted startups executing structured corporate playbooks with high recovery and scaling potential.
                       </p>
                     </div>
@@ -1087,32 +1087,32 @@ export default function About({
 
                 {previewPersona === 'Researcher' && (
                   <>
-                    <div className="p-6 rounded-2xl bg-white/80 dark:bg-dark-900/80 border border-slate-200/80 dark:border-slate-800 space-y-3">
+                    <div className="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-3">
                       <div className="w-10 h-10 rounded-xl bg-indigo-500/10 text-brand-indigo flex items-center justify-center">
                         <Database className="w-5 h-5" />
                       </div>
-                      <h4 className="text-base font-bold text-slate-900 dark:text-white">Longitudinal Datasets</h4>
-                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+                      <h4 className="text-base font-bold text-white dark:text-white">Longitudinal Datasets</h4>
+                      <p className="text-xs text-slate-300 dark:text-slate-400 leading-relaxed font-normal">
                         Inspect clean 6-year operational metrics across 11 major global corporations spanning 8 sectors.
                       </p>
                     </div>
 
-                    <div className="p-6 rounded-2xl bg-white/80 dark:bg-dark-900/80 border border-slate-200/80 dark:border-slate-800 space-y-3">
+                    <div className="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-3">
                       <div className="w-10 h-10 rounded-xl bg-cyan-500/10 text-brand-cyan flex items-center justify-center">
                         <Cpu className="w-5 h-5" />
                       </div>
-                      <h4 className="text-base font-bold text-slate-900 dark:text-white">CBR Heuristic Validation</h4>
-                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+                      <h4 className="text-base font-bold text-white dark:text-white">CBR Heuristic Validation</h4>
+                      <p className="text-xs text-slate-300 dark:text-slate-400 leading-relaxed font-normal">
                         Evaluate the efficacy of Case-Based Reasoning algorithms applied to corporate distress scenarios.
                       </p>
                     </div>
 
-                    <div className="p-6 rounded-2xl bg-white/80 dark:bg-dark-900/80 border border-slate-200/80 dark:border-slate-800 space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center">
+                    <div className="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-3">
+                      <div className="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center">
                         <BarChart3 className="w-5 h-5" />
                       </div>
-                      <h4 className="text-base font-bold text-slate-900 dark:text-white">Multi-Variable Graph Analysis</h4>
-                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+                      <h4 className="text-base font-bold text-white dark:text-white">Multi-Variable Graph Analysis</h4>
+                      <p className="text-xs text-slate-300 dark:text-slate-400 leading-relaxed font-normal">
                         Plot multidimensional financial trajectories, correlate indicators, and export findings for academic publication.
                       </p>
                     </div>
@@ -1131,10 +1131,10 @@ export default function About({
       <section className="space-y-8">
         <MotionSection direction="up" duration={0.6}>
           <div className="text-center max-w-2xl mx-auto space-y-2">
-            <h2 className="text-2xl sm:text-4xl font-heading font-extrabold text-slate-900 dark:text-white">
+            <h2 className="text-2xl sm:text-4xl font-heading font-extrabold text-white dark:text-white">
               Launch Intelligence Modules
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 text-sm font-normal">
+            <p className="text-slate-300 dark:text-slate-400 text-sm font-normal">
               Jump directly into any analysis engine across the ICLAS platform.
             </p>
           </div>
@@ -1197,24 +1197,24 @@ export default function About({
                 key={mod.id}
                 whileHover={{ y: -4 }}
                 onClick={() => setActiveTab(mod.id)}
-                className="cursor-pointer p-6 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-xl hover:border-brand-amber/50 transition-all flex flex-col justify-between group"
+                className="cursor-pointer p-6 rounded-3xl bg-[#0c0c16] border border-white/10 shadow-sm hover:shadow-xl hover:border-brand-amber/50 transition-all flex flex-col justify-between group"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-dark-800 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <div className="w-10 h-10 rounded-xl bg-white/5 dark:bg-dark-800 flex items-center justify-center group-hover:scale-110 transition-transform">
                       <Icon className={`w-5 h-5 ${mod.color}`} />
                     </div>
                     <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-brand-amber group-hover:translate-x-1 transition-all" />
                   </div>
-                  <h4 className="text-base font-heading font-bold text-slate-900 dark:text-white group-hover:text-brand-amber transition-colors">
+                  <h4 className="text-base font-heading font-bold text-white dark:text-white group-hover:text-brand-amber transition-colors">
                     {mod.title}
                   </h4>
-                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+                  <p className="text-xs text-slate-300 dark:text-slate-400 leading-relaxed font-normal">
                     {mod.desc}
                   </p>
                 </div>
 
-                <div className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800">
+                <div className="mt-5 pt-3 border-t border-white/10">
                   <span className="text-xs font-bold text-brand-caramel dark:text-brand-amber flex items-center space-x-1">
                     <span>{mod.btn}</span>
                     <ChevronRight className="w-3.5 h-3.5" />

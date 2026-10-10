@@ -19,7 +19,7 @@ export default function CompanyLogo({
   if (logoUrl && !imgError) {
     return (
       <div 
-        className={`flex items-center justify-center rounded-2xl bg-white dark:bg-dark-900 border border-slate-200/80 dark:border-slate-800 p-1.5 shadow-md flex-shrink-0 overflow-hidden ${className}`}
+        className={`flex items-center justify-center rounded-2xl bg-[#0c0c16] border border-white/10 p-1.5 shadow-md flex-shrink-0 overflow-hidden ${className}`}
       >
         <img 
           src={logoUrl} 

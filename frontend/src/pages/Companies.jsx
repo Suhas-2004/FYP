@@ -164,23 +164,23 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
       <div className="space-y-8 pb-16">
         {/* Top Sticky Navigation Bar with Back Button */}
         <MotionSection direction="down" duration={0.35}>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200/90 dark:border-slate-800/80 pb-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-5">
             <div className="flex items-center space-x-3">
               <motion.button
                 whileHover={{ scale: 1.04, x: -2 }}
                 whileTap={{ scale: 0.96 }}
                 onClick={handleBackToDirectory}
-                className="flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-white dark:bg-dark-900 hover:bg-slate-100 dark:hover:bg-dark-850 border border-slate-300/80 dark:border-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold shadow-sm transition-all group"
+                className="flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-[#0c0c16] hover:bg-white/10 border border-white/10 text-white text-xs font-bold shadow-sm transition-all group"
               >
-                <ArrowLeft className="w-4 h-4 text-brand-amber group-hover:-translate-x-0.5 transition-transform" />
+                <ArrowLeft className="w-4 h-4 text-indigo-400 group-hover:-translate-x-0.5 transition-transform" />
                 <span>Back to Companies Directory</span>
               </motion.button>
 
-              <div className="hidden md:flex items-center space-x-2 text-xs text-slate-500 dark:text-slate-400 font-mono">
+              <div className="hidden md:flex items-center space-x-2 text-xs text-slate-400 font-mono">
                 <span>/</span>
-                <span className="font-semibold text-slate-700 dark:text-slate-300">{detailCompany.name}</span>
+                <span className="font-semibold text-slate-300">{detailCompany.name}</span>
                 <span>/</span>
-                <span className="text-brand-caramel dark:text-brand-amber font-bold">Previous 6-Year Dossier (2019 – 2024)</span>
+                <span className="text-purple-400 dark:text-indigo-400 font-bold">Previous 6-Year Dossier (2019 – 2024)</span>
               </div>
             </div>
 
@@ -189,7 +189,7 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
                 whileHover={{ scale: 1.03, translateY: -1 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => handleViewStrategy(detailCompany.id)}
-                className="flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-amber via-brand-caramel to-brand-terracotta hover:opacity-95 text-white font-bold text-xs shadow-glow-amber transition-all"
+                className="flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 hover:opacity-95 text-white font-bold text-xs shadow-glow-indigo transition-all"
               >
                 <span>View Actionable Strategy Roadmap</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -200,8 +200,8 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
 
         {/* Hero Company Dossier Header */}
         <MotionSection direction="up" delay={0.05}>
-          <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200/90 dark:border-slate-800/80 shadow-xl relative overflow-hidden">
-            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-200/90 dark:border-slate-800/80">
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 shadow-xl relative overflow-hidden">
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-white/10">
               <div className="flex items-center space-x-5">
                 <CompanyLogo 
                   companyId={detailCompany.id} 
@@ -213,22 +213,22 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
                 />
                 <div className="space-y-1.5">
                   <div className="flex flex-wrap items-center gap-2">
-                    <h1 className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 dark:text-white">
+                    <h1 className="text-2xl sm:text-3xl font-heading font-extrabold text-white">
                       {detailCompany.name}
                     </h1>
-                    <span className="px-2.5 py-1 text-xs font-mono font-bold bg-slate-100 dark:bg-dark-950 text-slate-800 dark:text-slate-300 rounded-lg border border-slate-300 dark:border-slate-700">
+                    <span className="px-2.5 py-1 text-xs font-mono font-bold bg-[#0c0c16] text-slate-300 rounded-lg border border-white/10">
                       {detailCompany.ticker}
                     </span>
-                    <span className="px-2.5 py-1 text-xs font-semibold bg-brand-amber/15 text-brand-caramel dark:text-brand-amber rounded-lg border border-brand-amber/35">
+                    <span className="px-2.5 py-1 text-xs font-semibold bg-indigo-500/15 text-purple-400 dark:text-indigo-400 rounded-lg border border-indigo-500/35">
                       {detailCompany.sector}
                     </span>
                   </div>
-                  <div className="flex flex-wrap items-center gap-3 text-xs text-slate-600 dark:text-slate-400 font-mono">
-                    <span>Market Cap: <strong className="text-slate-900 dark:text-slate-200">{detailCompany.market_cap}</strong></span>
+                  <div className="flex flex-wrap items-center gap-3 text-xs text-slate-400 font-mono">
+                    <span>Market Cap: <strong className="text-white">{detailCompany.market_cap}</strong></span>
                     <span>•</span>
-                    <span>Current CEO: <strong className="text-slate-900 dark:text-slate-200">{detailCompany.leadership?.current_ceo}</strong></span>
+                    <span>Current CEO: <strong className="text-white">{detailCompany.leadership?.current_ceo}</strong></span>
                     <span>•</span>
-                    <span className="px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/25 font-bold">
+                    <span className="px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-700 text-emerald-400 border border-emerald-500/25 font-bold">
                       {detailCompany.crisis_info?.recovery_status || 'Analyzed'}
                     </span>
                   </div>
@@ -236,12 +236,12 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
               </div>
 
               {/* 6-Year Window Prominent Tag */}
-              <div className="p-4 rounded-2xl bg-brand-amber/10 border border-brand-amber/30 text-left lg:text-right shadow-sm flex flex-col justify-center">
-                <div className="text-[10px] font-mono text-brand-caramel dark:text-brand-amber font-bold uppercase tracking-wider">Analysis Scope</div>
-                <div className="text-lg font-heading font-extrabold text-slate-900 dark:text-white">
+              <div className="p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 text-left lg:text-right shadow-sm flex flex-col justify-center">
+                <div className="text-[10px] font-mono text-purple-400 dark:text-indigo-400 font-bold uppercase tracking-wider">Analysis Scope</div>
+                <div className="text-lg font-heading font-extrabold text-white">
                   Previous 6 Years (2019 – 2024)
                 </div>
-                <div className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5">
+                <div className="text-[11px] text-slate-400 mt-0.5">
                   Longitudinal Performance & Turnaround Dossier
                 </div>
               </div>
@@ -249,12 +249,12 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
 
             {/* Leadership Overview */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-5">
-              <div className="p-4 rounded-2xl bg-white/90 dark:bg-dark-950/80 border border-slate-200/80 dark:border-slate-800/80 space-y-1.5 shadow-sm">
-                <div className="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-[10px] flex items-center">
+              <div className="p-4 rounded-2xl bg-[#0c0c16]/80 border border-white/10 space-y-1.5 shadow-sm">
+                <div className="text-slate-400 font-bold uppercase tracking-wider text-[10px] flex items-center">
                   <Users className="w-3.5 h-3.5 text-brand-cyan mr-1.5 flex-shrink-0" />
                   <span>Founding Background & Roots:</span>
                 </div>
-                <div className="font-heading font-bold text-slate-900 dark:text-white text-sm">
+                <div className="font-heading font-bold text-white text-sm">
                   {detailCompany.leadership?.founder}
                 </div>
                 <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-xs font-medium">
@@ -262,12 +262,12 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white/90 dark:bg-dark-950/80 border border-slate-200/80 dark:border-slate-800/80 space-y-1.5 shadow-sm">
-                <div className="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-[10px] flex items-center">
+              <div className="p-4 rounded-2xl bg-[#0c0c16]/80 border border-white/10 space-y-1.5 shadow-sm">
+                <div className="text-slate-400 font-bold uppercase tracking-wider text-[10px] flex items-center">
                   <Building2 className="w-3.5 h-3.5 text-emerald-500 mr-1.5 flex-shrink-0" />
                   <span>Corporate Positioning & Scale:</span>
                 </div>
-                <div className="font-heading font-bold text-slate-900 dark:text-white text-sm">
+                <div className="font-heading font-bold text-white text-sm">
                   Executive Headquarters & Market Footprint
                 </div>
                 <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-xs font-medium">
@@ -280,19 +280,19 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
 
         {/* SECTION 1: 6-YEAR EXECUTIVE INTELLIGENCE NARRATIVE (PARAGRAPH) */}
         <MotionSection direction="up" delay={0.1}>
-          <div className="relative p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-amber-500/10 via-brand-caramel/10 to-transparent border-2 border-brand-amber/40 shadow-xl overflow-hidden glass-panel">
-            <div className="flex items-center space-x-2.5 mb-3 text-brand-caramel dark:text-brand-amber">
+          <div className="relative p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-amber-500/10 via-brand-caramel/10 to-transparent border-2 border-indigo-500/40 shadow-xl overflow-hidden glass-panel">
+            <div className="flex items-center space-x-2.5 mb-3 text-purple-400 dark:text-indigo-400">
               <Sparkles className="w-5 h-5 animate-spin-slow" />
-              <h2 className="text-base sm:text-lg font-heading font-bold tracking-tight text-slate-900 dark:text-white">
+              <h2 className="text-base sm:text-lg font-heading font-bold tracking-tight text-white">
                 6-Year Longitudinal Corporate Intelligence Narrative (2019 – 2024)
               </h2>
             </div>
             
-            <p className="text-slate-800 dark:text-slate-200 text-sm sm:text-base leading-relaxed font-normal bg-white/80 dark:bg-dark-950/70 p-5 sm:p-6 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-inner">
+            <p className="text-white text-sm sm:text-base leading-relaxed font-normal bg-[#0c0c16]/70 p-5 sm:p-6 rounded-2xl border border-white/10 shadow-inner">
               {detailCompany.executive_analysis_paragraph}
             </p>
 
-            <div className="mt-3 flex flex-wrap items-center justify-between text-xs text-slate-500 dark:text-slate-400 font-mono pt-1">
+            <div className="mt-3 flex flex-wrap items-center justify-between text-xs text-slate-400 font-mono pt-1">
               <span>● Synthesized across 6 financial quarters & audited balance sheets</span>
               <span>Focus: Downfalls, Pumps, Move Catalysts & Implemented Playbooks</span>
             </div>
@@ -302,16 +302,16 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
         {/* SECTION 2: 6-YEAR DOWNFALLS & PUMPS BREAKDOWN WITH REASONS AND STRATEGIES */}
         <MotionSection direction="up" delay={0.15}>
           <div className="space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/90 dark:border-slate-800/80 pb-3">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3">
               <div>
-                <h2 className="text-xl font-heading font-bold text-slate-900 dark:text-white">
+                <h2 className="text-xl font-heading font-bold text-white">
                   6-Year Downfall & Pump Events: Detailed Catalysts & Deployed Strategies
                 </h2>
-                <p className="text-xs text-slate-500 dark:text-slate-400">
+                <p className="text-xs text-slate-400">
                   Granular chronological inspection of major moves, underlying reasons behind market shifts, and operational turnarounds (2019–2024).
                 </p>
               </div>
-              <span className="text-xs font-mono font-bold px-3 py-1 rounded-lg bg-white dark:bg-dark-900 border border-slate-200/90 dark:border-slate-800 shadow-sm w-fit text-brand-caramel dark:text-brand-amber">
+              <span className="text-xs font-mono font-bold px-3 py-1 rounded-lg bg-[#0c0c16] border border-white/10 shadow-sm w-fit text-purple-400 dark:text-indigo-400">
                 {detailCompany.six_year_downfalls_and_pumps?.length || 0} Key Strategic Moves
               </span>
             </div>
@@ -331,40 +331,40 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
                         ? 'border-rose-500/40 bg-gradient-to-br from-rose-50/60 via-white/90 to-transparent dark:from-rose-950/20 dark:via-dark-900/90 dark:to-dark-950 shadow-rose-500/5'
                         : isPump
                         ? 'border-emerald-500/40 bg-gradient-to-br from-emerald-50/60 via-white/90 to-transparent dark:from-emerald-950/20 dark:via-dark-900/90 dark:to-dark-950 shadow-emerald-500/5'
-                        : 'border-brand-amber/40 bg-gradient-to-br from-amber-50/60 via-white/90 to-transparent dark:from-amber-950/20 dark:via-dark-900/90 dark:to-dark-950 shadow-amber-500/5'
+                        : 'border-indigo-500/40 bg-gradient-to-br from-amber-50/60 via-white/90 to-transparent dark:from-amber-950/20 dark:via-dark-900/90 dark:to-dark-950 shadow-amber-500/5'
                     }`}
                   >
                     {/* Move Header */}
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200/90 dark:border-slate-800/80 mb-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-white/10 mb-4">
                       <div className="flex items-center space-x-3">
                         <span className={`px-3 py-1 rounded-full text-xs font-black uppercase font-mono flex items-center space-x-1.5 border ${
                           isDownfall 
-                            ? 'bg-rose-500/15 text-rose-700 dark:text-rose-400 border-rose-500/30'
+                            ? 'bg-rose-500/15 text-rose-700 text-rose-400 border-rose-500/30'
                             : isPump
-                            ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border-emerald-500/30'
-                            : 'bg-brand-amber/15 text-brand-caramel dark:text-brand-amber border-brand-amber/30'
+                            ? 'bg-emerald-500/15 text-emerald-700 text-emerald-400 border-emerald-500/30'
+                            : 'bg-indigo-500/15 text-purple-400 dark:text-indigo-400 border-indigo-500/30'
                         }`}>
                           {isDownfall ? <TrendingDown className="w-3.5 h-3.5" /> : isPump ? <TrendingUp className="w-3.5 h-3.5" /> : <Zap className="w-3.5 h-3.5" />}
                           <span>{move.type} Event</span>
                         </span>
 
-                        <span className="text-xs font-mono font-bold text-slate-500 dark:text-slate-400">
+                        <span className="text-xs font-mono font-bold text-slate-400">
                           Period: {move.period}
                         </span>
                       </div>
 
-                      <div className="text-xs font-mono font-bold text-slate-700 dark:text-slate-300">
+                      <div className="text-xs font-mono font-bold text-slate-300">
                         {detailCompany.ticker} • 6-Yr Window
                       </div>
                     </div>
 
                     {/* Move Title & Quantifiable Metric Data */}
                     <div className="space-y-2 mb-5">
-                      <h3 className="text-lg sm:text-xl font-heading font-extrabold text-slate-900 dark:text-white">
+                      <h3 className="text-lg sm:text-xl font-heading font-extrabold text-white">
                         {move.title}
                       </h3>
-                      <div className="p-3 rounded-xl bg-white/95 dark:bg-dark-950/80 border border-slate-200/90 dark:border-slate-800/80 text-xs sm:text-sm font-mono font-semibold text-slate-800 dark:text-slate-200">
-                        <span className="text-brand-caramel dark:text-brand-amber font-bold uppercase mr-1">Move Data:</span>
+                      <div className="p-3 rounded-xl bg-[#0c0c16]/80 border border-white/10 text-xs sm:text-sm font-mono font-semibold text-white">
+                        <span className="text-purple-400 dark:text-indigo-400 font-bold uppercase mr-1">Move Data:</span>
                         {move.move_data}
                       </div>
                     </div>
@@ -372,23 +372,23 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
                     {/* 2-Column Deep Breakdown: Reason Behind Move & Strategy Implemented */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                       {/* Reason Behind the Move */}
-                      <div className="p-4 sm:p-5 rounded-2xl bg-white/95 dark:bg-dark-950/90 border border-slate-200/90 dark:border-slate-800/80 space-y-2 shadow-sm">
+                      <div className="p-4 sm:p-5 rounded-2xl bg-[#0c0c16]/90 border border-white/10 space-y-2 shadow-sm">
                         <div className="flex items-center text-amber-700 dark:text-amber-400 font-bold text-xs uppercase tracking-wider font-mono">
                           <AlertTriangle className="w-4 h-4 mr-1.5 flex-shrink-0 text-amber-600" />
                           <span>1. Reason Behind the Move (Catalysts & Market Shifts):</span>
                         </div>
-                        <p className="text-slate-700 dark:text-slate-300 leading-relaxed font-medium text-xs sm:text-sm">
+                        <p className="text-slate-300 leading-relaxed font-medium text-xs sm:text-sm">
                           {move.reason_behind_move}
                         </p>
                       </div>
 
                       {/* Strategy Implemented */}
-                      <div className="p-4 sm:p-5 rounded-2xl bg-white/95 dark:bg-dark-950/90 border border-slate-200/90 dark:border-slate-800/80 space-y-2 shadow-sm">
-                        <div className="flex items-center text-brand-caramel dark:text-brand-amber font-bold text-xs uppercase tracking-wider font-mono">
-                          <Sparkles className="w-4 h-4 mr-1.5 flex-shrink-0 text-brand-amber" />
+                      <div className="p-4 sm:p-5 rounded-2xl bg-[#0c0c16]/90 border border-white/10 space-y-2 shadow-sm">
+                        <div className="flex items-center text-purple-400 dark:text-indigo-400 font-bold text-xs uppercase tracking-wider font-mono">
+                          <Sparkles className="w-4 h-4 mr-1.5 flex-shrink-0 text-indigo-400" />
                           <span>2. Strategy Implemented (Leadership Response & Pivot):</span>
                         </div>
-                        <p className="text-slate-700 dark:text-slate-300 leading-relaxed font-medium text-xs sm:text-sm">
+                        <p className="text-slate-300 leading-relaxed font-medium text-xs sm:text-sm">
                           {move.strategy_implemented}
                         </p>
                       </div>
@@ -397,7 +397,7 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
                     {/* Outcome Narrative */}
                     {move.outcome_paragraph && (
                       <div className="mt-3.5 p-3.5 rounded-xl bg-emerald-500/10 dark:bg-emerald-950/20 border border-emerald-500/25 flex items-start space-x-2 text-xs">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
                         <div className="text-emerald-900 dark:text-emerald-300 font-medium leading-relaxed">
                           <span className="font-bold">6-Year Strategic Outcome: </span>
                           {move.outcome_paragraph}
@@ -413,25 +413,25 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
 
         {/* SECTION 3: 6-YEAR FINANCIAL PERFORMANCE VISUALIZER */}
         <MotionSection direction="up" delay={0.2}>
-          <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200/90 dark:border-slate-800/80 space-y-6 shadow-xl">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200/90 dark:border-slate-800/80">
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 space-y-6 shadow-xl">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-white/10">
               <div>
-                <h3 className="text-lg font-heading font-bold text-slate-900 dark:text-white">
+                <h3 className="text-lg font-heading font-bold text-white">
                   6-Year Longitudinal Financial Indicator Trajectory (2019 – 2024)
                 </h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400">
+                <p className="text-xs text-slate-400">
                   Balance sheet strength, revenue elasticity, net profit, and free cash flow generation
                 </p>
               </div>
 
               {/* Financial Metric Tabs */}
-              <div className="flex flex-wrap gap-1 bg-slate-100/90 dark:bg-dark-950/90 p-1 rounded-xl border border-slate-200/90 dark:border-slate-800/80">
+              <div className="flex flex-wrap gap-1 bg-[#0c0c16]/90 p-1 rounded-xl border border-white/10">
                 <button
                   onClick={() => setActiveMetricTab('revenue')}
                   className={`px-3 py-1.5 text-xs rounded-lg font-semibold transition-all ${
                     activeMetricTab === 'revenue' 
-                      ? 'bg-brand-amber text-dark-950 font-bold shadow-glow-amber' 
-                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                      ? 'bg-indigo-500 text-dark-950 font-bold shadow-glow-indigo' 
+                      : 'text-slate-400 hover:text-white dark:hover:text-white'
                   }`}
                 >
                   Revenue & Net Income
@@ -440,8 +440,8 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
                   onClick={() => setActiveMetricTab('debt')}
                   className={`px-3 py-1.5 text-xs rounded-lg font-semibold transition-all ${
                     activeMetricTab === 'debt' 
-                      ? 'bg-brand-amber text-dark-950 font-bold shadow-glow-amber' 
-                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                      ? 'bg-indigo-500 text-dark-950 font-bold shadow-glow-indigo' 
+                      : 'text-slate-400 hover:text-white dark:hover:text-white'
                   }`}
                 >
                   Debt vs Cash Flow
@@ -450,8 +450,8 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
                   onClick={() => setActiveMetricTab('roe')}
                   className={`px-3 py-1.5 text-xs rounded-lg font-semibold transition-all ${
                     activeMetricTab === 'roe' 
-                      ? 'bg-brand-amber text-dark-950 font-bold shadow-glow-amber' 
-                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                      ? 'bg-indigo-500 text-dark-950 font-bold shadow-glow-indigo' 
+                      : 'text-slate-400 hover:text-white dark:hover:text-white'
                   }`}
                 >
                   ROE & Order Book
@@ -501,25 +501,25 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
         {/* SECTION 4: 2019-2024 MILESTONES & TURNING POINTS TIMELINE */}
         {detailCompany.business_info?.major_corporate_events && (
           <MotionSection direction="up" delay={0.25}>
-            <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200/90 dark:border-slate-800/80 space-y-4 shadow-lg">
-              <div className="flex items-center justify-between pb-3 border-b border-slate-200/90 dark:border-slate-800/80">
-                <h4 className="text-base font-heading font-bold text-slate-900 dark:text-white flex items-center">
-                  <Calendar className="w-4 h-4 text-brand-amber mr-2" />
+            <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 space-y-4 shadow-lg">
+              <div className="flex items-center justify-between pb-3 border-b border-white/10">
+                <h4 className="text-base font-heading font-bold text-white flex items-center">
+                  <Calendar className="w-4 h-4 text-indigo-400 mr-2" />
                   <span>2019–2024 Corporate Turning Points & Milestones</span>
                 </h4>
-                <span className="text-xs font-mono text-slate-500 dark:text-slate-400">Strictly 6-Year Scope</span>
+                <span className="text-xs font-mono text-slate-400">Strictly 6-Year Scope</span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                 {detailCompany.business_info.major_corporate_events.map((ev, i) => (
-                  <div key={i} className="p-4 rounded-2xl bg-white/95 dark:bg-dark-950/90 border border-slate-200/90 dark:border-slate-800/80 space-y-1.5 shadow-sm">
-                    <span className="text-xs font-mono font-bold text-brand-caramel dark:text-brand-amber px-2 py-0.5 rounded bg-brand-amber/15 border border-brand-amber/35">
+                  <div key={i} className="p-4 rounded-2xl bg-[#0c0c16]/90 border border-white/10 space-y-1.5 shadow-sm">
+                    <span className="text-xs font-mono font-bold text-purple-400 dark:text-indigo-400 px-2 py-0.5 rounded bg-indigo-500/15 border border-indigo-500/35">
                       {ev.year}
                     </span>
-                    <div className="text-xs font-heading font-bold text-slate-900 dark:text-slate-100 pt-1">
+                    <div className="text-xs font-heading font-bold text-white pt-1">
                       {ev.title}
                     </div>
-                    <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-snug font-medium">
+                    <p className="text-[11px] text-slate-400 leading-snug font-medium">
                       {ev.impact}
                     </p>
                   </div>
@@ -532,50 +532,50 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
         {/* SECTION 5: ACTIVE PROJECTS, COLLABORATIONS & INVESTMENTS (2019-2024) */}
         <MotionSection direction="up" delay={0.3}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="p-5 rounded-2xl bg-white/95 dark:bg-dark-900/90 border border-slate-200/90 dark:border-slate-800/80 space-y-3 shadow-sm">
-              <div className="text-xs font-bold text-brand-caramel dark:text-brand-amber uppercase tracking-wider flex items-center">
+            <div className="p-5 rounded-2xl bg-[#12121f]/90 border border-white/10 space-y-3 shadow-sm">
+              <div className="text-xs font-bold text-purple-400 dark:text-indigo-400 uppercase tracking-wider flex items-center">
                 <Layers className="w-3.5 h-3.5 mr-1.5 flex-shrink-0" />
                 <span>Active 6-Year Projects</span>
               </div>
-              <ul className="space-y-1.5 text-xs text-slate-700 dark:text-slate-300 font-medium">
+              <ul className="space-y-1.5 text-xs text-slate-300 font-medium">
                 {detailCompany.business_info?.major_projects?.map((p, i) => (
                   <li key={i} className="flex items-start space-x-1.5">
-                    <span className="text-brand-amber font-bold">•</span>
+                    <span className="text-indigo-400 font-bold">•</span>
                     <span>{p}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="p-5 rounded-2xl bg-white/95 dark:bg-dark-900/90 border border-slate-200/90 dark:border-slate-800/80 space-y-3 shadow-sm">
-              <div className="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider flex items-center">
+            <div className="p-5 rounded-2xl bg-[#12121f]/90 border border-white/10 space-y-3 shadow-sm">
+              <div className="text-xs font-bold text-emerald-700 text-emerald-400 uppercase tracking-wider flex items-center">
                 <Briefcase className="w-3.5 h-3.5 mr-1.5 flex-shrink-0" />
                 <span>Strategic Alliances & Partners</span>
               </div>
-              <ul className="space-y-1.5 text-xs text-slate-700 dark:text-slate-300 font-medium">
+              <ul className="space-y-1.5 text-xs text-slate-300 font-medium">
                 {detailCompany.business_info?.collaborations?.map((c, i) => (
                   <li key={i} className="flex items-start space-x-1.5">
-                    <span className="text-emerald-600 font-bold">•</span>
+                    <span className="text-emerald-400 font-bold">•</span>
                     <span>{c}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="p-5 rounded-2xl bg-white/95 dark:bg-dark-900/90 border border-slate-200/90 dark:border-slate-800/80 space-y-3 shadow-sm">
-              <div className="text-xs font-bold text-brand-terracotta uppercase tracking-wider flex items-center">
+            <div className="p-5 rounded-2xl bg-[#12121f]/90 border border-white/10 space-y-3 shadow-sm">
+              <div className="text-xs font-bold text-cyan-400 uppercase tracking-wider flex items-center">
                 <DollarSign className="w-3.5 h-3.5 mr-1.5 flex-shrink-0" />
                 <span>Target Sectors & Capital Deployment</span>
               </div>
               <div className="space-y-2">
                 <div className="flex flex-wrap gap-1">
                   {detailCompany.business_info?.investment_sectors?.map((s, i) => (
-                    <span key={i} className="px-2 py-0.5 rounded-md bg-amber-500/10 text-brand-caramel dark:text-brand-amber text-[10px] font-mono font-semibold border border-amber-500/25">
+                    <span key={i} className="px-2 py-0.5 rounded-md bg-amber-500/10 text-purple-400 dark:text-indigo-400 text-[10px] font-mono font-semibold border border-amber-500/25">
                       {s}
                     </span>
                   ))}
                 </div>
-                <ul className="space-y-1 text-xs text-slate-700 dark:text-slate-300 pt-1 font-medium">
+                <ul className="space-y-1 text-xs text-slate-300 pt-1 font-medium">
                   {detailCompany.business_info?.investments?.map((inv, i) => (
                     <li key={i} className="truncate">• {inv}</li>
                   ))}
@@ -587,9 +587,9 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
 
         {/* BOTTOM ACTION BAR */}
         <MotionSection direction="up" delay={0.35}>
-          <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-brand-amber/20 via-brand-caramel/20 to-brand-terracotta/20 border border-brand-amber/40 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-brand-amber/20 via-brand-caramel/20 to-brand-terracotta/20 border border-indigo-500/40 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <h3 className="text-lg font-heading font-extrabold text-slate-900 dark:text-white">
+              <h3 className="text-lg font-heading font-extrabold text-white">
                 Apply {detailCompany.name}'s Turnaround Playbook to Your Startup
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-300 mt-1">
@@ -601,7 +601,7 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
               onClick={() => handleViewStrategy(detailCompany.id)}
-              className="px-6 py-3 rounded-xl bg-gradient-to-r from-brand-amber via-brand-caramel to-brand-terracotta text-white font-bold text-xs shadow-glow-amber flex items-center space-x-2 transition-all w-fit"
+              className="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 text-white font-bold text-xs shadow-glow-indigo flex items-center space-x-2 transition-all w-fit"
             >
               <span>Launch Step-by-Step Strategy</span>
               <ArrowRight className="w-4 h-4" />
@@ -617,19 +617,20 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
   // VIEW 1: ENTERPRISE DIRECTORY (FULL GRID VIEW)
   // =========================================================================
   return (
-    <div className="space-y-8 pb-16">
+    <div className="space-y-8 pb-16 font-sans text-white relative min-h-screen">
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiLz48L3N2Zz4=')] opacity-30 pointer-events-none" />
       {/* Header */}
       <MotionSection direction="down" duration={0.5}>
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200/90 dark:border-slate-800/80 pb-6">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6">
           <div>
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-amber/15 border border-brand-amber/35 text-brand-caramel dark:text-brand-amber text-xs font-semibold mb-2">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-indigo-500/15 border border-indigo-500/35 text-purple-400 dark:text-indigo-400 text-xs font-semibold mb-2">
               <Building2 className="w-3.5 h-3.5" />
               <span>Previous 6 Years (2019 – 2024) Longitudinal Intelligence</span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 dark:text-white tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-heading font-extrabold text-white tracking-tight">
               Companies Intelligence Directory
             </h1>
-            <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1 max-w-2xl leading-relaxed">
+            <p className="text-slate-400 text-xs sm:text-sm mt-1 max-w-2xl leading-relaxed">
               Explore previous 6-year financial performance, downfalls, pumps, reasons behind market moves, turnaround strategies, and longitudinal executive narratives. Click any company to open its dedicated dossier.
             </p>
           </div>
@@ -642,7 +643,7 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
               placeholder="Search company, ticker, or catalyst..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-3.5 py-2.5 bg-white/95 dark:bg-dark-900/95 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-xs text-slate-900 dark:text-slate-200 placeholder-slate-400 focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20 shadow-sm font-medium"
+              className="w-full pl-10 pr-3.5 py-2.5 bg-[#12121f]/95 border border-white/10 rounded-xl text-xs text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-brand-amber/20 shadow-sm font-medium"
             />
           </div>
         </div>
@@ -660,8 +661,8 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
                   onClick={() => setSector(s)}
                   className={`relative px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-200 ${
                     isSelected
-                      ? 'bg-brand-amber text-dark-950 shadow-glow-amber font-bold'
-                      : 'bg-white/90 dark:bg-dark-900/90 hover:bg-slate-50 dark:hover:bg-dark-850 text-slate-700 dark:text-slate-300 border border-slate-200/90 dark:border-slate-800/80 shadow-sm'
+                      ? 'bg-indigo-500 text-dark-950 shadow-glow-indigo font-bold'
+                      : 'bg-[#12121f]/90 hover:bg-white/10 text-slate-300 border border-white/10 shadow-sm'
                   }`}
                 >
                   {s}
@@ -670,8 +671,8 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
             })}
           </div>
 
-          <div className="text-xs font-mono text-slate-500 dark:text-slate-400 flex items-center space-x-2">
-            <Clock className="w-3.5 h-3.5 text-brand-amber" />
+          <div className="text-xs font-mono text-slate-400 flex items-center space-x-2">
+            <Clock className="w-3.5 h-3.5 text-indigo-400" />
             <span>Scope: <strong>2019 – 2024 (6 Years)</strong></span>
             <span>•</span>
             <span><strong>{filteredCompanies.length}</strong> Companies</span>
@@ -682,14 +683,14 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
       {/* Full-Page Grid Directory */}
       {loadingList ? (
         <div className="py-24 text-center space-y-3">
-          <div className="w-10 h-10 border-2 border-brand-amber border-t-transparent rounded-full animate-spin mx-auto" />
-          <p className="text-sm text-slate-500 dark:text-slate-400 font-mono">Loading 6-year corporate intelligence dossiers...</p>
+          <div className="w-10 h-10 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin mx-auto" />
+          <p className="text-sm text-slate-400 font-mono">Loading 6-year corporate intelligence dossiers...</p>
         </div>
       ) : filteredCompanies.length === 0 ? (
-        <div className="p-16 text-center glass-panel rounded-3xl border border-slate-200/90 dark:border-slate-800/80 space-y-3">
-          <ShieldAlert className="w-10 h-10 text-brand-amber mx-auto" />
-          <h3 className="text-lg font-heading font-bold text-slate-900 dark:text-white">No Companies Found</h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400">Try changing your search query or sector filter.</p>
+        <div className="p-16 text-center glass-panel rounded-3xl border border-white/10 space-y-3">
+          <ShieldAlert className="w-10 h-10 text-indigo-400 mx-auto" />
+          <h3 className="text-lg font-heading font-bold text-white">No Companies Found</h3>
+          <p className="text-xs text-slate-400">Try changing your search query or sector filter.</p>
         </div>
       ) : (
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -698,7 +699,7 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
               <motion.div
                 whileHover={{ translateY: -4, scale: 1.01 }}
                 onClick={() => handleOpenCompanyPage(c.id)}
-                className="glass-panel p-6 rounded-3xl border border-slate-200/90 dark:border-slate-800/80 hover:border-brand-amber/60 transition-all duration-300 shadow-md hover:shadow-xl cursor-pointer flex flex-col justify-between group space-y-4"
+                className="glass-panel p-6 rounded-3xl border border-white/10 hover:border-indigo-500/60 transition-all duration-300 shadow-md hover:shadow-xl cursor-pointer flex flex-col justify-between group space-y-4"
               >
                 <div>
                   {/* Card Top: Logo, Ticker, Sector, Cap */}
@@ -713,22 +714,22 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
                         size={44}
                       />
                       <div>
-                        <h3 className="font-heading font-bold text-slate-900 dark:text-white text-base group-hover:text-brand-amber transition-colors leading-tight">
+                        <h3 className="font-heading font-bold text-white text-base group-hover:text-indigo-400 transition-colors leading-tight">
                           {c.name}
                         </h3>
-                        <div className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">
+                        <div className="text-xs text-slate-400 font-mono mt-0.5">
                           {c.ticker} • {c.sector}
                         </div>
                       </div>
                     </div>
 
-                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-dark-950 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800">
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-[#0c0c16] text-slate-300 border border-white/10">
                       {c.market_cap}
                     </span>
                   </div>
 
                   {/* 6-Year Window Pill */}
-                  <div className="flex items-center justify-between text-[11px] font-mono py-1 px-2.5 rounded-lg bg-brand-amber/10 border border-brand-amber/25 text-brand-caramel dark:text-brand-amber font-bold mb-3">
+                  <div className="flex items-center justify-between text-[11px] font-mono py-1 px-2.5 rounded-lg bg-indigo-500/10 border border-indigo-500/25 text-purple-400 dark:text-indigo-400 font-bold mb-3">
                     <span>Analysis Window:</span>
                     <span>2019 – 2024 (Previous 6 Yrs)</span>
                   </div>
@@ -736,13 +737,13 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
                   {/* Primary Downfall & Pump Pills */}
                   <div className="space-y-1.5 text-xs mb-3">
                     {c.primary_downfall && (
-                      <div className="flex items-center space-x-1.5 text-rose-700 dark:text-rose-400 font-medium line-clamp-1 bg-rose-50/70 dark:bg-rose-950/20 px-2 py-1 rounded-lg border border-rose-500/20">
+                      <div className="flex items-center space-x-1.5 text-rose-700 text-rose-400 font-medium line-clamp-1 bg-rose-50/70 dark:bg-rose-950/20 px-2 py-1 rounded-lg border border-rose-500/20">
                         <TrendingDown className="w-3 h-3 flex-shrink-0" />
                         <span className="truncate"><strong>Downfall:</strong> {c.primary_downfall}</span>
                       </div>
                     )}
                     {c.primary_pump && (
-                      <div className="flex items-center space-x-1.5 text-emerald-700 dark:text-emerald-400 font-medium line-clamp-1 bg-emerald-50/70 dark:bg-emerald-950/20 px-2 py-1 rounded-lg border border-emerald-500/20">
+                      <div className="flex items-center space-x-1.5 text-emerald-700 text-emerald-400 font-medium line-clamp-1 bg-emerald-50/70 dark:bg-emerald-950/20 px-2 py-1 rounded-lg border border-emerald-500/20">
                         <TrendingUp className="w-3 h-3 flex-shrink-0" />
                         <span className="truncate"><strong>Pump:</strong> {c.primary_pump}</span>
                       </div>
@@ -751,18 +752,18 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
 
                   {/* Executive Paragraph Excerpt */}
                   {c.executive_analysis_paragraph && (
-                    <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-3 leading-relaxed">
+                    <p className="text-xs text-slate-400 line-clamp-3 leading-relaxed">
                       {c.executive_analysis_paragraph}
                     </p>
                   )}
                 </div>
 
                 {/* Card Bottom: Financials & Action */}
-                <div className="pt-3 border-t border-slate-200/90 dark:border-slate-800/80 space-y-3">
-                  <div className="flex items-center justify-between text-[11px] font-mono text-slate-600 dark:text-slate-400 font-semibold">
-                    <span>Rev Growth: <strong className="text-brand-amber">{c.financial_summary?.latest_revenue_growth}%</strong></span>
-                    <span>ROE: <strong className="text-emerald-600 dark:text-emerald-400">{c.financial_summary?.latest_roe}%</strong></span>
-                    <span>Cash Flow: <strong className="text-brand-caramel dark:text-brand-amber">${c.financial_summary?.latest_cash_flow}B</strong></span>
+                <div className="pt-3 border-t border-white/10 space-y-3">
+                  <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 font-semibold">
+                    <span>Rev Growth: <strong className="text-indigo-400">{c.financial_summary?.latest_revenue_growth}%</strong></span>
+                    <span>ROE: <strong className="text-emerald-400">{c.financial_summary?.latest_roe}%</strong></span>
+                    <span>Cash Flow: <strong className="text-purple-400 dark:text-indigo-400">${c.financial_summary?.latest_cash_flow}B</strong></span>
                   </div>
 
                   <button
@@ -770,7 +771,7 @@ export default function Companies({ setActiveTab, setSelectedCompanyId, selected
                       e.stopPropagation();
                       handleOpenCompanyPage(c.id);
                     }}
-                    className="w-full py-2.5 rounded-xl bg-gradient-to-r from-brand-amber/15 to-brand-caramel/15 hover:from-brand-amber hover:to-brand-caramel hover:text-white text-brand-caramel dark:text-brand-amber border border-brand-amber/35 text-xs font-bold flex items-center justify-center space-x-1.5 transition-all shadow-sm group-hover:shadow-glow-amber"
+                    className="w-full py-2.5 rounded-xl bg-gradient-to-r from-brand-amber/15 to-brand-caramel/15 hover:from-brand-amber hover:to-brand-caramel hover:text-white text-purple-400 dark:text-indigo-400 border border-indigo-500/35 text-xs font-bold flex items-center justify-center space-x-1.5 transition-all shadow-sm group-hover:shadow-glow-indigo"
                   >
                     <span>Open 6-Year Intelligence Page</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

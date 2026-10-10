@@ -92,31 +92,32 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
   };
 
   return (
-    <div className="space-y-8 pb-12">
+    <div className="space-y-8 pb-12 font-sans text-white relative min-h-screen">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
       {/* Header */}
       <MotionSection direction="down" duration={0.5}>
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200/80 dark:border-slate-800/80 pb-6">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6">
           <div>
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-amber/10 border border-brand-amber/30 text-brand-caramel dark:text-brand-amber text-xs font-semibold mb-2">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-purple-400 dark:text-indigo-400 text-xs font-semibold mb-2">
               <Briefcase className="w-3.5 h-3.5" />
               <span>Dual-Portal Dealflow & Pitch Ecosystem</span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 dark:text-white tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-heading font-extrabold text-white tracking-tight">
               Investors & Startups
             </h1>
-            <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1 max-w-2xl leading-relaxed">
+            <p className="text-slate-400 text-xs sm:text-sm mt-1 max-w-2xl leading-relaxed">
               A specialized two-way gateway: Startups pitch their venture with unit economics & expected returns; Investors discover curated deals and initiate direct inquiries.
             </p>
           </div>
 
           {/* View Switcher Toggle */}
-          <div className="flex bg-slate-100/90 dark:bg-dark-900/90 p-1 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 self-start md:self-center shadow-sm">
+          <div className="flex bg-white/5/90 dark:bg-dark-900/90 p-1 rounded-2xl border border-white/10 self-start md:self-center shadow-sm">
             <button
               onClick={() => setViewMode('investor-explore')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center space-x-2 ${
                 viewMode === 'investor-explore'
-                  ? 'bg-gradient-to-r from-brand-amber to-brand-caramel text-white shadow-glow-amber'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                  ? 'bg-gradient-to-r from-brand-amber to-brand-caramel text-white shadow-glow-indigo'
+                  : 'text-slate-400 hover:text-white dark:hover:text-white'
               }`}
             >
               <Building2 className="w-3.5 h-3.5" />
@@ -126,8 +127,8 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
               onClick={() => setViewMode('startup-submit')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center space-x-2 ${
                 viewMode === 'startup-submit'
-                  ? 'bg-gradient-to-r from-brand-caramel to-brand-terracotta text-white shadow-glow-terracotta'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                  ? 'bg-gradient-to-r from-brand-caramel to-brand-terracotta text-white shadow-glow-cyan'
+                  : 'text-slate-400 hover:text-white dark:hover:text-white'
               }`}
             >
               <PlusCircle className="w-3.5 h-3.5" />
@@ -142,9 +143,9 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
         <div className="space-y-6">
           {/* Filter Bar */}
           <MotionSection direction="up" delay={0.05}>
-            <div className="glass-panel p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 flex flex-wrap items-center justify-between gap-3 shadow-sm">
+            <div className="glass-panel p-4 rounded-2xl border border-white/10 flex flex-wrap items-center justify-between gap-3 shadow-sm">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center mr-1">
+                <span className="text-xs font-bold text-slate-300 flex items-center mr-1">
                   <Filter className="w-3.5 h-3.5 mr-1 text-slate-400" /> Filter Industry:
                 </span>
                 {['All', 'FinTech', 'Healthcare', 'Retail', 'Real Estate', 'Automobile'].map((ind) => (
@@ -153,8 +154,8 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                     onClick={() => setIndustryFilter(ind)}
                     className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
                       industryFilter === ind
-                        ? 'bg-brand-amber text-white font-bold shadow-sm'
-                        : 'bg-white/90 dark:bg-dark-950/90 text-slate-700 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200/80 dark:border-slate-800/80'
+                        ? 'bg-indigo-500 text-white font-bold shadow-sm'
+                        : 'bg-[#0c0c16]/90 text-slate-700 dark:text-slate-400 hover:text-white dark:hover:text-white border border-white/10'
                     }`}
                   >
                     {ind}
@@ -167,7 +168,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                 <select
                   value={potentialFilter}
                   onChange={(e) => setPotentialFilter(e.target.value)}
-                  className="px-3 py-1.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-xs text-slate-900 dark:text-slate-200 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
+                  className="px-3 py-1.5 bg-[#0c0c16] border border-white/10 rounded-xl text-xs text-white focus:outline-none focus:border-indigo-500 shadow-sm font-medium"
                 >
                   <option value="All">All Tiers</option>
                   <option value="High">High Potential</option>
@@ -181,7 +182,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             {/* Left: Startup Dealflow List (5 cols) */}
             <div className="lg:col-span-5 space-y-3">
-              <div className="text-xs font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between font-semibold">
+              <div className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between font-semibold">
                 <span>Vetted Startups ({startups.length})</span>
                 <span>Tier Rating</span>
               </div>
@@ -198,12 +199,12 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                       onClick={() => setSelectedStartup(s)}
                       className={`p-5 rounded-2xl border transition-all duration-200 cursor-pointer ${
                         isSelected
-                          ? 'bg-amber-50/80 dark:bg-dark-850 border-brand-amber shadow-glow-amber'
-                          : 'glass-panel hover:bg-slate-50 dark:hover:bg-dark-900 border-slate-200/80 dark:border-slate-800/80 shadow-sm'
+                          ? 'bg-amber-50/80 dark:bg-dark-850 border-indigo-500 shadow-glow-indigo'
+                          : 'glass-panel hover:bg-white/10 border-white/10 shadow-sm'
                       }`}
                     >
                       <div className="flex items-center justify-between mb-1.5">
-                        <h3 className="font-heading font-bold text-slate-900 dark:text-white text-sm">{s.name}</h3>
+                        <h3 className="font-heading font-bold text-white text-sm">{s.name}</h3>
                         <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
                           s.potential_rating === 'High'
                             ? 'bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/40'
@@ -213,12 +214,12 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                         </span>
                       </div>
 
-                      <div className="text-xs text-brand-caramel dark:text-brand-amber font-bold mb-2">
+                      <div className="text-xs text-purple-400 dark:text-indigo-400 font-bold mb-2">
                         {s.industry} • <span className="text-slate-600 dark:text-slate-300 font-normal">{s.tagline}</span>
                       </div>
 
-                      <div className="pt-2 border-t border-slate-200/80 dark:border-slate-800/80 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 font-mono">
-                        <span>Goal: <strong className="text-emerald-600 dark:text-emerald-400">{s.funding_requirement.split(' ')[0]}</strong></span>
+                      <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400 font-mono">
+                        <span>Goal: <strong className="text-emerald-400">{s.funding_requirement.split(' ')[0]}</strong></span>
                         <span>Founder: {s.founder_name.split(' ')[0]}</span>
                       </div>
                     </motion.div>
@@ -231,13 +232,13 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
             <div className="lg:col-span-7">
               {selectedStartup ? (
                 <MotionSection direction="scale" duration={0.35}>
-                  <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 space-y-6 shadow-lg">
+                  <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 space-y-6 shadow-lg">
                     {/* Header & CTA */}
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200/80 dark:border-slate-800/80">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
                       <div>
                         <div className="flex items-center space-x-2">
-                          <h2 className="text-2xl font-heading font-bold text-slate-900 dark:text-white">{selectedStartup.name}</h2>
-                          <span className="px-2 py-0.5 text-xs font-mono font-bold bg-brand-amber/15 text-brand-caramel dark:text-brand-amber rounded border border-brand-amber/40">
+                          <h2 className="text-2xl font-heading font-bold text-white">{selectedStartup.name}</h2>
+                          <span className="px-2 py-0.5 text-xs font-mono font-bold bg-indigo-500/15 text-purple-400 dark:text-indigo-400 rounded border border-indigo-500/40">
                             {selectedStartup.industry}
                           </span>
                         </div>
@@ -250,7 +251,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                         whileHover={{ scale: 1.02, translateY: -1 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={() => setContactingStartup(selectedStartup)}
-                        className="flex items-center space-x-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-brand-amber via-brand-caramel to-brand-terracotta hover:opacity-95 text-white font-bold text-xs shadow-glow-amber transition-all"
+                        className="flex items-center space-x-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 hover:opacity-95 text-white font-bold text-xs shadow-glow-indigo transition-all"
                       >
                         <Mail className="w-4 h-4" />
                         <span>Contact Startup</span>
@@ -259,65 +260,65 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
 
                     {/* Founder & Financial Metrics Bar */}
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-                      <div className="p-3.5 rounded-2xl bg-white/90 dark:bg-dark-950/90 border border-slate-200/80 dark:border-slate-800/80 shadow-sm">
-                        <span className="text-slate-500 dark:text-slate-400 block text-[10px] uppercase font-mono">Founding Team</span>
-                        <strong className="text-slate-900 dark:text-white text-xs">{selectedStartup.founder_name}</strong>
-                        <div className="text-[11px] text-slate-500 dark:text-slate-400">{selectedStartup.founder_title}</div>
+                      <div className="p-3.5 rounded-2xl bg-[#0c0c16]/90 border border-white/10 shadow-sm">
+                        <span className="text-slate-400 block text-[10px] uppercase font-mono">Founding Team</span>
+                        <strong className="text-white text-xs">{selectedStartup.founder_name}</strong>
+                        <div className="text-[11px] text-slate-400">{selectedStartup.founder_title}</div>
                       </div>
 
-                      <div className="p-3.5 rounded-2xl bg-white/90 dark:bg-dark-950/90 border border-slate-200/80 dark:border-slate-800/80 shadow-sm">
-                        <span className="text-slate-500 dark:text-slate-400 block text-[10px] uppercase font-mono">Funding Requirement</span>
-                        <strong className="text-emerald-600 dark:text-emerald-400 text-xs">{selectedStartup.funding_requirement}</strong>
-                        <div className="text-[11px] text-slate-500 dark:text-slate-400">Target Raise</div>
+                      <div className="p-3.5 rounded-2xl bg-[#0c0c16]/90 border border-white/10 shadow-sm">
+                        <span className="text-slate-400 block text-[10px] uppercase font-mono">Funding Requirement</span>
+                        <strong className="text-emerald-400 text-xs">{selectedStartup.funding_requirement}</strong>
+                        <div className="text-[11px] text-slate-400">Target Raise</div>
                       </div>
 
-                      <div className="p-3.5 rounded-2xl bg-white/90 dark:bg-dark-950/90 border border-slate-200/80 dark:border-slate-800/80 shadow-sm">
-                        <span className="text-slate-500 dark:text-slate-400 block text-[10px] uppercase font-mono">Projected Returns</span>
-                        <strong className="text-brand-terracotta font-bold text-xs">{selectedStartup.expected_returns}</strong>
-                        <div className="text-[11px] text-slate-500 dark:text-slate-400">5-Yr Horizon</div>
+                      <div className="p-3.5 rounded-2xl bg-[#0c0c16]/90 border border-white/10 shadow-sm">
+                        <span className="text-slate-400 block text-[10px] uppercase font-mono">Projected Returns</span>
+                        <strong className="text-cyan-400 font-bold text-xs">{selectedStartup.expected_returns}</strong>
+                        <div className="text-[11px] text-slate-400">5-Yr Horizon</div>
                       </div>
                     </div>
 
                     {/* Deep Pitch Sections */}
                     <div className="space-y-4 text-xs">
-                      <div className="p-4 rounded-2xl bg-white/90 dark:bg-dark-950/80 border border-slate-200/80 dark:border-slate-800/80 space-y-1.5 shadow-sm">
-                        <div className="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-[10px] flex items-center">
+                      <div className="p-4 rounded-2xl bg-[#0c0c16]/80 border border-white/10 space-y-1.5 shadow-sm">
+                        <div className="text-slate-400 font-bold uppercase tracking-wider text-[10px] flex items-center">
                           <AlertCircle className="w-3.5 h-3.5 text-rose-500 mr-1.5 flex-shrink-0" />
                           <span>Problem Being Solved</span>
                         </div>
-                        <p className="text-slate-800 dark:text-slate-200 leading-relaxed font-medium">{selectedStartup.problem_solved}</p>
+                        <p className="text-white leading-relaxed font-medium">{selectedStartup.problem_solved}</p>
                       </div>
 
-                      <div className="p-4 rounded-2xl bg-white/90 dark:bg-dark-950/80 border border-slate-200/80 dark:border-slate-800/80 space-y-1.5 shadow-sm">
-                        <div className="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-[10px] flex items-center">
+                      <div className="p-4 rounded-2xl bg-[#0c0c16]/80 border border-white/10 space-y-1.5 shadow-sm">
+                        <div className="text-slate-400 font-bold uppercase tracking-wider text-[10px] flex items-center">
                           <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 mr-1.5 flex-shrink-0" />
                           <span>Proposed Solution & Core Idea</span>
                         </div>
-                        <p className="text-slate-800 dark:text-slate-200 leading-relaxed font-medium">{selectedStartup.proposed_solution}</p>
-                        <p className="text-slate-600 dark:text-slate-400 text-[11px] pt-1">{selectedStartup.idea}</p>
+                        <p className="text-white leading-relaxed font-medium">{selectedStartup.proposed_solution}</p>
+                        <p className="text-slate-400 text-[11px] pt-1">{selectedStartup.idea}</p>
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div className="p-4 rounded-2xl bg-white/90 dark:bg-dark-950/80 border border-slate-200/80 dark:border-slate-800/80 space-y-1 shadow-sm">
-                          <span className="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-[10px] block">
+                        <div className="p-4 rounded-2xl bg-[#0c0c16]/80 border border-white/10 space-y-1 shadow-sm">
+                          <span className="text-slate-400 font-bold uppercase tracking-wider text-[10px] block">
                             Target Market & Usability
                           </span>
-                          <p className="text-slate-800 dark:text-slate-300 font-medium">{selectedStartup.target_market}</p>
-                          <p className="text-[11px] text-slate-500 dark:text-slate-400 pt-1">Integration: {selectedStartup.expected_usability}</p>
+                          <p className="text-slate-300 font-medium">{selectedStartup.target_market}</p>
+                          <p className="text-[11px] text-slate-400 pt-1">Integration: {selectedStartup.expected_usability}</p>
                         </div>
 
-                        <div className="p-4 rounded-2xl bg-white/90 dark:bg-dark-950/80 border border-slate-200/80 dark:border-slate-800/80 space-y-1 shadow-sm">
-                          <span className="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-[10px] block">
+                        <div className="p-4 rounded-2xl bg-[#0c0c16]/80 border border-white/10 space-y-1 shadow-sm">
+                          <span className="text-slate-400 font-bold uppercase tracking-wider text-[10px] block">
                             Business Model & Monetization
                           </span>
-                          <p className="text-slate-800 dark:text-slate-300 font-medium">{selectedStartup.business_model}</p>
-                          <p className="text-[11px] text-brand-caramel dark:text-brand-amber font-semibold pt-1">Future Potential: {selectedStartup.future_potential}</p>
+                          <p className="text-slate-300 font-medium">{selectedStartup.business_model}</p>
+                          <p className="text-[11px] text-purple-400 dark:text-indigo-400 font-semibold pt-1">Future Potential: {selectedStartup.future_potential}</p>
                         </div>
                       </div>
 
                       {selectedStartup.supporting_info && (
-                        <div className="p-3.5 rounded-2xl bg-brand-amber/10 border border-brand-amber/30 text-[11px] text-slate-800 dark:text-slate-200">
-                          <strong className="text-brand-caramel dark:text-brand-amber font-bold">Traction & Validation:</strong> {selectedStartup.supporting_info}
+                        <div className="p-3.5 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 text-[11px] text-white">
+                          <strong className="text-purple-400 dark:text-indigo-400 font-bold">Traction & Validation:</strong> {selectedStartup.supporting_info}
                         </div>
                       )}
                     </div>
@@ -334,10 +335,10 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
       {/* VIEW 2: STARTUP SUBMISSION STUDIO */}
       {viewMode === 'startup-submit' && (
         <MotionSection direction="up" duration={0.4}>
-          <div className="glass-panel p-6 sm:p-10 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 max-w-4xl mx-auto space-y-6 shadow-xl">
-            <div className="border-b border-slate-200/80 dark:border-slate-800/80 pb-4">
-              <h2 className="text-xl font-heading font-bold text-slate-900 dark:text-white">Startup Pitch Registration Studio</h2>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+          <div className="glass-panel p-6 sm:p-10 rounded-3xl border border-white/10 max-w-4xl mx-auto space-y-6 shadow-xl">
+            <div className="border-b border-white/10 pb-4">
+              <h2 className="text-xl font-heading font-bold text-white">Startup Pitch Registration Studio</h2>
+              <p className="text-xs text-slate-400 mt-1">
                 Submit your startup to be indexed in the ICLAS dealflow registry and connect with institutional & angel investors.
               </p>
             </div>
@@ -352,7 +353,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                 >
                   <CheckCircle2 className="w-8 h-8" />
                 </motion.div>
-                <h3 className="text-xl font-heading font-bold text-slate-900 dark:text-white">Startup Successfully Registered!</h3>
+                <h3 className="text-xl font-heading font-bold text-white">Startup Successfully Registered!</h3>
                 <p className="text-xs text-slate-600 dark:text-slate-300 max-w-md mx-auto">
                   Your pitch has been evaluated and indexed in the investor discovery repository. Switching to dealflow view...
                 </p>
@@ -362,23 +363,23 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                 {/* Row 1 */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div>
-                    <label className="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Startup Name *</label>
+                    <label className="block font-semibold text-slate-300 mb-1">Startup Name *</label>
                     <input
                       type="text"
                       required
                       placeholder="e.g. Apex BioTech"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-[#0c0c16] border border-white/10 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 shadow-sm font-medium"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Industry / Sector *</label>
+                    <label className="block font-semibold text-slate-300 mb-1">Industry / Sector *</label>
                     <select
                       value={formData.industry}
                       onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-[#0c0c16] border border-white/10 rounded-xl text-white focus:outline-none focus:border-indigo-500 shadow-sm font-medium"
                     >
                       <option value="FinTech">FinTech</option>
                       <option value="Healthcare">Healthcare</option>
@@ -391,14 +392,14 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                   </div>
 
                   <div>
-                    <label className="block font-semibold text-slate-700 dark:text-slate-300 mb-1">One-Line Elevator Tagline *</label>
+                    <label className="block font-semibold text-slate-300 mb-1">One-Line Elevator Tagline *</label>
                     <input
                       type="text"
                       required
                       placeholder="e.g. AI-driven precision therapeutics platform"
                       value={formData.tagline}
                       onChange={(e) => setFormData({ ...formData, tagline: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-[#0c0c16] border border-white/10 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 shadow-sm font-medium"
                     />
                   </div>
                 </div>
@@ -406,37 +407,37 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                 {/* Row 2: Founder Details */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div>
-                    <label className="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Founder Name(s) *</label>
+                    <label className="block font-semibold text-slate-300 mb-1">Founder Name(s) *</label>
                     <input
                       type="text"
                       required
                       placeholder="e.g. Alex Morgan & Taylor S."
                       value={formData.founder_name}
                       onChange={(e) => setFormData({ ...formData, founder_name: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-[#0c0c16] border border-white/10 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 shadow-sm font-medium"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Founder Title & Background</label>
+                    <label className="block font-semibold text-slate-300 mb-1">Founder Title & Background</label>
                     <input
                       type="text"
                       placeholder="e.g. CEO (Ex-Google AI / Stanford PhD)"
                       value={formData.founder_title}
                       onChange={(e) => setFormData({ ...formData, founder_title: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-[#0c0c16] border border-white/10 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 shadow-sm font-medium"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Official Founder Email *</label>
+                    <label className="block font-semibold text-slate-300 mb-1">Official Founder Email *</label>
                     <input
                       type="email"
                       required
                       placeholder="e.g. founders@startup.com"
                       value={formData.founder_email}
                       onChange={(e) => setFormData({ ...formData, founder_email: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-[#0c0c16] border border-white/10 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 shadow-sm font-medium"
                     />
                   </div>
                 </div>
@@ -444,26 +445,26 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                 {/* Problem and Solution */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Problem Being Solved *</label>
+                    <label className="block font-semibold text-slate-300 mb-1">Problem Being Solved *</label>
                     <textarea
                       rows={3}
                       required
                       placeholder="Describe the severe market friction, cost inefficiency, or technical limitation..."
                       value={formData.problem_solved}
                       onChange={(e) => setFormData({ ...formData, problem_solved: e.target.value })}
-                      className="w-full p-3.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber resize-none shadow-sm font-medium"
+                      className="w-full p-3.5 bg-[#0c0c16] border border-white/10 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 resize-none shadow-sm font-medium"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Proposed Solution & Core Idea *</label>
+                    <label className="block font-semibold text-slate-300 mb-1">Proposed Solution & Core Idea *</label>
                     <textarea
                       rows={3}
                       required
                       placeholder="Detail your proprietary product, tech architecture, or service innovation..."
                       value={formData.proposed_solution}
                       onChange={(e) => setFormData({ ...formData, proposed_solution: e.target.value })}
-                      className="w-full p-3.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber resize-none shadow-sm font-medium"
+                      className="w-full p-3.5 bg-[#0c0c16] border border-white/10 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 resize-none shadow-sm font-medium"
                     />
                   </div>
                 </div>
@@ -471,38 +472,38 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                 {/* Market, Usability, Model */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div>
-                    <label className="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Target Market (TAM) *</label>
+                    <label className="block font-semibold text-slate-300 mb-1">Target Market (TAM) *</label>
                     <input
                       type="text"
                       required
                       placeholder="e.g. Global B2B Fintechs ($42B TAM)"
                       value={formData.target_market}
                       onChange={(e) => setFormData({ ...formData, target_market: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-[#0c0c16] border border-white/10 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 shadow-sm font-medium"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Expected Usability / Integration *</label>
+                    <label className="block font-semibold text-slate-300 mb-1">Expected Usability / Integration *</label>
                     <input
                       type="text"
                       required
                       placeholder="e.g. Drop-in REST SDK & Webhooks"
                       value={formData.expected_usability}
                       onChange={(e) => setFormData({ ...formData, expected_usability: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-[#0c0c16] border border-white/10 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 shadow-sm font-medium"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Business Model *</label>
+                    <label className="block font-semibold text-slate-300 mb-1">Business Model *</label>
                     <input
                       type="text"
                       required
                       placeholder="e.g. SaaS Tier ($2,500/mo) + 1% GMV"
                       value={formData.business_model}
                       onChange={(e) => setFormData({ ...formData, business_model: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-[#0c0c16] border border-white/10 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 shadow-sm font-medium"
                     />
                   </div>
                 </div>
@@ -510,38 +511,38 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                 {/* Funding and Returns */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Funding Requirement *</label>
+                    <label className="block font-semibold text-slate-300 mb-1">Funding Requirement *</label>
                     <input
                       type="text"
                       required
                       placeholder="e.g. $2,000,000 (Seed Round)"
                       value={formData.funding_requirement}
                       onChange={(e) => setFormData({ ...formData, funding_requirement: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-[#0c0c16] border border-white/10 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 shadow-sm font-medium"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Expected ROI / Investor Returns *</label>
+                    <label className="block font-semibold text-slate-300 mb-1">Expected ROI / Investor Returns *</label>
                     <input
                       type="text"
                       required
                       placeholder="e.g. 10x-15x projected return over 5 years"
                       value={formData.expected_returns}
                       onChange={(e) => setFormData({ ...formData, expected_returns: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
+                      className="w-full px-3.5 py-2.5 bg-[#0c0c16] border border-white/10 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 shadow-sm font-medium"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Supporting Traction & Validations</label>
+                  <label className="block font-semibold text-slate-300 mb-1">Supporting Traction & Validations</label>
                   <input
                     type="text"
                     placeholder="e.g. 10 beta pilot customers, $40k MRR, 2 patents pending"
                     value={formData.supporting_info}
                     onChange={(e) => setFormData({ ...formData, supporting_info: e.target.value })}
-                    className="w-full px-3.5 py-2.5 bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
+                    className="w-full px-3.5 py-2.5 bg-[#0c0c16] border border-white/10 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 shadow-sm font-medium"
                   />
                 </div>
 
@@ -549,7 +550,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                   <button
                     type="button"
                     onClick={() => setViewMode('investor-explore')}
-                    className="px-5 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white bg-slate-200/60 dark:bg-slate-800/60 transition-colors font-semibold"
+                    className="px-5 py-2.5 rounded-xl text-slate-400 hover:text-white dark:hover:text-white bg-white/5 transition-colors font-semibold"
                   >
                     Cancel
                   </button>
@@ -558,7 +559,7 @@ export default function InvestorsStartups({ selectedPersona, theme }) {
                     whileTap={{ scale: 0.98 }}
                     type="submit"
                     disabled={submitting}
-                    className="flex items-center space-x-2 px-8 py-2.5 rounded-xl bg-gradient-to-r from-brand-amber via-brand-caramel to-brand-terracotta hover:opacity-95 text-white font-bold shadow-glow-amber transition-all disabled:opacity-50"
+                    className="flex items-center space-x-2 px-8 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 hover:opacity-95 text-white font-bold shadow-glow-indigo transition-all disabled:opacity-50"
                   >
                     <Send className="w-4 h-4" />
                     <span>{submitting ? 'Registering Pitch...' : 'Register Pitch in Dealflow'}</span>

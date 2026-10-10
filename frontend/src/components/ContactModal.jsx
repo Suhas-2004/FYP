@@ -43,10 +43,10 @@ export default function ContactModal({ startup, onClose }) {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.94, y: 20 }}
         transition={{ type: "spring", stiffness: 350, damping: 28 }}
-        className="relative w-full max-w-xl bg-white dark:bg-dark-900 border border-slate-200/80 dark:border-slate-700/80 rounded-3xl shadow-2xl overflow-hidden transition-colors duration-200"
+        className="relative w-full max-w-xl bg-[#0c0c16] border border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-colors duration-200"
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200/80 dark:border-slate-800/80 bg-slate-50/90 dark:bg-dark-950/70">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#0c0c16]/70">
           <div>
             <div className="flex items-center space-x-2">
               <span className="px-2 py-0.5 text-[10px] font-bold bg-brand-amber/15 text-brand-caramel dark:text-brand-amber rounded border border-brand-amber/40 font-mono">
@@ -54,13 +54,13 @@ export default function ContactModal({ startup, onClose }) {
               </span>
               <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">ID: {startup.id}</span>
             </div>
-            <h3 className="text-lg font-heading font-bold text-slate-900 dark:text-white mt-1">
+            <h3 className="text-lg font-heading font-bold text-white dark:text-white mt-1">
               Contact {startup.name}
             </h3>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-xl text-slate-400 hover:text-slate-800 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800/60 transition-colors"
+            className="p-2 rounded-xl text-slate-400 hover:text-white dark:hover:text-white hover:bg-white/10/60 dark:hover:bg-slate-800/60 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -78,7 +78,7 @@ export default function ContactModal({ startup, onClose }) {
               >
                 <CheckCircle2 className="w-8 h-8" />
               </motion.div>
-              <h4 className="text-xl font-heading font-bold text-slate-900 dark:text-white">Inquiry Dispatched Successfully!</h4>
+              <h4 className="text-xl font-heading font-bold text-white dark:text-white">Inquiry Dispatched Successfully!</h4>
               <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md mx-auto leading-relaxed">
                 Your investment inquiry has been delivered directly to <span className="text-brand-caramel dark:text-brand-amber font-bold">{startup.founder_email}</span>. A copy has been logged in the ICLAS dealflow registry.
               </p>
@@ -100,10 +100,10 @@ export default function ContactModal({ startup, onClose }) {
               )}
 
               {/* Startup Quick Summary Pill */}
-              <div className="p-3.5 rounded-2xl bg-slate-50/90 dark:bg-dark-950/70 border border-slate-200/80 dark:border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm">
+              <div className="p-3.5 rounded-2xl bg-[#0c0c16]/70 border border-white/10 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm">
                 <div>
                   <span className="text-slate-500 dark:text-slate-400 font-medium">Founder:</span>{' '}
-                  <span className="text-slate-900 dark:text-slate-200 font-bold">{startup.founder_name}</span>
+                  <span className="text-white font-bold">{startup.founder_name}</span>
                 </div>
                 <div>
                   <span className="text-slate-500 dark:text-slate-400 font-medium">Funding Goal:</span>{' '}
@@ -128,7 +128,7 @@ export default function ContactModal({ startup, onClose }) {
                       placeholder="e.g. Alex Morgan"
                       value={formData.investor_name}
                       onChange={(e) => setFormData({ ...formData, investor_name: e.target.value })}
-                      className="w-full pl-9 pr-3 py-2 text-xs bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
+                      className="w-full pl-9 pr-3 py-2 text-xs bg-white dark:bg-dark-950 border border-white/10 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
                     />
                   </div>
                 </div>
@@ -145,7 +145,7 @@ export default function ContactModal({ startup, onClose }) {
                       placeholder="e.g. Apex Ventures"
                       value={formData.investor_organization}
                       onChange={(e) => setFormData({ ...formData, investor_organization: e.target.value })}
-                      className="w-full pl-9 pr-3 py-2 text-xs bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
+                      className="w-full pl-9 pr-3 py-2 text-xs bg-white dark:bg-dark-950 border border-white/10 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
                     />
                   </div>
                 </div>
@@ -164,7 +164,7 @@ export default function ContactModal({ startup, onClose }) {
                       placeholder="e.g. alex@apexvc.com"
                       value={formData.investor_email}
                       onChange={(e) => setFormData({ ...formData, investor_email: e.target.value })}
-                      className="w-full pl-9 pr-3 py-2 text-xs bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
+                      className="w-full pl-9 pr-3 py-2 text-xs bg-white dark:bg-dark-950 border border-white/10 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
                     />
                   </div>
                 </div>
@@ -178,7 +178,7 @@ export default function ContactModal({ startup, onClose }) {
                     <select
                       value={formData.proposed_ticket_size}
                       onChange={(e) => setFormData({ ...formData, proposed_ticket_size: e.target.value })}
-                      className="w-full pl-9 pr-3 py-2 text-xs bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 focus:outline-none focus:border-brand-amber shadow-sm font-medium"
+                      className="w-full pl-9 pr-3 py-2 text-xs bg-white dark:bg-dark-950 border border-white/10 rounded-xl text-white focus:outline-none focus:border-brand-amber shadow-sm font-medium"
                     >
                       <option value="$100,000 - $250,000">$100,000 - $250,000 (Angel/Pre-seed)</option>
                       <option value="$250,000 - $500,000">$250,000 - $500,000 (Seed Co-lead)</option>
@@ -198,7 +198,7 @@ export default function ContactModal({ startup, onClose }) {
                   required
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full p-3 text-xs bg-white dark:bg-dark-950 border border-slate-300/80 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-amber resize-none shadow-sm font-medium"
+                  className="w-full p-3 text-xs bg-white dark:bg-dark-950 border border-white/10 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-brand-amber resize-none shadow-sm font-medium"
                 />
               </div>
 
@@ -206,7 +206,7 @@ export default function ContactModal({ startup, onClose }) {
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-slate-800/60 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors"
+                  className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-white dark:hover:text-white bg-white/5 dark:bg-slate-800/60 hover:bg-white/10 dark:hover:bg-slate-800 transition-colors"
                 >
                   Cancel
                 </button>

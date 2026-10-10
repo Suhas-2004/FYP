@@ -276,13 +276,13 @@ export default function CompanyNetworkGraph({ theme }) {
     <div className="space-y-5">
 
       {/* ── Header strip ─────────────────────────────────────────────────── */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200/80 dark:border-slate-800/80">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-white/10">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-600 dark:text-indigo-400 text-xs font-semibold mb-2">
             <Network className="w-3.5 h-3.5" />
             <span>Corporate Relationship Intelligence Graph</span>
           </div>
-          <h3 className="text-lg font-heading font-bold text-slate-900 dark:text-white">
+          <h3 className="text-lg font-heading font-bold text-white dark:text-white">
             Company Network — DS-6
           </h3>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
@@ -320,7 +320,7 @@ export default function CompanyNetworkGraph({ theme }) {
             className={`px-3 py-1 text-xs font-bold rounded-lg border transition-all duration-150 ${
               relFilter === rel
                 ? 'bg-brand-amber text-dark-950 border-brand-amber shadow-glow-amber'
-                : 'bg-white/80 dark:bg-dark-900/80 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-slate-400'
+                : 'bg-white/5 text-slate-600 dark:text-slate-300 border-white/10 hover:border-slate-400'
             }`}
             style={relFilter === rel || rel === 'All' ? {} : { borderColor: REL_COLORS[rel] + '60' }}
           >
@@ -339,7 +339,7 @@ export default function CompanyNetworkGraph({ theme }) {
       </div>
 
       {/* ── Main graph canvas ────────────────────────────────────────────── */}
-      <div className="relative glass-panel rounded-3xl border border-slate-200/80 dark:border-slate-800/80 overflow-hidden shadow-lg"
+      <div className="relative glass-panel rounded-3xl border border-white/10 overflow-hidden shadow-lg"
         style={{ height: 580 }}>
 
         <svg ref={svgRef} className="w-full h-full" />
@@ -353,7 +353,7 @@ export default function CompanyNetworkGraph({ theme }) {
             { icon: RefreshCw, fn: buildGraph,label: 'Refresh'  },
           ].map(({ icon: Icon, fn, label }) => (
             <button key={label} onClick={fn} title={label}
-              className="w-8 h-8 flex items-center justify-center rounded-xl bg-white/90 dark:bg-dark-900/90 border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-brand-amber hover:border-brand-amber shadow-sm transition-all duration-150">
+              className="w-8 h-8 flex items-center justify-center rounded-xl bg-[#12121f]/90 border border-white/10 text-slate-600 dark:text-slate-300 hover:text-brand-amber hover:border-brand-amber shadow-sm transition-all duration-150">
               <Icon className="w-3.5 h-3.5" />
             </button>
           ))}
@@ -366,7 +366,7 @@ export default function CompanyNetworkGraph({ theme }) {
               initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 6 }}
               className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 pointer-events-none"
             >
-              <div className="px-4 py-2.5 rounded-2xl bg-white/95 dark:bg-dark-900/95 border border-slate-200 dark:border-slate-700 shadow-xl max-w-xs text-center">
+              <div className="px-4 py-2.5 rounded-2xl bg-[#12121f]/95 border border-white/10 shadow-xl max-w-xs text-center">
                 <div className="flex items-center justify-center gap-2 mb-1">
                   <span className="w-2 h-2 rounded-full flex-shrink-0"
                     style={{ backgroundColor: REL_COLORS[hoveredEdge.relationship] }} />
@@ -396,7 +396,7 @@ export default function CompanyNetworkGraph({ theme }) {
         {selected && (
           <motion.div
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 12 }}
-            className="glass-panel rounded-3xl border border-slate-200/80 dark:border-slate-800/80 p-6 shadow-lg"
+            className="glass-panel rounded-3xl border border-white/10 p-6 shadow-lg"
           >
             <div className="flex items-start justify-between mb-4">
               <div className="flex items-center gap-3">
@@ -406,7 +406,7 @@ export default function CompanyNetworkGraph({ theme }) {
                   {(selected.ticker || selected.label.slice(0, 4)).toUpperCase()}
                 </div>
                 <div>
-                  <h4 className="text-base font-heading font-bold text-slate-900 dark:text-white">{selected.label}</h4>
+                  <h4 className="text-base font-heading font-bold text-white dark:text-white">{selected.label}</h4>
                   <div className="flex items-center gap-2 mt-0.5">
                     <span className="text-xs font-mono text-slate-500">{selected.ticker}</span>
                     <span className="text-[10px] px-2 py-0.5 rounded-full font-semibold"
@@ -425,7 +425,7 @@ export default function CompanyNetworkGraph({ theme }) {
                 </div>
               </div>
               <button onClick={() => setSelected(null)}
-                className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-dark-800 text-slate-400 transition-colors">
+                className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-white/5 dark:hover:bg-dark-800 text-slate-400 transition-colors">
                 <X className="w-4 h-4" />
               </button>
             </div>
@@ -441,11 +441,11 @@ export default function CompanyNetworkGraph({ theme }) {
                   const otherNode = (graphData?.nodes || []).find(n => n.id === otherId);
                   const relColor = REL_COLORS[e.relationship] || '#94a3b8';
                   return (
-                    <div key={i} className="flex items-start gap-2.5 p-2.5 rounded-xl bg-white/80 dark:bg-dark-950/60 border border-slate-100 dark:border-slate-800">
+                    <div key={i} className="flex items-start gap-2.5 p-2.5 rounded-xl bg-white/80 dark:bg-dark-950/60 border border-white/10">
                       <span className="mt-0.5 w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: relColor }} />
                       <div className="min-w-0">
                         <div className="flex items-center gap-1.5 flex-wrap">
-                          <span className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate">
+                          <span className="text-xs font-bold text-white dark:text-slate-100 truncate">
                             {otherNode?.label || otherId}
                           </span>
                           <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full"
@@ -472,7 +472,7 @@ export default function CompanyNetworkGraph({ theme }) {
       </AnimatePresence>
 
       {/* ── Legend ───────────────────────────────────────────────────────── */}
-      <div className="p-4 rounded-2xl bg-white/80 dark:bg-dark-900/60 border border-slate-100 dark:border-slate-800 flex flex-wrap gap-x-5 gap-y-2">
+      <div className="p-4 rounded-2xl bg-white/80 dark:bg-dark-900/60 border border-white/10 flex flex-wrap gap-x-5 gap-y-2">
         <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider self-center mr-1">Legend:</span>
         {Object.entries(REL_COLORS).map(([rel, color]) => (
           <span key={rel} className="inline-flex items-center gap-1.5 text-[10px] font-semibold text-slate-600 dark:text-slate-300">

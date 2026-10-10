@@ -298,19 +298,19 @@ export default function AdvancedStockChart({ data, compareData, chartType, chart
     <div className="relative w-full h-full" ref={containerRef}>
       {tooltip && (
         <div 
-          className="absolute z-50 pointer-events-none p-3 rounded-xl border shadow-xl bg-white/95 dark:bg-[#151a23]/95 border-slate-200 dark:border-slate-800 backdrop-blur-md"
+          className="absolute z-50 pointer-events-none p-3 rounded-xl border shadow-xl bg-white/95 dark:bg-[#151a23]/95 border-white/10 backdrop-blur-md"
           style={{ left: tooltip.x, top: tooltip.y, minWidth: '160px' }}
         >
-          <div className="text-[11px] font-bold text-slate-500 dark:text-slate-400 mb-2 border-b border-slate-100 dark:border-slate-800 pb-1 flex justify-between">
+          <div className="text-[11px] font-bold text-slate-500 dark:text-slate-400 mb-2 border-b border-white/10 pb-1 flex justify-between">
             <span>{d3.timeFormat('%B %d, %Y')(tooltip.data.dateObj)}</span>
-            {compareData && <span className="text-[9px] uppercase bg-slate-100 dark:bg-slate-800 px-1 rounded">% Mode</span>}
+            {compareData && <span className="text-[9px] uppercase bg-white/5 dark:bg-slate-800 px-1 rounded">% Mode</span>}
           </div>
           
           {chartType === 'price-indicators' ? (
             <div className="space-y-1.5">
               <div className="grid grid-cols-2 gap-x-4 text-[10px] font-mono">
                 <span className="text-slate-500">Open</span>
-                <span className="text-right text-slate-800 dark:text-slate-200">{tooltip.data.open?.toFixed(2)}</span>
+                <span className="text-right text-white">{tooltip.data.open?.toFixed(2)}</span>
                 <span className="text-slate-500">High</span>
                 <span className="text-right text-emerald-600 dark:text-emerald-400">{tooltip.data.high?.toFixed(2)}</span>
                 <span className="text-slate-500">Low</span>
@@ -323,7 +323,7 @@ export default function AdvancedStockChart({ data, compareData, chartType, chart
               
               {/* Compare Data */}
               {tooltip.compData && (
-                <div className="pt-1.5 mt-1 border-t border-slate-100 dark:border-slate-800 space-y-1">
+                <div className="pt-1.5 mt-1 border-t border-white/10 space-y-1">
                   <div className="flex justify-between text-[10px] font-mono">
                     <span className="text-slate-500 font-bold">Main ∆</span>
                     <span className={`font-bold ${tooltip.data.close >= tooltip.basePrice ? 'text-emerald-500' : 'text-rose-500'}`}>
@@ -341,7 +341,7 @@ export default function AdvancedStockChart({ data, compareData, chartType, chart
 
               {/* Indicators */}
               {(indicators.sma20 || indicators.ema50 || indicators.bb) && (
-                <div className="pt-1.5 mt-1 border-t border-slate-100 dark:border-slate-800 space-y-1">
+                <div className="pt-1.5 mt-1 border-t border-white/10 space-y-1">
                   {indicators.sma20 && tooltip.data.sma20 && (
                     <div className="flex justify-between text-[10px] font-mono">
                       <span className="text-orange-500 font-semibold">SMA-20</span>

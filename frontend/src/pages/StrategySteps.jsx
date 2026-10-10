@@ -81,21 +81,21 @@ export default function StrategySteps({ selectedCompanyId, setActiveTab, setSele
   if (loading) {
     return (
       <div className="py-24 text-center space-y-3">
-        <div className="w-10 h-10 border-2 border-brand-amber border-t-transparent rounded-full animate-spin mx-auto" />
-        <p className="text-sm text-slate-500 dark:text-slate-400 font-mono">Synthesizing case-based strategy roadmap...</p>
+        <div className="w-10 h-10 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin mx-auto" />
+        <p className="text-sm text-slate-400 font-mono">Synthesizing case-based strategy roadmap...</p>
       </div>
     );
   }
 
   if (!strategyData) {
     return (
-      <div className="p-12 text-center glass-panel rounded-3xl border border-slate-200/80 dark:border-slate-800/80 space-y-4">
+      <div className="p-12 text-center glass-panel rounded-3xl border border-white/10 space-y-4">
         <ShieldAlert className="w-10 h-10 text-amber-500 mx-auto" />
-        <h3 className="text-lg font-heading font-bold text-slate-900 dark:text-white">No Strategy Steps Found</h3>
-        <p className="text-xs text-slate-500 dark:text-slate-400">Please select a case from the Search Condition or Companies module.</p>
+        <h3 className="text-lg font-heading font-bold text-white">No Strategy Steps Found</h3>
+        <p className="text-xs text-slate-400">Please select a case from the Search Condition or Companies module.</p>
         <button
           onClick={() => setActiveTab('search-condition')}
-          className="px-5 py-2.5 rounded-xl bg-brand-amber/20 text-brand-caramel dark:text-brand-amber border border-brand-amber/40 text-xs font-bold shadow-sm"
+          className="px-5 py-2.5 rounded-xl bg-indigo-500/20 text-purple-400 dark:text-indigo-400 border border-indigo-500/40 text-xs font-bold shadow-sm"
         >
           Go to Search Condition
         </button>
@@ -108,10 +108,11 @@ export default function StrategySteps({ selectedCompanyId, setActiveTab, setSele
   const progressPercent = totalSteps > 0 ? Math.round((completedCount / totalSteps) * 100) : 0;
 
   return (
-    <div className="space-y-8 pb-12">
+    <div className="space-y-8 pb-12 font-sans text-white relative min-h-screen">
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cyan-900/20 rounded-full blur-[100px] pointer-events-none" />
       {/* Top Action Bar */}
       <MotionSection direction="down" duration={0.4}>
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200/90 dark:border-slate-800/80 pb-6 no-print">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6 no-print">
           <div className="flex items-center space-x-3">
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -124,18 +125,18 @@ export default function StrategySteps({ selectedCompanyId, setActiveTab, setSele
                 }
               }}
               title="Go back to previous page"
-              className="p-2.5 rounded-xl bg-white dark:bg-dark-900 hover:bg-slate-100 dark:hover:bg-dark-850 border border-slate-300/80 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white transition-colors shadow-sm"
+              className="p-2.5 rounded-xl bg-[#0c0c16] hover:bg-white/10 border border-white/10 text-slate-400 hover:text-slate-950 dark:hover:text-white transition-colors shadow-sm"
             >
               <ArrowLeft className="w-4 h-4" />
             </motion.button>
             <div>
               <div className="flex items-center space-x-2">
-                <span className="px-2 py-0.5 text-[10px] font-bold bg-brand-amber/15 text-brand-caramel dark:text-brand-amber rounded border border-brand-amber/35 font-mono">
+                <span className="px-2 py-0.5 text-[10px] font-bold bg-indigo-500/15 text-purple-400 dark:text-indigo-400 rounded border border-indigo-500/35 font-mono">
                   Actionable Strategy Blueprint
                 </span>
-                <span className="text-xs font-mono text-slate-500 dark:text-slate-400 font-semibold">{strategyData.ticker}</span>
+                <span className="text-xs font-mono text-slate-400 font-semibold">{strategyData.ticker}</span>
               </div>
-              <h1 className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 dark:text-white tracking-tight mt-0.5">
+              <h1 className="text-2xl sm:text-3xl font-heading font-extrabold text-white tracking-tight mt-0.5">
                 Strategy Steps & Turnaround Roadmap
               </h1>
             </div>
@@ -148,7 +149,7 @@ export default function StrategySteps({ selectedCompanyId, setActiveTab, setSele
               whileTap={{ scale: 0.97 }}
               onClick={handleExportPDF}
               disabled={exporting}
-              className="flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-amber via-brand-caramel to-brand-terracotta hover:opacity-95 text-white font-bold text-xs transition-all shadow-glow-amber disabled:opacity-50"
+              className="flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 hover:opacity-95 text-white font-bold text-xs transition-all shadow-glow-indigo disabled:opacity-50"
             >
               <Download className="w-3.5 h-3.5" />
               <span>{exporting ? 'Generating PDF...' : 'Export Strategy as PDF'}</span>
@@ -158,12 +159,12 @@ export default function StrategySteps({ selectedCompanyId, setActiveTab, setSele
       </MotionSection>
 
       {/* Printable Report Container */}
-      <div ref={reportRef} className="space-y-8 p-4 sm:p-6 rounded-3xl bg-slate-50/70 dark:bg-dark-950/60 border border-slate-200/90 dark:border-slate-850">
+      <div ref={reportRef} className="space-y-8 p-4 sm:p-6 rounded-3xl bg-[#0c0c16]/60 border border-white/10">
         
         {/* Executive Case Header Dossier */}
         <MotionSection direction="up" delay={0.1}>
-          <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200/90 dark:border-slate-800/80 space-y-6 shadow-lg">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-200/90 dark:border-slate-800/80">
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 space-y-6 shadow-lg">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/10">
               <div className="flex items-center space-x-4">
                 <CompanyLogo 
                   companyId={strategyData.company_id} 
@@ -175,47 +176,47 @@ export default function StrategySteps({ selectedCompanyId, setActiveTab, setSele
                 />
                 <div>
                   <div className="flex items-center space-x-2">
-                    <h2 className="text-2xl font-heading font-bold text-slate-900 dark:text-white">{strategyData.company_name}</h2>
-                    <span className="px-2 py-0.5 text-xs font-mono font-bold bg-slate-100 dark:bg-dark-950 text-slate-800 dark:text-slate-300 rounded border border-slate-300 dark:border-slate-700">
+                    <h2 className="text-2xl font-heading font-bold text-white">{strategyData.company_name}</h2>
+                    <span className="px-2 py-0.5 text-xs font-mono font-bold bg-[#0c0c16] text-slate-300 rounded border border-white/10">
                       {strategyData.sector}
                     </span>
                   </div>
-                  <p className="text-xs text-brand-caramel dark:text-brand-amber font-bold mt-0.5">
+                  <p className="text-xs text-purple-400 dark:text-indigo-400 font-bold mt-0.5">
                     Precedent Case: {strategyData.crisis_title}
                   </p>
                 </div>
               </div>
 
               {/* Turnaround Strategy Category Tag */}
-              <div className="p-4 rounded-2xl bg-white/95 dark:bg-dark-950/90 border border-slate-200/90 dark:border-slate-800/80 text-right shadow-sm w-fit">
-                <div className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider font-mono font-semibold">Strategy Framework</div>
-                <div className="text-base font-heading font-bold text-emerald-700 dark:text-emerald-400">
+              <div className="p-4 rounded-2xl bg-[#0c0c16]/90 border border-white/10 text-right shadow-sm w-fit">
+                <div className="text-[10px] text-slate-400 uppercase tracking-wider font-mono font-semibold">Strategy Framework</div>
+                <div className="text-base font-heading font-bold text-emerald-700 text-emerald-400">
                   {strategyData.strategy_category}
                 </div>
-                <div className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5 font-medium">{strategyData.strategy_name}</div>
+                <div className="text-[11px] text-slate-400 mt-0.5 font-medium">{strategyData.strategy_name}</div>
               </div>
             </div>
 
             {/* 4-Block Structured Case Analysis */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
               {/* 1. What Happened */}
-              <div className="p-4 rounded-2xl bg-white/95 dark:bg-dark-950/80 border border-slate-200/90 dark:border-slate-800/80 space-y-1.5 shadow-sm">
-                <div className="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-[10px] flex items-center">
+              <div className="p-4 rounded-2xl bg-[#0c0c16]/80 border border-white/10 space-y-1.5 shadow-sm">
+                <div className="text-slate-400 font-bold uppercase tracking-wider text-[10px] flex items-center">
                   <AlertTriangle className="w-3.5 h-3.5 text-rose-500 mr-1.5 flex-shrink-0" />
                   <span>1. What Happened to the Company (The Crisis):</span>
                 </div>
-                <p className="text-slate-800 dark:text-slate-200 leading-relaxed font-medium">
+                <p className="text-white leading-relaxed font-medium">
                   {strategyData.condition_summary}
                 </p>
               </div>
 
               {/* 2. Why it Occurred */}
-              <div className="p-4 rounded-2xl bg-white/95 dark:bg-dark-950/80 border border-slate-200/90 dark:border-slate-800/80 space-y-1.5 shadow-sm">
-                <div className="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-[10px] flex items-center">
+              <div className="p-4 rounded-2xl bg-[#0c0c16]/80 border border-white/10 space-y-1.5 shadow-sm">
+                <div className="text-slate-400 font-bold uppercase tracking-wider text-[10px] flex items-center">
                   <ShieldAlert className="w-3.5 h-3.5 text-amber-600 mr-1.5 flex-shrink-0" />
                   <span>2. Why the Problem Occurred (Root Causes):</span>
                 </div>
-                <ul className="space-y-1 text-slate-700 dark:text-slate-300 font-medium">
+                <ul className="space-y-1 text-slate-300 font-medium">
                   {strategyData.root_causes?.map((cause, i) => (
                     <li key={i} className="flex items-start space-x-1.5">
                       <span className="text-amber-600">•</span>
@@ -226,20 +227,20 @@ export default function StrategySteps({ selectedCompanyId, setActiveTab, setSele
               </div>
 
               {/* 3. Strategy Used */}
-              <div className="p-4 rounded-2xl bg-white/95 dark:bg-dark-950/80 border border-slate-200/90 dark:border-slate-800/80 space-y-1.5 shadow-sm">
-                <div className="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-[10px] flex items-center">
-                  <Sparkles className="w-3.5 h-3.5 text-brand-amber mr-1.5 flex-shrink-0" />
+              <div className="p-4 rounded-2xl bg-[#0c0c16]/80 border border-white/10 space-y-1.5 shadow-sm">
+                <div className="text-slate-400 font-bold uppercase tracking-wider text-[10px] flex items-center">
+                  <Sparkles className="w-3.5 h-3.5 text-indigo-400 mr-1.5 flex-shrink-0" />
                   <span>3. Turnaround Strategy Deployed:</span>
                 </div>
-                <p className="text-slate-800 dark:text-slate-200 leading-relaxed font-medium">
+                <p className="text-white leading-relaxed font-medium">
                   {strategyData.strategy_summary}
                 </p>
               </div>
 
               {/* 4. After Implementation Outcome */}
-              <div className="p-4 rounded-2xl bg-white/95 dark:bg-dark-950/80 border border-slate-200/90 dark:border-slate-800/80 space-y-1.5 shadow-sm">
-                <div className="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-[10px] flex items-center">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 mr-1.5 flex-shrink-0" />
+              <div className="p-4 rounded-2xl bg-[#0c0c16]/80 border border-white/10 space-y-1.5 shadow-sm">
+                <div className="text-slate-400 font-bold uppercase tracking-wider text-[10px] flex items-center">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 mr-1.5 flex-shrink-0" />
                   <span>4. Outcome After Implementation:</span>
                 </div>
                 <p className="text-emerald-800 dark:text-emerald-300 font-semibold leading-relaxed">
@@ -251,15 +252,15 @@ export default function StrategySteps({ selectedCompanyId, setActiveTab, setSele
             {/* Implementation Progress Bar */}
             <div className="pt-2 no-print">
               <div className="flex items-center justify-between text-xs mb-2">
-                <span className="text-slate-700 dark:text-slate-300 font-semibold">Founder Execution Progress:</span>
-                <span className="text-brand-caramel dark:text-brand-amber font-mono font-bold">{completedCount} of {totalSteps} Steps Complete ({progressPercent}%)</span>
+                <span className="text-slate-300 font-semibold">Founder Execution Progress:</span>
+                <span className="text-purple-400 dark:text-indigo-400 font-mono font-bold">{completedCount} of {totalSteps} Steps Complete ({progressPercent}%)</span>
               </div>
-              <div className="w-full bg-slate-200 dark:bg-dark-950 h-3 rounded-full overflow-hidden border border-slate-300/80 dark:border-slate-800">
+              <div className="w-full bg-[#0c0c16] h-3 rounded-full overflow-hidden border border-white/10">
                 <motion.div 
                   initial={{ width: 0 }}
                   animate={{ width: `${progressPercent}%` }}
                   transition={{ duration: 0.5 }}
-                  className="bg-gradient-to-r from-brand-amber via-brand-caramel to-brand-terracotta h-full rounded-full"
+                  className="bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 h-full rounded-full"
                 />
               </div>
             </div>
@@ -270,14 +271,14 @@ export default function StrategySteps({ selectedCompanyId, setActiveTab, setSele
         <div className="space-y-6">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-lg font-heading font-bold text-slate-900 dark:text-white tracking-tight">
+              <h3 className="text-lg font-heading font-bold text-white tracking-tight">
                 Recommended Structured Execution Steps
               </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400">
+              <p className="text-xs text-slate-400">
                 Chronological execution sequence tailored for early-stage and distressed operators
               </p>
             </div>
-            <span className="text-xs font-mono text-slate-600 dark:text-slate-400 bg-white dark:bg-dark-900 px-3 py-1 rounded-lg border border-slate-200/90 dark:border-slate-800 shadow-sm font-semibold">
+            <span className="text-xs font-mono text-slate-400 bg-[#0c0c16] px-3 py-1 rounded-lg border border-white/10 shadow-sm font-semibold">
               {totalSteps} Milestone Steps
             </span>
           </div>
@@ -291,7 +292,7 @@ export default function StrategySteps({ selectedCompanyId, setActiveTab, setSele
                     className={`glass-panel p-6 rounded-2xl border transition-all duration-300 shadow-sm ${
                       isChecked 
                         ? 'border-emerald-500/50 bg-emerald-50/40 dark:bg-emerald-500/5' 
-                        : 'border-slate-200/90 dark:border-slate-800/80 hover:border-brand-amber/40'
+                        : 'border-white/10 hover:border-indigo-500/40'
                     }`}
                   >
                     <div className="flex items-start space-x-4">
@@ -301,7 +302,7 @@ export default function StrategySteps({ selectedCompanyId, setActiveTab, setSele
                         className="mt-1 flex-shrink-0 text-slate-400 hover:text-emerald-500 transition-transform active:scale-90 no-print"
                       >
                         {isChecked ? (
-                          <CheckSquare className="w-5 h-5 text-emerald-600" />
+                          <CheckSquare className="w-5 h-5 text-emerald-400" />
                         ) : (
                           <Square className="w-5 h-5 text-slate-400 dark:text-slate-500" />
                         )}
@@ -311,22 +312,22 @@ export default function StrategySteps({ selectedCompanyId, setActiveTab, setSele
                         {/* Step Header */}
                         <div className="flex flex-wrap items-center justify-between gap-2">
                           <div className="flex items-center space-x-2.5">
-                            <span className="px-2.5 py-0.5 rounded-md bg-brand-amber/15 text-brand-caramel dark:text-brand-amber text-xs font-bold font-mono border border-brand-amber/30">
+                            <span className="px-2.5 py-0.5 rounded-md bg-indigo-500/15 text-purple-400 dark:text-indigo-400 text-xs font-bold font-mono border border-indigo-500/30">
                               STEP 0{step.step_number}
                             </span>
-                            <h4 className={`text-base font-heading font-bold ${isChecked ? 'line-through text-slate-400 dark:text-slate-500' : 'text-slate-900 dark:text-white'}`}>
+                            <h4 className={`text-base font-heading font-bold ${isChecked ? 'line-through text-slate-400 dark:text-slate-500' : 'text-white'}`}>
                               {step.title}
                             </h4>
                           </div>
-                          <span className="text-xs font-mono text-slate-600 dark:text-slate-400 bg-white/90 dark:bg-dark-950/90 px-2.5 py-1 rounded-md border border-slate-200/90 dark:border-slate-800/80 flex items-center shadow-sm">
-                            <Clock className="w-3 h-3 mr-1 text-brand-amber" />
+                          <span className="text-xs font-mono text-slate-400 bg-[#0c0c16]/90 px-2.5 py-1 rounded-md border border-white/10 flex items-center shadow-sm">
+                            <Clock className="w-3 h-3 mr-1 text-indigo-400" />
                             {step.phase}
                           </span>
                         </div>
 
                         {/* Action Detail */}
-                        <div className="p-3.5 rounded-xl bg-white/95 dark:bg-dark-950/80 border border-slate-200/90 dark:border-slate-800/80 text-xs text-slate-800 dark:text-slate-200 leading-relaxed shadow-sm">
-                          <span className="text-brand-caramel dark:text-brand-amber font-bold block mb-1">Recommended Action:</span>
+                        <div className="p-3.5 rounded-xl bg-[#0c0c16]/80 border border-white/10 text-xs text-white leading-relaxed shadow-sm">
+                          <span className="text-purple-400 dark:text-indigo-400 font-bold block mb-1">Recommended Action:</span>
                           {step.action}
                         </div>
 
@@ -351,12 +352,12 @@ export default function StrategySteps({ selectedCompanyId, setActiveTab, setSele
 
         {/* Mandatory Research & Case Disclaimer Alert */}
         <MotionSection direction="up" delay={0.2}>
-          <div className="p-5 rounded-2xl bg-white/95 dark:bg-dark-900/90 border border-slate-200/90 dark:border-slate-800/80 space-y-2 shadow-sm">
+          <div className="p-5 rounded-2xl bg-[#12121f]/90 border border-white/10 space-y-2 shadow-sm">
             <div className="flex items-center space-x-2 text-amber-700 dark:text-amber-400 text-xs font-bold uppercase tracking-wider">
               <ShieldAlert className="w-4 h-4 text-amber-600" />
               <span>Case-Based Methodology Notice & Strategic Disclaimer</span>
             </div>
-            <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed font-normal">
+            <p className="text-slate-400 text-xs leading-relaxed font-normal">
               {strategyData.disclaimer}
             </p>
             <div className="pt-2 text-[11px] text-slate-400 font-mono">

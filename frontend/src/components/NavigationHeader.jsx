@@ -66,7 +66,7 @@ export default function NavigationHeader({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.18 }}
-      className="mb-6 flex flex-wrap items-center justify-between gap-3 px-4 py-2.5 rounded-2xl bg-white/85 dark:bg-dark-900/85 border border-slate-200/90 dark:border-slate-800/80 backdrop-blur-xl shadow-sm text-xs"
+      className="mb-6 flex flex-wrap items-center justify-between gap-3 px-4 py-2.5 rounded-2xl bg-white/85 dark:bg-dark-900/85 border border-white/10 backdrop-blur-xl shadow-sm text-xs"
     >
       {/* Left: Back Button & Breadcrumbs */}
       <div className="flex items-center space-x-2 sm:space-x-3 overflow-x-auto scrollbar-none py-0.5">
@@ -77,13 +77,13 @@ export default function NavigationHeader({
           whileTap={{ scale: 0.97 }}
           onClick={goBack}
           title="Go back to previous page (Alt + Left Arrow)"
-          className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-dark-800 hover:bg-brand-amber/10 hover:text-brand-amber dark:hover:bg-brand-amber/20 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 font-bold transition-all shadow-sm flex-shrink-0"
+          className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-white/5 dark:bg-dark-800 hover:bg-brand-amber/10 hover:text-brand-amber dark:hover:bg-brand-amber/20 text-slate-700 dark:text-slate-200 border border-white/10 font-bold transition-all shadow-sm flex-shrink-0"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Back</span>
         </motion.button>
 
-        <div className="h-4 w-px bg-slate-200 dark:bg-slate-800 flex-shrink-0" />
+        <div className="h-4 w-px bg-white/10 dark:bg-slate-800 flex-shrink-0" />
 
         {/* Breadcrumb Trail */}
         <nav aria-label="Breadcrumb" className="flex items-center space-x-1.5 flex-shrink-0 text-slate-500 dark:text-slate-400">
@@ -106,7 +106,7 @@ export default function NavigationHeader({
             className={`flex items-center space-x-1 font-semibold ${
               companyName && (activeTab === 'companies' || activeTab === 'strategy-steps')
                 ? 'hover:text-brand-amber text-slate-600 dark:text-slate-300'
-                : 'text-slate-900 dark:text-white pointer-events-none'
+                : 'text-white dark:text-white pointer-events-none'
             }`}
           >
             <Icon className={`w-3.5 h-3.5 ${currentMeta.color}`} />
@@ -117,7 +117,7 @@ export default function NavigationHeader({
           {companyName && (activeTab === 'companies' || activeTab === 'strategy-steps') && (
             <>
               <ChevronRight className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
-              <span className="font-bold text-slate-900 dark:text-white px-2 py-0.5 rounded-md bg-slate-100 dark:bg-dark-800 text-[11px] truncate max-w-[160px] sm:max-w-none">
+              <span className="font-bold text-white dark:text-white px-2 py-0.5 rounded-md bg-white/5 dark:bg-dark-800 text-[11px] truncate max-w-[160px] sm:max-w-none">
                 {companyName}
               </span>
             </>
@@ -130,21 +130,21 @@ export default function NavigationHeader({
       <div className="hidden md:flex items-center space-x-2 text-[11px]">
         <button
           onClick={() => setActiveTab('about')}
-          className="px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-400 hover:text-brand-amber hover:bg-slate-100 dark:hover:bg-dark-800 transition-colors"
+          className="px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-400 hover:text-brand-amber hover:bg-white/5 dark:hover:bg-dark-800 transition-colors"
         >
           About Platform
         </button>
         <span className="text-slate-300 dark:text-slate-700">•</span>
         <button
           onClick={() => setActiveTab('overview')}
-          className="px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-400 hover:text-brand-amber hover:bg-slate-100 dark:hover:bg-dark-800 transition-colors"
+          className="px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-400 hover:text-brand-amber hover:bg-white/5 dark:hover:bg-dark-800 transition-colors"
         >
           Overview
         </button>
         <span className="text-slate-300 dark:text-slate-700">•</span>
         <button
           onClick={() => setActiveTab('companies')}
-          className="px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-400 hover:text-brand-amber hover:bg-slate-100 dark:hover:bg-dark-800 transition-colors"
+          className="px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-400 hover:text-brand-amber hover:bg-white/5 dark:hover:bg-dark-800 transition-colors"
         >
           Companies
         </button>
