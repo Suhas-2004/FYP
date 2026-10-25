@@ -48,9 +48,9 @@ export default {
         card:"#3d3e7e"
       },
       fontFamily: {
-        heading: ['Outfit', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-        sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+        heading: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace']
       },
       boxShadow: {
         'glow-cyan': '0 0 25px -5px rgba(8, 145, 178, 0.35)',

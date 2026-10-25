@@ -8,6 +8,8 @@ const startupsRouter  = require('./routers/startups');
 const marketRouter    = require('./routers/market');
 const investorsRouter = require('./routers/investors');
 const graphRouter     = require('./routers/graph');
+const newsRouter      = require('./routers/news');
+const researchRouter  = require('./routers/research');
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -31,6 +33,8 @@ app.use('/api/startups',   startupsRouter);
 app.use('/api/market',     marketRouter);
 app.use('/api/investors',  investorsRouter);
 app.use('/api/graph',      graphRouter);
+app.use('/api/news',       newsRouter);
+app.use('/api/research',   researchRouter);
 
 // Root Status Endpoint
 app.get('/', (req, res) => {
@@ -60,7 +64,11 @@ app.get('/', (req, res) => {
       '/api/graph/meta',
       '/api/graph/nodes',
       '/api/graph/edges',
-      '/api/graph/node/:id'
+      '/api/graph/node/:id',
+      '/api/news/overview',
+      '/api/news/tickers',
+      '/api/news/top-headlines',
+      '/api/news/sentiment/:ticker'
     ]
   });
 });

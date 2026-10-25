@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "36d0c1cb-56cc-49bf-8621-2c81ac776382",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "d:\\MjrProject\\FYP\\architecture.json",
+  "output": "D:\\MjrProject\\FYP\\archify.html",
+  "specification": {
+    "sha256": "28b4c7d68cd140b23fda85ea33f205ebbf8b5fddd1164205402dea5c82fc5071",
+    "bytes": 9072
+  },
+  "artifact": {
+    "sha256": "274f42a4d29877c3285d9f89a82e5e09eb4bec78e2994573c7aeb926af21f420",
+    "bytes": 853884
+  }
+}

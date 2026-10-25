@@ -58,22 +58,20 @@ export default function App() {
 
   // Enhanced Navigation with HTML5 History & URL Sync
   const navigateTo = (tab, companyId = null, push = true) => {
-    const targetCompanyId = companyId || selectedCompanyId;
     setActiveTabState(tab);
+    const targetCompId = companyId || (tab === 'strategy-steps' ? selectedCompanyId : null);
     if (companyId) {
       setSelectedCompanyIdState(companyId);
     }
 
     const path = `/${tab}`;
-    const search = targetCompanyId && (tab === 'companies' || tab === 'strategy-steps')
-      ? `?company=${targetCompanyId}`
-      : '';
+    const search = targetCompId ? `?company=${targetCompId}` : '';
     const fullPath = path + search;
 
     if (push) {
-      window.history.pushState({ tab, companyId: targetCompanyId }, '', fullPath);
+      window.history.pushState({ tab, companyId: targetCompId }, '', fullPath);
     } else {
-      window.history.replaceState({ tab, companyId: targetCompanyId }, '', fullPath);
+      window.history.replaceState({ tab, companyId: targetCompId }, '', fullPath);
     }
 
     window.scrollTo(0, 0);
@@ -159,7 +157,7 @@ export default function App() {
       />
 
       {/* Main Content Area with Fixed-Anchor Page Transition */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 pt-[90px] pb-10 relative z-10">
+      <main className="flex-1 w-full mx-auto relative z-10 max-w-7xl px-4 sm:px-6 pt-[90px] pb-10">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={activeTab}
@@ -216,6 +214,8 @@ export default function App() {
 
             {activeTab === 'investors-startups' && (
               <InvestorsStartups
+                setActiveTab={setActiveTab}
+                setSelectedCompanyId={setSelectedCompanyId}
                 selectedPersona={selectedPersona}
               />
             )}
@@ -232,8 +232,6 @@ export default function App() {
           </motion.div>
         </AnimatePresence>
       </main>
-
-
 
       {/* Corporate Global Footer */}
       <Footer setActiveTab={setActiveTab} />

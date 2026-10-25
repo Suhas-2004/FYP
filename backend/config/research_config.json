@@ -1,0 +1,85 @@
+{
+  "local_llm": {
+    "runtime": "ollama",
+    "endpoint": "http://127.0.0.1:11434",
+    "default_model": "qwen2.5:0.5b",
+    "fallback_models": [
+      "llama3.2:1b",
+      "llama3.2:3b",
+      "qwen2.5:3b",
+      "mistral:7b",
+      "phi3:mini",
+      "llama3.1:8b"
+    ],
+    "temperature": 0.2,
+    "timeout_seconds": 120,
+    "max_tokens": 2048,
+    "hardware_guidance": {
+      "lightweight_3b": "Recommended for CPU or 8GB RAM systems (e.g. llama3.2:3b, qwen2.5:3b - requires ~2.5GB disk/RAM)",
+      "standard_7b_8b": "Recommended for systems with 16GB RAM or 6GB+ VRAM (e.g. mistral:7b, llama3.1:8b - requires ~4.8GB disk/RAM)",
+      "high_end_14b": "Recommended for workstations with 32GB RAM or 12GB+ GPU VRAM"
+    }
+  },
+  "responsible_collection": {
+    "user_agent": "ICLAS-Corporate-Intelligence/1.0 (Academic Advisory System; research@iclas-advisor.org)",
+    "sec_edgar_user_agent": "ICLAS-Corporate-Intelligence research@iclas-advisor.org",
+    "connection_timeout": 10.0,
+    "read_timeout": 15.0,
+    "max_retries": 3,
+    "retry_backoff_factor": 1.5,
+    "min_request_delay_seconds": 1.0,
+    "per_domain_concurrency": 1,
+    "max_response_size_bytes": 5242880,
+    "allowed_content_types": [
+      "text/html",
+      "application/xml",
+      "text/xml",
+      "application/rss+xml",
+      "application/atom+xml",
+      "application/json"
+    ],
+    "cache_enabled": true,
+    "cache_dir": "data/research_cache",
+    "cache_ttl_seconds": 86400,
+    "respect_robots_txt": true
+  },
+  "permitted_domains": [
+    "sec.gov",
+    "www.sec.gov",
+    "data.sec.gov",
+    "finance.yahoo.com",
+    "feeds.finance.yahoo.com",
+    "news.google.com",
+    "investor.apple.com",
+    "investor.nvidia.com",
+    "www.intc.com",
+    "ir.tesla.com",
+    "www.microsoft.com",
+    "investor.nokia.com",
+    "corporate.ford.com",
+    "investors.block.xyz",
+    "ir.aboutamazon.com",
+    "investor.atmeta.com",
+    "huggingface.co"
+  ],
+  "curated_public_feeds": [
+    {
+      "name": "Google News Corporate & Financial Distress RSS",
+      "url": "https://news.google.com/rss/search?q=corporate+earnings+financial+distress&hl=en-US&gl=US&ceid=US:en",
+      "category": "Macro Financial News",
+      "domain": "news.google.com"
+    },
+    {
+      "name": "SEC EDGAR Public Submissions (Apple Inc.)",
+      "url": "https://data.sec.gov/submissions/CIK0000320193.json",
+      "category": "Regulatory & SEC Filings",
+      "domain": "data.sec.gov"
+    },
+    {
+      "name": "SEC Press Releases RSS",
+      "url": "https://www.sec.gov/news/pressreleases.rss",
+      "category": "Regulatory & SEC Filings",
+      "domain": "sec.gov"
+    }
+  ]
+}

@@ -10,6 +10,9 @@
 
 @layer base {
   :root {
+    --font-heading: 'Space Grotesk', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
     --bg-main: #0c0c16;
     --text-main: #eef0fa;
     --card-bg: rgba(20, 20, 32, 0.7);
@@ -19,6 +22,8 @@
     --dropdown-bg: rgba(20, 20, 32, 0.98);
     --accent-glow: rgba(108, 110, 205, 0.25);
   }
+
+  /* Frontier AI Standard Typography Core */
 
   .dark {
     --bg-main: #0c0c16;
@@ -38,7 +43,8 @@
   body {
     background-color: var(--bg-main);
     color: var(--text-main);
-    @apply font-sans tracking-tight antialiased overflow-x-hidden;
+    font-family: var(--font-body);
+    @apply tracking-tight antialiased overflow-x-hidden;
   }
 
   /* Decoupled GPU-accelerated fixed background canvas (Eliminates scroll repaint lag) */
@@ -74,8 +80,8 @@
       radial-gradient(at 85% 90%, rgba(139, 92, 246, 0.06) 0px, transparent 40%);
   }
 
-  h1, h2, h3, h4 {
-    font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+  h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-heading);
     letter-spacing: -0.02em;
   }
 }

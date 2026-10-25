@@ -7,13 +7,23 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
-    "test": "node verify_endpoints.js"
+    "test": "node verify_endpoints.js",
+    "scrape": "python services/research/company_scraper.py",
+    "update-data": "python services/research/company_scraper.py"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^4.0.91",
+    "ai": "^7.0.137",
     "cors": "^2.8.5",
+    "dotenv": "^18.0.7",
     "express": "^4.21.2"
   },
-  "keywords": ["iclas", "express", "backend", "fullstack"],
+  "keywords": [
+    "iclas",
+    "express",
+    "backend",
+    "fullstack"
+  ],
   "author": "",
   "license": "ISC"
 }

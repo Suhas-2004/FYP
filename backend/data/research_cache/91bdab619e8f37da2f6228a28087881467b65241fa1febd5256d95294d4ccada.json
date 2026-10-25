@@ -1,0 +1,19 @@
+{
+  "url": "https://data.sec.gov/submissions/CIK0000320193.json",
+  "domain": "data.sec.gov",
+  "content_type": "json/sec-edgar",
+  "title": "SEC EDGAR: Apple Inc. (CIK: 0000320193)",
+  "content": "# SEC EDGAR: Apple Inc. (CIK: 0000320193)\n- **Standard Industrial Classification (SIC):** 3571 - Electronic Computers\n- **State of Incorporation:** CA\n- **Fiscal Year End:** 0926\n\n### Recent SEC Regulatory Filings (10-K, 10-Q, 8-K):\n| Form | Filing Date | Description |\n| :--- | :--- | :--- |\n| **4** | 2026-10-19 | FORM 4 |\n| **4** | 2026-10-19 | FORM 4 |\n| **144** | 2026-10-16 | Regulatory Report |\n| **4** | 2026-10-15 | FORM 4 |\n| **4** | 2026-10-08 | FORM 4 |\n| **4** | 2026-10-05 | FORM 4 |\n| **4** | 2026-10-05 | FORM 4 |\n| **4** | 2026-10-05 | FORM 4 |\n| **4** | 2026-10-05 | FORM 4 |\n| **144** | 2026-10-02 | Regulatory Report |",
+  "excerpt": "Apple Inc. (CIK: 0000320193) - SIC 3571: Electronic Computers. Found 10 recent filings.",
+  "metadata": {
+    "cik": "0000320193",
+    "entity_name": "Apple Inc.",
+    "filings_count": 10
+  },
+  "status": "success",
+  "status_code": 200,
+  "byte_size": 163778,
+  "cached": false,
+  "timestamp": "2026-10-20T21:09:35Z",
+  "cached_at": 1792530575.600519
+}

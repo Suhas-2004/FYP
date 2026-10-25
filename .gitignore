@@ -43,3 +43,14 @@ pnpm-debug.log*
 *.swo
 .DS_Store
 Thumbs.db
+
+# Datasets & ML data
+*.parquet
+*.arrow
+*.feather
+*.h5
+news/
+dataset/
+datasets/
+backend/data/news/
+scratch/

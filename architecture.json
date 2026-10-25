@@ -1,0 +1,318 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "ICLAS - Runtime System Architecture",
+    "subtitle": "Interactive corporate intelligence, turnaround advisory & local AI research platform",
+    "output": "archify.html",
+    "quality_profile": "showcase",
+    "animation": "trace"
+  },
+  "components": [
+    {
+      "id": "browser",
+      "type": "external",
+      "label": "User / Client",
+      "sublabel": "Desktop & Mobile Browsers",
+      "icon": "person",
+      "pos": [40, 260],
+      "size": [130, 64],
+      "tag": "Web Interaction"
+    },
+    {
+      "id": "persona_auth",
+      "type": "security",
+      "label": "Persona Context",
+      "sublabel": "Local State Auth / Role",
+      "icon": "security",
+      "pos": [240, 100],
+      "size": [160, 64],
+      "tag": "Entrepreneur/Investor"
+    },
+    {
+      "id": "frontend_app",
+      "type": "frontend",
+      "label": "Vite + React SPA",
+      "sublabel": "frontend/src/App.jsx :5173",
+      "icon": "frontend",
+      "brand": "react",
+      "pos": [240, 260],
+      "size": [160, 64],
+      "tag": "Tailwind + Framer Motion"
+    },
+    {
+      "id": "frontend_pages",
+      "type": "frontend",
+      "label": "Core UI Modules",
+      "sublabel": "Companies, Crisis, Graph, Chat",
+      "icon": "frontend",
+      "pos": [240, 420],
+      "size": [160, 64],
+      "tag": "Recharts + Lucide"
+    },
+    {
+      "id": "api_client",
+      "type": "frontend",
+      "label": "API Service Client",
+      "sublabel": "frontend/src/services/api.js",
+      "icon": "frontend",
+      "pos": [470, 260],
+      "size": [150, 64],
+      "tag": "HTTP Fetch Wrapper"
+    },
+    {
+      "id": "express_server",
+      "type": "backend",
+      "label": "Express API Server",
+      "sublabel": "backend/server.js :8000",
+      "icon": "backend",
+      "brand": "node-js",
+      "pos": [700, 260],
+      "size": [160, 64],
+      "tag": "Node.js REST Gateway"
+    },
+    {
+      "id": "routers_layer",
+      "type": "backend",
+      "label": "API Routers Layer",
+      "sublabel": "backend/routers/* (9 Routes)",
+      "icon": "backend",
+      "pos": [930, 260],
+      "size": [160, 64],
+      "tag": "Companies, Market, Crisis"
+    },
+    {
+      "id": "analysis_engines",
+      "type": "backend",
+      "label": "Intelligence Engines",
+      "sublabel": "similarityEngine & predictionEngine",
+      "icon": "active",
+      "pos": [930, 100],
+      "size": [160, 64],
+      "tag": "Vector Matching & Forecasting"
+    },
+    {
+      "id": "python_bridge",
+      "type": "backend",
+      "label": "Python Research Bridge",
+      "sublabel": "backend/services/research/bridge.py",
+      "icon": "backend",
+      "brand": "python",
+      "pos": [930, 420],
+      "size": [160, 64],
+      "tag": "IPC Subprocess Protocol"
+    },
+    {
+      "id": "local_llm",
+      "type": "backend",
+      "label": "Local LLM Runtime",
+      "sublabel": "Ollama Service :11434",
+      "icon": "active",
+      "pos": [1160, 420],
+      "size": [160, 64],
+      "tag": "Llama3 / Qwen / Mistral"
+    },
+    {
+      "id": "web_collector",
+      "type": "cloud",
+      "label": "Public Web Crawler",
+      "sublabel": "trafilatura + BeautifulSoup",
+      "icon": "cloud",
+      "pos": [1160, 560],
+      "size": [160, 64],
+      "tag": "Live Article Extraction"
+    },
+    {
+      "id": "json_database",
+      "type": "database",
+      "label": "JSON Data Repository",
+      "sublabel": "backend/data/*.json (7 Stores)",
+      "icon": "database",
+      "pos": [1160, 260],
+      "size": [160, 64],
+      "tag": "Companies, Stocks, News"
+    },
+    {
+      "id": "research_cache",
+      "type": "database",
+      "label": "Research Cache Store",
+      "sublabel": "backend/data/research_cache/",
+      "icon": "database",
+      "pos": [1160, 100],
+      "size": [160, 64],
+      "tag": "Scraped Article Cache"
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Frontend Tier (React + Vite Client)",
+      "wraps": ["persona_auth", "frontend_app", "frontend_pages", "api_client"]
+    },
+    {
+      "kind": "security-group",
+      "label": "Node.js Core Backend Service",
+      "wraps": ["express_server", "routers_layer", "analysis_engines"]
+    },
+    {
+      "kind": "region",
+      "label": "Python Local AI & Web Intelligence Subsystem",
+      "wraps": ["python_bridge", "local_llm", "web_collector"]
+    },
+    {
+      "kind": "region",
+      "label": "Persistence & Knowledge Store Tier",
+      "wraps": ["json_database", "research_cache"]
+    }
+  ],
+  "connections": [
+    {
+      "id": "conn-browser-app",
+      "from": "browser",
+      "to": "frontend_app",
+      "label": "HTTPS :5173",
+      "variant": "emphasis"
+    },
+    {
+      "id": "conn-persona-app",
+      "from": "persona_auth",
+      "to": "frontend_app",
+      "label": "Role Context",
+      "variant": "security",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "conn-app-pages",
+      "from": "frontend_app",
+      "to": "frontend_pages",
+      "label": "State & Routes",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "conn-pages-api",
+      "from": "frontend_pages",
+      "to": "api_client",
+      "label": "Method Calls",
+      "fromSide": "right",
+      "toSide": "bottom"
+    },
+    {
+      "id": "conn-app-api",
+      "from": "frontend_app",
+      "to": "api_client",
+      "label": "Query Dispatch"
+    },
+    {
+      "id": "conn-api-express",
+      "from": "api_client",
+      "to": "express_server",
+      "label": "JSON / REST :8000",
+      "variant": "emphasis"
+    },
+    {
+      "id": "conn-express-routers",
+      "from": "express_server",
+      "to": "routers_layer",
+      "label": "Express Middleware"
+    },
+    {
+      "id": "conn-routers-engines",
+      "from": "routers_layer",
+      "to": "analysis_engines",
+      "label": "Calculate Metrics",
+      "fromSide": "top",
+      "toSide": "bottom"
+    },
+    {
+      "id": "conn-routers-db",
+      "from": "routers_layer",
+      "to": "json_database",
+      "label": "JSON Queries"
+    },
+    {
+      "id": "conn-engines-db",
+      "from": "analysis_engines",
+      "to": "json_database",
+      "label": "Historical Baseline",
+      "variant": "dashed",
+      "fromSide": "right",
+      "toSide": "top"
+    },
+    {
+      "id": "conn-routers-python",
+      "from": "routers_layer",
+      "to": "python_bridge",
+      "label": "Spawn IPC Bridge",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "conn-bridge-llm",
+      "from": "python_bridge",
+      "to": "local_llm",
+      "label": "HTTP :11434 /chat",
+      "variant": "emphasis"
+    },
+    {
+      "id": "conn-bridge-collector",
+      "from": "python_bridge",
+      "to": "web_collector",
+      "label": "Fetch Public Feeds",
+      "fromSide": "bottom",
+      "toSide": "left"
+    },
+    {
+      "id": "conn-collector-cache",
+      "from": "web_collector",
+      "to": "research_cache",
+      "label": "Persist HTML Text",
+      "variant": "dashed",
+      "fromSide": "top",
+      "toSide": "bottom"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Frontend Presentation",
+      "items": [
+        "Single-Page Application powered by React 18 and Vite (dev server on port 5173)",
+        "Rich UI components with Tailwind CSS, Framer Motion, and dark glassmorphic tokens",
+        "Role-based persona selector (Entrepreneur, Investor, Researcher) tracking workflow context",
+        "Data visualization layer with Recharts (financial metrics, trajectory sparklines, networks)"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Backend API & Computation",
+      "items": [
+        "Node.js Express REST API server running on port 8000 with CORS & JSON body parsing",
+        "Modular router structure with 9 domain routers (companies, crisis, market, startups, news)",
+        "In-process calculation engines: similarityEngine (TF-IDF/cosine) and predictionEngine",
+        "Subprocess bridging to Python microservices for AI inference and public web ingestion"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Local AI & Web Research",
+      "items": [
+        "Zero-paid-API design utilizing local Ollama runtime (:11434) for open-weights models",
+        "Public web harvesting pipeline using requests, feedparser, BeautifulSoup, and trafilatura",
+        "Local research cache preventing redundant external HTTP fetches and respecting rate limits",
+        "Cross-process JSON protocol over stdin/stdout connecting Node.js and Python runtimes"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Data Persistence & Models",
+      "items": [
+        "Structured JSON repository in backend/data/ containing 38+ longitudinal company records",
+        "Graph data store mapping multidimensional corporate relationships (competitors, suppliers)",
+        "Financial news sentiment database integrated with HuggingFace AlfonsoLozana/news dataset",
+        "Stocks historical records covering 6 years of OHLCV prices and market capitalization data"
+      ]
+    }
+  ]
+}

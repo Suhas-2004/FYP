@@ -2,10 +2,14 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const { analyzeAndStructurePitch } = require('../services/pitchAnalyzer');
+const { similarityEngine } = require('../services/similarityEngine');
 
 const router = express.Router();
 
 const DATA_PATH = path.join(__dirname, '..', 'data', 'startups_data.json');
+const COMPANIES_PATH = path.join(__dirname, '..', 'data', 'companies_data.json');
+const NEWS_PATH = path.join(__dirname, '..', 'data', 'news_sentiment.json');
 const INQUIRIES_PATH = path.join(__dirname, '..', 'data', 'investor_inquiries.json');
 
 function loadStartups() {
@@ -25,6 +29,44 @@ function saveStartups(data) {
     fs.writeFileSync(DATA_PATH, JSON.stringify(data, null, 2), 'utf-8');
   } catch (err) {
     console.error('Error saving startups data:', err);
+  }
+}
+
+function loadCompanies() {
+  if (!fs.existsSync(COMPANIES_PATH)) return [];
+  try {
+    return JSON.parse(fs.readFileSync(COMPANIES_PATH, 'utf-8'));
+  } catch (err) {
+    console.error('Error reading companies data:', err);
+    return [];
+  }
+}
+
+function saveCompanies(data) {
+  try {
+    fs.writeFileSync(COMPANIES_PATH, JSON.stringify(data, null, 2), 'utf-8');
+  } catch (err) {
+    console.error('Error saving companies data:', err);
+  }
+}
+
+function appendNewsItem(ticker, newsItem) {
+  if (!fs.existsSync(NEWS_PATH)) return;
+  try {
+    const raw = fs.readFileSync(NEWS_PATH, 'utf-8');
+    const newsData = JSON.parse(raw);
+    if (!newsData[ticker]) {
+      newsData[ticker] = {
+        ticker: ticker,
+        recent_scraped_articles: [],
+        average_sentiment: 7.8,
+        sentiment_label: 'Bullish'
+      };
+    }
+    newsData[ticker].recent_scraped_articles.unshift(newsItem);
+    fs.writeFileSync(NEWS_PATH, JSON.stringify(newsData, null, 2), 'utf-8');
+  } catch (err) {
+    console.error('Error appending news item:', err);
   }
 }
 
@@ -66,46 +108,61 @@ router.get('/:startupId', (req, res) => {
 
 router.post('/submit', (req, res) => {
   const body = req.body || {};
-  const startups = loadStartups();
-  const hex = crypto.randomBytes(2).toString('hex');
-  const newId = `startup-${startups.length + 1}-${hex}`;
+  if (!body.name || !body.name.trim()) {
+    return res.status(400).json({ detail: 'Startup Name is required' });
+  }
 
-  const rating =
-    (body.problem_solved || '').length > 40 && (body.proposed_solution || '').length > 40
-      ? 'High'
-      : 'Medium';
+  try {
+    // 1. Analyze pitch and generate structured corporate intelligence models
+    const { slug, ticker, companyRecord, startupRecord, newsItem } = analyzeAndStructurePitch(body);
 
-  const newStartup = {
-    id: newId,
-    name: body.name || '',
-    industry: body.industry || '',
-    founder_name: body.founder_name || '',
-    founder_title: body.founder_title || '',
-    founder_email: body.founder_email || '',
-    tagline: body.tagline || '',
-    idea: body.idea || '',
-    problem_solved: body.problem_solved || '',
-    proposed_solution: body.proposed_solution || '',
-    target_market: body.target_market || '',
-    expected_usability: body.expected_usability || '',
-    future_potential: body.future_potential || '',
-    potential_rating: rating,
-    business_model: body.business_model || '',
-    funding_requirement: body.funding_requirement || '',
-    expected_returns: body.expected_returns || '',
-    supporting_info: body.supporting_info || '',
-    submitted_at: new Date().toISOString().split('T')[0]
-  };
+    // 2. Persist to Dealflow Repository (startups_data.json)
+    const startups = loadStartups();
+    const filteredStartups = startups.filter(s => s.id !== startupRecord.id && s.company_id !== slug);
+    filteredStartups.unshift(startupRecord);
+    saveStartups(filteredStartups);
 
-  startups.unshift(newStartup);
-  saveStartups(startups);
+    // 3. Persist to Global Companies Repository (companies_data.json)
+    const companies = loadCompanies();
+    const filteredCompanies = companies.filter(c => c.id !== slug);
+    filteredCompanies.unshift(companyRecord);
+    saveCompanies(filteredCompanies);
 
-  res.json({
-    status: 'success',
-    message: 'Startup pitch registered successfully in ICLAS dealflow repository.',
-    startup_id: newId,
-    startup: newStartup
-  });
+    // 4. Append seed news item to News Sentiment Engine (news_sentiment.json)
+    appendNewsItem(ticker, newsItem);
+
+    // 5. Re-index Crisis Similarity Engine
+    try {
+      if (similarityEngine && typeof similarityEngine.loadData === 'function') {
+        similarityEngine.loadData();
+      }
+    } catch (e) {
+      console.warn('Similarity engine re-index warning:', e.message);
+    }
+
+    res.json({
+      status: 'success',
+      message: 'Startup pitch successfully analyzed, benchmarked, and registered across Dealflow & Global Companies repositories.',
+      startup_id: startupRecord.id,
+      company_id: slug,
+      ticker: ticker,
+      startup: startupRecord,
+      company: companyRecord,
+      valuation_benchmark: {
+        pre_money: companyRecord.pre_money_valuation,
+        post_money: companyRecord.post_money_valuation,
+        target_raise: companyRecord.target_raise,
+        dilution_pct: companyRecord.dilution_pct,
+        valuation_multiple: companyRecord.valuation_multiple,
+        implied_share_price: companyRecord.stock_price,
+        ai_pitch_score: startupRecord.ai_pitch_score,
+        readiness_tier: startupRecord.readiness_tier
+      }
+    });
+  } catch (err) {
+    console.error('Error analyzing and submitting pitch:', err);
+    res.status(500).json({ detail: 'Failed to analyze and register pitch: ' + err.message });
+  }
 });
 
 router.post('/contact', (req, res) => {

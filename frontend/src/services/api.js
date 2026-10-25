@@ -49,6 +49,10 @@ export const api = {
     body: JSON.stringify(inquiryData),
   }),
   getEvidenceMatrix: () => fetchJson('/api/startups/intel/evidence-matrix'),
+  getInvestors: (type = 'All', focus = 'All', stage = 'All') => 
+    fetchJson(`/api/investors?type=${encodeURIComponent(type)}&focus=${encodeURIComponent(focus)}&stage=${encodeURIComponent(stage)}`),
+  getInvestorDetail: (id) => fetchJson(`/api/investors/${id}`),
+  getInvestorFilters: () => fetchJson('/api/investors/meta/filters'),
 
   // Stock Market & Predictions
   getTickers: () => fetchJson('/api/market/tickers'),
@@ -65,4 +69,33 @@ export const api = {
   getInvestors: (stage = 'All', type = 'All') =>
     fetchJson(`/api/investors?stage=${encodeURIComponent(stage)}&type=${encodeURIComponent(type)}`),
   getInvestorFilters: () => fetchJson('/api/investors/meta/filters'),
+
+  // Financial News Sentiment (HuggingFace AlfonsoLozana/news)
+  getNewsOverview: () => fetchJson('/api/news/overview'),
+  getNewsTickers: () => fetchJson('/api/news/tickers'),
+  getTopHeadlines: (params = {}) => {
+    const q = new URLSearchParams();
+    if (params.ticker) q.append('ticker', params.ticker);
+    if (params.sentiment) q.append('sentiment', params.sentiment);
+    if (params.limit) q.append('limit', params.limit);
+    return fetchJson(`/api/news/top-headlines?${q.toString()}`);
+  },
+  getNewsSentiment: (ticker) => fetchJson(`/api/news/sentiment/${ticker}`),
+
+  // Public-Web Research & Local AI (Phase 3)
+  getResearchStatus: () => fetchJson('/api/research/status'),
+  getResearchSources: () => fetchJson('/api/research/sources'),
+  getResearchHardware: () => fetchJson('/api/research/hardware'),
+  fetchPublicSource: (url, refresh = false) => fetchJson('/api/research/fetch', {
+    method: 'POST',
+    body: JSON.stringify({ url, refresh }),
+  }),
+  chatResearchLocal: (messages, model = null, temperature = 0.2) => fetchJson('/api/research/chat', {
+    method: 'POST',
+    body: JSON.stringify({ messages, model, temperature }),
+  }),
+  synthesizeResearch: (url, query, model = null) => fetchJson('/api/research/synthesize', {
+    method: 'POST',
+    body: JSON.stringify({ url, query, model }),
+  }),
 };
